@@ -1,23 +1,8 @@
-########################################################
-# Started Logging At: 2013-12-03 00:53:57
-########################################################
-
-########################################################
-# # Started Logging At: 2013-12-03 00:53:58
-########################################################
-2.7777777777e-5 *sin(45)
-2.7777777777e-5 *np.sin(45)
-2.7777777777e-5 *np.cos(45)
-2.7777777777e-5 *np.cos(45/180*np.pi)
-2.7777777777e-5 *np.cos(45/180.*np.pi)
-2.7777777777e-5 *np.sin(45/180.*np.pi)
-tau2 = fits.getdata('H2CO_22_Ku_D_taucube.fits')
+from paths import dpath,rpath,fpath
 from astropy.io import fits
-tau2 = fits.getdata('H2CO_22_Ku_D_taucube.fits')
-get_ipython().magic(u'pwd ')
-get_ipython().magic(u'cd w51')
-tau2 = fits.getdata('H2CO_22_Ku_D_taucube.fits')
-f2 = fits.open('H2CO_22_Ku_D_taucube.fits')
+
+tau2 = fits.getdata(dpath('H2CO_22_Ku_D_taucube.fits'))
+f2 = fits.open(dpath('H2CO_22_Ku_D_taucube.fits'))
 integ3 = tau2[0:62,:,:].sum(axis=0)
 f2[0].data = integ3
 f2[0].writeto('H2CO_22_Ku_D_tausummed_52to70.fits',clobber=True)
