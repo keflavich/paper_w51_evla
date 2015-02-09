@@ -3,6 +3,8 @@ from astropy.io import fits
 
 tau2 = fits.getdata(dpath('H2CO_22_Ku_D_taucube.fits'))
 f2 = fits.open(dpath('H2CO_22_Ku_D_taucube.fits'))
+
+# TODO below here
 integ3 = tau2[0:62,:,:].sum(axis=0)
 f2[0].data = integ3
 f2[0].writeto('H2CO_22_Ku_D_tausummed_52to70.fits',clobber=True)
