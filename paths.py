@@ -2,7 +2,7 @@ import os
 import socket
 
 if socket.gethostname() == 'cleese':
-    root = '/scratch/aginsbur/apex/'
+    root = '/scratch/aginsbur/w51/'
 else:
     root = os.path.expanduser('~/work/w51')
 
