@@ -34,3 +34,6 @@ def apath(x, analysispath=analysispath):
 
 def dpath(x, datapath=datapath):
     return os.path.join(datapath, x)
+
+def dppath(x, datapath=datapath):
+    return os.path.join(datapath, 'projections', x)
