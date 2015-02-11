@@ -1,4 +1,5 @@
 from astropy import units as u
+from astropy.io import fits
 from spectral_cube import SpectralCube
 from paths import dpath
 from fnames import cube_names, continua
@@ -12,7 +13,7 @@ vcubes = {name: cube.with_spectral_unit(u.km/u.s, velocity_convention='radio')
           for name,cube in cubes.items()}
 
 for name,vc in vcubes.items():
-    vc.header['OBJECT'] = name
+    vc._header['OBJECT'] = name
     vc.to_ds9(dd.id, newframe=True)
 
 dd.set('tile yes')

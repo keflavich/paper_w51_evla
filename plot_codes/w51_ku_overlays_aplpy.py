@@ -1,4 +1,5 @@
-from paths import dpath,fpath
+from paths import dpath,fpath,rpath
+from spectral_cube import SpectralCube
 from astropy import coordinates
 from astropy import units as u
 from astropy.io import fits
@@ -45,6 +46,47 @@ F.show_regions(rpath('HCHII_candidates.reg'))
 #F.show_regions('/Users/adam/work/w51/cycle2_ALMA_frame2.reg')
 
 F.save(fpath('W51_Ku_grayscale_HCHIIcandidates.pdf'))
+
+F.recenter(290.91644,14.518939,radius=0.3/60.)
+cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
+for velo in np.arange(60,72,0.5):
+    c = pl.cm.jet_r((70-velo)/10.)
+    colors = [c[:3] + (x,) for x in (0.9,0.7,0.5,0.3,0.1)]
+    F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
+                   levels=[-1,-0.003,-0.002,-0.001],colors=colors,
+                   filled=True, layer='temporary')
+    F.add_label(290.91254, 14.522828,
+                text="{0:0.1f} km s$^{{-1}}$".format(velo),
+                color='w', layer='label', size=20)
+    F.save(fpath('contour_movie/IRS2_h2co22_on_cont22_v{0}.png'.format(velo)))
+    F.hide_layer('temporary')
+
+cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
+for velo in np.arange(60,72,0.5):
+    c = pl.cm.jet_r((70-velo)/10.)
+    colors = [c[:3] + (x,) for x in (0.6,0.5,0.4,0.3,0.2,0.1)]
+    F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
+                   levels=[-1,-0.01,-0.005,-0.0025,-0.00125],colors=colors,
+                   filled=True, layer='temporary')
+    F.add_label(290.91254, 14.522828,
+                text="{0:0.1f} km s$^{{-1}}$".format(velo),
+                color='w', layer='label', size=20)
+    F.save(fpath('contour_movie/IRS2_h2co22_on_cont22_natural_v{0}.png'.format(velo)))
+    F.hide_layer('temporary')
+
+cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
+for velo in np.arange(55,63,0.5):
+    c = pl.cm.jet_r((63-velo)/(63-55))
+    colors = [c[:3] + (x,) for x in np.linspace(0.05,0.4,4)]
+    F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
+                   levels=[0.002,0.004,0.006,1],colors=colors,
+                   filled=True, layer='temporary')
+    F.add_label(290.91254, 14.522828,
+                text="{0:0.1f} km s$^{{-1}}$".format(velo),
+                color='w', layer='label', size=20)
+    F.save(fpath('contour_movie/IRS2_h2co22_emission_on_cont22_natural_v{0}.png'.format(velo)))
+    F.hide_layer('temporary')
+
 
 #F.show_contour(dpath+'H2CO_22_Ku_D_tausummed_52to58.fits',levels=[2.0,3.0,4.0,10.0],colors=[(1,0,0,0.1),(1,0,0,0.2),(1,0,0,0.3)],filled=True,slices=[0])
 #F.show_contour('../w51/H2CO_11_C_C_tausummed_42to61.fits',levels=[2.0,5.5],colors=[(1,0,0,0.4),(1,0,0,0.6)],filled=True,slices=[0])

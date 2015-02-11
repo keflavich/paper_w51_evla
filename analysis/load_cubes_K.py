@@ -1,4 +1,5 @@
 from astropy import units as u
+from astropy.io import fits
 from spectral_cube import SpectralCube
 from paths import dpath
 from fnames import cube_names, continua
