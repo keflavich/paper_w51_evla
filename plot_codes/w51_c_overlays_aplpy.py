@@ -145,7 +145,7 @@ for velo in np.arange(vr[0],vr[1]+0.5,0.5):
     c = pl.cm.jet_r((vr[1]-velo)/(vr[1]-vr[0]))
     colors = [c[:3] + (x,) for x in np.linspace(0.6,0.8,6)]
     F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
-                   levels=[0.0015, 0.002,0.003,0.004,0.005,0.006,1],colors=colors,
+                   levels=[0.003,0.004,0.005,0.006,0.007,1],colors=colors,
                    linewidths=[1,2,3,4,5,6],
                    filled=False)
 F.save(fpath('contour_movie/IRS2_h2co11_emission_on_cont11_briggs0_allvelos.png'))
