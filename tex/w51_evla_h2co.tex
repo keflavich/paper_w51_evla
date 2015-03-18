@@ -22,10 +22,45 @@ Also, title suggestions are welcome!}
 \todo{To-do items are coded in red.}
 
 \section{Introduction}
+
+The protoclusters within W51 contain many forming massive stars
+\citep{Zhang1997a,Keto2008b,Zapata2008a,Zapata2009a,Zapata2010a,Goddi2015a,Shi2010a,Shi2010b}
+and a few that have already reached the main sequence and are visible in the
+infrared \citep{Barbosa2008a,Figueredo2008a}.
+
+The total luminosity of the W51 protocluster complex has been estimated a few
+times using IRAS and KAO to measure the peak of the SED in the far infrared.
+The measurements converge on $\sim8.3\ee{6} (D/5.1\mathrm{kpc})$ \lsun
+\citep{Harvey1986a,Sievers1991a}.
+
 \section{Observations}
 \section{Analysis}
 \subsection{The stellar mass}
 
+We have re-measured the luminosity of W51 using Herschel Hi-Gal data, fitting
+an SED from the 70 to 500 \um with a single blackbody component.  While this is
+not a very good measurement of the dust temperature - multiple temperature
+components are evident \citep{Sievers1991a} - it provides a good approximation
+to the total luminosity, which is dominated by a single warm ($\sim60$ K)
+component.  The luminosity is about $L\sim2\ee{7}$ \lsun within a 2 pc radius,
+which includes both the W51 IRS2 and W51 Main protoclusters.  It does not include
+the mid-infrared luminosity, which may provide an additional $\sim25-50\%$ based
+on the IRAS measurements. A luminosity $L=2\pm0.5\ee{7}$ \lsun implies a
+stellar mass $M_{cl} = 6700 \pm 2300$ \msun, with a corresponding number of
+O-stars (greater than 20 \msun) $N_O = 19 \pm 6$.
+
+\citet{Figuredo2008a} found 4 exposed O-type stars and \citet{Barbosa2008a}
+found an additional two with strong infrared excess.  None of these coincide
+with ultracompact or hypercompact \hii regions, but all are in the bright and
+diffuse IRS2 region.  \citet{Mehringer1994a} found an additional 8 ultracompact and
+hypercompact \hii regions, all of which appear to be B0 or earlier.
+
+The O3 or O4 star spectrally typed by \citet{Barbosa2008a} is probably
+illuminating the majority of the ionized gas in the IRS2 region.  It is
+particularly impressive, though, since the star is shining through a layer of
+molecular gas that extincts the star.
+
+% Can W51d be illuminating the W51 Main HII region?
 
 \subsection{\formaldehyde emission features}
 While \formaldehyde \oneone and \twotwo are commonly observed in absorption,
@@ -33,7 +68,9 @@ the \oneone line has only been observed in emission in our galaxy as a maser
 \citep{Araya2007b}.  The \twotwo line has been observed in emission only  in the
 starburst M82, and there very weakly \citep{Mangum2008a}.
 
-We have detected 3 regions of \twotwo emission in the W51 region.  The bright
+We have detected 3 regions of \twotwo emission in the W51 region, all
+corresponding to previously detected hot \ammonia cores
+\citep{Zhang1997a,Goddi2015a}.  The bright
 maser source W51e2 is partially surrounded by a `halo' of \formaldehyde \twotwo
 emission to its northeast; the \hchii region itself shows only \twotwo
 absorption because the continuum source has a high brightness temperature.  The
@@ -51,10 +88,10 @@ None of these detections have corresponding \oneone emission.  This is likely
 because our brightness sensitivity at C-band is very poor.  If the
 \formaldehyde lines are in local thermal equilibrium and optically thick, the
 \oneone brightness temperature should be the sames a the \twotwo,
-$T_B\sim500-1000$ K, which is within the noise of our observations; if the
-dynamic range around the continuum peaks could be improved, we might hope for
-weak detections of these, but in the current state of the data the lack of a
-detection is unsurprising.
+$T_B\sim500-1000$ K, which is below the noise floor of our C-band observations;
+if the dynamic range around the continuum peaks could be improved, we might
+hope for weak detections of these, but in the current state of the data the
+lack of a C-band detection is unsurprising.
 
 The physical conditions required to produce these extremely bright emission
 regions, with $T_B \gtrsim 500$ K in the FWHM$\approx0.4$\arcsec (2000 au)
@@ -83,19 +120,25 @@ was seen in \citet{Zhang1997a}, but was poorly resolved and could have been a
 PSF effect.  This bridge is fainter than either of the cores but clearly
 detected (Figure \ref{fig:w51bridge22emispec} and Figure
 \ref{fig:w51mainemicontours}).  It is also hot, $T\gtrsim300$ K at peak, and
-extremely dense.
+must be extremely dense.
 
-The existence of a high temperature, presumably high-density structure between
-multiple massive stars is a clear sign of competitive accretion at work.  The
-gas temperatures must either be driven by internal star formation, possibly a
-very early stage massive star like W51 North with no HII region yet formed, or
-the bridge is heated by the cluster of surrounding massive stars.  The thermal
-Jeans mass in this bridge is $M_J = 10.0 \left(\frac{T}{300 K}\right)^{3/2}
-\left(\frac{n}{10^7 \percc}\right)^{-1/2}$ \msun, implying that any fragments
-will be very large or, more likely, fragmentation is prevented.
+The gas temperatures must either be driven by internal star formation, possibly
+a very early stage massive star like W51 North with no HII region yet formed,
+or the bridge is heated by the cluster of surrounding massive stars.  The
+thermal Jeans mass in this bridge is $M_J = 10.0 \left(\frac{T}{300
+K}\right)^{3/2} \left(\frac{n}{10^7 \percc}\right)^{-1/2}$ \msun, implying that
+any fragments will be very large or, more likely, fragmentation is prevented.
+
+The bridge could in principle have been created by the ejection of e2 from the
+e1 cluster.  However, the maser proper motions of \citep{Saito2014a} show that
+e2 and e1 have almost no motion relative to one another.  To achieve their
+current separation at a motion of 1 mas \peryr (25 \kms), which is an upper
+limit on their relative motion, they would have had to separate 5-10 kyr ago.
+The current data do not rule out this scenario, but neither do they strongly
+favor it.
 
 \Figure{{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51NorthCore_K}.png}
-{Spectrum of the W51 North core \citep{Zapata2008a,Zapata2009a,Zapata2010a}.}
+{Spectrum of the W51 North core in \ortho \twotwo.}
 {fig:w51n22emispec}{0.5}{0}
 
 \Figure{{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e2-e8 bridge_K}.png}
@@ -125,6 +168,31 @@ and (c) shows the e8 core}
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e8core_K.png}
 {Spectra of the \twotwo emission around W51e1.}
 {fig:w51e1emispec}{1}{3.5in}
+
+\subsection{Explanation of the hot gas}
+The high observed temperatures could be an indication either of genuinely hot
+molecular gas or of radiative pumping of the \formaldehyde molecules.  In
+either case, an intense source of radiation must be present; the primary
+difference is whether the excitation is driven by photons or collisions with
+the local dust.
+
+Collisionally excited gas at these high temperatures implies a high density as
+well, which in turn implies frequent high-energy collisions between molecules.
+It is likely that the high-end tail of these collisions will result in rapid
+dissociation of the molecules.  Since \formaldehyde and \ammonia are both
+relatively complex, with \ammonia forming slowly in cold gas in the absence of
+CO \citep{Caselli?}, re-formation of the molecules would not provide a
+sufficient population for our observations.  We therefore favor radiative
+(infrared) pumping as the explanation for the high observed brightness.  The gas
+must still be warm, $T\gtrsim200$ K \citep{Henkel2013a}, but not quite as hot
+as we might naively infer.
+
+Normally \ammonia metastable transitions are cited as good tracers of the gas
+temperature because their relative populations can only be set by collisions;
+there are no radiative transitions connecting the K-ladders.  However, high
+radiation temperatures can easily excite the higher vibrational levels of
+\ammonia, which can then decay into different K-ladders \citep[][gives an
+overview of the selection pseudo-rules]{Henkel2013a}.
 
 \section{Conclusion}
 
