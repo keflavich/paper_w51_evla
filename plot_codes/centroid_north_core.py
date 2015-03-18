@@ -17,6 +17,7 @@ r = pyregion.open(rpath('W51_22_emission.reg'))
 scube = cube.subcube_from_ds9region(pyregion.ShapeList([x for x in r if 'text' in x.attr[1] and x.attr[1]['text']=='W51NorthCore']))
 
 
+vr = [56,61]
 gaussfits = [gaussfitter.gaussfit(
     np.nan_to_num((scube[scube.closest_spectral_channel(v*u.km/u.s),:,:]/scube.max()).value),
     return_error=True )  for v in np.arange(vr[0],vr[1]+0.5,0.5)]
@@ -25,6 +26,12 @@ centroids = np.array([gf[0][2:4] for gf in gaussfits])
 ecentroids = np.array([gf[1][2:4] for gf in gaussfits])
 
 pl.clf()
-pl.errorbar(centroids[:,0], centroids[:,1], xerr=ecentroids[:,0], yerr=ecentroids[:,1], linestyle='none', zorder=-1)
-pl.scatter(centroids[:,0], centroids[:,1], marker='o', c=np.arange(vr[0],vr[1]+0.5,0.5), s=100)
+sc = pl.scatter(centroids[:,0], centroids[:,1], marker='o', c=np.arange(vr[0],vr[1]+0.5,0.5), s=100)
+for x,y,ex,ey,c in zip(centroids[:,0], centroids[:,1], ecentroids[:,0], ecentroids[:,1], sc.get_facecolors()):
+    print x,y,ex,ey,c
+    pl.errorbar(x,y,xerr=ex,yerr=ey, linestyle='none', zorder=-1, color=c)
+
+pl.colorbar()
+pl.draw()
+pl.show()
 
