@@ -13,6 +13,7 @@ gridpath = os.path.join(root, '../h2co/radex/...todo.../')
 analysispath = os.path.join(root, 'paper_w51_evla/analysis/')
 plotcodepath = os.path.join(root, 'paper_w51_evla/plot_codes/')
 observingpath = os.path.join(root, 'paper_w51_evla/observing/')
+tablepath = os.path.join(root, 'paper_w51_evla/tables/')
 
 def gpath(x, gridpath=gridpath):
     return os.path.join(gridpath, x)
@@ -37,3 +38,6 @@ def dpath(x, datapath=datapath):
 
 def dppath(x, datapath=datapath):
     return os.path.join(datapath, 'projections', x)
+
+def tpath(x, tablepath=tablepath):
+    return os.path.join(tablepath, x)

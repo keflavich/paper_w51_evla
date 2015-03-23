@@ -25,13 +25,24 @@ gaussfits = [gaussfitter.gaussfit(
 centroids = np.array([gf[0][2:4] for gf in gaussfits])
 ecentroids = np.array([gf[1][2:4] for gf in gaussfits])
 
-pl.clf()
-sc = pl.scatter(centroids[:,0], centroids[:,1], marker='o', c=np.arange(vr[0],vr[1]+0.5,0.5), s=100)
-for x,y,ex,ey,c in zip(centroids[:,0], centroids[:,1], ecentroids[:,0], ecentroids[:,1], sc.get_facecolors()):
-    print x,y,ex,ey,c
-    pl.errorbar(x,y,xerr=ex,yerr=ey, linestyle='none', zorder=-1, color=c)
+fig = pl.figure(1)
+fig.clf()
+ax = fig.gca()
+sc = ax.scatter(centroids[:,0], centroids[:,1], marker='o', c=np.arange(vr[0],vr[1]+0.5,0.5), s=100)
 
-pl.colorbar()
+# sc doesn't have facecolors until it is drawn
+pl.draw()
+itr = zip(centroids[:,0], centroids[:,1], ecentroids[:,0], ecentroids[:,1], sc.get_facecolors())
+
+print itr
+print
+
+for x,y,ex,ey,c in itr:
+    print x,y,ex,ey,c
+    ax.errorbar(x,y,xerr=ex,yerr=ey, linestyle='none', zorder=-1, color=c)
+
+fig.colorbar(sc)
+fig.savefig(fpath('w51north_core_gaussfits.png'))
 pl.draw()
 pl.show()
 
