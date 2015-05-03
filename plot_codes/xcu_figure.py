@@ -5,6 +5,7 @@ import aplpy
 import pylab
 
 dpath = '/Volumes/128gbdisk/w51/'
+dpath = '/Users/adam/work/w51/paper_w51_evla/data/'
 
 #aplpy.make_rgb_cube( ('W51-CBAND-feathered.fits','W51-X-ABCD-S1.VTESS.VTC.DAVID-MEH.fits','W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits'), 'W51_CXU_rgb' )
 
@@ -61,24 +62,49 @@ F.scalebar.set_font_size(20)
 beamd=(u.radian*((220*u.GHz).to(u.m,u.spectral()))/(12*u.m)).to(u.degree)
 print beamd.to(u.arcsec)
 beamd=beamd.value
-F.add_beam(major=beamd/2,minor=beamd/2,hatch='///',facecolor='none',color=(1,1,0,1))
-F.add_beam(major=0.5/3600.,minor=0.5/3600.,hatch='|||',facecolor='none',color=(0,1,1,1))
+F.add_beam(major=beamd,minor=beamd,hatch='///',facecolor='none',color=(1,1,0,1))
+F.add_beam(major=1/3600.,minor=1/3600.,hatch='|||',facecolor='none',color=(0,1,1,1))
 
 #F.show_regions('/Users/adam/work/w51/HCHII_candidates.reg')
 F.show_regions('/Users/adam/work/w51/cycle2_ALMA_frame2.reg')
 
 (xl,yl),(xu,yu) = F._ax1.bbox._bbox.corners()[[0,3]]
 
-inset = aplpy.FITSFigure(hdu,convention='calabretta',figure=figure,subplot=[xl,yu-0.25,0.2,0.25])
-inset.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.031)
-e1e2 = coordinates.ICRS(290.93268,14.508363,unit=('deg','deg'))
-inset.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
-inset.tick_labels.hide()
-inset.axis_labels.hide()
-inset.show_contour(dpath+'W51Ku_BD_spw19.bigish_uniform_contsub19.clean.image.integ_52to65.fits', levels=[0.005,0.01], colors=['r','r'], smooth=3, slices=[0], linewidths=[2,2])
-inset.add_beam(major=0.5/3600., minor=0.5/3600., color='orange', linewidth=3, label='1"')
-inset.add_scalebar(length=((0.1 * u.pc)/(5.4*u.kpc)*u.radian).to(u.degree).value, color='orange', linewidth=3, label='0.1 pc')
+F.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_withH2COcontours_noinset.png', dpi=300)
+F.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_withH2COcontours_noinset.pdf', dpi=300)
+
+from spectral_cube import SpectralCube
+cube = SpectralCube.read(dpath+'W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits').with_spectral_unit(u.km/u.s, velocity_convention='radio')
+integ = cube.spectral_slab(52*u.km/u.s, 65*u.km/u.s).sum(axis=0)
+
+# create both the inset in the original figure and a separate version
+for figure,subplot in ((pylab.figure(1), [xl,yu-0.25,0.2,0.25]),
+                       (pylab.figure(2), (1,1,1))):
+    inset = aplpy.FITSFigure(hdu,convention='calabretta',figure=figure,subplot=subplot)
+    inset.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.031)
+    e1e2 = coordinates.ICRS(290.93268,14.508363,unit=('deg','deg'))
+    inset.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
+    inset.tick_labels.hide()
+    inset.axis_labels.hide()
+    inset.show_contour(integ.hdu, levels=[0.005,0.01], colors=['r','r'], smooth=3, slices=[0], linewidths=[2,2])
+
+    inset.add_beam(major=1.0/3600., minor=1.0/3600., color='orange', linewidth=3, label='1"', zorder=5)
+    inset.add_beam(major=0.42/3600., minor=0.42/3600., color='red', linewidth=3, label='0.42"', zorder=7, alpha=0.5)
+    inset.add_beam(major=0.2/3600., minor=0.2/3600., color='green', linewidth=3, label='0.2"', zorder=10)
+    inset.add_scalebar(length=((0.1 * u.pc)/(5.4*u.kpc)*u.radian).to(u.degree).value, color='orange', linewidth=3, label='0.1 pc')
 
 
-F.save('/Users/adam/proposals/alma/cycle2/w51/W51_Ku_withH2COcontours.png')
-F.save('/Users/adam/proposals/alma/cycle2/w51/W51_Ku_withH2COcontours.pdf')
+F.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_withH2COcontours.png', dpi=300)
+F.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_withH2COcontours.pdf', dpi=300)
+
+inset.tick_labels.show()
+inset.axis_labels.show()
+inset.tick_labels.set_xformat('dd.ddd')
+inset.tick_labels.set_yformat('dd.ddd')
+inset.tick_labels.set_font(size=20)
+inset.axis_labels.set_font(size=20)
+inset.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_inset_only.pdf', dpi=300)
+inset.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_inset_only.png', dpi=300)
+
+pylab.draw()
+pylab.show()
