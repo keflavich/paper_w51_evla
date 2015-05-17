@@ -58,6 +58,13 @@ F.scalebar.set_label('0.5 pc')
 F.scalebar.set_color('orange')
 F.scalebar.set_linewidth(3)
 F.scalebar.set_font_size(20)
+F.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_withH2COcontours_nobeam.png', dpi=300)
+F.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_withH2COcontours_nobeam.pdf', dpi=300)
+F.add_beam(major=15/3600., minor=15/3600., hatch='///', color=(1,1,0,1), facecolor='none')
+F.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_withH2COcontours_jcmtbeam.png', dpi=300)
+F.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_withH2COcontours_jcmtbeam.pdf', dpi=300)
+F.beam.hide()
+
 
 beamd=(u.radian*((220*u.GHz).to(u.m,u.spectral()))/(12*u.m)).to(u.degree)
 print beamd.to(u.arcsec)

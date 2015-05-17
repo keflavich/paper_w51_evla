@@ -1,3 +1,13 @@
+%\renewcommand\ion[2]{#1$\;${%
+%\ifx\@currsize\normalsize\small \else
+%\ifx\@currsize\small\footnotesize \else
+%\ifx\@currsize\footnotesize\scriptsize \else
+%\ifx\@currsize\scriptsize\tiny \else
+%\ifx\@currsize\large\normalsize \else
+%\ifx\@currsize\Large\large
+%\fi\fi\fi\fi\fi\fi
+%\rmfamily\@Roman{#2}}\relax}% 
+
 \newcommand{\paa}{Pa\ensuremath{\alpha}}
 \newcommand{\brg}{Br\ensuremath{\gamma}}
 \newcommand{\msun}{\ensuremath{M_{\odot}}\xspace}			%  Msun
@@ -25,10 +35,10 @@
 \newcommand{\JKaKc}{\ensuremath{J_{K_a K_c}}}
 \newcommand{\water}{H$_{2}$O}		%  H2O
 \newcommand{\feii}{\ion{Fe}{2}}		%  FeII
-\newcommand{\uchii}{UC\ion{H}{2}\xspace}
-\newcommand{\UCHII}{UC\ion{H}{2}\xspace}
-\newcommand{\hchii}{HC\ion{H}{2}\xspace}
-\newcommand{\HCHII}{HC\ion{H}{2}\xspace}
+\newcommand{\uchii}{UC\ion{H}{ii}\xspace}
+\newcommand{\UCHII}{UC\ion{H}{ii}\xspace}
+\newcommand{\hchii}{HC\ion{H}{ii}\xspace}
+\newcommand{\HCHII}{HC\ion{H}{ii}\xspace}
 \newcommand{\hii}{H~{\sc ii}\xspace}
 \newcommand{\hi}{H~{\sc i}\xspace}
 \newcommand{\Hii}{H~{\sc ii}\xspace}
@@ -327,22 +337,39 @@
 \end{figure*}
 }
 
-\def\Table#1#2#3#4#5#6{
+\def\Table#1#2#3#4#5{
 %\renewcommand{\thefootnote}{\alph{footnote}}
-\begin{deluxetable}{#1}
-\tablewidth{0pt}
-\tabletypesize{\footnotesize}
-\tablecaption{#2}
-\tablehead{#3}
-\startdata
-\label{#4}
-#5
-\enddata
-\bigskip
-#6
-\end{deluxetable}
+\begin{table}
+\caption{#2}
+\label{#3}
+    \begin{tabular}{#1}
+        \hline\hline
+        #4
+        \hline
+        #5
+        \hline
+    \end{tabular}
+\end{table}
 %\renewcommand{\thefootnote}{\arabic{footnote}}
 }
+
+
+%\def\Table#1#2#3#4#5#6{
+%%\renewcommand{\thefootnote}{\alph{footnote}}
+%\begin{deluxetable}{#1}
+%\tablewidth{0pt}
+%\tabletypesize{\footnotesize}
+%\tablecaption{#2}
+%\tablehead{#3}
+%\startdata
+%\label{#4}
+%#5
+%\enddata
+%\bigskip
+%#6
+%\end{deluxetable}
+%%\renewcommand{\thefootnote}{\arabic{footnote}}
+%}
 
 %\def\tablenotetext#1#2{
 %\footnotetext[#1]{#2}

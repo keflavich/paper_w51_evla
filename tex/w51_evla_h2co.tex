@@ -35,6 +35,12 @@ The measurements converge on $\sim8.3\ee{6} (D/5.1\mathrm{kpc})$ \lsun
 \section{Observations}
 We used the JVLA in D, C, B, and A configurations.
 
+\Table{ccc}
+{caption: measured H2CO properties}
+{tbl:measurements}
+{header & header & header \\ }
+{data & data & data \\ }
+
 \section{Analysis}
 \subsection{The stellar mass}
 
@@ -97,23 +103,40 @@ to the ammonia masers observed by \citet{Zhang1995a} and more recently
 \citet{Goddi2015a}, and very close to (but not perfectly correlated with) the
 \citet{Zapata2010a} W51 North Disk.
 
-In all cases, the emission is extended and spread over multiple velocity
-channels.  It is therefore not maser emission.
+In all cases, the emission is extended and spread smoothly over multiple
+velocity channels.  It is therefore not maser emission.
 
-None of these detections have corresponding \oneone emission.  This is likely
-because our brightness sensitivity at C-band is very poor.  If the
+None of these detections have corresponding \oneone emission.  This
+nondetection is likely because our brightness sensitivity at C-band is very
+poor.  If the
 \formaldehyde lines are in local thermal equilibrium and optically thick, the
 \oneone brightness temperature should be the sames a the \twotwo,
 $T_B\sim500-1000$ K, which is below the noise floor of our C-band observations;
 if the dynamic range around the continuum peaks could be improved, we might
-hope for weak detections of these, but in the current state of the data the
-lack of a C-band detection is unsurprising.
+hope for weak detections of \oneone emission, but with the current depth, the
+lack of a detection is unsurprising.
 
 The physical conditions required to produce these extremely bright emission
 regions, with $T_B \gtrsim 500$ K in the FWHM$\approx0.4$\arcsec (2000 au)
-beams, are consistent with the extremely high temperatures reported by
-\citet{Zapata2010a}.  The excitation temperature must be $T\sim900$ K at the
-\formaldehyde \twotwo $\tau=1$ surface.  
+beams, can be explained either as thermalized hot gas or radiatively pumped
+emission.
+
+The observed high brightness temperatures are similar to the extremely high
+temperatures reported by \citet{Zapata2010a}.  The excitation temperature must
+be $T\sim900$ K at the \formaldehyde \twotwo $\tau=1$ surface.  However, such a
+high temperature is very near the regime in which \formaldehyde would be
+collisionally dissociated.
+
+A second possibility is that the \formaldehyde is radiatively pumped, resulting
+in a large non-collisionally-driven emission.  \formaldehyde has infrared
+transitions around 3-4 \um \todo{cite: mangum?}, so radiative pumping requires
+a very strong radiation field with $T\gtrsim1000$ K.  Such a radiation field is
+consistent with the presence of high-mass young stars.  To avoid radiative dissociation,
+and especially in W51 North, to avoid creating a large \hii region, the radiation field
+must be cooler than $T\lesssim10000$ K, implying that the proto-O-star (as
+inferred from its mass and luminosity; Zapata?  Goddi?) is presently at a later
+spectral type.
+
 %The required column density for \twotwo
 %to become optically thick depends on the velocity gradient and abundance; assuming
 %$dV/dR = 1$ \kms \perpc and $X=10^{-9}$, the .
