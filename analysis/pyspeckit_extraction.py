@@ -31,7 +31,7 @@ for cube_name, cube_fn in fnames.cube_names.items():
     JyToK = u.Jy.to(u.K, equivalencies=u.brightness_temperature(cube.beam,
                                                                 cube.wcs.wcs.restfrq*u.Hz))
 
-    for regname, outdir in [('W51_22_emission.reg', 'emission')]:
+    for regname, outdir in [('W51_22_emission.reg', 'emission'), ('W51_e_apertures.reg', 'hiiregionh2co')]:
 
         outpath = dpath('spectra/{0}'.format(outdir))
         figpath = fpath('spectra/{0}'.format(outdir))
