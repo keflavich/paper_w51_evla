@@ -11,12 +11,14 @@ import pyregion
 import time
 import fnames
 import matplotlib
+from astropy.table import Table,Column
 matplotlib.rc_file(pcpath('pubfiguresrc'))
 
 cube_name_titles = {'11_natural': 'H$_2$CO 1-1 natural',
                     '22_natural': 'H$_2$CO 2-2 natural',
                     '22_briggs0': 'H$_2$CO 2-2 Robust 0',
                     '11_uniform': 'H$_2$CO 1-1 uniform',}
+
 
 for cube_name, cube_fn in fnames.cube_names.items():
 
@@ -65,7 +67,7 @@ for cube_name, cube_fn in fnames.cube_names.items():
                                   wunit='degree', method='sum')
             sp.specname = "{0}: {1}".format(cube_name_titles[cube_name], name)
             sp.data /= ppbeam
-            sp.error = sp[:sp.xarr.x_to_pix(45)].stats()['std']*errspec/errspec.min()
+            sp.error = (sp[:sp.xarr.x_to_pix(45)].stats()['std']*errspec/errspec.min()).value
             #sp.error = errspec/ppbeam**0.5
             if 'APRADIUS' in sp.header:
                 sp.header['APRADPIX'] = sp.header['APRADIUS'] / np.abs(sp.header['OLDCDEL1']*sp.header['CDELT2'])**0.5
