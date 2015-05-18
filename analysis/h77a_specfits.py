@@ -103,4 +103,6 @@ for old,new in [('ObjectName','Object Name'),
 for row in tbl:
     if "_" in row['Object Name']:
         row['Object Name'] = row['Object Name'].replace("_","\_")
+latexdict['header_start'] = '\label{tbl:h77a}'
+latexdict['caption'] = 'H$77\\alpha$ emission line parameters'
 tbl[ok].write(paths.tpath('H77a_spectral_fits.tex'), format='ascii.latex', latexdict=latexdict)
