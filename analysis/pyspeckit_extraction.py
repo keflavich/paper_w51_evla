@@ -65,7 +65,7 @@ for cube_name, cube_fn in fnames.cube_names.items():
             print "dt=%g" % (time.time()-t0), name,R
             sp = pcube.get_apspec(R.coord_list,coordsys='celestial',
                                   wunit='degree', method='sum')
-            sp.specname = "{0}: {1}".format(cube_name_titles[cube_name], name)
+            sp.specname = name
             sp.data /= ppbeam
             sp.error = (sp[:sp.xarr.x_to_pix(45)].stats()['std']*errspec/errspec.min()).value
             #sp.error = errspec/ppbeam**0.5
@@ -85,6 +85,7 @@ for cube_name, cube_fn in fnames.cube_names.items():
             sp.write(os.path.join(outpath, '%s_%s.fits' % (prefix,name)))
 
             sp.plotter(errstyle='fill')
+            sp.plotter.axis.set_title("{0}: {1}".format(cube_name_titles[cube_name], name))
             sp.plotter.figure.savefig(os.path.join(figpath, '%s_%s.png' %
                                                    (prefix,name)))
 
