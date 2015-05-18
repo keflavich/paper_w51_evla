@@ -8,6 +8,7 @@ from astropy import log
 from astropy.utils.console import ProgressBar
 import paths
 from astropy.table import Table, Column
+from rounded import rounded
 
 sp = [pyspeckit.Spectrum(x) for x in
       ProgressBar(
@@ -59,11 +60,11 @@ for thisspec in sp:
     thisspec.plotter.savefig(paths.fpath('spectra/emission/'+thisspec.specname+"_h2co22emisson_fit.png"),
                                   bbox_inches='tight')
 
-    tbl.add_row([thisspec.specname,
-                 thisspec.specfit.parinfo.AMPLITUDE0.value, thisspec.specfit.parinfo.AMPLITUDE0.error,
-                 thisspec.specfit.parinfo.SHIFT0.value, thisspec.specfit.parinfo.SHIFT0.error,
-                 thisspec.specfit.parinfo.WIDTH0.value, thisspec.specfit.parinfo.WIDTH0.error,
-                 thisspec.header['APAREA']])
+    tbl.add_row([thisspec.specname,]+
+                 list(rounded(thisspec.specfit.parinfo.AMPLITUDE0.value, thisspec.specfit.parinfo.AMPLITUDE0.error))+
+                 list(rounded(thisspec.specfit.parinfo.SHIFT0.value, thisspec.specfit.parinfo.SHIFT0.error))+
+                 list(rounded(thisspec.specfit.parinfo.WIDTH0.value, thisspec.specfit.parinfo.WIDTH0.error))+
+                 [np.round(thisspec.header['APAREA'], int(np.ceil(-np.log10(thisspec.header['APAREA'])))+1)])
 
  
 # sort such that e10 comes after e9

@@ -7,6 +7,7 @@ from astropy import units as u
 from astropy import log
 from astropy.utils.console import ProgressBar
 import paths
+from rounded import rounded
 
 # Read in all spectra extracted to the h77a directory matching the "best" h77a file
 # May 18, 2015: I think H77a big2 is best, but I haven't inspected.  EDIT: big2 is in velocity.
@@ -55,10 +56,13 @@ tbl.add_column(names)
 for ii,(parname,unit) in enumerate([('amplitude',u.mJy/u.beam),
                              ('velocity',u.km/u.s),
                              ('width',u.km/u.s)]):
-    data = [sp.specfit.parinfo[ii].value
-            for sp in spectra]
-    error = [sp.specfit.parinfo[ii].error
-            for sp in spectra]
+    dataerror = [rounded(sp.specfit.parinfo[ii].value, sp.specfit.parinfo[ii].error)
+                 for sp in spectra]
+    data,error = zip(*dataerror)
+    #data = [sp.specfit.parinfo[ii].value
+    #        for sp in spectra]
+    #error = [sp.specfit.parinfo[ii].error
+    #        for sp in spectra]
     column = table.Column(data=data,
                           name='H77a_'+parname,
                           unit=unit)
@@ -76,7 +80,7 @@ detection_note = ['-' if name in detections else
                   'weak' if name in weakdetections else
                   'none'
                   for name in tbl['ObjectName']]
-tbl.add_column(table.Column(data=detection_note, name='Detection Status'))
+tbl.add_column(table.Column(data=detection_note, name='DetectionStatus'))
 
 ok = np.array([row['ObjectName'] in detections+weakdetections
                for row in tbl])
@@ -89,7 +93,9 @@ for old,new in [('ObjectName','Object Name'),
                 ('H77a_velocity',  '$V_{LSR}$',),
                 ('eH77a_velocity', '$\sigma(V_{LSR})$',),
                 ('H77a_width',     '$dV (\sigma)$',),
-                ('eH77a_width',    '$\sigma(dV)$')]:
+                ('eH77a_width',    '$\sigma(dV)$'),
+                ('DetectionStatus', 'Detection Status'),
+               ]:
     tbl.rename_column(old, new)
 
 tbl[ok].write(paths.tpath('H77a_spectral_fits.tex'), format='ascii.latex')
