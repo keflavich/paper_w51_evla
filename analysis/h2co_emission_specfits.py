@@ -2,6 +2,7 @@
 import numpy as np
 import pyspeckit 
 import glob
+from astropy.io import ascii
 from astropy import table
 from astropy import units as u
 from astropy import log
@@ -9,6 +10,7 @@ from astropy.utils.console import ProgressBar
 import paths
 from astropy.table import Table, Column
 from rounded import rounded
+from latex_info import latexdict
 
 sp = [pyspeckit.Spectrum(x) for x in
       ProgressBar(
@@ -82,4 +84,7 @@ ok = np.array([row['Object Name'] in detections+weakdetections
 
 tbl[ok].write(paths.tpath('H2CO22_emission_spectral_fits.ecsv'), format='ascii.ecsv')
 
-tbl[ok].write(paths.tpath('H2CO22_emission_spectral_fits.tex'), format='ascii.latex')
+for row in tbl:
+    if "_" in row['Object Name']:
+        row['Object Name'] = row['Object Name'].replace("_","\_")
+tbl[ok].write(paths.tpath('H2CO22_emission_spectral_fits.tex'), format='ascii.latex', latexdict=latexdict)

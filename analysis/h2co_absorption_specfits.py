@@ -2,6 +2,7 @@
 import numpy as np
 import pyspeckit 
 import glob
+from astropy.io import ascii
 from astropy import table
 from astropy import units as u
 from astropy import log
@@ -9,6 +10,7 @@ from astropy.utils.console import ProgressBar
 import paths
 from astropy.table import Table, Column
 from rounded import rounded
+from latex_info import latexdict
 
 sp = [pyspeckit.Spectrum(x) for x in
       ProgressBar(
@@ -63,10 +65,10 @@ for thisspec in sp:
                                   bbox_inches='tight')
 
     tbl.add_row([thisspec.specname,]+
-                 list(rounded(thisspec.specfit.parinfo.AMPLITUDE0.value, thisspec.specfit.parinfo.AMPLITUDE0.error))+
-                 list(rounded(thisspec.specfit.parinfo.SHIFT0.value, thisspec.specfit.parinfo.SHIFT0.error))+
-                 list(rounded(thisspec.specfit.parinfo.WIDTH0.value, thisspec.specfit.parinfo.WIDTH0.error))+
-                 [np.round(thisspec.header['APAREA'], int(np.ceil(-np.log10(thisspec.header['APAREA'])))+1)])
+                 list((rounded(thisspec.specfit.parinfo.AMPLITUDE0.value, thisspec.specfit.parinfo.AMPLITUDE0.error)*u.Jy).to(u.mJy))+
+                 list(rounded(thisspec.specfit.parinfo.SHIFT0.value, thisspec.specfit.parinfo.SHIFT0.error)*u.km/u.s)+
+                 list(rounded(thisspec.specfit.parinfo.WIDTH0.value, thisspec.specfit.parinfo.WIDTH0.error)*u.km/u.s)+
+                 [np.round(thisspec.header['APAREA'], int(np.ceil(-np.log10(thisspec.header['APAREA'])))+1)*u.sr])
 
  
 # sort such that e10 comes after e9
@@ -84,4 +86,7 @@ ok = np.array([row['Object Name'] in detections+ambiguousdetections
 
 tbl[ok].write(paths.tpath('H2CO22_hiiregion_spectral_fits.ecsv'), format='ascii.ecsv')
 
-tbl[ok].write(paths.tpath('H2CO22_hiiregion_spectral_fits.tex'), format='ascii.latex')
+for row in tbl:
+    if "_" in row['Object Name']:
+        row['Object Name'] = row['Object Name'].replace("_","\_")
+tbl[ok].write(paths.tpath('H2CO22_hiiregion_spectral_fits.tex'), format='ascii.latex', latexdict=latexdict)

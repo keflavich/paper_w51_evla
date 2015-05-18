@@ -2,12 +2,14 @@
 import numpy as np
 import pyspeckit 
 import glob
+from astropy.io import ascii
 from astropy import table
 from astropy import units as u
 from astropy import log
 from astropy.utils.console import ProgressBar
 import paths
 from rounded import rounded
+from latex_info import latexdict
 
 # Read in all spectra extracted to the h77a directory matching the "best" h77a file
 # May 18, 2015: I think H77a big2 is best, but I haven't inspected.  EDIT: big2 is in velocity.
@@ -98,4 +100,7 @@ for old,new in [('ObjectName','Object Name'),
                ]:
     tbl.rename_column(old, new)
 
-tbl[ok].write(paths.tpath('H77a_spectral_fits.tex'), format='ascii.latex')
+for row in tbl:
+    if "_" in row['Object Name']:
+        row['Object Name'] = row['Object Name'].replace("_","\_")
+tbl[ok].write(paths.tpath('H77a_spectral_fits.tex'), format='ascii.latex', latexdict=latexdict)
