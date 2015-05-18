@@ -30,7 +30,7 @@ tbl = Table(dtype=[(str, 20), float,   float,   float,   float,   float,
                           '$V_{LSR}$',
                           '$\sigma(V_{LSR})$',
                           '$dV$',
-                          '$\sigma(dV)',
+                          '$\sigma(dV)$',
                           '$\Omega_{ap}$',],
            )
 

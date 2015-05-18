@@ -35,6 +35,7 @@ weakdetections = ['e5', 'e9', 'e10']
 
 # setup
 for s in sp:
+    s.data *= 1e3
     s.specname = s.fileprefix.split("_")[-1]
     log.info(s.specname+" stats")
     noiseregion = (s.xarr < 20*u.km/u.s).value | (s.xarr > 100*u.km/u.s).value
@@ -47,17 +48,17 @@ for s in sp:
               guesses=[1,55,10],
               limited=[(True,False),(False,False),(True,False)])
     log.info(s.specname+" fitting: {0}".format(s.specfit.parinfo))
-    s.plotter.ymin -= 0.0003
-    s.specfit.plotresiduals(axis=s.plotter.axis,clear=False,yoffset=-0.0003,label=False)
+    s.plotter.ymin -= 0.3
+    s.specfit.plotresiduals(axis=s.plotter.axis,clear=False,yoffset=-0.3,label=False)
     s.plotter.savefig(paths.fpath('spectra/h77/'+s.specname+"_h77a_fit.png"),
                                   bbox_inches='tight')
 
 tbl = table.Table()
 names = table.Column(data=[sp.specname for sp in spectra], name='ObjectName')
 tbl.add_column(names)
-for ii,(parname,unit) in enumerate([('amplitude',u.mJy/u.beam),
-                             ('velocity',u.km/u.s),
-                             ('width',u.km/u.s)]):
+for ii,(parname,unit) in enumerate([('amplitude',u.mJy),
+                                    ('velocity',u.km/u.s),
+                                    ('width',u.km/u.s)]):
     dataerror = [rounded(sp.specfit.parinfo[ii].value, sp.specfit.parinfo[ii].error)
                  for sp in spectra]
     data,error = zip(*dataerror)

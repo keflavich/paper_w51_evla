@@ -26,11 +26,11 @@ tbl = Table(dtype=[(str, 20), float,   float,   float,   float,   float,
                    float,   float],
                    names=['Object Name',
                           'Amplitude',
-                          '$\sigma(Amplitude)',
+                          '$\sigma(Amplitude)$',
                           '$V_{LSR}$',
                           '$\sigma(V_{LSR})$',
                           '$dV$',
-                          '$\sigma(dV)',
+                          '$\sigma(dV)$',
                           '$\Omega_{ap}$',],
            )
 
@@ -63,7 +63,7 @@ for thisspec in sp:
                                   bbox_inches='tight')
 
     tbl.add_row([thisspec.specname,]+
-                 list(rounded(thisspec.specfit.parinfo.AMPLITUDE0.value, thisspec.specfit.parinfo.AMPLITUDE0.error))+
+                 list((rounded(thisspec.specfit.parinfo.AMPLITUDE0.value, thisspec.specfit.parinfo.AMPLITUDE0.error)*u.Jy).to(u.mJy))+
                  list(rounded(thisspec.specfit.parinfo.SHIFT0.value, thisspec.specfit.parinfo.SHIFT0.error))+
                  list(rounded(thisspec.specfit.parinfo.WIDTH0.value, thisspec.specfit.parinfo.WIDTH0.error))+
                  [np.round(thisspec.header['APAREA'], int(np.ceil(-np.log10(thisspec.header['APAREA'])))+1)])
