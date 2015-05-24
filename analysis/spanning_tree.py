@@ -20,20 +20,6 @@ ordered_separation_matrix[separation_matrix==0] = 0
 ordered_edges = np.argsort(separation_matrix.ravel())
 lefts, rights = np.unravel_index(ordered_edges, separation_matrix.shape)
 
-# FAILED Kruksal's algorithm: don't know how to determine if connected
-#graph_l = []
-#graph_r = []
-#for left,right in zip(lefts,rights):
-#    if separation_matrix[left,right] == 0:
-#        continue
-#    else:
-#        if not graph_l and not graph_r:
-#            graph_l.append(left)
-#            graph_r.append(right)
-#        elif (left not in graph_l+graph_r) or (right not in graph_l+graph_r):
-#            graph_l.append(left)
-#            graph_r.append(right)
-
 separation_matrix[separation_matrix==0] = np.inf
 
 #Prim's algorithm:
@@ -60,22 +46,6 @@ while len(vertices) < len(coords):
     vertices.append(smallest_edge[1])
     all_vertices.remove(smallest_edge[1])
 
-
-# try this:
-# https://www.ics.uci.edu/~eppstein/161/960206.html
-
-# Method 2: fails
-#lefts = []
-#rights = []
-#for obj,row in enumerate(separation_matrix):
-#    sorted = np.argsort(row)
-#    for candidate in sorted[1:]:
-#        if candidate in lefts or candidate in rights:
-#            continue
-#        else:
-#            lefts.append(obj)
-#            rights.append(candidate)
-#            break
 
 mst = minimum_spanning_tree(separation_matrix)
 connections = np.where(mst.toarray())
