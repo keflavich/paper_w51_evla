@@ -16,7 +16,7 @@ import radio_beam
 from astropy import time
 from astropy.utils.console import ProgressBar
 from rounded import rounded
-from latex_info import latexdict
+from latex_info import latexdict, exp_to_tex, format_float
 
 reglist = pyregion.open(paths.rpath('pointsource_centroids.reg'))
 
@@ -266,22 +266,13 @@ textbl['SourceName'] = map(lambda x: x.replace("_","-"), textbl['SourceName'])
 for old,new in cols.items():
     textbl.rename_column(old, new)
 
-def exp_to_tex(st):
-    if 'e' in st:
-        pt1,pt2 = st.split('e')
-        return "{0}\\ee{{{1:d}}}".format(pt1,int(pt2))
-    return st
-
-def fmt(st):
-    return exp_to_tex("{0:0.2g}".format(st))
-
 latexdict['header_start'] = '\label{tab:contsrcs}'
 latexdict['caption'] = 'Continuum Point Sources'
-latexdict['tabletype'] = 'longtable'
-latexdict['tabulartype'] = 'longtable'
-textbl.write(paths.tpath('pointsource_photometry.tex'), format='ascii.latex', latexdict=latexdict,
-             formats={'$\sigma$': fmt,
-                      'Peak $S_{\\nu}$': fmt,
-                      'Peak - Background': fmt, 
+#latexdict['tabletype'] = 'longtable'
+#latexdict['tabulartype'] = 'longtable'
+textbl[::10].write(paths.tpath('pointsource_photometry.tex'), format='ascii.latex', latexdict=latexdict,
+             formats={'$\sigma$': format_float,
+                      'Peak $S_{\\nu}$': format_float,
+                      'Peak - Background': format_float, 
                       'Obs. Date': lambda x: time.Time(x).iso[:10],
                      })

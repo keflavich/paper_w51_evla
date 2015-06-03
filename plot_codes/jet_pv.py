@@ -37,7 +37,7 @@ for ii,fn in enumerate(('w51.neii.square.fits',
     fig = pl.figure(ii)
     fig.clf()
     FF = aplpy.FITSFigure(pv, figure=fig)
-    FF.show_grayscale(aspect='auto')#, stretch='arcsinh')
-    FF.recenter(0.0021, 0, width=0.0042, height=200e3)
+    FF.show_grayscale(aspect='auto', invert=True)#, stretch='arcsinh')
+    FF.recenter(0.0021, 65e3, width=0.0042, height=300e3)
     FF.save(paths.fpath('jetpv/{0}.png'.format(fn[:-5])))
 

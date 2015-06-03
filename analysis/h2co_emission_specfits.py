@@ -10,7 +10,7 @@ from astropy.utils.console import ProgressBar
 import paths
 from astropy.table import Table, Column
 from rounded import rounded
-from latex_info import latexdict
+from latex_info import latexdict, format_float
 
 sp = [pyspeckit.Spectrum(x) for x in
       ProgressBar(
@@ -89,4 +89,6 @@ for row in tbl:
         row['Object Name'] = row['Object Name'].replace("_","\_")
 latexdict['header_start'] = '\label{tab:emission22}'
 latexdict['caption'] = '\\formaldehyde \\twotwo emission line parameters'
-tbl[ok].write(paths.tpath('H2CO22_emission_spectral_fits.tex'), format='ascii.latex', latexdict=latexdict)
+tbl[ok].write(paths.tpath('H2CO22_emission_spectral_fits.tex'), format='ascii.latex', latexdict=latexdict,
+              formats={'$\Omega_{ap}$': format_float}
+             )

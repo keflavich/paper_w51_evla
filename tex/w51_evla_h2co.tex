@@ -206,13 +206,15 @@ high temperature is very near the regime in which \formaldehyde would be
 collisionally dissociated.
 
 A second possibility is that the \formaldehyde is radiatively pumped, resulting
-in a large non-collisionally-driven emission.  \formaldehyde has infrared
-transitions around 3-4 \um \todo{cite: mangum?}, so radiative pumping requires
-a very strong radiation field with $T\gtrsim1000$ K.  Such a radiation field is
-consistent with the presence of high-mass young stars.  To avoid radiative dissociation,
-and especially in W51 North, to avoid creating a large \hii region, the radiation field
-must be cooler than $T\lesssim10000$ K, implying that the proto-O-star (as
-inferred from its mass and luminosity; Zapata?  Goddi?) is presently at a later
+in a large non-collisionally-driven emission.  Vibrationally excited
+\formaldehyde has infrared
+transitions around 3.5 and 6 \um \citep{Al-Refaie2015a}, so radiative pumping
+requires a very strong radiation field with $T\gtrsim1000$ K.  Such a radiation
+field is consistent with the presence of high-mass young stars.  To avoid
+radiative dissociation, and especially in W51 North, to avoid creating a large
+\hii region, the radiation field must be cooler than $T < 10000$ K,
+implying that the proto-O-star \citep[as inferred from its luminosity and its
+kinematically-derived mass][]{Zapata2008a,Zapata2009a} is presently at a later
 spectral type.
 
 %The required column density for \twotwo
@@ -311,9 +313,10 @@ temperature because their relative populations can only be set by collisions;
 there are no radiative transitions connecting the K-ladders.  However, high
 radiation temperatures can easily excite the higher vibrational levels of
 \ammonia, which can then decay into different K-ladders \citep[][gives an
-overview of the selection pseudo-rules]{Henkel2013a}.
+overview of the selection pseudo-rules]{Henkel2013a}.  Therefore, temperatures
+inferred from \ammonia may be inaccurate in these hot cores.
 
-\section{The Lacy jet}
+\subsection{The Lacy jet}
 \citet{Lacy2007a} reported the detection of very high velocity ionized gas
 in the mid-infrared [Ne II] 12.8\um and S IV 10.5\um lines.  They observe the
 gas at a velocity blueshifted about 100 \kms from the IRS2 ionized and molecular
@@ -321,16 +324,38 @@ gas velocity.  We have detected the same feature in the H77$\alpha$ RRL.
 The RRL shows the same position-velocity structure as the infrared ionized
 features.  No redshifted counterflow is detected.
 
+\FigureTwo
+{figures/jetpv/H77a_cutout_1.png}
+{figures/jetpv/w51.neii.square.png}
+{Position-velocity slices through (a) the H77$\alpha$ cube and (b) the [Ne II]
+cube from \citet{Lacy2007a} tracking the approximate path of the Lacy jet.  The
+blueshifted lobe is evident at -50 \kms in both cubes, and neither show a redshifted
+counterpart.  The H77$\alpha$ data reveal that there is not an extincted counterpart.}
+{fig:lacyjetslice}{1}{3.5in}
+
 \section{The velocity dispersion in the W51e cluster}
-We detect H77$\alpha$ toward X of the Y hyper/ultra compact \hii regions in the
-W51 Main (W51e) cluster.  We also measure a velocity from the \formaldehyde
-emission toward e8.  The resulting 1D velocity dispersion is Z.
-Given the mass of W51 main, all of these stars are clearly bound to the gas. 
+We detect H77$\alpha$ toward 6 of the 8 hyper/ultra compact \hii regions in the
+W51 Main (W51e) cluster; 4 of these 6 are firm detections and two are weak.  We
+also measure a velocity from the \formaldehyde emission toward e8.  The
+resulting 1D velocity dispersion is $\sigma=2.0$ \kms if we exclude sources e9
+and e10; with e9 and e10 included the dispersion increases to 4.2 \kms, which
+suggests that the uncertainty on those two sources renders their velocity
+measurements unreliable.  This velocity dispersion is confined to
+$r<5.4\arcsec$ or $r<0.13$ pc.
 
-However, W51 e6...
+Given the mass of W51 Main and its $\sim10\kms$ escape velocity, all of these
+(proto)stars are clearly bound to the gas. 
 
-\section{The distributed population of HCHII regions}
-We detect an additional XX point sources in the field.
+The e5 and e6 sources are close to one another (separation 3.1 \arcsec, or
+projected distance 0.08 pc), and both exhibit \formaldehyde absorption at 62-63
+\kms.  e6 is detected in H77$\alpha$ at 68 \kms, suggesting that the true
+velocity of both e5 and e6 may not be the same as the \formaldehyde absorption
+lines, \emph{but} the line profile of the e6 H77$\alpha$ line suggests that the
+velocity measurement may be affected by image reconstruction artifacts from
+50-63 \kms.
+
+% \section{The distributed population of HCHII regions}
+% We detect an additional XX point sources in the field.
 
 \section{Conclusions}
 
@@ -359,6 +384,8 @@ distance XXX.
     \item pvextractor \url{http://pvextractor.readthedocs.org/}
 \end{itemize}
 
+An excerpt from the point source catalog.  The full version is available in
+digital form.
 \input{tables/pointsource_photometry.tex}
 
 \input{solobib}
