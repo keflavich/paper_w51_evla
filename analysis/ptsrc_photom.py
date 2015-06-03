@@ -93,7 +93,7 @@ for freq,fn in files.iteritems():
         xc,yc = wcs.wcs_world2pix([rd],0)[0][:2]
         #pixscale = np.abs(wcs.wcs.get_cdelt()[0])
         pixscale = (wcs.pixel_scale_matrix.diagonal()**2).sum()**0.5
-        rp = rad / pixscale
+        rp = rad / pixscale  # radius in pixels
         aperture = photutils.CircularAperture(positions=[xc, yc], r=rp)
         aperture_data = photutils.aperture_photometry(data=data, apertures=aperture)
         flux = aperture_data[0]['aperture_sum']
@@ -110,8 +110,9 @@ for freq,fn in files.iteritems():
         cutouts[freq][name] = co
 
         yy,xx = np.indices(co.shape)
+        # rr = radius grid
         rr = ((xx-rp*3)**2+(yy-rp*3)**2)**0.5
-        #print co.shape,rr.shape
+        # mask = pixels within 1 beam radius
         mask = rr<rp
         if mask.sum():
             peaks[freq][name] = co[mask].max()
@@ -233,7 +234,7 @@ for colname in ['gbackground', 'gamplitude', 'gracen', 'gdeccen', 'gxwidth',
                 'gywidth', 'gpositionangle', 'gfit_chi2', 'gfit_chi2_reduced']:
     tbl[bad][colname] = np.nan
 
-tbl.sort('SourceName')
+tbl.sort(['SourceName', 'Frequency'])
 tbl.write(paths.tpath('EVLA_VLA_PointSourcePhotometry.ipac'), format='ascii.ipac')
 
 ## Create latex table

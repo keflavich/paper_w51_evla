@@ -14,7 +14,10 @@
 {}
 {}
 {}
-{}
+{
+(1) \ortho \twotwo emission traces forming very massive (proto-O) stars
+(2) 
+}
 
 \maketitle
 
@@ -33,7 +36,12 @@ The measurements converge on $\sim8.3\ee{6} (D/5.1\mathrm{kpc})$ \lsun
 \citep{Harvey1986a,Sievers1991a}.
 
 \section{Observations}
-We used the JVLA in D, C, B, and A configurations.
+We used the JVLA in multiple bands and configurations.  In project 12B-365, we
+observed in A-array in S and C bands with 2 GHz total bandwidth.  In project
+13A-064, we observed in C-Band in C (1h) and A (5h) arrays and in Ku-band in D
+(1h) and B (5h) arrays.  Our spectral coverage included \ortho \oneone 4.82966 GHz
+and \twotwo at 14.488 GHz with 0.3 \kms resolution and H77$\alpha$ and H110$\alpha$
+at 1 \kms resolution.
 
 \section{Observational Results}
 We report three key observational results: 
@@ -46,7 +54,7 @@ We report three key observational results:
         \hii regions using H77$\alpha$ and/or \formaldehyde
 \end{enumerate}
 
-\subsection{New continuum sources}
+\subsection{Continuum photometry}
 Our data are the most sensitive continuum observations yet performed on the W51
 region.  We report new detections of some sources, and concrete identifications
 of others that were detected in previous data sets but not reported.
@@ -71,14 +79,26 @@ of the diffuse emission appearing to be pointlike.
 The point source data is listed in Table \ref{tab:contsrcs}.  The Epoch column
 describes the data source: Epoch 1 comes from \citet{Mehringer1994a}, Epoch 2
 comes from 12B-365, and Epoch 3 comes from 13A-064.  There are two flux density
-columns.  The first shows the peak flux density within a box with size
-$6\times6$ beams, which in some cases is negative because the source sits in a
-region affected by large angular scale negative bowls.  The second, `Peak -
-Background', shows the peak flux minus the lowest value within that same cutout
-region.  When these two values agree, they are reliable, but when they differ
-significantly they are probably affected by image reconstruction artifacts.
+columns.  The first shows the peak flux density, which in some
+cases is negative because the source sits in a region affected by large angular
+scale negative bowls.  The second, `Peak - Background', shows the peak flux
+minus the lowest value within that same cutout region.  When these two values
+agree, they are reliable, but when they differ significantly they are probably
+affected by image reconstruction artifacts.
 
+The multi-epoch data demonstrate that some of these sources are variable.  The
+most convincing case for variability is in the (double) source d4.  In the
+\citet{Mehringer1994a} data, there is no hint of emission at this location,
+with a 5-$\sigma$ upper limit of 1 mJy.  At the same position and frequency in
+2014, there is a 1.2 mJy source at the position of d4e.  The case for
+variability in other sources is weaker but nonetheless suggestive.
 
+We directly compared the C-band data between the 1994 and 2014 epochs by taking
+a difference image.  The 2014 data have higher resolution, so this map
+effectively highlights both variable and compact structures.  We found a small
+offset between these images using a cross-correlation method
+(\url{image-registration.rtfd.org}); the 2014 data were shifted by 0.16, 0.20
+\arcsec to the southeast from the 1994 data.
 
 \subsection{\formaldehyde \twotwo emission}
 We detect \formaldehyde \twotwo emission around W51e2, W51e8, in a region
@@ -106,11 +126,48 @@ as measured from gaussian profile fits to their extracted spectra.
 
 The H77$\alpha$ emission line parameters are listed in Table \ref{tab:h77a}, and
 the \para \twotwo absorption line parameters are in Table \ref{tab:absorption22}.
-The emission line parameters are only relevant for source e8mol.
+%The emission line parameters are only relevant for source e8mol.
 
 \input{tables/H2CO22_hiiregion_spectral_fits}
 
 \input{tables/H77a_spectral_fits}
+
+\subsection{Diffuse emission features}
+There are a few new notable emission features detected in our data that were
+not seen in previous shallower data.
+
+Near source e11, there is a bow-shaped feature (Figure \ref{fig:e11bow}).
+There are no known associated sources at shorter wavelengths, though in Spitzer
+bands there is some diffuse emission at this location.  The bow-like structure
+points away from e11, suggesting that it is the driving source.
+
+\Figure{figures/diffuse/e11_bow.png}
+{A bow-shaped feature near the source e11 in the Ku-band continuum image.}
+{fig:e11bow}{0.5}{0}
+
+The source d3 is a diffuse HII region with radius $r\sim1.9$ \arcsec.  It is
+associated with a Spitzer source and the 2MASS source 2MASX J19233591+1431288.
+
+The diffuse emission associated with W51 Main traces a broad arc that has been
+seen in many previous data sets.  The new deeper, higher-resolution data are
+dramatically improved.  Where in previous observations, a relatively smooth and
+clumpy structure was seen, the new images reveal a network of wispy,
+filamentary structures.  Figure \ref{fig:w51mainpeak} shows the region between
+the W51e and W51 IRS2 clusters.  While this area contains few clear individual
+sources, it accounts for the majority of the luminosity of the W51 Main region
+and about half the total luminosity of the W51 Main/IRS2 complex.  
+
+The filamentary structures in the W51 Main peak are unresolved along the short
+axis, with aspect ratios $>25$.
+
+\FigureTwo
+{figures/diffuse/w51main_peak.png}
+{figures/diffuse/w51main_peak_diff.png}
+{A C-band image of the W51 Main peak intensity region.  This region accounts
+for more than half of the total luminosity of W51.  There are two pointlike
+sources in field, e14 at center-left and the cometary e13 toward the lower
+left. }
+{fig:w51mainpeak}{1}{3.5in}
 
 \section{Analysis}
 \subsection{The stellar mass}
@@ -155,10 +212,11 @@ is unlikely to cease until supernovae begin to explode, since even ionized gas
 is presently gravitationally bound
 \citep{Ginsburg2012a,Bressert2012a,Ginsburg2015a}.
 
-The O3 or O4 star W51d spectrally typed by \citet{Barbosa2008a} is probably
-illuminating the majority of the ionized gas in the IRS2 region.  It is
-particularly impressive, though, since the star is shining through a layer of
-molecular gas that extincts the star.
+%The O3 or O4 star W51d spectrally typed by \citet{Barbosa2008a} is probably
+%illuminating the majority of the ionized gas in the IRS2 region.
+% It is
+% particularly impressive, though, since the star is shining through a layer of
+% molecular gas that extincts the star.
 
 % Can W51d be illuminating the W51 Main HII region?
 
@@ -322,15 +380,16 @@ in the mid-infrared [Ne II] 12.8\um and S IV 10.5\um lines.  They observe the
 gas at a velocity blueshifted about 100 \kms from the IRS2 ionized and molecular
 gas velocity.  We have detected the same feature in the H77$\alpha$ RRL.
 The RRL shows the same position-velocity structure as the infrared ionized
-features.  No redshifted counterflow is detected.
+features.  No redshifted counterflow is detected (Figure \ref{fig:lacyjetslice}).
 
 \FigureTwo
 {figures/jetpv/H77a_cutout_1.png}
 {figures/jetpv/w51.neii.square.png}
 {Position-velocity slices through (a) the H77$\alpha$ cube and (b) the [Ne II]
 cube from \citet{Lacy2007a} tracking the approximate path of the Lacy jet.  The
-blueshifted lobe is evident at -50 \kms in both cubes, and neither show a redshifted
-counterpart.  The H77$\alpha$ data reveal that there is not an extincted counterpart.}
+blueshifted lobe is evident at -50 \kms in both cubes, and neither show a
+redshifted counterpart.  The H77$\alpha$ data reveal that there is not an
+extincted counterpart.}
 {fig:lacyjetslice}{1}{3.5in}
 
 \section{The velocity dispersion in the W51e cluster}
@@ -341,7 +400,14 @@ resulting 1D velocity dispersion is $\sigma=2.0$ \kms if we exclude sources e9
 and e10; with e9 and e10 included the dispersion increases to 4.2 \kms, which
 suggests that the uncertainty on those two sources renders their velocity
 measurements unreliable.  This velocity dispersion is confined to
-$r<5.4\arcsec$ or $r<0.13$ pc.
+$r<5.4\arcsec$ or $r<0.13$ pc.  Assuming the stars are virialized (which is
+probably not a good assumption), the implied mass is 350-1600 \msun, or an \hh
+number density $6\ee{5} < n(\hh) < 2\ee{7}$ \percc.
+
+The e1 subcluster is more compact, with $r=2.9$ \arcsec (0.07 pc), and its
+velocity dispersion is $\sigma=2.0$ \kms.  It is more symmetric and a virial
+assumption may be more accurate here.  Its implied density
+is $n(\hh)\sim2\ee7$ \percc.
 
 Given the mass of W51 Main and its $\sim10\kms$ escape velocity, all of these
 (proto)stars are clearly bound to the gas. 
@@ -360,11 +426,13 @@ velocity measurement may be affected by image reconstruction artifacts from
 \section{Conclusions}
 
 The \formaldehyde \twotwo 14.488 GHz transition is a good tracer of early-stage
-high-mass star formation.  It will be a powerful tool for studying the earliest
+very massive star formation.  It will be a powerful tool for studying the earliest
 stagest of high-mass star formation throughout the Galaxy with a Square
 Kilometer Array if the high-frequency end includes this transition.  Ongoing
-JVLA surveys (e.g., ... et al) may detect a significant population of
-proto-O-stars, though with its limited depth it may only detect source out to
+JVLA surveys (e.g., KuGARS, PI Thompson,
+\url{http://library.nrao.edu/proposals/catalog/10267}) may detect a significant
+population of proto-O-stars, though with its limited depth it may only detect
+source out to
 distance XXX.
 
 

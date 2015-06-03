@@ -1,10 +1,10 @@
 # Region file format: DS9 version 4.1
 global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
 fk5
-point(290.9438,14.497276) # point=x  text={e16?}
+point(290.9438,14.497276) # point=x text={e16?}
 point(290.94104,14.497291) # point=x text={e17?}
 point(290.94243,14.496351) # point=x text={e18?}
-point(290.9368,14.495844) # point=x  text={e19?}
+point(290.9368,14.495844) # point=x text={e19?}
 point(290.91105,14.501597) # point=x text={e15}
 point(290.89932,14.524392) # point=x text={d3_diffuse}
 point(290.91515,14.525169) # point=x text={d4e}
@@ -25,3 +25,4 @@ point(290.93296,14.507746) # point=x color=blue text={e8s}
 point(290.93316,14.5075) # point=x text={e10}
 point(290.93189,14.50745) # point=x text={e9}
 point(290.93991,14.507272) # point=x text={e11}
+point(290.92183,14.519886) # point=x text={d6}
