@@ -87,6 +87,6 @@ tbl[ok].write(paths.tpath('H2CO22_emission_spectral_fits.ecsv'), format='ascii.e
 for row in tbl:
     if "_" in row['Object Name']:
         row['Object Name'] = row['Object Name'].replace("_","\_")
-latexdict['header_start'] = '\label{tbl:emission22}'
+latexdict['header_start'] = '\label{tab:emission22}'
 latexdict['caption'] = '\\formaldehyde \\twotwo emission line parameters'
 tbl[ok].write(paths.tpath('H2CO22_emission_spectral_fits.tex'), format='ascii.latex', latexdict=latexdict)

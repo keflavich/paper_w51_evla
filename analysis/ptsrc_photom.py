@@ -1,3 +1,4 @@
+from __future__ import print_function
 import pyregion
 import photutils
 import astropy.wcs
@@ -9,26 +10,33 @@ import string
 from astropy import coordinates
 from astropy import table
 import gaussfitter
+import paths
+from paths import datapath
+import radio_beam
+from astropy import time
+from astropy.utils.console import ProgressBar
+from rounded import rounded
+from latex_info import latexdict
 
-reglist = pyregion.open('/Users/adam/work/w51/pointish_sources.reg')
-
-datapath1 = '/Volumes/128gbdisk/'
-datapath2 = '/Users/adam/work/w51/'
+reglist = pyregion.open(paths.rpath('pointsource_centroids.reg'))
 
 files = {
         # too low-res '1.4 GHz Epoch 1': 'W51-LBAND-feathered_ABCD.fits',
-        '2.5 GHz Epoch 2': datapath1+"12B-365/W51_12B-365_2to3GHz_continuum_uniform.image.fits",
-        '3.5 GHz Epoch 2': datapath1+"12B-365/W51_12B-365_3to4GHz_continuum_uniform.image.fits",
-        '4.9 GHz Epoch 2': datapath1+"12B-365/W51_12B-365_4.4to5.4GHz_continuum_uniform.image.fits",
-        '4.9 GHz Epoch 1': datapath2+'W51-CBAND-feathered.fits',
-        '4.9 GHz Epoch 3': datapath1+'w51_c_a/W51Ku_C_Aarray_continuum_2048_low_uniform.clean.image.fits',
-        '5.9 GHz Epoch 2': datapath1+"12B-365/W51_12B-365_5.4to6.4GHz_continuum_uniform.image.fits",
-        '5.9 GHz Epoch 3': datapath1+'w51_c_a/W51Ku_C_Aarray_continuum_2048_high_uniform.clean.image.fits',
-        '8.4 GHz Epoch 1': datapath2+'W51-X-ABCD-S1.VTESS.VTC.DAVID-MEH.fits',
-        '14.1 GHz Epoch 2':datapath1+"w51_ku/W51Ku_BDarray_continuum_2048_high_uniform.hires.clean.image.fits",
+        '2.5 GHz Epoch 2': datapath+"W51_12B-365_2to3GHz_continuum_uniform.image.fits",
+        '3.5 GHz Epoch 2': datapath+"W51_12B-365_3to4GHz_continuum_uniform.image.fits",
+        '4.9 GHz Epoch 2': datapath+"W51_12B-365_4.4to5.4GHz_continuum_uniform.image.fits",
+        '4.9 GHz Epoch 1': datapath+'W51-CBAND-feathered.fits',
+        '4.9 GHz Epoch 3': datapath+'W51Ku_C_Aarray_continuum_2048_low_uniform.clean.image.fits',
+        # 4096 A/C seem to suppress large scales WAY too much
+        #'4.9 GHz Epoch 3': datapath+'W51C_ACarray_continuum_4096_low_uniform.clean.image.fits',
+        '5.9 GHz Epoch 2': datapath+"W51_12B-365_5.4to6.4GHz_continuum_uniform.image.fits",
+        '5.9 GHz Epoch 3': datapath+'W51Ku_C_Aarray_continuum_2048_high_uniform.clean.image.fits',
+        #'5.9 GHz Epoch 3': datapath+'W51C_ACarray_continuum_4096_high_uniform.clean.image.fits',
+        '8.4 GHz Epoch 1': datapath+'W51-X-ABCD-S1.VTESS.VTC.DAVID-MEH.fits',
+        '14.1 GHz Epoch 2':datapath+"W51Ku_BDarray_continuum_2048_high_uniform.hires.clean.image.fits",
         #'13.0 GHz':datapath1+"w51_ku/W51Ku_BDarray_continuum_2048_both_uniform_GBTmodel.hires.clean.image.fits",
-        '12.6 GHz Epoch 2':datapath1+"w51_ku/W51Ku_BDarray_continuum_2048_low_uniform.hires.clean.image.fits",
-        '22.5 GHz Epoch 1':datapath2+"W51-K-B.S1-ICLN.DAVID-MEH.fits",
+        '12.6 GHz Epoch 2':datapath+"W51Ku_BDarray_continuum_2048_low_uniform.hires.clean.image.fits",
+        '22.5 GHz Epoch 1':datapath+"W51-K-B.S1-ICLN.DAVID-MEH.fits",
         }
 
 
@@ -42,6 +50,8 @@ gpars = {}
 gparerrs = {}
 gfits = {}
 obsdate = {}
+beams = {}
+frequencies = {}
 
 for freq,fn in files.iteritems():
     fluxes[freq] = {}
@@ -54,7 +64,11 @@ for freq,fn in files.iteritems():
     gfits[freq] = {}
     
     data = fits.getdata(fn).squeeze()
-    wcs = astropy.wcs.WCS(flatten_header(fits.getheader(fn)))
+    header = flatten_header(fits.getheader(fn))
+    wcs = astropy.wcs.WCS(header)
+    beam = radio_beam.Beam.from_fits_header(header)
+    beams[freq] = beam
+    frequencies[freq] = header.get('CRVAL3') or header.get('ACRVAL3')
 
     if wcs.wcs.radesys == 'FK4' or wcs.wcs.equinox == 1950:
         (blx,bly),(tr_x,tr_y) = wcs.wcs_world2pix([(290.35090,14.42627),(290.34560,14.43126),],0)
@@ -62,68 +76,77 @@ for freq,fn in files.iteritems():
         (blx,bly),(tr_x,tr_y) = wcs.wcs_world2pix([(290.92445,14.524376),(290.91912,14.529338)],0)
     error[freq] = data[bly:tr_y,blx:tr_x].std()
     obsdate[freq] = fits.getheader(fn)['DATE-OBS']
+    print("file: {0}".format(fn))
 
-    for reg in reglist:
+    for reg in ProgressBar(reglist):
         if reg.name == 'circle':
             ra,dec,rad = reg.coord_list
-            if wcs.wcs.radesys == 'FK4' or wcs.wcs.equinox == 1950:
-                C = coordinates.ICRS(ra,dec,unit=(u.deg,u.deg)).fk4
-                ra,dec = C.fk4.ra.deg,C.fk4.dec.deg
-            rd = [ra,dec] + [0]*(wcs.wcs.naxis-2)
-            xc,yc = wcs.wcs_world2pix([rd],0)[0][:2]
-            pixscale = np.abs(wcs.wcs.get_cdelt()[0])
-            rp = rad / pixscale
-            #aperture = photutils.CircularAperture(positions=[xc, yc], r=rp)
-            #flux = photutils.aperture_photometry(data=data, apertures=aperture)
-            flux = np.array(photutils.aperture_photometry(data=data,
-                                                          positions=[xc, yc],
-                                                          apertures=('circular',
-                                                                     rp))[0]['aperture_sum'])
+        elif reg.name == 'point':
+            ra,dec = reg.coord_list
+            rad = beam.major.to(u.deg).value
 
-            name = reg.attr[1]['text']
-            fluxes[freq][name] = flux / (np.pi * rp**2)
-            co = data[int(yc-3*rp):int(yc+3*rp+1),
-                      int(xc-3*rp):int(xc+3*rp+1)]
-            cutouts[freq][name] = co
+        if wcs.wcs.radesys == 'FK4' or wcs.wcs.equinox == 1950:
+            C = coordinates.ICRS(ra,dec,unit=(u.deg,u.deg)).fk4
+            ra,dec = C.fk4.ra.deg,C.fk4.dec.deg
 
-            yy,xx = np.indices(co.shape)
-            rr = ((xx-rp*3)**2+(yy-rp*3)**2)**0.5
-            #print co.shape,rr.shape
-            mask = rr<rp
-            if mask.sum():
-                peaks[freq][name] = co[mask].max()
-                valleys[freq][name] = co.min()
-                params = [co.min(), co[mask].max(), 3*rp, 3*rp, 2.0, 2.0, 45.0]
-                mp, fitimg = gaussfitter.gaussfit(co, params=params,
-                                                  err=error[freq],
-                                                  returnmp=True, rotate=True,
-                                                  vheight=True, circle=False,
-                                                  returnfitimage=True)
-                mpfits[freq][name] = mp
-                gpars[freq][name] = mp.params
-                gparerrs[freq][name] = mp.perror
-                gfits[freq][name] = fitimg
+        rd = [ra,dec] + [0]*(wcs.wcs.naxis-2)
+        xc,yc = wcs.wcs_world2pix([rd],0)[0][:2]
+        #pixscale = np.abs(wcs.wcs.get_cdelt()[0])
+        pixscale = (wcs.pixel_scale_matrix.diagonal()**2).sum()**0.5
+        rp = rad / pixscale
+        aperture = photutils.CircularAperture(positions=[xc, yc], r=rp)
+        aperture_data = photutils.aperture_photometry(data=data, apertures=aperture)
+        flux = aperture_data[0]['aperture_sum']
+        #flux = np.array(photutils.aperture_photometry(data=data,
+        #                                              positions=[xc, yc],
+        #                                              apertures=('circular',
+        #                                                         rp))[0]['aperture_sum'])
 
-                wcsX,wcsY = wcs.wcs_pix2world(mp.params[2]+int(xc-3*rp), mp.params[3]+int(yc-3*rp), 0)
-                center_coord = coordinates.SkyCoord(wcsX*u.deg, wcsY*u.deg,
-                                                    frame=wcs.wcs.radesys.lower())
-                gpars[freq][name][2] = center_coord.transform_to('fk5').ra.deg
-                gpars[freq][name][3] = center_coord.transform_to('fk5').dec.deg
-                gpars[freq][name][4] *= pixscale
-                gpars[freq][name][5] *= pixscale
+        name = reg.attr[1]['text']
+        fluxes[freq][name] = flux / (np.pi * rp**2)
+        # co: short for cutout
+        co = data[int(yc-3*rp):int(yc+3*rp+1),
+                  int(xc-3*rp):int(xc+3*rp+1)]
+        cutouts[freq][name] = co
 
-                gparerrs[freq][name][2] *= pixscale
-                gparerrs[freq][name][3] *= pixscale
-                gparerrs[freq][name][4] *= pixscale
-                gparerrs[freq][name][5] *= pixscale
+        yy,xx = np.indices(co.shape)
+        rr = ((xx-rp*3)**2+(yy-rp*3)**2)**0.5
+        #print co.shape,rr.shape
+        mask = rr<rp
+        if mask.sum():
+            peaks[freq][name] = co[mask].max()
+            valleys[freq][name] = co.min()
+            params = [co.min(), co[mask].max(), 3*rp, 3*rp, 2.0, 2.0, 45.0]
+            mp, fitimg = gaussfitter.gaussfit(co, params=params,
+                                              err=error[freq],
+                                              returnmp=True, rotate=True,
+                                              vheight=True, circle=False,
+                                              returnfitimage=True)
+            mpfits[freq][name] = mp
+            gpars[freq][name] = mp.params
+            gparerrs[freq][name] = mp.perror
+            gfits[freq][name] = fitimg
 
-            else:
-                peaks[freq][name] = np.nan
-                valleys[freq][name] = np.nan
+            wcsX,wcsY = wcs.wcs_pix2world(mp.params[2]+int(xc-3*rp), mp.params[3]+int(yc-3*rp), 0)
+            center_coord = coordinates.SkyCoord(wcsX*u.deg, wcsY*u.deg,
+                                                frame=wcs.wcs.radesys.lower())
+            gpars[freq][name][2] = center_coord.transform_to('fk5').ra.deg
+            gpars[freq][name][3] = center_coord.transform_to('fk5').dec.deg
+            gpars[freq][name][4] *= pixscale
+            gpars[freq][name][5] *= pixscale
 
-                mpfits[freq][name] = ()
-                gpars[freq][name] = np.array([np.nan]*7)
-                gparerrs[freq][name] = np.array([np.nan]*7)
+            gparerrs[freq][name][2] *= pixscale
+            gparerrs[freq][name][3] *= pixscale
+            gparerrs[freq][name][4] *= pixscale
+            gparerrs[freq][name][5] *= pixscale
+
+        else:
+            peaks[freq][name] = np.nan
+            valleys[freq][name] = np.nan
+
+            mpfits[freq][name] = ()
+            gpars[freq][name] = np.array([np.nan]*7)
+            gparerrs[freq][name] = np.array([np.nan]*7)
 
 
 # hack to make errors like peaks
@@ -150,18 +173,27 @@ tbl.add_column(col)
 col = table.Column(data=[float(freq.split()[0]) for freq in fluxes for name in fluxes[freq]],
                    name='Frequency', unit=u.GHz)
 tbl.add_column(col)
+col = table.Column(data=[freq.split()[-1] for freq in fluxes for name in fluxes[freq]],
+                   name='Epoch')
+tbl.add_column(col)
+col = table.Column(data=[beams[freq].major.to(u.arcsec).value for freq in beams for name in fluxes[freq]],
+                   name='BMAJ', unit=u.arcsec)
+tbl.add_column(col)
+col = table.Column(data=[beams[freq].minor.to(u.arcsec).value for freq in beams for name in fluxes[freq]],
+                   name='BMIN', unit=u.arcsec)
+tbl.add_column(col)
 
 for column_name in colname_mappings:
     datadict = colname_mappings[column_name]
     data = [datadict[freq][name]
             for freq in datadict
             for name in datadict[freq]]
-    col = table.Column(data=data, unit=u.mJy/u.beam,
+    col = table.Column(data=data, unit=u.Jy/u.beam,
                        name=column_name)
     tbl.add_column(col)
 
-gpardict = [('background',u.mJy/u.beam),
-            ('amplitude',u.mJy/u.beam),
+gpardict = [('background',u.Jy/u.beam),
+            ('amplitude',u.Jy/u.beam),
             ('racen',u.deg),
             ('deccen',u.deg),
             ('xwidth',u.deg),
@@ -188,4 +220,68 @@ data = [mpfits[freq][name].chi2n
 col = table.Column(name='gfit_chi2_reduced', data=data)
 tbl.add_column(col)
 
-tbl.write('EVLA_VLA_PointSourcePhotometry.ipac', format='ascii.ipac')
+rawtbl = tbl.copy()
+
+bad = ((rawtbl['peak_flux']-rawtbl['cutout_min_flux'] < 0) # negative signal = bad
+       | ((rawtbl['peak_flux']-rawtbl['cutout_min_flux'])/rawtbl['local_rms_noise'] < 4)
+       | np.isnan(rawtbl['peak_flux'])
+       | np.isnan(rawtbl['cutout_min_flux'])
+      )
+
+# uplims: 'peak_flux', 'aperture_flux', 'local_rms_noise', 'cutout_min_flux',
+for colname in ['gbackground', 'gamplitude', 'gracen', 'gdeccen', 'gxwidth',
+                'gywidth', 'gpositionangle', 'gfit_chi2', 'gfit_chi2_reduced']:
+    tbl[bad][colname] = np.nan
+
+tbl.sort('SourceName')
+tbl.write(paths.tpath('EVLA_VLA_PointSourcePhotometry.ipac'), format='ascii.ipac')
+
+## Create latex table
+
+tbl.add_column(table.Column(data=tbl['peak_flux']-tbl['cutout_min_flux'],
+                            name='peak_m_background',
+                            unit=tbl['peak_flux'].unit))
+nondetections = tbl['peak_m_background'] < tbl['local_rms_noise']*3
+
+cols_order = ['SourceName', 'Epoch', 'ObservationDate', 'peak_flux', 'peak_m_background', 'local_rms_noise', 'Frequency']
+cols = {'SourceName': 'Object',
+        #'FrequencyName': 'Band',
+        'ObservationDate': 'Obs. Date',
+        'peak_flux': 'Peak $S_{\\nu}$',
+        'peak_m_background': 'Peak - Background',
+        'local_rms_noise': '$\sigma$',
+       }
+
+textbl = tbl.copy()[cols_order]
+textbl.sort(['SourceName', 'Frequency'])
+textbl[nondetections]['peak_flux'] = np.nan
+textbl[nondetections]['peak_m_background'] = np.nan
+textbl['peak_flux'] = ((map(lambda x,y: rounded(x,y)[0], textbl['peak_flux'].to(u.mJy/u.beam).value, textbl['local_rms_noise'].to(u.mJy/u.beam).value)))
+textbl['peak_m_background'] = ((map(lambda x,y: rounded(x,y)[0], textbl['peak_m_background'].to(u.mJy/u.beam).value, textbl['local_rms_noise'].to(u.mJy/u.beam).value)))
+textbl['local_rms_noise'] = ((map(lambda x,y: rounded(x,y)[0], textbl['local_rms_noise'].to(u.mJy/u.beam).value, textbl['local_rms_noise'].to(u.mJy/u.beam).value)))
+for name in ('peak_flux', 'peak_m_background', 'local_rms_noise'):
+    textbl[name].unit = u.mJy/u.beam
+textbl['SourceName'] = map(lambda x: x.replace("_","-"), textbl['SourceName'])
+
+for old,new in cols.items():
+    textbl.rename_column(old, new)
+
+def exp_to_tex(st):
+    if 'e' in st:
+        pt1,pt2 = st.split('e')
+        return "{0}\\ee{{{1:d}}}".format(pt1,int(pt2))
+    return st
+
+def fmt(st):
+    return exp_to_tex("{0:0.2g}".format(st))
+
+latexdict['header_start'] = '\label{tab:contsrcs}'
+latexdict['caption'] = 'Continuum Point Sources'
+latexdict['tabletype'] = 'longtable'
+latexdict['tabulartype'] = 'longtable'
+textbl.write(paths.tpath('pointsource_photometry.tex'), format='ascii.latex', latexdict=latexdict,
+             formats={'$\sigma$': fmt,
+                      'Peak $S_{\\nu}$': fmt,
+                      'Peak - Background': fmt, 
+                      'Obs. Date': lambda x: time.Time(x).iso[:10],
+                     })

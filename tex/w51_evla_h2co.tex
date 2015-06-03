@@ -60,6 +60,25 @@ We additionally split source e8 into a north and south component, plus a more
 extended molecular component e8mol.  We also identify a molecular component
 between e1, e8, and e10, which we identify as e10mol.
 
+We include in this catalog any pointlike sources (at $\sim0.2-0.4\arcsec$
+resolution) with emission in two bands, Ku and C (14 and 5 GHz).  We also
+include candidate point sources that may instead be artifacts from the data
+reduction process.  In order to identify point sources, we used
+uniformly-weighted maps, which remove much of the extended emission and make
+pointsource detection simpler, but this process also can result in local peaks
+of the diffuse emission appearing to be pointlike.
+
+The point source data is listed in Table \ref{tab:contsrcs}.  The Epoch column
+describes the data source: Epoch 1 comes from \citet{Mehringer1994a}, Epoch 2
+comes from 12B-365, and Epoch 3 comes from 13A-064.  There are two flux density
+columns.  The first shows the peak flux density within a box with size
+$6\times6$ beams, which in some cases is negative because the source sits in a
+region affected by large angular scale negative bowls.  The second, `Peak -
+Background', shows the peak flux minus the lowest value within that same cutout
+region.  When these two values agree, they are reliable, but when they differ
+significantly they are probably affected by image reconstruction artifacts.
+
+
 
 \subsection{\formaldehyde \twotwo emission}
 We detect \formaldehyde \twotwo emission around W51e2, W51e8, in a region
@@ -340,6 +359,7 @@ distance XXX.
     \item pvextractor \url{http://pvextractor.readthedocs.org/}
 \end{itemize}
 
+\input{tables/pointsource_photometry.tex}
 
 \input{solobib}
 \end{document}

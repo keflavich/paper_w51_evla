@@ -1,5 +1,6 @@
 """
 Run ptsrc_photom interactively first
+and %run -i this
 """
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from matplotlib.patches import Circle
@@ -70,9 +71,9 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
             continue
 
         ax = fig.add_subplot(4,spdim2,1+jj)
-        im = ax.imshow(cutouts[k][sid]*1000) # convert to mJy
-        ax.contour(gfits[k][sid], levels=np.array([2,5,10,50])*errors[k][sid], colors=['w']*10)
-        ax.add_artist(Circle((sh[1]/2.,sh[0]/2.),radius=sh[0]/6.,facecolor='none',edgecolor='gray',alpha=0.5))
+        im = ax.imshow(cutouts[k][sid]*1000, cmap=pl.cm.gray_r) # convert to mJy
+        ax.contour(gfits[k][sid], levels=np.array([2,5,10,50])*errors[k][sid], colors=['b']*10)
+        ax.add_artist(Circle((sh[1]/2.,sh[0]/2.),radius=sh[0]/6.,facecolor='none',edgecolor='#FF0000',alpha=0.5))
         ax.set_xticks([])
         ax.set_yticks([])
 
@@ -84,12 +85,12 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
         cb = pl.colorbar(im, cax=cax)
         cb.set_label('mJy/beam')
         #ax.annotate(k,[0.9,0.1],xycoords='axes fraction',color='k',ha='right',weight='bold')
-        ax.annotate(k,[0.9,0.1],xycoords='axes fraction',color='w',ha='right',weight='bold')
+        ax.annotate(k,[0.9,0.1],xycoords='axes fraction',color='k',ha='right',weight='bold')
 
     pl.subplots_adjust(hspace=0.05,wspace=0.15)
-    fig.savefig(os.path.join(paths.ptsrc_sedpath,'%s_SED.pdf' % sid),
+    fig.savefig(paths.ptsrc_sedpath('%s_SED.pdf' % sid),
                 bbox_inches='tight')
-    fig.savefig(os.path.join(paths.ptsrc_sedpath,'%s_SED.png' % sid),
+    fig.savefig(paths.ptsrc_sedpath('%s_SED.png' % sid),
                 bbox_inches='tight')
 
     #break

@@ -5,14 +5,14 @@ point(290.9438,14.497276) # point=x  text={e16?}
 point(290.94104,14.497291) # point=x text={e17?}
 point(290.94243,14.496351) # point=x text={e18?}
 point(290.9368,14.495844) # point=x  text={e19?}
-point(290.91105,14.501597) # point=x text={e15?}
-point(290.89932,14.524392) # point=x text={d3?}
-point(290.91515,14.525169) # point=x text={d4e?}
-point(290.91502,14.525121) # point=x text={d4w?}
-point(290.92407,14.524325) # point=x text={d5?}
+point(290.91105,14.501597) # point=x text={e15}
+point(290.89932,14.524392) # point=x text={d3_diffuse}
+point(290.91515,14.525169) # point=x text={d4e}
+point(290.91502,14.525121) # point=x text={d4w}
+point(290.92407,14.524325) # point=x text={d5}
 point(290.92859,14.508442) # point=x text={e12?}
-point(290.92839,14.510261) # point=x text={e13?}
-point(290.92754,14.511687) # point=x text={e14?}
+point(290.92839,14.510261) # point=x text={e13}
+point(290.92754,14.511687) # point=x text={e14}
 point(290.93244,14.507254) # point=x color=blue text={e1}
 point(290.93294,14.509599) # point=x color=blue text={e2}
 point(290.93266,14.50686) # point=x color=blue text={e3}
@@ -24,4 +24,4 @@ point(290.93294,14.507843) # point=x color=blue text={e8n}
 point(290.93296,14.507746) # point=x color=blue text={e8s}
 point(290.93316,14.5075) # point=x text={e10}
 point(290.93189,14.50745) # point=x text={e9}
-point(290.93991,14.507272) # point=x text={e11?}
+point(290.93991,14.507272) # point=x text={e11}
