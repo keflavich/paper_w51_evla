@@ -68,7 +68,7 @@ for thisspec in sp:
                  list((rounded(thisspec.specfit.parinfo.AMPLITUDE0.value, thisspec.specfit.parinfo.AMPLITUDE0.error)*u.Jy).to(u.mJy))+
                  list(rounded(thisspec.specfit.parinfo.SHIFT0.value, thisspec.specfit.parinfo.SHIFT0.error)*u.km/u.s)+
                  list(rounded(thisspec.specfit.parinfo.WIDTH0.value, thisspec.specfit.parinfo.WIDTH0.error)*u.km/u.s)+
-                 [np.round(thisspec.header['APAREA'], int(np.ceil(-np.log10(thisspec.header['APAREA'])))+1)*u.sr])
+                 [np.round(thisspec.header['APAREA']*(np.pi/180.)**2, int(np.ceil(-np.log10(thisspec.header['APAREA']*(np.pi/180.)**2)))+1)*u.sr])
 
  
 # sort such that e10 comes after e9

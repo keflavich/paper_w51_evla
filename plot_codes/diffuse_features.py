@@ -30,6 +30,7 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
     ax.set_xlim(x1,x2)
     ax.set_ylim(y1,y2)
     ra = ax.coords['ra']
+    ra.set_major_formatter('hh:mm:ss.s')
     dec = ax.coords['dec']
     ra.set_axislabel("RA")
     dec.set_axislabel("Dec")
