@@ -24,6 +24,15 @@ obstbl = Table([Column(data=[ep.split()[-1] for ep in beams], name='Epoch'),
                 Column(data=[bm.minor.to(u.arcsec).value for bm in beams.values()]*u.arcsec, name='BMIN'),
                 Column(data=[bm.pa.to(u.deg).value for bm in beams.values()]*u.deg, name='BPA'),
                ])
+obstbl.add_column(Column(data=[(1*u.Jy).to(u.K,
+                                           u.brightness_temperature(bm.sr, freq*u.GHz,)
+                                          ).value
+                               for bm,freq in zip(beams.values(),
+                                                  obstbl['Frequency'])
+                              ],
+                         name='Jy-Kelvin'
+                        )
+                 )
 
 obstbl.sort(['Frequency', 'Epoch'])
 latexdict['header_start'] = '\label{tab:observations}'
@@ -36,6 +45,7 @@ obstbl.write(paths.tpath('observations.tex'), format='ascii.latex',
              formats={'BMAJ': lambda x: '{0:0.2f}'.format(x),
                       'BMIN': lambda x: '{0:0.2f}'.format(x),
                       'BPA':  lambda x: '{0:0.2f}'.format(x),
+                      'Jy-Kelvin':  format_float,
                      },
             )
  

@@ -55,17 +55,22 @@ The observations and resulting images are summarized in Table
 \input{tables/observations.tex}
 
 \section{Observational Results}
-We report three key observational results: 
+We report four key observational results: 
 \begin{enumerate}
-    \item The detection of new continuum sources, which are most likely
-        hypercompact \hii regions.
-    \item The detection of \formaldehyde \twotwo emission around sources e2,
-        e8, and W51 North
-    \item Measurements of line-of-sight velocities toward many ultracompact
-        \hii regions using H77$\alpha$ and/or \formaldehyde
+    \item Section \ref{sec:pointsources}: The detection of new continuum
+        sources, which are most likely hypercompact \hii regions. 
+    \item Section \ref{sec:twotwoemission}: The detection of \formaldehyde
+        \twotwo emission around sources e2, e8, and W51 North
+    \item Section \ref{sec:LOSvelo}: Measurements of line-of-sight velocities
+        toward many ultracompact \hii regions using H77$\alpha$ and/or
+        \formaldehyde
+    \item Section \ref{sec:diffuseemission}: Detection of Orion-bar-like sharp
+        edges to the W51 Main HII region, most likely tracing a
+        photon-dominated region (PDR)
 \end{enumerate}
 
-\subsection{Continuum photometry}
+\subsection{Continuum sources and photometry}
+\label{sec:pointsources}
 Our data are the most sensitive continuum observations yet performed on the W51
 region.  We report new detections of some sources, and concrete identifications
 of others that were detected in previous data sets but not reported.
@@ -103,6 +108,8 @@ minus the lowest value within that same cutout region.  When these two values
 agree, they are reliable, but when they differ significantly they are probably
 affected by image reconstruction artifacts.
 
+\input{tables/pointsource_photometry.tex}
+
 The multi-epoch data demonstrate that some of these sources are variable.  The
 most convincing case for variability is in the (double) source d4.  In the
 \citet{Mehringer1994a} data, there is no hint of emission at this location,
@@ -117,26 +124,29 @@ offset between these images using a cross-correlation method
 (\url{image-registration.rtfd.org}); the 2014 data were shifted by 0.16\arcsec,
 0.20\arcsec to the southeast from the 1994 data.
 
+
 \subsection{\formaldehyde \twotwo emission}
+\label{sec:twotwoemission}
 We detect \formaldehyde \twotwo emission around W51e2, W51e8, in a region
 between e1, e8, and e10, and in W51 North.  We report the tentative detection
-of an extended structure between e2 and e1, though this structure is very weak
+of an extended structure between e2 and e1, though this structure is weak
 and could be an artifact from the image reconstruction process.
 
-The W51e sources all show self-absorption around $v\sim55$ \kms, close in
-velocity to the nadir of the W51e2 spectrum.  A diffuse cloud is visible toward
-the south at this same velocity, so it seems that the W51e cluster is either
-embedded within the $\sim55$ \kms cloud or behind it.  The cloud wraps around
-the W51e cluster at lower velocities, so it seems more likely they are embedded
-within it.  All of the W51e sources show absorption against the 68 \kms cloud,
-so they lie behind that.
+The W51e emission sources show signs of self-absorption around $v\sim55$ \kms,
+close in velocity to the nadir of the W51e2 spectrum.  A diffuse cloud is
+visible in absorption against the HII region toward the south at this same
+velocity, so it seems that the W51e cluster is either embedded within the
+$\sim55$ \kms cloud or behind it.  The cloud wraps around the W51e cluster at
+lower velocities, so it seems more likely they are embedded within it.  All of
+the W51e sources show absorption against the 68 \kms cloud, so they lie behind
+it.
 
 The fitted emission line parameters are listed in Table \ref{tab:emission22}.
-
 
 \input{tables/H2CO22_emission_spectral_fits}
 
 \subsection{Line-of-sight velocities}
+\label{sec:LOSvelo}
 We have detected H77$\alpha$ emission from many of the ultracompact and
 hypercompact \hii regions within W51.  We report their line-of-sight velocities
 as measured from gaussian profile fits to their extracted spectra.
@@ -158,6 +168,7 @@ velocity measurement may be affected by image reconstruction artifacts from
 \input{tables/H77a_spectral_fits}
 
 \subsection{Diffuse emission features}
+\label{sec:diffuseemission}
 There are a few new notable emission features detected in our data that were
 not seen in previous shallower data.
 
@@ -220,17 +231,17 @@ variability.}
 \subsection{The stellar mass}
 
 We have re-measured the luminosity of the W51 protoclusters using Herschel
-Hi-Gal data, fitting an SED from the 70 to 500 \um with a single blackbody
-component.  While this is not a very good measurement of the dust temperature -
-multiple temperature components are evident \citep{Sievers1991a} - it provides
-a good approximation to the total luminosity, which is dominated by a single
-warm ($\sim60$ K) component.  The luminosity is about $L\sim2\ee{7}$ \lsun
-within a 2 pc radius, which includes both the W51 IRS2 and W51 Main
-protoclusters.  It does not include the mid-infrared luminosity, which may
-provide an additional $\sim25-50\%$ based on the IRAS measurements. A
-luminosity $L=2\pm0.5\ee{7}$ \lsun implies a stellar mass $M_{cl} = 6700 \pm
-2300$ \msun, with a corresponding number of O-stars (greater than 20 \msun)
-$N_O = 19 \pm 6$.
+Hi-Gal data \citep{Molinari2010a,Traficante2011a}, fitting an SED from the 70
+to 500 \um with a single blackbody component.  While this is not a very good
+measurement of the dust temperature - multiple temperature components are
+evident \citep{Sievers1991a} - it provides a good approximation to the total
+luminosity, which is dominated by a single warm ($\sim60$ K) component.  The
+luminosity is about $L\sim2\ee{7}$ \lsun within a 2 pc radius, which includes
+both the W51 IRS2 and W51 Main protoclusters.  It does not include the
+mid-infrared luminosity, which may provide an additional $\sim25-50\%$ based on
+the IRAS measurements. A luminosity $L=2\pm0.5\ee{7}$ \lsun implies a stellar
+mass $M_{cl} = 6700 \pm 2300$ \msun, with a corresponding number of O-stars
+(greater than 20 \msun) $N_O = 19 \pm 6$.
 
 Of these expected $\sim20$, 4-5 are known O-stars.  \citet{Figueredo2008a} found
 4 exposed O-type stars and \citet{Barbosa2008a} found an additional two with
@@ -338,13 +349,13 @@ detected a weak extended continuum source in e8, with a peak $S_{15 GHZ}
 \approx 2$ mJy and $S_{5 GHz} \approx 1$ mJy, both consistent with the limits
 on W51North, where confusion from IRS 2 may prevent a detection.
 
-\subsubsection{Filaments}
+\subsubsection{An extended molecular structure (a `filament')}
 There is a `bridge' structure connecting the e8 and e2 cores.  This structure
 was seen in \citet{Zhang1997a}, but was poorly resolved and could have been
 dismissed as an artifact of the dirty beam.  This bridge is fainter than either
 of the cores but clearly detected (Figure \ref{fig:w51bridge22emispec} and
-Figure \ref{fig:w51mainemicontours}).  It is also hot, $T\gtrsim300$ K at peak,
-and must be extremely dense.
+Figure \ref{fig:w51mainemicontours}).  It is also hot, $T_B\gtrsim300$ K at peak,
+and presumably very dense.
 
 The gas temperatures must either be driven by internal star formation, possibly
 a very early stage massive star like W51 North with no HII region yet formed,
@@ -459,6 +470,43 @@ is $n(\hh)\sim2\ee7$ \percc.
 Given the mass of W51 Main and its $\sim10\kms$ escape velocity, all of these
 (proto)stars are clearly bound to the gas. 
 
+\subsection{The nature of the continuum sources}
+The point sources are all most likely to be hypercompact HII regions.  All that
+are detected at low frequencies (2-6 GHz) are also detected at 15 GHz.  Many of
+these sources have peculiar spectral energy distributions, with maxima at 2 and
+15 GHz and a minimum at 6 GHz.  These SEDs are not easily explained by either
+simple HII region models or as synchrotron emission sources.  However, the
+association of all of these sources with the W51 region - all are within
+$\sim2\arcmin$ of the central clusters - means they are unlikely to be
+background galaxies.  
+
+Given the faintness of these sources ($S_{5 GHz} \sim 1$ mJy), they must be
+very small if they are free-free emission sources.  A 1 mJy source has a
+brightness temperature of 600 K in our C-band observations, which implies
+either that the HII region is optically thin, with $\tau < 0.1$, or very small,
+with $ff<0.1$.  Given a beam radius of 0.3\arcsec, the implied upper limit size
+for an optically thick source is 2 mpc (500 AU).
+
+In typical analysis of HCHII regions, one can distinguish these scenarios by
+examining the spectral index.  An optically thick source would have a spectral
+index $\alpha=2$, i.e. $S_\nu \propto \nu^2$.  However, excepting e2, none of
+the sources in our catalog exhibit such a slope.  Most sources have
+$\alpha\sim1$ or $\alpha\sim0$ and a minimum at 6 GHz.  Free-free emission does
+not readily explain these SEDs unless the source size is varying as a function
+of frequency, which is possible.  Another possibility is that these sources
+exhibit both free-free and synchrotron emission.
+
+The diffuse HII regions are unambiguous, though the set of 4 ultracompact HII
+regions with similar size is interesting.  All four of d3, e1, e6, and e7 have
+similar sizes (0.02-0.07 pc) and are fairly round and symmetric.  They exhibit
+some variations in surface brightness but are essentially circular.  In a
+classical view of an expanding spherical HII region, these sources are at early
+but very similar evolutionary stages.  Assuming that these all went through a
+hypercompact HII region phase, and assuming that all of the hypercompact and
+ultracompact HII regions within W51 go through the same phases at the same
+rate, the ultracompact HII phase must be 10-30\% as long as the hypercompact
+HII phase.  However, both of these assumptions are questionable.
+
 
 % \subsection{Sources of illumination in the extend HII regions}
 % There are many extended HII regions associated with the W51 cluster area.
@@ -476,9 +524,7 @@ stagest of high-mass star formation throughout the Galaxy with a Square
 Kilometer Array if the high-frequency end includes this transition.  Ongoing
 JVLA surveys (e.g., KuGARS, PI Thompson,
 \url{http://library.nrao.edu/proposals/catalog/10267}) may detect a significant
-population of proto-O-stars, though with its limited depth it may only detect
-source out to
-distance XXX.
+additional population of proto-O-stars.
 
 The detected \uchii and \hchii regions and infrared-detect O-stars do not fully
 account for the luminosity of the W51 region.  It is possible that more O-stars
@@ -504,9 +550,14 @@ the massive star census in the region.
     \item pvextractor \url{http://pvextractor.readthedocs.org/}
 \end{itemize}
 
-An excerpt from the point source catalog.  The full version is available in
-digital form.
-\input{tables/pointsource_photometry.tex}
-
 \input{solobib}
+
+\appendix{Point Source Photometry Catalog}
+\todo{The full version of the point source photometry catalog is availabe in
+digital form...}
+
+%\onecolumn
+%\input{tables/pointsource_photometry_full.tex}
+%\twocolumn
+
 \end{document}

@@ -250,10 +250,21 @@ for old,new in cols.items():
     textbl.rename_column(old, new)
 
 latexdict['header_start'] = '\label{tab:contsrcs}'
-latexdict['caption'] = 'Continuum Point Sources'
-#latexdict['tabletype'] = 'longtable'
-#latexdict['tabulartype'] = 'longtable'
+latexdict['caption'] = 'Continuum Point Sources (excerpt)'
+latexdict['tablefoot'] = '\par\nAn excerpt from the point source catalog.  For the full catalog, see Table \\ref{tbl:contsrcs_full}'
 textbl[::10].write(paths.tpath('pointsource_photometry.tex'), format='ascii.latex', latexdict=latexdict,
+             formats={'$\sigma$': format_float,
+                      'Peak $S_{\\nu}$': format_float,
+                      'Peak - Background': format_float, 
+                      'Obs. Date': lambda x: time.Time(x).iso[:10],
+                     })
+
+latexdict['header_start'] = '\label{tab:contsrcs_full}'
+latexdict['caption'] = 'Continuum Point Sources'
+latexdict['tablefoot'] = ''
+#latexdict['tabletype'] = 'longtable'
+latexdict['tabulartype'] = 'longtable'
+textbl.write(paths.tpath('pointsource_photometry_full.tex'), format='ascii.latex', latexdict=latexdict,
              formats={'$\sigma$': format_float,
                       'Peak $S_{\\nu}$': format_float,
                       'Peak - Background': format_float, 
