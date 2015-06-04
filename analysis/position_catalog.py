@@ -33,7 +33,12 @@ postbl.sort('Source Name')
 
 latexdict['header_start'] = '\label{tab:positions}'
 latexdict['caption'] = 'Source Positions'
-latexdict['tablefoot'] = '\par\nObjects with name e\#d are the diffuse counterparts to point sources.'
+latexdict['tablefoot'] = ('\par\nObjects with name e\#d are the diffuse '
+                          'counterparts to point sources.  Those with a '
+                          'trailing ? are candidate sources that are only weakly '
+                          'detected.   Sources with no radius are unresolved, '
+                          'with '
+                          'upper limits of 0.3\\arcsec (0.007 pc).')
 latexdict['col_align'] = 'lllrr'
 #latexdict['tabletype'] = 'longtable'
 #latexdict['tabulartype'] = 'longtable'
