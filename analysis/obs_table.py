@@ -37,6 +37,9 @@ obstbl.add_column(Column(data=[(1*u.Jy).to(u.K,
 obstbl.sort(['Frequency', 'Epoch'])
 latexdict['header_start'] = '\label{tab:observations}'
 latexdict['caption'] = 'Observations'
+latexdict['tablefoot'] = ('\par\nJy-Kelvin gives the conversion factor from Jy'
+                          'to Kelvin given the synthesized beam size and '
+                          'observation frequency')
 #latexdict['col_align'] = 'lllrr'
 #latexdict['tabletype'] = 'longtable'
 #latexdict['tabulartype'] = 'longtable'
