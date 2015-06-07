@@ -2,7 +2,7 @@
 
 \begin{document}
 
-\title{The proto-O-star population of W51}
+\title{The (proto) O-star population of W51}
 \titlerunning{W51 EVLA H2CO}
 \authorrunning{Ginsburg et al}
 \input{authors}
@@ -18,6 +18,9 @@
 (1) \ortho \twotwo emission traces forming very massive (proto-O) stars
 (2) There is a spatially distributed population of $\sim$mJy continuum sources,
 probably hypercompact HII regions, around the W51 proto-clusters
+(3) There are two clearly detected clusters, W51e and W51 IRS 2, but the
+majority of the luminosity in W51 most likely comes from a third, possibly
+un-clustered, population of OB stars between these clusters.
 }
 
 \maketitle
@@ -53,6 +56,15 @@ The observations and resulting images are summarized in Table
 \ref{tab:observations}.
 
 \input{tables/observations.tex}
+
+
+\Figure{figures/diffuse/W51_Ku_overview.pdf}
+{The Ku-band image of the W51 region.}
+{fig:kuoverview}{0.9}{0}
+
+\Figure{figures/diffuse/W51_C_overview.pdf}
+{The C-band image of the W51 region.}
+{fig:coverview}{0.9}{0}
 
 \section{Observational Results}
 We report four key observational results: 
@@ -124,6 +136,12 @@ offset between these images using a cross-correlation method
 (\url{image-registration.rtfd.org}); the 2014 data were shifted by 0.16\arcsec,
 0.20\arcsec to the southeast from the 1994 data.
 
+Finally, we compare our extracted source catalog with the MOXC Chandra X-ray
+catalog \citep{Townsley2014a}.  Only two of the compact HII regions are close
+enough to X-ray sources to plausibly be associated with them.  d4 is close to
+MOXC 192339.62+143130.3 and d6 is close to MOXC 192341.23+143111.8.  The lack
+of correlation between X-ray and HCHII regions clearly indicates that the OB
+stars within HCHII regions are weak X-ray emitters.
 
 \subsection{\formaldehyde \twotwo emission}
 \label{sec:twotwoemission}
@@ -204,16 +222,17 @@ similarity suggests that these features are PDRs, highlighting the sharp
 interaction points between the HII region and the surrounding molecular cloud.
 
 The two most prominent of these sharp features are on opposite sides of the W51
-Peak.  The long vertical filament at RA = 19:23:42.4 approximately faces W51e,
-while the S-shaped filament at RA=19:23:41.6 faces nothing in particular.  The
-presence of multiple features raises questions about the ionizing source.  In
-Orion, the Trapezium is 0.2 pc in projection from the Bar PDR.  The left
-filament is 0.6 pc from the W51e cluster, which contains enough O-stars to
-illuminate the filaments, but it is not clear whether there is a clear
-line-of-sight from those stars, which appear to be deeply embedded in molecular
-material, to the filament.  It is possible that there are additional OB stars
-embedded in the W51 Peak driving much of its luminosity that have never been
-resolved because they are confused with the ionized nebula they produce.
+Peak.  The long vertical filament at RA = 19:23:42.4 (Filament A) approximately
+faces W51e, while the S-shaped filament at RA=19:23:41.6 (Filament B) faces
+nothing in particular.  The presence of multiple features raises questions
+about the ionizing source.  In Orion, the Trapezium is 0.2 pc in projection
+from the Bar PDR.  The left filament is 0.6 pc from the W51e cluster, which
+contains enough O-stars to illuminate the filaments, but it is not clear
+whether there is a clear line-of-sight from those stars, which appear to be
+deeply embedded in molecular material, to the filament.  It is possible that
+there are additional OB stars embedded in the W51 Peak driving much of its
+luminosity that have never been resolved because they are confused with the
+ionized nebula they produce.
 
 \FigureTwo
 {figures/diffuse/w51main_peak.png}
@@ -226,6 +245,41 @@ The 2014 data have higher resolution and therefore this image primarily
 highlights compact emission, though some differences may be explained by
 variability.}
 {fig:w51mainpeak}{1}{3.5in}
+
+Additionally, the W51 Main ridge is cleanly detected in H77$\alpha$.  Filament
+B peaks in the range 40-50 \kms.  From its sharp start toward the southeast,
+there is continuous H77$\alpha$ emission toward the northeast from 40 to 80
+\kms.
+
+The H77$\alpha$ lines reveal two bubbles that overlap along the line of sight but
+are clearly distinct in velocity.  A smaller bubble at 40 \kms shows a velocity
+gradient orthogonal to the gradient seen next to filament A, increasing in
+velocity from southwest to northeast; this gradient may trace the edges of an expanding
+spherical shell.  The large bubble is centered at about 65 \kms and does not
+exhibit any clear gradients.
+
+The HII region between W51 Main and W51 IRS 2 appears connected to the W51 IRS2
+bubble in the continuum, but it peaks at around 75 \kms.  Along this region,
+there are weak `striations' at PA 126 degrees, vaguely orthogonal to a line
+pointing back to IRS 2.  These striations are similar in scale to PSF artifacts
+from bright pointlike sources, but no such artifaces are seen at this PA
+elsewhere in the image and they are smoother than similar features, so they are
+probably real.  They may trace the outer edge of the expanding IRS 2 region.
+There is also an arc to the southwest of this between-clusters region.
+
+The IRS2 region peaks in velocity around 62 \kms at the center, but exhibits a
+consistent gradient from its center to its surroundings, with a more extended
+component peaking around 47 \kms.  There is a clear shell around IRS2
+with maximum projected radius 21\arcsec (0.5 pc; Figure \ref{fig:w51irs2}).
+There is a prominent sharp edge feature extending to the northeast from the
+central cluster; it is not clear what this feature traces.
+
+\FigureTwo
+{figures/diffuse/irs2_C_high.png}
+{figures/diffuse/irs2_C_low.png}
+{The W51 IRS 2 region in C-band continuum with two color scales to highlight
+different features.}
+{fig:w51irs2}{1}{3.5in}
 
 \section{Analysis}
 \subsection{The stellar mass}
@@ -450,6 +504,14 @@ redshifted counterpart.  The H77$\alpha$ data reveal that there is not an
 extincted counterpart.}
 {fig:lacyjetslice}{1}{3.5in}
 
+This outflow is close to W51 North, which is a likely driver of the outflow based
+on the highly excited \ammonia around it \citep{Henkel2013a,Goddi2015a}.  However,
+the accretion O-star W51 IRS 2E is also very close to the outflow and could plausibly
+be the driver \citep{Barbosa2008a}.  IRS 2E is the brightest X-ray source in
+W51 with a harder X-ray spectrum than other sources in the region, and it emits
+most of its energy in iron fluorescence lines, indicating that there is a very
+strong interaction with dense material around it \citep{Townsley2014a}.
+
 \subsection{The velocity dispersion in the W51e cluster}
 We detect H77$\alpha$ toward 6 of the 8 hyper/ultra compact \hii regions in the
 W51 Main (W51e) cluster; 4 of these 6 are firm detections and two are weak.  We
@@ -508,10 +570,24 @@ rate, the ultracompact HII phase must be 10-30\% as long as the hypercompact
 HII phase.  However, both of these assumptions are questionable.
 
 
-% \subsection{Sources of illumination in the extend HII regions}
-% There are many extended HII regions associated with the W51 cluster area.
-% While some have obvious driving sources, the W51 Main region seems not to - 
-% the hypercompact HII regions are too small and not leaky enough.
+\subsection{Sources of illumination in the extended HII regions}
+There are many extended HII regions associated with the W51 cluster area.
+While some have obvious driving sources, the W51 Main region seems not to - the
+hypercompact HII regions are too small and not leaky enough.  Additionally, at
+the W51 Peak position, we have discovered multiple overlapping bubbles at
+different line-of-sight velocities with centers far from both the W51 IRS2 and
+W51e clusters.
+
+We therefore suggest that the majority of the luminosity in the \todo{W51A
+region (i.e., the overall area including both IRS2 and W51 Main; todo is say
+this in intro)} comes from a partially-embedded population of stars that is
+extremely confused with the luminous HII region it generates.
+
+The different velocities of the HII bubbles in the W51 peak suggest that there
+are interacting, expanding bubbles, which in turn implies that there is a separation
+between the driving sources of at least the bubble sizes, $\sim0.2-0.3$ pc.  
+The W51 Peak cluster is therefore less dynamically evolved than W51 IRS2 and W51e,
+which are both centrally concentrated.
 
 % \section{The distributed population of HCHII regions}
 % We detect an additional XX point sources in the field.
@@ -527,7 +603,7 @@ JVLA surveys (e.g., KuGARS, PI Thompson,
 additional population of proto-O-stars.
 
 The detected \uchii and \hchii regions and infrared-detect O-stars do not fully
-account for the luminosity of the W51 region.  It is possible that more O-stars
+account for the luminosity of the W51 region.  We argue that more O-stars
 are hiding within the bright shell/ridge between the two clusters.  Since this
 region is by turns both extremely bright in nebular emission and reflection and
 heavily extincted in the near-infrared, deep, high resolution infrared
@@ -555,6 +631,7 @@ the massive star census in the region.
 \appendix{Point Source Photometry Catalog}
 \todo{The full version of the point source photometry catalog is availabe in
 digital form...}
+
 
 %\onecolumn
 %\input{tables/pointsource_photometry_full.tex}

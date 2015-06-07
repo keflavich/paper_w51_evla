@@ -1,15 +1,19 @@
 # Region file format: DS9 version 4.1
 global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
-fk5
-circle(290.94036,14.508079,3.559014") # text={e11d}
-circle(290.94243,14.49555,3.177306") # text={e18d}
-circle(290.93662,14.486484,1.769688") # text={e7}
-circle(290.9174,14.494193,19.135944") # text={G49.46-0.38}
-circle(290.89632,14.498828,34.43202") # text={G49.46-0.36}
-circle(290.89948,14.524423,1.9185948") # text={d3}
-circle(290.96121,14.547254,7.097688") # text={W51G 8}
-circle(290.92412,14.517403,1.0210284") # text={e6}
-circle(290.93243,14.507257,0.7370034") # text={e1}
-circle(290.91622,14.518985,1.309896") # text={W51 IRS2}
-circle(290.93618,14.506529,41.50944") # text={W51 Main Shell}
-circle(290.91624,14.519024,21.354912") # text={W51 IRS 2 bubble}
+icrs
+circle(290.94035,14.508072,3.55901") # text={e11d}
+circle(290.94242,14.495544,3.17731") # text={e18d}
+circle(290.93661,14.486478,1.76969") # text={e7}
+circle(290.91739,14.494186,19.1359") # text={G49.46-0.38}
+circle(290.89631,14.498822,34.432") # text={G49.46-0.36}
+circle(290.89947,14.524417,1.91859") # text={d3}
+circle(290.9612,14.547247,7.09769") # text={W51G 8}
+circle(290.92411,14.517397,1.02103") # text={e6}
+circle(290.93242,14.50725,0.737003") # text={e1}
+circle(290.91621,14.518978,1.3099") # text={W51 IRS2}
+circle(290.93617,14.506522,41.5094") # text={W51 Main Shell}
+circle(290.91623,14.519017,21.3549") # text={W51 IRS 2 bubble}
+circle(290.92594,14.511167,7.78777") # text={W51 Main 40kms RRL Shell}
+circle(290.92728,14.511961,10.783404") # text={W51 Main 65 kms RRL shell}
+circle(290.92279,14.514174,4.496112") # text={Between}
+circle(290.92082,14.510357,6.008976") # text={arc}

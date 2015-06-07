@@ -3,6 +3,7 @@ from astropy import units as u
 from astropy.io import fits
 import aplpy
 import pylab
+import paths
 
 dpath = '/Volumes/128gbdisk/w51/'
 dpath = '/Users/adam/work/w51/paper_w51_evla/data/'
@@ -33,6 +34,11 @@ F.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.011)
 #F.recenter(e1.ra.value,e1.dec.value,width=1/60.,height=1/60.)
 #F.recenter(290.92633,14.514769,radius=1.4/60.)
 F.recenter(290.92345,14.511772,radius=1.1/60.)
+F.add_scalebar(length=((0.5 * u.pc)/(5.4*u.kpc)*u.radian).to(u.degree).value)
+F.scalebar.set_label('0.5 pc')
+F.scalebar.set_color('orange')
+F.scalebar.set_linewidth(3)
+F.scalebar.set_font_size(20)
 
 #F.show_contour(dpath+'H2CO_22_Ku_D_tausummed_52to58.fits',levels=[2.0,3.0,4.0,10.0],colors=[(1,0,0,0.1),(1,0,0,0.2),(1,0,0,0.3)],filled=True,slices=[0])
 #F.show_contour('../w51/H2CO_11_C_C_tausummed_42to61.fits',levels=[2.0,5.5],colors=[(1,0,0,0.4),(1,0,0,0.6)],filled=True,slices=[0])
@@ -53,11 +59,6 @@ F.show_contour(dpath+'v2.0_ds2_l050_13pca_map20.fits',levels=[12],colors=['b'], 
 #F.show_regions(dpath+'scalebars_8.5kpc_gal.reg')
 #F.show_regions(dpath+'nh3_observed_region.reg')
 
-F.add_scalebar(length=((0.5 * u.pc)/(5.4*u.kpc)*u.radian).to(u.degree).value)
-F.scalebar.set_label('0.5 pc')
-F.scalebar.set_color('orange')
-F.scalebar.set_linewidth(3)
-F.scalebar.set_font_size(20)
 F.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_withH2COcontours_nobeam.png', dpi=300)
 F.save('/Users/adam/proposals/alma/cycle3/w51/W51_Ku_withH2COcontours_nobeam.pdf', dpi=300)
 F.add_beam(major=15/3600., minor=15/3600., hatch='///', color=(1,1,0,1), facecolor='none')

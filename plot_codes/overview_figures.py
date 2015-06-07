@@ -10,8 +10,8 @@ dpath = '/Users/adam/work/w51/paper_w51_evla/data/'
 
 #aplpy.make_rgb_cube( ('W51-CBAND-feathered.fits','W51-X-ABCD-S1.VTESS.VTC.DAVID-MEH.fits','W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits'), 'W51_CXU_rgb' )
 
-for fn,(vmin,vmax),name in (("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits",(-0.1e-3,10e-3), 'W51_Ku'),
-                            ('W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits',(-0.1e-3,55e-3), 'W51_C')):
+for fn,(vmin,vmax),name in (("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits",(-0.6e-3,13e-3), 'W51_C'),
+                            ('W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits',(-2.0e-3,45e-3), 'W51_Ku')):
     figure = pylab.figure(1)
     figure.clf()
 
@@ -31,7 +31,7 @@ for fn,(vmin,vmax),name in (("W51C_ACarray_continuum_4096_both_uniform_contsplit
     F.tick_labels.set_yformat('dd.dd')
     F.tick_labels.set_font(size=20)
     F.axis_labels.set_font(size=20)
-    F.show_grayscale(stretch='arcsinh',vmin=vmin,vmax=vmax)
+    F.show_grayscale(stretch='arcsinh',vmin=vmin,vmax=vmax, invert=True)
     #e1 = coordinates.ICRS(290.93263,14.50745,unit=('deg','deg'))
     #F.recenter(e1.ra.value,e1.dec.value,width=1/60.,height=1/60.)
     #F.recenter(290.92633,14.514769,radius=1.4/60.)
