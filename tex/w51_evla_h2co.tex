@@ -28,6 +28,7 @@ un-clustered, population of OB stars between these clusters.
 \todo{To-do items are coded in red.}
 
 \section{Introduction}
+\todo{Expand introduction - that is always last...}
 
 The protoclusters within W51 contain many forming massive stars
 \citep{Zhang1997a,Keto2008b,Zapata2008a,Zapata2009a,Zapata2010a,Goddi2015a,Shi2010a,Shi2010b}
@@ -37,7 +38,13 @@ infrared \citep{Barbosa2008a,Figueredo2008a}.
 The total luminosity of the W51 protocluster complex has been estimated a few
 times using IRAS and KAO to measure the peak of the SED in the far infrared.
 The measurements converge on $\sim8.3\ee{6} (D/5.1\mathrm{kpc})$ \lsun
-\citep{Harvey1986a,Sievers1991a}.
+\citep{Harvey1986a,Sievers1991a}.  It is therefore among the most luminous
+star-forming regions in the Galaxy.
+
+We present observations of the inner few parsecs of the W51 protocluster
+forming region.  We refer to the whole region, including W51 Main (which
+contains the W51e sources) and W51 IRS 2 as `W51A'.  Other names are explained
+when they are used.
 
 \section{Observations}
 We used the JVLA in multiple bands and configurations.  In project 12B-365, we
@@ -142,6 +149,12 @@ enough to X-ray sources to plausibly be associated with them.  d4 is close to
 MOXC 192339.62+143130.3 and d6 is close to MOXC 192341.23+143111.8.  The lack
 of correlation between X-ray and HCHII regions clearly indicates that the OB
 stars within HCHII regions are weak X-ray emitters.
+
+
+\todo{Is this a worthwhile observation?  The flux distribution is essentially
+flat from 1\ee{-4} to 1\ee{-2} Jy at 4.9 GHz.  There is a hint of a power-law
+or bimodal distribution from 1\ee{-4} to 1\ee{-1} Jy at 14.1 GHz.  The distribution
+probably reflects varying optical depth.}
 
 \subsection{\formaldehyde \twotwo emission}
 \label{sec:twotwoemission}
@@ -343,16 +356,29 @@ corresponding to previously detected hot \ammonia cores
 \citep{Zhang1997a,Goddi2015a}.  The bright
 maser source W51e2 is partially surrounded by a `halo' of \formaldehyde \twotwo
 emission to its northeast; the \hchii region itself shows only \twotwo
-absorption because the continuum source has a high brightness temperature.  The
-\hchii region W51e8 exhibits extended \twotwo emission, including a somewhat
+absorption because the continuum source has a high brightness temperature
+(Figure \ref{fig:w51bridge22emispec} and Figure \ref{fig:w51mainemicontours}).
+The \hchii region W51e8 exhibits extended \twotwo emission, including a
+somewhat
 diffuse region stretching between W51e4 and W51e1.  Finally, in W51 IRS 2,
 there is extended \twotwo emission stretching between W51d1 and W51d2, adjacent
 to the ammonia masers observed by \citet{Zhang1995a} and more recently
-\citet{Goddi2015a}, and very close to (but not perfectly correlated with) the
-\citet{Zapata2010a} W51 North Disk.
+\citet{Goddi2015a}, and aligned with the
+\citet{Zapata2010a} W51 North Disk (Figure \ref{fig:w51northcore}).
+
+\FigureTwo
+{figures/irs2outflow/IRS2_core_on_cont22.png}
+{figures/irs2outflow/IRS2_core_on_NACO_K.png}
+{The W51 North core shown in emission in contours overlaid on (a) the 14 GHz
+continuum and (b) the NACO K-band continuum image.  The contours are at 3
+mJy/beam at velocities 56 to 60 \kms at 0.5 \kms intervals.
+}
+{fig:w51northcore}{1}{3.5in}
 
 In all cases, the emission is extended and spread smoothly over multiple
-velocity channels.  It is therefore not maser emission.
+velocity channels (Figures \ref{fig:w51n22emispec},
+\ref{fig:w51bridge22emispec}, \ref{fig:w51e2emispec}, \ref{fig:w51e1emispec}).
+It is therefore not maser emission.
 
 None of these detections have corresponding \oneone emission.  This
 nondetection is likely because our brightness sensitivity at C-band is very
@@ -419,7 +445,7 @@ K}\right)^{3/2} \left(\frac{n}{10^7 \percc}\right)^{-1/2}$ \msun, implying that
 any fragments will be very large or, more likely, fragmentation is prevented.
 
 The bridge could in principle have been created by the ejection of e2 from the
-e1 cluster.  However, the maser proper motions of \citep{Saito2014a} show that
+e1 cluster.  However, the maser proper motions of \citep{Sato2014a} show that
 e2 and e1 have almost no motion relative to one another.  To achieve their
 current separation at a motion of 1 mas \peryr (25 \kms), which is an upper
 limit on their relative motion, they would have had to separate 5-10 kyr ago.
@@ -449,13 +475,17 @@ and (c) shows the e8 core}
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e2_a_K.png}
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e2_b_K.png}
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e2_c_K.png}
-{Spectra of the \twotwo emission around W51e2.}
+{Spectra of the \twotwo emission around W51e2 at three positions (a)
+north/northwest (b) northeast (c) southeast of the e2 HCHII region.
+\todo{Show where these are on some figure}
 {fig:w51e2emispec}{1}{3.5in}
 
 \FigureTwoAA
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e1north_K.png}
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e8core_K.png}
-{Spectra of the \twotwo emission around W51e1.}
+{Spectra of the \twotwo emission around W51e1.
+\todo{Show where these are on some figure}
+}
 {fig:w51e1emispec}{1}{3.5in}
 
 \subsection{Explanation of the hot gas}
@@ -470,7 +500,7 @@ well, which in turn implies frequent high-energy collisions between molecules.
 It is likely that the high-end tail of these collisions will result in rapid
 dissociation of the molecules.  Since \formaldehyde and \ammonia are both
 relatively complex, with \ammonia forming slowly in cold gas in the absence of
-CO \citep{Caselli?}, re-formation of the molecules would not provide a
+CO \todo{[citation needed]}, re-formation of the molecules would not provide a
 sufficient population for our observations.  We therefore favor radiative
 (infrared) pumping as the explanation for the high observed brightness.  The gas
 must still be warm, $T\gtrsim200$ K \citep{Henkel2013a}, but not quite as hot
@@ -494,6 +524,11 @@ gas velocity.  We have detected the same feature in the H77$\alpha$ RRL.
 The RRL shows the same position-velocity structure as the infrared ionized
 features.  No redshifted counterflow is detected (Figure \ref{fig:lacyjetslice}).
 
+One minor but notable feature of the H77$\alpha$ flow is that it is very close
+to the rest velocity of the He77$\alpha$ line.  If \citet{Lacy2007a} had not
+already unambiguously identified the high velocity of this feature in two
+lines, we would have assumed it to be slightly redshifed Helium.
+
 \FigureTwo
 {figures/jetpv/H77a_cutout_1.png}
 {figures/jetpv/w51.neii.square.png}
@@ -511,6 +546,14 @@ be the driver \citep{Barbosa2008a}.  IRS 2E is the brightest X-ray source in
 W51 with a harder X-ray spectrum than other sources in the region, and it emits
 most of its energy in iron fluorescence lines, indicating that there is a very
 strong interaction with dense material around it \citep{Townsley2014a}.
+
+
+\FigureTwo
+{figures/irs2outflow/IRS2_h77a_on_cont22.png}
+{figures/irs2outflow/IRS2_h77a_on_NACO_K.png}
+{The `Lacy Jet' as seen in H77$\alpha$ overlaid on (a) the 14 GHz continuum
+image and (b) the NACO K-band image \citep{Barbosa2008a}.}
+{fig:lacyjetoverlay}{1}{3.5in}
 
 \subsection{The velocity dispersion in the W51e cluster}
 We detect H77$\alpha$ toward 6 of the 8 hyper/ultra compact \hii regions in the
@@ -578,9 +621,8 @@ the W51 Peak position, we have discovered multiple overlapping bubbles at
 different line-of-sight velocities with centers far from both the W51 IRS2 and
 W51e clusters.
 
-We therefore suggest that the majority of the luminosity in the \todo{W51A
-region (i.e., the overall area including both IRS2 and W51 Main; todo is say
-this in intro)} comes from a partially-embedded population of stars that is
+We therefore suggest that the majority of the luminosity in the W51A
+region comes from a partially-embedded population of stars that is
 extremely confused with the luminous HII region it generates.
 
 The different velocities of the HII bubbles in the W51 peak suggest that there
