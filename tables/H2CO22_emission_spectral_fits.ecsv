@@ -1,0 +1,19 @@
+# %ECSV 0.9
+# ---
+# datatype:
+# - {name: Object Name, datatype: string}
+# - {name: Amplitude, datatype: float64}
+# - {name: $\sigma(Amplitude)$, datatype: float64}
+# - {name: '$V_{LSR}$', datatype: float64}
+# - {name: '$\sigma(V_{LSR})$', datatype: float64}
+# - {name: $dV$, datatype: float64}
+# - {name: $\sigma(dV)$, datatype: float64}
+# - {name: '$\Omega_{ap}$', datatype: float64}
+# - {name: Detection Status, datatype: string}
+"Object Name" Amplitude $\sigma(Amplitude)$ $V_{LSR}$ $\sigma(V_{LSR})$ $dV$ $\sigma(dV)$ $\Omega_{ap}$ "Detection Status"
+NorthCore 26.12 0.72 58.839 0.074 2.307 0.074 2.3e-10 -
+"e2-e8 bridge" 9.92 0.75 56.522 0.075 0.864 0.075 1.5e-10 -
+e8mol 5.31 0.21 60.52 0.13 2.87 0.13 2e-11 -
+e8mol_ext 13.82 0.33 60.179 0.09 3.309 0.09 7.2e-11 weak
+e10mol 3.43 0.15 57.95 0.22 4.43 0.22 2e-11 -
+e10mol_ext 12.79 0.31 58.514 0.097 3.445 0.097 8.5e-11 weak

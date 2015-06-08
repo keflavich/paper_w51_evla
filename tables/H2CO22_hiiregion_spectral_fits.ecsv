@@ -1,0 +1,20 @@
+# %ECSV 0.9
+# ---
+# datatype:
+# - {name: Object Name, datatype: string}
+# - {name: Amplitude, datatype: float64}
+# - {name: $\sigma(Amplitude)$, datatype: float64}
+# - {name: '$V_{LSR}$', datatype: float64}
+# - {name: '$\sigma(V_{LSR})$', datatype: float64}
+# - {name: $dV$, datatype: float64}
+# - {name: $\sigma(dV)$, datatype: float64}
+# - {name: '$\Omega_{ap}$', datatype: float64}
+# - {name: Detection Status, datatype: string}
+"Object Name" Amplitude $\sigma(Amplitude)$ $V_{LSR}$ $\sigma(V_{LSR})$ $dV$ $\sigma(dV)$ $\Omega_{ap}$ "Detection Status"
+e1 -15.64 0.18 62.531 0.078 5.81 0.078 2.9e-11 ambig
+e2 -91.56 0.35 56.8728 0.009 2.0231 0.009 2.5e-11 -
+e3 -3.29 0.13 64.26 0.11 2.35 0.11 9.1e-12 -
+e5 -8.3 0.4 62.739 0.032 0.576 0.032 2.4e-11 -
+e6 -29.62 0.72 63.771 0.061 2.149 0.061 2.4e-10 -
+e9 -1.48 0.24 55.4 0.22 1.15 0.22 2e-11 -
+e10 -1.54 0.25 66.74 0.21 1.1 0.21 1.6e-11 -
