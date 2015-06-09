@@ -129,6 +129,7 @@ affected by image reconstruction artifacts.
 
 \input{tables/pointsource_photometry.tex}
 
+\subsubsection{Variability}
 The multi-epoch data demonstrate that some of these sources are variable.  The
 most convincing case for variability is in the (double) source d4.  In the
 \citet{Mehringer1994a} data, there is no hint of emission at this location,
@@ -143,12 +144,18 @@ offset between these images using a cross-correlation method
 (\url{image-registration.rtfd.org}); the 2014 data were shifted by 0.16\arcsec,
 0.20\arcsec to the southeast from the 1994 data.
 
-Finally, we compare our extracted source catalog with the MOXC Chandra X-ray
+
+
+\subsubsection{Source Associations}
+We compare our extracted source catalog with the MOXC Chandra X-ray
 catalog \citep{Townsley2014a}.  Only two of the compact HII regions are close
 enough to X-ray sources to plausibly be associated with them.  d4 is close to
 MOXC 192339.62+143130.3 and d6 is close to MOXC 192341.23+143111.8.  The lack
 of correlation between X-ray and HCHII regions clearly indicates that the OB
 stars within HCHII regions are weak X-ray emitters.
+
+\todo{Compare to NIR catalogs: there were (nearly) no associations, so this should
+be succinct.  Table?}
 
 
 \todo{Is this a worthwhile observation?  The flux distribution is essentially
@@ -633,6 +640,48 @@ which are both centrally concentrated.
 
 % \section{The distributed population of HCHII regions}
 % We detect an additional XX point sources in the field.
+
+\subsection{The future evolution of the W51 clusters and molecular cloud}
+\todo{Some background on the FIR radiation pressure mechanisms is needed.}
+The W51 clusters are likely to reach a very high star formation efficiency,
+since the escape velocity is greater than the sound speed in ionized gas
+\citep{Ginsburg2012a,Bressert2012a}.  If they really are forming one or more
+young massive cluster, though, the gas must be evacuated or exhausted to 
+achieve a final appearance like that of NGC 3603 or Trumpler 14.
+
+Because IRS 2 is already readily seen in the near-infrared, it is clear that
+the cluster leaks photons.  Since long-wavelength photons are not trapped,
+radiation pressure is probably not going to be efficient; the FIR optical depth
+term of \citet{Murray2010a} is very small.  Radiative trapping is only
+relevant within the $<2\arcsec$ ultracompact HII regions, in which the FIR optical
+depth exceeds unity.
+
+The ongoing accretion onto the source IRS2E and probable ongoing accretion onto
+the hot cores and HCHII regions throughout these clusters implies that ionizing
+radiation is, at present, not halting star formation.  The presence of
+accreting stars within large HII regions further confirms that ionizing
+radiation and ionized gas pressure is inadequate to stop star formation in the
+clusters.
+
+We therefore anticipate that the clusters will continue to consume the dense
+gas they presently contain until it is either exhausted or some other feedback
+mechanism takes over.  Other feedback mechanisms may be stellar winds, direct
+radiation pressure (assuming a single scattering event),  or supernovae.
+
+Since the free-fall time is very short within these clusters ($t_{ff} < 0.5$
+Myr out to 2.5 pc containing 5\ee{4} \msun of gas), supernovae will not affect
+their formation.  However, once the clusters have exhausted gas locally, there
+is both plenty of time and a relatively free path from the clusters to the rest
+of the molecular cloud.  The binding energy of a $10^6$ \msun, $r=50$ pc 
+molecular cloud is only about $10^{51}$ ergs, so a single supernova perfectly
+coupled to the gas could unbind it all.  The $\sim20$ O-stars presently formed,
+plus at least that many expected to form, will provide more than enough energy
+to unbind the whole GMC.
+
+In order to match star formation relations, the overall star formation
+efficiency of the cloud must be limited to \todo{10\% ?? [citation needed]}.
+If the cluster progresses to 100\% efficiency, as we predict, the rest of the
+cloud must be limited to XX.
 
 \section{Conclusions}
 
