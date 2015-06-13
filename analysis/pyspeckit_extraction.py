@@ -1,3 +1,4 @@
+import warnings
 import numpy as np
 from astropy import units as u
 from spectral_cube import SpectralCube
@@ -13,6 +14,7 @@ import fnames
 import matplotlib
 from astropy.table import Table,Column
 matplotlib.rc_file(pcpath('pubfiguresrc'))
+import radio_beam
 
 cube_name_titles = {'11_natural': 'H$_2$CO 1-1 natural',
                     '22_natural': 'H$_2$CO 2-2 natural',
@@ -26,9 +28,10 @@ for cube_name, cube_fn in fnames.cube_names.items():
                                                                 velocity_convention='radio')
     errspec = cube.std(axis=(1,2))
     pix_area = np.abs(np.product(np.diag(cube.wcs.celestial.pixel_scale_matrix)))
-    ppbeam = cube.beam.sr.to(u.deg**2).value/pix_area
+    beam = radio_beam.Beam.from_fits_header(cube.header)
+    ppbeam = beam.sr.to(u.deg**2).value/pix_area
 
-    JyToK = u.Jy.to(u.K, equivalencies=u.brightness_temperature(cube.beam,
+    JyToK = u.Jy.to(u.K, equivalencies=u.brightness_temperature(beam,
                                                                 cube.wcs.wcs.restfrq*u.Hz))
 
     for regname, outdir in [('W51_22_emission.reg', 'emission'), ('W51_e_apertures.reg', 'hiiregionh2co')]:
@@ -64,9 +67,12 @@ for cube_name, cube_fn in fnames.cube_names.items():
             name = R.attr[1]['text']
             print "dt=%g" % (time.time()-t0), name,R
             sp = pcube.get_apspec(R.coord_list,coordsys='celestial',
-                                  wunit='degree', method='sum')
+                                  wunit='degree', method='mean')
+            if not np.any(sp.data):
+                warnings.warn("No data found for {0} in {1}".format(name, cube_fn))
+                continue
             sp.specname = name
-            sp.data /= ppbeam
+            #sp.data /= ppbeam
             sp.error = (sp[:sp.xarr.x_to_pix(45)].stats()['std']*errspec/errspec.min()).value
             #sp.error = errspec/ppbeam**0.5
             if 'APRADIUS' in sp.header:
@@ -89,10 +95,15 @@ for cube_name, cube_fn in fnames.cube_names.items():
             sp.plotter.figure.savefig(os.path.join(figpath, '%s_%s.png' %
                                                    (prefix,name)))
 
-            sp.data *= JyToK
-            sp.error *= JyToK
-            sp.unit = '$T_B$ (K)'
+            # Jy -> mJy
+            sp.data *= 1e3
+            sp.error *= 1e3
+            #sp.unit = '$T_B$ (K)'
+            sp.unit = 'mJy/beam'
             sp.plotter(errstyle='fill')
+            ax2 = sp.plotter.axis.twinx()
+            ax2.set_ylim(*(np.array(sp.plotter.axis.get_ylim()) * JyToK/1e3))
+            ax2.set_ylabel("$T_B$ (K)")
 
             sp.plotter.figure.savefig(os.path.join(figpath, '%s_%s_K.png' %
                                                    (prefix,name)))
