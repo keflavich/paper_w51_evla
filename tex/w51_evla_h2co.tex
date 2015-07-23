@@ -67,11 +67,11 @@ The observations and resulting images are summarized in Table
 
 \Figure{figures/diffuse/W51_Ku_overview.pdf}
 {The Ku-band image of the W51 region.}
-{fig:kuoverview}{0.9}{0}
+{fig:kuoverview}{0.9}{6.5in}
 
 \Figure{figures/diffuse/W51_C_overview.pdf}
 {The C-band image of the W51 region.}
-{fig:coverview}{0.9}{0}
+{fig:coverview}{0.9}{6.5in}
 
 \section{Observational Results}
 We report four key observational results: 
@@ -217,7 +217,7 @@ points away from e11, suggesting that it is the driving source.
 
 \Figure{figures/diffuse/e11_bow.png}
 {A bow-shaped feature near the source e11 in the Ku-band continuum image.}
-{fig:e11bow}{0.5}{0}
+{fig:e11bow}{0.5}{6.5in}
 
 The source d3 is a diffuse HII region with radius $r\sim1.9$\arcsec.  It is
 associated with a Spitzer source and the 2MASS source 2MASX J19233591+1431288.
@@ -356,7 +356,7 @@ is presently gravitationally bound
 While \formaldehyde \oneone and \twotwo are commonly observed in absorption,
 the \oneone line has only been observed in emission in our galaxy as a maser
 \citep{Araya2007b}.  The \twotwo line has been observed in emission only  in the
-starburst M82, and there very weakly \citep{Mangum2008a}.
+starburst M82, and there very weakly \citep{Mangum2008a}.  \todo{Incorporate Miller's historical notes.}
 
 We have detected 3 regions of \twotwo emission in the W51 region, all
 corresponding to previously detected hot \ammonia cores
@@ -387,38 +387,41 @@ velocity channels (Figures \ref{fig:w51n22emispec},
 \ref{fig:w51bridge22emispec}, \ref{fig:w51e2emispec}, \ref{fig:w51e1emispec}).
 It is therefore not maser emission.
 
+%There is not a 1-1 detection.  But my judgement on this has varied.
 None of these detections have corresponding \oneone emission.  This
 nondetection is likely because our brightness sensitivity at C-band is very
-poor.  If the
-\formaldehyde lines are in local thermal equilibrium and optically thick, the
-\oneone brightness temperature should be the sames a the \twotwo,
-$T_B\sim500-1000$ K, which is below the noise floor of our C-band observations;
-if the dynamic range around the continuum peaks could be improved, we might
-hope for weak detections of \oneone emission, but with the current depth, the
-lack of a detection is unsurprising.
+poor.  Additionally, the foreground cloud is a much stronger absorber in the
+\oneone line, so any emission is likely to be obscured by foreground
+absorption.
 
-The physical conditions required to produce these extremely bright emission
-regions, with $T_B \gtrsim 500$ K (40 mJy) in the FWHM$\approx0.4$\arcsec (2000
-au) beams, can be explained either as thermalized hot gas or radiatively pumped
-emission.
+%\todo{
+%The physical conditions required to produce these extremely bright emission
+%regions, with $T_B \gtrsim 500$ K (40 mJy) in the FWHM$\approx0.4$\arcsec (2000
+%au) beams, can be explained either as thermalized hot gas or radiatively pumped
+%emission.
+%}
 
-The observed high brightness temperatures are similar to the extremely high
-temperatures reported by \citet{Zapata2010a}.  The excitation temperature must
-be $T\sim900$ K at the \formaldehyde \twotwo $\tau=1$ surface.  However, such a
-high temperature is very near the regime in which \formaldehyde would be
-collisionally dissociated.
+%\todo{
+%The observed high brightness temperatures are similar to the extremely high
+%temperatures reported by \citet{Zapata2010a}.  The excitation temperature must
+%be $T\sim900$ K at the \formaldehyde \twotwo $\tau=1$ surface.  However, such a
+%high temperature is very near the regime in which \formaldehyde would be
+%collisionally dissociated.
+%}
 
-A second possibility is that the \formaldehyde is radiatively pumped, resulting
-in a large non-collisionally-driven emission.  Vibrationally excited
-\formaldehyde has infrared
-transitions around 3.5 and 6 \um \citep{Al-Refaie2015a}, so radiative pumping
-requires a very strong radiation field with $T\gtrsim1000$ K.  Such a radiation
-field is consistent with the presence of high-mass young stars.  To avoid
-radiative dissociation, and especially in W51 North, to avoid creating a large
-\hii region, the radiation field must be cooler than $T < 10000$ K,
-implying that the proto-O-star \citep[as inferred from its luminosity and its
-kinematically-derived mass][]{Zapata2008a,Zapata2009a} is presently at a later
-spectral type.
+%\todo{
+%A second possibility is that the \formaldehyde is radiatively pumped, resulting
+%in a large non-collisionally-driven emission.  Vibrationally excited
+%\formaldehyde has infrared
+%transitions around 3.5 and 6 \um \citep{Al-Refaie2015a}, so radiative pumping
+%requires a very strong radiation field with $T\gtrsim1000$ K.  Such a radiation
+%field is consistent with the presence of high-mass young stars.  To avoid
+%radiative dissociation, and especially in W51 North, to avoid creating a large
+%\hii region, the radiation field must be cooler than $T < 10000$ K,
+%implying that the proto-O-star \citep[as inferred from its luminosity and its
+%kinematically-derived mass][]{Zapata2008a,Zapata2009a} is presently at a later
+%spectral type.
+%}
 
 %The required column density for \twotwo
 %to become optically thick depends on the velocity gradient and abundance; assuming
@@ -428,7 +431,7 @@ spectral type.
 % Our continuum measurements tighten the limits presented by \citet{Zapata2010a},
 % with 5-sigma upper limits of 1 mJy at both C and Ku-band.
 
-The W51e2 and W51e8 cores both exhibit peak brightness temperatures $T>200$ K.
+The W51e2 and W51e8 cores both exhibit peak brightness temperatures $T\sim30-60$ K.
 While \citet{Zhang1997a} noted that these cores are ``hot'', the temperatures
 we now report are significantly higher.  W51e8 seems an excellent analog to the
 W51 North core, at least in terms of its gas density and temperature.  We have
@@ -460,14 +463,14 @@ The current data do not rule out this scenario, but neither do they strongly
 favor it.
 
 \Figure
-{{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51NorthCore_K}.png}
+{{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_NorthCore_K}.png}
 {Spectrum of the W51 North core in \ortho \twotwo.}
-{fig:w51n22emispec}{0.5}{0}
+{fig:w51n22emispec}{0.5}{6.5in}
 
 \Figure
 {{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e2-e8 bridge_K}.png}
 {Spectrum of the `bridge' connecting cores e2 and e8.}
-{fig:w51bridge22emispec}{0.5}{0}
+{fig:w51bridge22emispec}{0.5}{6.5in}
 
 \FigureThreeAA
 {figures/contour_movie/e1e2_h2co22_emission_on_cont22_natural_v56.0.png}
@@ -481,17 +484,17 @@ and (c) shows the e8 core}
 {fig:w51mainemicontours}{1}{3.5in}
 
 \FigureThreeAA
-{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e2_a_K.png}
-{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e2_b_K.png}
-{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e2_c_K.png}
+{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e2_a_K.png}
+{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e2_b_K.png}
+{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e2_c_K.png}
 {Spectra of the \twotwo emission around W51e2 at three positions (a)
 north/northwest (b) northeast (c) southeast of the e2 HCHII region.
 \todo{Show where these are on some figure}}
 {fig:w51e2emispec}{1}{3.5in}
 
 \FigureTwoAA
-{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e1north_K.png}
-{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_W51e8core_K.png}
+{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e10mol_K.png}
+{figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e8mol_K.png}
 {Spectra of the \twotwo emission around W51e1.
 \todo{Show where these are on some figure}
 }
@@ -595,11 +598,11 @@ $\sim2\arcmin$ of the central clusters - means they are unlikely to be
 background galaxies.  
 
 Given the faintness of these sources ($S_{5 GHz} \sim 1$ mJy), they must be
-very small if they are free-free emission sources.  A 1 mJy source has a
-brightness temperature of 600 K in our C-band observations, which implies
-either that the HII region is optically thin, with $\tau < 0.1$, or very small,
-with $ff<0.1$.  Given a beam radius of 0.3\arcsec, the implied upper limit size
-for an optically thick source is 2 mpc (500 AU).
+very small or optically thin if they are free-free emission sources.  A 1 mJy
+source has a brightness temperature of 1000 K in our uniformly-weighted C-band
+observations, which implies either that the HII region is optically thin, with
+$\tau < 0.1$, or very small, with $ff<0.1$.  Given a beam radius of 0.3\arcsec,
+the implied upper limit size for an optically thick source is 2 mpc (500 AU).
 
 In typical analysis of HCHII regions, one can distinguish these scenarios by
 examining the spectral index.  An optically thick source would have a spectral
