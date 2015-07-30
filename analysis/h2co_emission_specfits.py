@@ -11,6 +11,9 @@ import paths
 from astropy.table import Table, Column
 from rounded import rounded
 from latex_info import latexdict, format_float
+import matplotlib
+matplotlib.rc_file(paths.pcpath('pubfiguresrc'))
+import pylab as pl
 
 sp = [pyspeckit.Spectrum(x) for x in
       ProgressBar(
@@ -51,8 +54,13 @@ for s in sp:
     s.error[:] = s.data[noiseregion].std()
 
 # fitting
-for thisspec in sp:
-    thisspec.plotter(xmin=30,xmax=90)
+for ii,thisspec in enumerate(sp):
+    thisspec.plotter(xmin=30,xmax=90, errstyle='fill', figure=pl.figure(ii))
+    thisspec.specfit(fittype='gaussian',
+                     guesses='moments',
+                     negamp=False,
+                     limited=[(True,False),(False,False),(True,False)])
+    thisspec.baseline(excludefit=True, order=2, subtract=True)
     thisspec.specfit(fittype='gaussian',
                      guesses='moments',
                      negamp=False,
@@ -61,6 +69,19 @@ for thisspec in sp:
     thisspec.plotter.ymin -= 0.0005
     thisspec.specfit.plotresiduals(axis=thisspec.plotter.axis,clear=False,yoffset=-0.005,label=False)
     thisspec.plotter.savefig(paths.fpath('spectra/emission/'+thisspec.specname+"_h2co22emisson_fit.png"),
+                                  bbox_inches='tight')
+
+    thisspec.plotter(xmin=30,xmax=90, errstyle='fill')
+    # Jy -> mJy
+    thisspec.data *= 1e3
+    thisspec.error *= 1e3
+    #thisspec.unit = '$T_B$ (K)'
+    thisspec.unit = 'mJy/beam'
+    thisspec.plotter(errstyle='fill')
+    ax2 = thisspec.plotter.axis.twinx()
+    ax2.set_ylim(*(np.array(thisspec.plotter.axis.get_ylim()) * thisspec.header['JYTOK']/1e3))
+    ax2.set_ylabel("$T_B$ (K)")
+    thisspec.plotter.savefig(paths.fpath('spectra/emission/'+thisspec.specname+"_h2co22emisson_baselined.png"),
                                   bbox_inches='tight')
 
     tbl.add_row([thisspec.specname,]+
