@@ -9,7 +9,7 @@ from astropy.visualization.mpl_normalize import ImageNormalize
 pl.matplotlib.rc_file('pubfiguresrc')
 
 for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
-    ("W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits", 'Ku', [ (290.94225, 14.505832, ), (290.93794,  14.509374, ),], (-2e-1,3e-1), 'e11_bow', AsinhStretch()),
+    ("W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits", 'Ku', [ (290.94225, 14.505832, ), (290.93794,  14.509374, ),], (-1e-1,3e-1), 'e11_bow', LinearStretch()),
     ("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits", 'C', [ (290.92977, 14.508804), (290.92003, 14.515556)], (0.01, 9), 'w51main_peak', AsinhStretch()),
     ("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits", 'C', [ (290.92462, 14.516962), (290.92352, 14.517891)], (2e-2, 2.0), 'e6', AsinhStretch()),
     ("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits", 'C', [ (290.90023, 14.523703), (290.89873, 14.525156)], (2e-2, 0.3), 'd3', AsinhStretch()),

@@ -1,6 +1,7 @@
 from astropy import coordinates
 from astropy import units as u
 from astropy.io import fits
+from astropy import wcs
 import aplpy
 import pylab
 import paths
@@ -22,13 +23,23 @@ for fn,(vmin,vmax),name in (("W51C_ACarray_continuum_4096_both_uniform_contsplit
             k = kk+str(ii)
             if k in hdu[0].header:
                 del hdu[0].header[k]
+        for jj in [1,2,3,4]:
+            k = "PC{0:02d}_{1:02d}".format(ii,jj)
+            if k in hdu[0].header:
+                del hdu[0].header[k]
+            k = "PC{1:02d}_{0:02d}".format(ii,jj)
+            if k in hdu[0].header:
+                del hdu[0].header[k]
+
     hdu[0].header['NAXIS'] = 2
     hdu[0].data = hdu[0].data.squeeze()
+    w = wcs.WCS(hdu[0].header)
+    assert w.naxis == 2
 
     F = aplpy.FITSFigure(hdu,convention='calabretta',figure=figure)
     #F = aplpy.FITSFigure(dpath+'W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.rot45.fits',convention='calabretta',figure=figure)
-    F.tick_labels.set_xformat('dd.dd')
-    F.tick_labels.set_yformat('dd.dd')
+    #F.tick_labels.set_xformat('dd.dd')
+    #F.tick_labels.set_yformat('dd.dd')
     F.tick_labels.set_font(size=20)
     F.axis_labels.set_font(size=20)
     F.show_grayscale(stretch='arcsinh',vmin=vmin,vmax=vmax, invert=True)

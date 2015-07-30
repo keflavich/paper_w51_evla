@@ -9,6 +9,10 @@ import aplpy
 import paths
 from common_constants import distance
 import FITS_tools
+from astropy import wcs
+
+from astropy import log
+log.setLevel(10)
 
 e1e2 = coordinates.ICRS(290.93268,14.508363,unit=('deg','deg'))
 
@@ -25,14 +29,14 @@ for ii in [3,4]:
         k = kk+str(ii)
         if k in cont22hdu[0].header:
             del cont22hdu[0].header[k]
-cont22hdu[0].header['NAXIS'] = 2
+cont22hdu[0].header = wcs.WCS(cont22hdu[0].header).dropaxis(3).dropaxis(2).to_header()
 cont22hdu[0].data = cont22hdu[0].data.squeeze()
 
 F = aplpy.FITSFigure(cont22hdu,convention='calabretta',figure=figure)
 F.set_auto_refresh(False)
 #F = aplpy.FITSFigure(dpath+'W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.rot45.fits',convention='calabretta',figure=figure)
-F.tick_labels.set_xformat('dd.ddd')
-F.tick_labels.set_yformat('dd.ddd')
+#F.tick_labels.set_xformat('dd.ddd')
+#F.tick_labels.set_yformat('dd.ddd')
 F.tick_labels.set_font(size=20)
 F.axis_labels.set_font(size=20)
 F.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.011)
@@ -52,6 +56,7 @@ siv_outflow = siv.spectral_slab(-28*u.km/u.s, -70*u.km/u.s).sum(axis=0)
 neii_outflow = neii.spectral_slab(-28*u.km/u.s, -70*u.km/u.s).sum(axis=0)
 h77a_outflow = h77a.spectral_slab(-16*u.km/u.s, -60*u.km/u.s).sum(axis=0)
 
+log.debug("Done with slabs")
 c = (1,0.4,0)
 sivcolors = [c[:3] + (x,) for x in (0.7,0.6,0.5,0.4,0.3,0.2,0.1)[::-1]]
 
@@ -66,46 +71,46 @@ F.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.05)
 F.save(fpath('IRS2_W51_Ku_grayscale.pdf'), dpi=150)
 F.save(fpath('IRS2_W51_Ku_grayscale.png'), dpi=150)
 
+log.debug("Begin siv_outflow")
 F.show_contour(siv_outflow.hdu, levels=[20,30,40,50,60,70,80],colors=sivcolors,
                filled=True, layer='temporary')
 F.save(fpath('irs2outflow/IRS2_siv_on_cont22.png'), dpi=150)
 
 c = (0,0.4,1)
 neiicolors = [c[:3] + (x,) for x in (0.93,0.92,0.91,0.9,0.8,0.7,0.6,0.5,0.4,0.3,0.2,0.1)[::-1]]
+log.debug("Begin neii_outflow")
 F.show_contour(neii_outflow.hdu, levels=np.arange(30,190,10), colors=neiicolors,
                filled=True, layer='temporary')
 F.save(fpath('irs2outflow/IRS2_neii_on_cont22.png'), dpi=150)
+log.debug("End neii_outflow")
 
 c = (0,0.9,0.1)
 h77acolors = [c[:3] + (x,) for x in (0.1,0.2,0.3,0.4,0.5,0.6,0.7)]
 h77alevels = np.arange(0.01,0.05,0.005)
+log.debug("Begin h77a_outflow")
 F.show_contour(h77a_outflow.hdu, levels=h77alevels, colors=h77acolors,
                filled=True, layer='temporary')
 F.save(fpath('irs2outflow/IRS2_h77a_on_cont22.png'), dpi=150)
 
 F.remove_layer('temporary')
 
+log.debug("Begin neii_outflow 2")
 F.show_contour(neii_outflow.hdu, levels=np.arange(30,190,10), colors=neiicolors,
                filled=True, layer='neii')
+log.debug("Begin siv_outflow 2")
 F.show_contour(siv_outflow.hdu, levels=[20,30,40,50,60,70,80],colors=sivcolors,
                filled=True, layer='siv')
 
 cutout_coords = {'xlo':290.91974*u.deg, 'xhi':290.90926*u.deg, 'ylo':14.51492*u.deg, 'yhi':14.523815*u.deg}
+log.debug("Read and transform h2co cube")
 cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio').subcube(**cutout_coords)
 
-
-F.show_contour(neii_outflow.hdu, levels=np.arange(30,190,10), colors=neiicolors,
-               filled=True, layer='neii')
-F.show_contour(siv_outflow.hdu, levels=[20,30,40,50,60,70,80],colors=sivcolors,
-               filled=True, layer='siv')
-
-cutout_coords = {'xlo':290.91974*u.deg, 'xhi':290.90926*u.deg, 'ylo':14.51492*u.deg, 'yhi':14.523815*u.deg}
-cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio').subcube(**cutout_coords)
-
+log.debug("Start multi-velocity contour overlay")
 vr = [56,60]
 for velo in np.arange(vr[0],vr[1]+0.5,0.5):
     c = pl.cm.jet_r((vr[1]-velo)/(vr[1]-vr[0]))
     colors = [c[:3] + (x,) for x in np.linspace(0.8,0.9,6)]
+    log.debug("Velocity {0} in the velocity overlay loop".format(velo))
     F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
                    levels=[0.003,0.005,0.007,1],colors=colors,
                    filled=False,
@@ -113,6 +118,7 @@ for velo in np.arange(vr[0],vr[1]+0.5,0.5):
                    layer='h2co_{0}'.format(velo))
 
 F.save(fpath('irs2outflow/IRS2_core_and_siv_and_neii_on_cont22.png'), dpi=150)
+log.debug("h77_outflow overlay on multi-velocity contour")
 F.show_contour(h77a_outflow.hdu, levels=h77alevels,colors=h77acolors,
                filled=True, layer='h77a')
 F.save(fpath('irs2outflow/IRS2_core_and_siv_and_neii_and_h77a_on_cont22.png'), dpi=150)

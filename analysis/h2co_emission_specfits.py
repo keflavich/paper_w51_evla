@@ -36,7 +36,7 @@ tbl = Table(dtype=[(str, 20), float,   float,   float,   float,   float,
 
 # My manual inspection: which are detected?
 # weakdetections are those that are not clearly believable
-detections = ['e8mol', 'e2-e8 bridge', 'e10mol', 'NorthCore']
+detections = ['e8mol', 'e2-e8 bridge', 'e10mol', 'NorthCore', 'e2_a', 'e2_b', 'e2_c']
 weakdetections = ['e8mol_ext', 'e10mol_ext']
 
 # conversion....
@@ -54,10 +54,11 @@ for s in sp:
 for thisspec in sp:
     thisspec.plotter(xmin=30,xmax=90)
     thisspec.specfit(fittype='gaussian',
-              guesses=[0.03,55,3],
-              limited=[(True,False),(False,False),(True,False)])
+                     guesses='moments',
+                     negamp=False,
+                     limited=[(True,False),(False,False),(True,False)])
     log.info(thisspec.specname+" fitting: {0}".format(thisspec.specfit.parinfo))
-    thisspec.plotter.ymin -= 0.005
+    thisspec.plotter.ymin -= 0.0005
     thisspec.specfit.plotresiduals(axis=thisspec.plotter.axis,clear=False,yoffset=-0.005,label=False)
     thisspec.plotter.savefig(paths.fpath('spectra/emission/'+thisspec.specname+"_h2co22emisson_fit.png"),
                                   bbox_inches='tight')
