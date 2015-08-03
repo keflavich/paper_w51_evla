@@ -130,6 +130,24 @@ affected by image reconstruction artifacts.
 
 \input{tables/pointsource_photometry.tex}
 
+\Figure{figures/pointsource_seds/d4e_SED.png}
+{Cutouts of the source W51 d4e and its SED.
+The red circle shows the source aperture used to measure the peak and total
+flux.  The Epochs are indicated as E1, E2, and E3.
+In the SED plot, the dark and light red show the 1-$\sigma$ and 3-$\sigma$
+noise levels.
+Green points are from Epoch 1, blue points are Epoch 2, and red points are
+Epoch 3.  Squares show the peak flux density, circles show the
+`background-subtracted' flux density - i.e., the peak minus the minimum value
+in the map.
+The dotted curve shows a linear SED ($S_\nu \propto \nu$) and the dashed shows
+a power-law curve with $\alpha=2$, i.e. $S_\nu \propto \nu^2$.  Both curves are
+normalized to go through the 12.1 GHz Epoch 2 data point.  In this case, all of
+the Epoch 1 (green) points are within the noise, while all of the Epoch 2 and 3
+(blue and red) points are detected at $>5$-$\sigma$.
+}
+{fig:d4sed}{0.5}{6.5in}
+
 \subsubsection{Variability}
 The multi-epoch data demonstrate that some of these sources are variable.  The
 most convincing case for variability is in the (double) source d4.  In the
@@ -551,9 +569,12 @@ lines, we would have assumed it to be slightly redshifed Helium.
 {figures/jetpv/w51.neii.square.png}
 {Position-velocity slices through (a) the H77$\alpha$ cube and (b) the [Ne II]
 cube from \citet{Lacy2007a} tracking the approximate path of the Lacy jet.  The
-blueshifted lobe is evident at -50 \kms in both cubes, and neither show a
-redshifted counterpart.  The H77$\alpha$ data reveal that there is not an
-extincted counterpart.}
+abscissa shows the offset position along the slice from J2000 19:23:40.464
++14:31:07.9536 to 19:23:39.4176 +14:31:04.7172, position angle 258\arcdeg.
+The blueshifted lobe is evident at -50 \kms in both cubes, and neither show a
+redshifted counterpart.  The H77$\alpha$ data reveal that there is truly no
+counterpart, ruling out the possibility that it was simply too extincted to be
+observed in the infrared.}
 {fig:lacyjetslice}{1}{3.5in}
 
 This outflow is close to W51 North, which is a likely driver of the outflow based
@@ -730,7 +751,7 @@ the massive star census in the region.
 \input{solobib}
 
 \appendix{Point Source Photometry Catalog}
-\todo{The full version of the point source photometry catalog is availabe in
+\todo{The full version of the point source photometry catalog is available in
 digital form...}
 
 

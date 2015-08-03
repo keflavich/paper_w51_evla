@@ -68,7 +68,7 @@ for freq,fn in files.iteritems():
             rad = beam.major.to(u.deg).value
 
         if wcs.wcs.radesys == 'FK4' or wcs.wcs.equinox == 1950:
-            C = coordinates.ICRS(ra,dec,unit=(u.deg,u.deg)).fk4
+            C = coordinates.SkyCoord(ra,dec,unit=(u.deg,u.deg), frame='icrs').fk4
             ra,dec = C.fk4.ra.deg,C.fk4.dec.deg
 
         rd = [ra,dec] + [0]*(wcs.wcs.naxis-2)
