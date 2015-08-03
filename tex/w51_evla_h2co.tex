@@ -118,7 +118,8 @@ of the diffuse emission appearing to be pointlike.
 
 The point source data is listed in Table \ref{tab:contsrcs}.  The Epoch column
 describes the data source: Epoch 1 comes from \citet{Mehringer1994a}, Epoch 2
-comes from 12B-365 or 13A-064 (late 2012-early 2013), and Epoch 3 comes from
+comes from \todo{[Ciriaco's Program]}, 12B-365, or 13A-064 (mid 2012-early
+2013), and Epoch 3 (C-band only) comes from
 13A-064 in 2014. For the multi-configuration combined images, we list the date
 of the highest-resolution observations.  There are two flux density
 columns.  The first shows the peak flux density, which in some
@@ -128,7 +129,20 @@ minus the lowest value within that same cutout region.  When these two values
 agree, they are reliable, but when they differ significantly they are probably
 affected by image reconstruction artifacts.
 
+The photometry is performed by measuring the peak flux density within an
+aperture centered on the source with a radius equal to the beam major FWHM; the
+aperture is therefore about twice as large as the full extent of the source.
+We also report `background-subtracted' flux densities, which are these peak
+fluxes minus the minimum flux density in a box $6\times6$ beam FWHMs.  This
+background-subtracted flux density is meant to account for negative bowling
+that affects parts of the images; there are cases in which a bright point
+source is seen on a deeply negative background such that the measured peak flux
+is near zero.
+
 \input{tables/pointsource_photometry.tex}
+
+Figure \ref{fig:d4sed} shows the cutout images with apertures for the source
+d4e.  \todo{Additional figures for all candidates are included in the Appendix.}
 
 \Figure{figures/pointsource_seds/d4e_SED.png}
 {Cutouts of the source W51 d4e and its SED.
@@ -150,11 +164,12 @@ the Epoch 1 (green) points are within the noise, while all of the Epoch 2 and 3
 
 \subsubsection{Variability}
 The multi-epoch data demonstrate that some of these sources are variable.  The
-most convincing case for variability is in the (double) source d4.  In the
-\citet{Mehringer1994a} data, there is no hint of emission at this location,
-with a 5-$\sigma$ upper limit of 1 mJy.  At the same position and frequency in
-2014, there is a 1.2 mJy source at the position of d4e.  The case for
-variability in other sources is weaker but nonetheless suggestive.
+most convincing case for variability is in the (double) source d4 (Figure
+\ref{fig:d4sed}.  In the \citet{Mehringer1994a} data, there is no hint of
+emission at this location, with a 5-$\sigma$ upper limit of 1 mJy.  At the same
+position and frequency in 2014, there is a 1.2 mJy source at the position of
+d4e.  The case for variability in other sources is weaker but nonetheless
+suggestive.
 
 We directly compared the C-band data between the 1994 and 2014 epochs by taking
 a difference image.  The 2014 data have higher resolution, so this map
