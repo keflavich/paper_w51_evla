@@ -54,9 +54,10 @@ for fn,(vmin,vmax),name in (("W51C_ACarray_continuum_4096_both_uniform_contsplit
     F.scalebar.set_font_size(20)
     F.save(paths.fpath('diffuse/{0}_overview.pdf'.format(name)), dpi=300)
 
-    F.show_regions(paths.rpath("diffuse_hii_regions.reg"))
+    F.recenter(290.92345,14.511772,radius=1.6/60.)
+    F.show_regions(paths.rpath("diffuse_hii_region_labels.reg"))
     F.save(paths.fpath('diffuse/{0}_overview_diffusehiiregionlabels.pdf'.format(name)), dpi=300)
 
     F.remove_layer('region_set_1')
-    F.show_regions(paths.rpath("pointsource_centroids.reg"))
+    F.show_regions(paths.rpath("pointsource_labels.reg"))
     F.save(paths.fpath('diffuse/{0}_overview_pointsourcelabels.pdf'.format(name)), dpi=300)
