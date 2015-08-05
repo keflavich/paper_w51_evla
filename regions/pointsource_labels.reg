@@ -1,0 +1,46 @@
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+fk5
+point(290.9438,14.497276) # point=x color=darkgreen text={e16?}
+point(290.94104,14.497291) # point=x color=darkgreen text={e17?}
+point(290.94243,14.496351) # point=x color=darkgreen text={e18?}
+point(290.9368,14.495844) # point=x color=darkgreen text={e19?}
+point(290.91105,14.501597) # point=x color=darkgreen text={e15}
+point(290.89932,14.524392) # point=x color=darkgreen text={d3_diffuse}
+point(290.92407,14.524325) # point=x color=darkgreen text={d5}
+point(290.92859,14.508442) # point=x color=darkgreen text={e12?}
+point(290.92839,14.510261) # point=x color=darkgreen text={e13}
+point(290.92754,14.511687) # point=x color=darkgreen text={e14}
+point(290.92442,14.515768) # point=x color=blue text={e5}
+point(290.92414,14.517372) # point=x color=blue text={e6}
+point(290.9366,14.486519) # point=x color=blue text={e7}
+point(290.93991,14.507272) # point=x color=darkgreen text={e11}
+point(290.92183,14.519886) # point=x color=darkgreen text={d6}
+# vector(290.93486,14.507282,5.3837671",7.5521086) vector=1 color=darkgreen
+# vector(290.93444,14.510062,7.9940806",307.14669) vector=1 color=blue
+# vector(290.93438,14.50898,5.4695867",320.31956) vector=1 color=blue
+# vector(290.93459,14.508328,5.5703072",339.00271) vector=1 color=blue
+# vector(290.93404,14.505351,6.6772735",47.921212) vector=1 color=blue
+# vector(290.92971,14.505825,8.8626772",141.62104) vector=1 color=darkgreen
+# vector(290.93122,14.505083,7.9186474",118.12728) vector=1 color=blue
+# text(290.93486,14.51075) color=blue text={e4}
+# text(290.93533,14.509636) color=blue text={e8n}
+# text(290.93561,14.508583) color=blue text={e8s}
+# text(290.93565,14.507236) color=darkgreen text={e10}
+# text(290.93449,14.504966) color=blue text={e3}
+# text(290.93087,14.504673) color=blue text={e1}
+# text(290.92938,14.505585) color=darkgreen text={e9}
+# text(290.9169,14.526817) color=darkgreen text={d4e}
+# text(290.9133,14.526864) color=darkgreen text={d4w}
+# vector(290.9162,14.526193,4.7629764",315.40796) vector=1 color=darkgreen
+# vector(290.91387,14.526193,5.1473013",225.00438) vector=1 color=darkgreen
+# vector(290.93189,14.513219,14.815832",304.50793) vector=1 color=darkgreen
+# vector(290.9248,14.504822,15.428968",139.2311) vector=1 color=darkgreen
+# vector(290.92651,14.503765,15.474853",115.43379) vector=1 color=darkgreen
+# text(290.92786,14.502972) color=darkgreen text={e20}
+# text(290.92636,14.50328) color=darkgreen text={e21}
+# text(290.92432,14.504335) color=darkgreen text={e22}
+# vector(290.9344,14.511934,9.1803316",301.17387) vector=1 color=blue
+# text(290.93482,14.512622) color=blue text={e2}
+# vector(290.92798,14.503561,14.642753",98.444281) vector=1 color=darkgreen
+# text(290.93202,14.513574) color=darkgreen text={e23}
