@@ -92,8 +92,9 @@ We report four key observational results:
 \subsection{Continuum sources and photometry}
 \label{sec:pointsources}
 Our data are the most sensitive continuum observations yet performed on the W51
-region.  We report new detections of some sources, and concrete identifications
-of others that were detected in previous data sets but not reported.
+region.  We report new detections of several sources and concrete
+identifications of others that were detected in previous data sets but not
+reported.
 
 We follow the naming scheme introduced by \citet{Mehringer1994a}.  For the
 compact ($r<1\arcsec$) sources within 1 arcminute of W51e2, we use the name
@@ -180,13 +181,18 @@ It probably makes more sense to centroid on e2 and match that way.}
 
 
 \subsubsection{Source Associations}
-We compare our extracted source catalog with the MOXC Chandra X-ray
-catalog \citep{Townsley2014a}.  Only two of the compact HII regions are close
-enough to X-ray sources to plausibly be associated with them.  d4 is close to
-MOXC 192339.62+143130.3 and d6 is close to MOXC 192341.23+143111.8.  The lack
-of correlation between X-ray and HCHII regions clearly indicates that the OB
-stars within HCHII regions are weak X-ray emitters.
-\todo{DISTANCES between MOXC and Radio}
+We compare our extracted source catalog with the MOXC Chandra X-ray catalog
+\citep{Townsley2014a}.  Only two of the compact HII regions are close enough to
+X-ray sources to plausibly be associated with them.  Both lobes of d4 are
+0.3\arcsec from MOXC 192339.62+143130.3 and d6 is 0.3\arcsec from MOXC
+192341.23+143111.8.  These separations may indicate that either the HII regions
+in the MOXC point sources are associated with diffuse material, e.g. outflows,
+near stars rather than the stars themselves.  There are a handful of X-ray
+sources within W51 IRS2 that could be associated with faint HCHII regions that
+we do not detect due to confusion, but these could also be associated with
+outflowing material (e.g., the Lacy jet; see Section \ref{sec:lacyjet}).  The
+lack of correlation between X-ray and HCHII regions clearly indicates that the
+OB stars within these HCHII regions are weak X-ray emitters, \todo{unlike W3(OH)?}.  
 
 \todo{Compare to NIR catalogs: there were (nearly) no associations, so this should
 be succinct.  Table?}
@@ -205,6 +211,7 @@ between e1, e8, and e10, and in W51 North.  We report the tentative detection
 of an extended structure between e2 and e1, though this structure is weak
 and could be an artifact from the image reconstruction process.
 
+\todo{Explain further.  Probably requires a figure.}
 The W51e emission sources show signs of self-absorption around $v\sim55$ \kms,
 close in velocity to the nadir of the W51e2 spectrum.  A diffuse cloud is
 visible in absorption against the HII region toward the south at this same
@@ -242,8 +249,8 @@ velocity measurement may be affected by image reconstruction artifacts from
 
 \subsection{Diffuse emission features}
 \label{sec:diffuseemission}
-There are a few new notable emission features detected in our data that were
-not seen in previous shallower data.
+There are a few new notable continuum emission features detected in our data
+that were not seen in previous shallower data.
 
 Near source e11, there is a bow-shaped feature (Figure \ref{fig:e11bow}).
 There are no known associated sources at shorter wavelengths, though in Spitzer
@@ -251,7 +258,9 @@ bands there is some diffuse emission at this location.  The bow-like structure
 points away from e11, suggesting that it is the driving source.
 
 \Figure{figures/diffuse/e11_bow.png}
-{A bow-shaped feature near the source e11 in the Ku-band continuum image.}
+{A bow-shaped feature toward the northeast of the source e11 in the Ku-band
+continuum image.  The feature resembles the bow shocks of Herbig-Haro object,
+but is more likely to be an HII region given its smooth structure.}
 {fig:e11bow}{0.5}{6.5in}
 
 The source d3 is a diffuse HII region with radius $r\sim1.9$\arcsec.  It is
@@ -265,8 +274,8 @@ dramatically improved.  Where in previous observations, a relatively smooth and
 clumpy structure was seen, the new images reveal a network of wispy,
 filamentary structures.  Figure \ref{fig:w51mainpeak} shows the region between
 the W51e and W51 IRS2 clusters.  While this area contains few clear individual
-sources, it accounts for the majority of the luminosity of the W51 Main region
-and about half the total luminosity of the W51 Main/IRS2 complex.  
+sources, it accounts for the majority of the radio luminosity of the W51 Main
+region and about half the total luminosity of the W51 Main/IRS2 complex.
 
 The filamentary structures in the W51 Main peak are unresolved along the short
 axis, with aspect ratios $>25$.   These resemble the ``stringlike ionized
@@ -292,13 +301,18 @@ ionized nebula they produce.
 \FigureTwo
 {figures/diffuse/w51main_peak.png}
 {figures/diffuse/w51main_peak_diff.png}
-{(left) A C-band image of the W51 Main peak intensity region.  This region
-accounts for more than half of the total luminosity of W51.  There are two
-pointlike sources in field, e14 at center-left and the cometary e13 toward the
-lower left. (right) A difference image between the 2014 and 1994 C-band images.
-The 2014 data have higher resolution and therefore this image primarily
-highlights compact emission, though some differences may be explained by
-variability.}
+{({\it a}) A C-band image of the W51 Main peak intensity region.  This region
+accounts for more than half of the radio luminosity of W51.
+({\it b}) An unsharp-masked version of the image with a 0.3\arcsec smoothing
+kernel. 
+There are
+two pointlike sources in field marked by red arrows, e14 at center-left and the
+cometary e13 toward the lower left.
+The filamentary features mentioned in Section \ref{sec:diffuseemission} are
+identified by blue arrows.  The cyan arrow points along a possible ionized flow,
+traced by elongated features parallel to the arrow and a rounded feature to the
+southwest.  A counterpart to the northeast is barely visible.
+}
 {fig:w51mainpeak}{1}{3.5in}
 
 Additionally, the W51 Main ridge is cleanly detected in H77$\alpha$.  Filament
@@ -327,13 +341,32 @@ consistent gradient from its center to its surroundings, with a more extended
 component peaking around 47 \kms.  There is a clear shell around IRS2
 with maximum projected radius 21\arcsec (0.5 pc; Figure \ref{fig:w51irs2}).
 There is a prominent sharp edge feature extending to the northeast from the
-central cluster; it is not clear what this feature traces.
+central cluster: it may trace the outflow of hot material from the cluster.
+
+Parts of the shell close to IRS2 are detected in radio recombination lines
+(H77$\alpha$), but the regions marked in Figure \ref{fig:w51irs2} with red
+arrows are not.  The shell to the northwest peaks at $v_{lsr}=37.5$ \kms, and a
+gradient is observed from that shell to the peak velocity of IRS2 at $v_{lsr} =
+62.6$ \kms.  The velocity structure is inconsistent with spherical outflow, but
+it is consistent with a conical flow structure like that expected near
+circumstellar disks.  This flow structure likely indicates that the cluster has
+evacuated a large cavity approximately along the line of sight, which is
+consistent with the low observed extinction toward IRS2.  
+
+\todo{Contours at some velocities?}
 
 \FigureTwo
 {figures/diffuse/irs2_C_high.png}
-{figures/diffuse/irs2_C_low.png}
-{The W51 IRS 2 region in C-band continuum with two transfer functions to
-highlight different features.}
+{figures/diffuse/irs2_C_diff.png}
+{(\textit{a}) The W51 IRS 2 region in C-band continuum and (\textit{b}) unsharp
+masked with a 0.3\arcsec kernel.  Concentric ring features surround the IRS 2
+region.  A V-shaped feature to the north (cyan arrow) may highlight the edge of
+gas flows out of the cluster, extending to the long linear feature pointing
+northeast (blue arrow); the corresponding linear feature to the northeast is
+\emph{not} observed at Ku-band and is likely to be an imaging artifact.  An
+apparent shell is observed centered on the IRS2 cluster, with edge
+features to the south and east (red arrows).
+}
 {fig:w51irs2}{1}{3.5in}
 
 \section{Analysis}
@@ -483,15 +516,17 @@ There is a `bridge' structure connecting the e8 and e2 cores.  This structure
 was seen in \citet{Zhang1997a}, but was poorly resolved and could have been
 dismissed as an artifact of the dirty beam.  This bridge is fainter than either
 of the cores but clearly detected (Figure \ref{fig:w51bridge22emispec} and
-Figure \ref{fig:w51mainemicontours}).  It is also hot, $T_B\gtrsim300$ K at peak,
-and presumably very dense.
+Figure \ref{fig:w51mainemicontours}).
 
-The gas temperatures must either be driven by internal star formation, possibly
-a very early stage massive star like W51 North with no HII region yet formed,
-or the bridge is heated by the cluster of surrounding massive stars.  The
-thermal Jeans mass in this bridge is $M_J = 10.0 \left(\frac{T}{300
-K}\right)^{3/2} \left(\frac{n}{10^7 \percc}\right)^{-1/2}$ \msun, implying that
-any fragments will be very large or, more likely, fragmentation is prevented.
+%It is also hot, $T_B\gtrsim300$ K at peak,
+%and presumably very dense.
+
+%The gas temperatures must either be driven by internal star formation, possibly
+%a very early stage massive star like W51 North with no HII region yet formed,
+%or the bridge is heated by the cluster of surrounding massive stars.  The
+%thermal Jeans mass in this bridge is $M_J = 10.0 \left(\frac{T}{300
+%K}\right)^{3/2} \left(\frac{n}{10^7 \percc}\right)^{-1/2}$ \msun, implying that
+%any fragments will be very large or, more likely, fragmentation is prevented.
 
 The bridge could in principle have been created by the ejection of e2 from the
 e1 cluster.  However, the maser proper motions of \citep{Sato2014a} show that
@@ -499,7 +534,8 @@ e2 and e1 have almost no motion relative to one another.  To achieve their
 current separation at a motion of 1 mas \peryr (25 \kms), which is an upper
 limit on their relative motion, they would have had to separate 5-10 kyr ago.
 The current data do not rule out this scenario, but neither do they strongly
-favor it.
+favor it.  It is more likely that this bridge feature traces the parent filament
+from which both the e1 and e2 clusters have formed.
 
 \Figure
 {{figures/spectra/emission/NorthCore_h2co22emisson_baselined}.png}
@@ -539,35 +575,36 @@ north/northwest (b) northeast (c) southeast of the e2 HCHII region.
 }
 {fig:w51e1emispec}{1}{3.5in}
 
-\subsection{Explanation of the hot gas}
-The high observed temperatures could be an indication either of genuinely hot
-molecular gas or of radiative pumping of the \formaldehyde molecules.  In
-either case, an intense source of radiation must be present; the primary
-difference is whether the excitation is driven by photons or collisions with
-the local dust.
-
-Collisionally excited gas at these high temperatures implies a high density as
-well, which in turn implies frequent high-energy collisions between molecules.
-It is likely that the high-end tail of these collisions will result in rapid
-dissociation of the molecules.  Since \formaldehyde and \ammonia are both
-relatively complex, with \ammonia forming slowly in cold gas in the absence of
-CO \todo{[citation needed]}, re-formation of the molecules would not provide a
-sufficient population for our observations.  We therefore favor radiative
-(infrared) pumping as the explanation for the high observed brightness.  The gas
-must still be warm, $T\gtrsim200$ K \citep{Henkel2013a}, but not quite as hot
-as we might naively infer.  \citet{Mangum1993a} determined that infrared
-pumping begins to be significant for \formaldehyde when temperatures approach
-$T\gtrsim150$ K (see their Appendix C).
-
-Normally \ammonia metastable transitions are cited as good tracers of the gas
-temperature because their relative populations can only be set by collisions;
-there are no radiative transitions connecting the K-ladders.  However, high
-radiation temperatures can easily excite the higher vibrational levels of
-\ammonia, which can then decay into different K-ladders \citep[][gives an
-overview of the selection pseudo-rules]{Henkel2013a}.  Therefore, temperatures
-inferred from \ammonia may be inaccurate in these hot cores.
+% \subsection{Explanation of the hot gas}
+% The high observed temperatures could be an indication either of genuinely hot
+% molecular gas or of radiative pumping of the \formaldehyde molecules.  In
+% either case, an intense source of radiation must be present; the primary
+% difference is whether the excitation is driven by photons or collisions with
+% the local dust.
+% 
+% Collisionally excited gas at these high temperatures implies a high density as
+% well, which in turn implies frequent high-energy collisions between molecules.
+% It is likely that the high-end tail of these collisions will result in rapid
+% dissociation of the molecules.  Since \formaldehyde and \ammonia are both
+% relatively complex, with \ammonia forming slowly in cold gas in the absence of
+% CO \todo{[citation needed]}, re-formation of the molecules would not provide a
+% sufficient population for our observations.  We therefore favor radiative
+% (infrared) pumping as the explanation for the high observed brightness.  The gas
+% must still be warm, $T\gtrsim200$ K \citep{Henkel2013a}, but not quite as hot
+% as we might naively infer.  \citet{Mangum1993a} determined that infrared
+% pumping begins to be significant for \formaldehyde when temperatures approach
+% $T\gtrsim150$ K (see their Appendix C).
+% 
+% Normally \ammonia metastable transitions are cited as good tracers of the gas
+% temperature because their relative populations can only be set by collisions;
+% there are no radiative transitions connecting the K-ladders.  However, high
+% radiation temperatures can easily excite the higher vibrational levels of
+% \ammonia, which can then decay into different K-ladders \citep[][gives an
+% overview of the selection pseudo-rules]{Henkel2013a}.  Therefore, temperatures
+% inferred from \ammonia may be inaccurate in these hot cores.
 
 \subsection{The Lacy jet}
+\label{sec:lacyjet}
 \citet{Lacy2007a} reported the detection of very high velocity ionized gas
 in the mid-infrared [Ne II] 12.8\um and S IV 10.5\um lines.  They observe the
 gas at a velocity blueshifted about 100 \kms from the IRS2 ionized and molecular
@@ -578,7 +615,7 @@ features.  No redshifted counterflow is detected (Figure \ref{fig:lacyjetslice})
 One minor but notable feature of the H77$\alpha$ flow is that it is very close
 to the rest velocity of the He77$\alpha$ line.  If \citet{Lacy2007a} had not
 already unambiguously identified the high velocity of this feature in two
-lines, we would have assumed it to be slightly redshifed Helium.
+lines, we would have assumed it to be slightly redshifted Helium.
 
 \FigureTwo
 {figures/jetpv/H77a_cutout_1.png}
@@ -595,7 +632,7 @@ observed in the infrared.}
 
 This outflow is close to W51 North, which is a likely driver of the outflow based
 on the highly excited \ammonia around it \citep{Henkel2013a,Goddi2015a}.  However,
-the accretion O-star W51 IRS 2E is also very close to the outflow and could plausibly
+the accreting O-star W51 IRS 2E is also very close to the outflow and could plausibly
 be the driver \citep{Barbosa2008a}.  IRS 2E is the brightest X-ray source in
 W51 with a harder X-ray spectrum than other sources in the region, and it emits
 most of its energy in iron fluorescence lines, indicating that there is a very
@@ -670,20 +707,27 @@ HII phase.  However, both of these assumptions are questionable.
 \subsection{Sources of illumination in the extended HII regions}
 There are many extended HII regions associated with the W51 cluster area.
 While some have obvious driving sources, the W51 Main region seems not to - the
-hypercompact HII regions are too small and not leaky enough.  Additionally, at
-the W51 Peak position, we have discovered multiple overlapping bubbles at
-different line-of-sight velocities with centers far from both the W51 IRS2 and
-W51e clusters.
+hypercompact HII regions are too small and not leaky enough.  If the
+hypercompact HII regions were illuminating the W51 Main, we would expect
+to see some traces of ionized features between e1/e2 and the lobe, or we would
+expect not to see the O-stars as hypercompact HII regions at all.
+Additionally, at the W51 Peak position, we have discovered multiple overlapping
+bubbles at different line-of-sight velocities with centers far from both the
+W51 IRS2 and W51e clusters.
 
-We therefore suggest that the majority of the luminosity in the W51A
-region comes from a partially-embedded population of stars that is
-extremely confused with the luminous HII region it generates.
+We therefore suggest that a significant fraction of the luminosity in the W51A
+region, and perhaps all from the W51 Main region, comes from a
+partially-embedded population of stars that is extremely confused with the
+luminous HII region it generates.
 
-The different velocities of the HII bubbles in the W51 peak suggest that there
+The different velocities of the HII bubbles in W51 Main suggest that there
 are interacting, expanding bubbles, which in turn implies that there is a separation
 between the driving sources of at least the bubble sizes, $\sim0.2-0.3$ pc.  
 The W51 Peak cluster is therefore less dynamically evolved than W51 IRS2 and W51e,
 which are both centrally concentrated.
+
+\todo{Fix the naming scheme using \texttt{diffuse\_hii\_regions.reg}.  Create
+figures showing the different velocity structures.}
 
 % \section{The distributed population of HCHII regions}
 % We detect an additional XX point sources in the field.
@@ -725,10 +769,10 @@ coupled to the gas could unbind it all.  The $\sim20$ O-stars presently formed,
 plus at least that many expected to form, will provide more than enough energy
 to unbind the whole GMC.
 
-In order to match star formation relations, the overall star formation
-efficiency of the cloud must be limited to \todo{10\% ?? [citation needed]}.
-If the cluster progresses to 100\% efficiency, as we predict, the rest of the
-cloud must be limited to XX.
+% In order to match star formation relations, the overall star formation
+% efficiency of the cloud must be limited to \todo{10\% ?? [citation needed]}.
+% If the cluster progresses to 100\% efficiency, as we predict, the rest of the
+% cloud must be limited to XX.
 
 \section{Conclusions}
 
