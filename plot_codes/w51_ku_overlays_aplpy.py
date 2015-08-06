@@ -137,13 +137,17 @@ for velo in np.arange(vr[0],vr[1]+0.5,0.5):
     F.remove_layer('temporary2')
     F.remove_layer('label')
 
-integ = cube.spectral_slab(vr[0]*u.km/u.s, vr[1]*u.km/u.s).max(axis=0)
-F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
-               levels=[0.002,0.004,0.006,0.008,1],
+#cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
+cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
+vr = 55,62
+peak = cube.spectral_slab(vr[0]*u.km/u.s, vr[1]*u.km/u.s).max(axis=0)
+F.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.011,invert=True)
+F.show_contour(peak.hdu,
+               levels=[0.002, 0.004,0.006,0.008,1],
                colors=[(1,0,0,ii) for ii in np.linspace(0.5, 1, 5)],
                filled=True, layer='temporary')
 F.show_regions(rpath('W51_22_emission_labels.reg'), layer='temporary2')
-F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_natural_v{0}to{1}integrated_labeled.png'.format(vr[0],vr[1])))
+F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_natural_v{0}to{1}peak_labeled.png'.format(vr[0],vr[1])))
 F.remove_layer('temporary')
 F.remove_layer('temporary2')
 
