@@ -8,7 +8,7 @@ from astropy.io import fits
 import aplpy
 
 distance = 5.1*u.kpc
-e1e2 = coordinates.ICRS(290.93268,14.508363,unit=('deg','deg'))
+e1e2 = coordinates.SkyCoord(290.93268,14.508363,unit=('deg','deg'), frame='icrs')
 
 #aplpy.make_rgb_cube( ('W51-CBAND-feathered.fits','W51-X-ABCD-S1.VTESS.VTC.DAVID-MEH.fits','W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits'), 'W51_CXU_rgb' )
 
@@ -59,7 +59,11 @@ F.recenter(290.91644,14.518939,radius=0.3/60.)
 cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
 for velo in np.arange(60,72,0.5):
     c = pl.cm.jet_r((70-velo)/10.)
-    colors = [c[:3] + (x,) for x in (0.9,0.7,0.5,0.3,0.1)]
+    #colors = [c[:3] + (x,) for x in (0.9,0.7,0.5,0.3,0.1)]
+    #F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
+    #               levels=[-1,-0.003,-0.002,-0.001],colors=colors,
+    #               filled=True, layer='temporary')
+    colors = [c[:3] + (x,) for x in (0.9,0.8,0.7,0.6,0.5)]
     F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
                    levels=[-1,-0.003,-0.002,-0.001],colors=colors,
                    filled=True, layer='temporary')
@@ -74,6 +78,12 @@ for velo in np.arange(60,72,0.5):
                 color='w', layer='label', size=20)
     F.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
     F.save(fpath('contour_movie/e1e2_h2co22_on_cont22_briggs0_v{0}.png'.format(velo)))
+
+    # not emission
+    # F.show_regions(rpath('W51_22_emission_labels.reg'), layer='temporary2')
+    # F.save(fpath('contour_movie/e1e2_h2co22_on_cont22_briggs0_v{0}_labeled.png'.format(velo)))
+    # F.hide_layer('temporary2')
+
     F.hide_layer('temporary')
 
 cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
@@ -94,6 +104,12 @@ for velo in np.arange(60,72,0.5):
                 text="{0:0.1f} km s$^{{-1}}$".format(velo),
                 color='w', layer='label', size=20)
     F.save(fpath('contour_movie/e1e2_h2co22_on_cont22_natural_v{0}.png'.format(velo)))
+
+    # not emission
+    # F.show_regions(rpath('W51_22_emission_labels.reg'), layer='temporary2')
+    # F.save(fpath('contour_movie/e1e2_h2co22_on_cont22_natural_v{0}_labeled.png'.format(velo)))
+    # F.hide_layer('temporary2')
+
     F.hide_layer('temporary')
 
 cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
@@ -115,8 +131,21 @@ for velo in np.arange(vr[0],vr[1]+0.5,0.5):
                 text="{0:0.1f} km s$^{{-1}}$".format(velo),
                 color='w', layer='label', size=20)
     F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_natural_v{0}.png'.format(velo)))
+    F.show_regions(rpath('W51_22_emission_labels.reg'), layer='temporary2')
+    F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_natural_v{0}_labeled.png'.format(velo)))
     F.remove_layer('temporary')
+    F.remove_layer('temporary2')
     F.remove_layer('label')
+
+integ = cube.spectral_slab(vr[0]*u.km/u.s, vr[1]*u.km/u.s).max(axis=0)
+F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
+               levels=[0.002,0.004,0.006,0.008,1],
+               colors=[(1,0,0,ii) for ii in np.linspace(0.5, 1, 5)],
+               filled=True, layer='temporary')
+F.show_regions(rpath('W51_22_emission_labels.reg'), layer='temporary2')
+F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_natural_v{0}to{1}integrated_labeled.png'.format(vr[0],vr[1])))
+F.remove_layer('temporary')
+F.remove_layer('temporary2')
 
 F.recenter(290.91669,14.518151,radius=8./3600.)
 F.scalebar.set_length(((0.1 * u.pc)/distance*u.radian).to(u.degree).value)
@@ -206,7 +235,7 @@ F.save(fpath('W51_Ku_withH2COcontours_blue.pdf'))
 
 inset = aplpy.FITSFigure(hdu,convention='calabretta',figure=figure,subplot=[xl,yu-0.25,0.2,0.25])
 inset.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.031)
-e1e2 = coordinates.ICRS(290.93268,14.508363,unit=('deg','deg'))
+e1e2 = coordinates.SkyCoord(290.93268,14.508363,unit=('deg','deg'), frame='icrs')
 inset.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
 inset.tick_labels.hide()
 inset.axis_labels.hide()
