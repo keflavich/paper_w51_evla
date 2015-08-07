@@ -7,7 +7,7 @@ from astropy import units as u
 from astropy.io import fits
 import aplpy
 
-distance = 5.1*u.kpc
+distance = 5.41*u.kpc
 e1e2 = coordinates.SkyCoord(290.93268,14.508363,unit=('deg','deg'), frame='icrs')
 
 #aplpy.make_rgb_cube( ('W51-CBAND-feathered.fits','W51-X-ABCD-S1.VTESS.VTC.DAVID-MEH.fits','W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits'), 'W51_CXU_rgb' )
