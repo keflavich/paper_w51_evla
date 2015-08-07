@@ -1,0 +1,10 @@
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+icrs
+ellipse(290.91627,14.519649,3.6684223",1.1650153",339.744) # text={IRS2 60kms filament}
+ellipse(290.91502,14.519944,5.1576995",1.09486",351.099) # text={IRS2 68kms filament}
+ellipse(290.91502,14.519944,5.1576995",1.09486",351.099) # text={IRS2 68kms filament}
+ellipse(290.91905,14.520972,6.4999994",2.2000014",1.22896e-05) # text={IRS2 68kms East filament}
+ellipse(290.91645,14.519,1.591435",1.4467594",1.22896e-05) # text={IRS2 Center}
+ellipse(290.92417,14.517455,1.3488943",1.3023813",1.22896e-05) # text={e6}
+ellipse(290.92443,14.515746,0.60467688",0.67444736",1.22896e-05) # text={e5}
