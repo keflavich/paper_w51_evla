@@ -1,0 +1,4 @@
+Notes on the correction of the pointing of the Lacy cubes
+
+Use H77a as reference: 290.91736 14.518807 pixel 25.5 70.0
+S IV: less accurate.  Ref: 290.91746 14.518626 pixel 44 65
