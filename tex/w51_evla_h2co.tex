@@ -116,7 +116,9 @@ include candidate point sources that may instead be artifacts from the data
 reduction process.  In order to identify point sources, we used
 uniformly-weighted maps, which remove much of the extended emission and make
 pointsource detection simpler, but this process also can result in local peaks
-of the diffuse emission appearing to be pointlike.
+of the diffuse emission appearing to be pointlike.  However, for many of the
+faint and questionable peaks, we have found clear near-infrared associations,
+suggesting that the treatment of these point sources as real is justified.
 
 The point source data is listed in Table \ref{tab:contsrcs}.  The Epoch column
 describes the data source: Epoch 1 comes from \citet{Mehringer1994a}, Epoch 2
@@ -186,24 +188,40 @@ We compare our extracted source catalog with the MOXC Chandra X-ray catalog
 \citep{Townsley2014a}.  Only two of the compact HII regions are close enough to
 X-ray sources to plausibly be associated with them.  Both lobes of d4 are
 0.3\arcsec from MOXC 192339.62+143130.3 and d6 is 0.3\arcsec from MOXC
-192341.23+143111.8.  These separations may indicate that either the HII regions
-in the MOXC point sources are associated with diffuse material, e.g. outflows,
-near stars rather than the stars themselves.  There are a handful of X-ray
+192341.23+143111.8.    These
+separations may indicate that either the HII regions in the MOXC point sources
+are associated with diffuse material, e.g. outflows,
+near stars rather than the stars themselves.  
+Candidate sources e20 and e22 are $<0.1$\arcsec from
+MOXC 192342.86+143027.5 and 192342.77+143027.5, respectively.
+There are a handful of X-ray
 sources within W51 IRS2 that could be associated with faint HCHII regions that
 we do not detect due to confusion, but these could also be associated with
 outflowing material (e.g., the Lacy jet; see Section \ref{sec:lacyjet}).  The
 lack of correlation between X-ray and HCHII regions clearly indicates that the
-OB stars within these HCHII regions are weak X-ray emitters, \todo{unlike W3(OH)?}.  
+embedded OB stars within these HCHII regions are weak X-ray emitters.  
 
-\todo{Compare to NIR catalogs: there were (nearly) no associations, so this should
-be succinct.  Table?}
+We compared our point source catalog to the UKIDSS K-band and UWISH2 \hh images to
+search for infrared associations with our detected radio sources
+\citep{Lucas2012a,Froebrich2011a}.  Most of the W51e sources have no
+association, as is expected given the high extinction in this region.  The
+diffuse region e7 to the south is an exception, associated with UGPS
+J192344.79+142911.2 \citep{Lucas2012a}.  Three candidate sources, e20, e21, and
+e22, have clear K-band counterparts, though the UGPS cataloged sources do not align
+with the evident K-band sources.  e20 and e22 correspond to \citet{Goldader1994a}
+source RS7 and RS8 respectively.  e15, a diffuse source, has a counterpart UGPS
+J192338.65+143005.8.  e14 is associated with UGPS J192342.60+143042.2.  e5
+exhibits some K-band emission, though because of the diffuse surroundings,
+this emission is not cataloged in the UGPS.
+Further north, d5 has a counterpart UGPS J192341.77+143127.6.
 
 
-\todo{Is this a worthwhile observation?  The flux distribution of detected
-sources at C-band (4.9 GHz) is essentially flat from 1\ee{-4} to 1\ee{-2} Jy.
-There is a hint of a power-law or bimodal distribution from 1\ee{-4} to
-1\ee{-1} Jy at 14.1 GHz.  The distribution probably reflects varying optical
-depth.}
+
+%\todo{Is this a worthwhile observation?  The flux distribution of detected
+%sources at C-band (4.9 GHz) is essentially flat from 1\ee{-4} to 1\ee{-2} Jy.
+%There is a hint of a power-law or bimodal distribution from 1\ee{-4} to
+%1\ee{-1} Jy at 14.1 GHz.  The distribution probably reflects varying optical
+%depth.}
 
 \subsection{\formaldehyde \twotwo emission}
 \label{sec:twotwoemission}
@@ -372,6 +390,7 @@ features to the south and east (red arrows).
 
 \section{Analysis}
 \subsection{The stellar mass}
+\label{sec:stellarmass}
 
 We have re-measured the infrared luminosity of the W51 protoclusters using Herschel
 Hi-Gal data \citep{Molinari2010a,Traficante2011a}, fitting an SED from the 70
@@ -382,44 +401,86 @@ infrared luminosity, which is dominated by a single warm ($\sim60$ K) component.
 infrared luminosity is about $L\sim2\ee{7}$ \lsun within a 2 pc radius, which includes
 both the W51 IRS2 and W51 Main protoclusters.  It does not include the
 mid-infrared luminosity, which may provide an additional $\sim25-50\%$ based on
-the IRAS measurements. A luminosity $L=2\pm0.5\ee{7}$ \lsun implies a stellar
-mass $M_{cl} = 6700 \pm 2300$ \msun, with a corresponding number of O-stars
-(greater than 20 \msun) $N_O = 19 \pm 6$.
+the IRAS 12 and 25 \um measurements.  Our measured total luminosity is a little
+larger than the previous estimates based on IRAS and KAO measurements
+\citep{Harvey1986a,Sievers1991a}.  A luminosity $L=2\pm0.5\ee{7}$ \lsun implies
+a stellar mass $M_{cl} = 6700 \pm 2300$ \msun, with a corresponding number of
+O-stars (greater than 20 \msun) $N_O = 19 \pm 6$, given a \citet{Kroupa2001a} IMF.
 
-Of these expected $\sim20$, we know of 6 as detected O-stars.  \citet{Figueredo2008a} found
-4 exposed O-type stars and \citet{Barbosa2008a} found an additional two with
-strong infrared excess.  None of these coincide with ultracompact or
-hypercompact \hii regions, but all are in the bright and diffuse IRS2 region.
+Of these expected $\sim20$, we know of 6 as detected O-stars.
+\citet{Figueredo2008a} found 4 exposed O-type stars and \citet{Barbosa2008a}
+found an additional two with strong infrared excess.  None of these coincide
+with ultracompact or hypercompact \hii regions, but all are in the bright and
+diffuse IRS2 region.
 
 \citet{Mehringer1994a} found an additional 8 ultracompact and hypercompact \hii
 regions, all of which appear to be B0 or earlier based on their radio-derived
 ionizing photon luminosity.  In this work, we report a handful more.
 The other 9-20 O-stars expected to have \emph{already} formed given the
 observed total luminosity may be these most luminous hypercompact \hii regions.
-However, it is difficult to explain the total luminosity of the region from hypercompact
-HII regions alone, since their emission is necessarily confined to a small region
-and they contribute minimally to the overall radio luminosity.
+However, it is difficult to explain the total luminosity of the region from
+hypercompact HII regions alone, since their emission is necessarily confined to
+a small region and they contribute minimally to the overall radio luminosity.
 
-Another possibility is that the remaining O-stars are embedded in or near the
-``shell'' structure of the W51 Main region (Figure
-\ref{fig:coverview_diffuse}).  This region dominates the luminosity of W51 Main
-and is bright enough in near-infrared and radio continuum emission to make
-detection of point sources impossible, explaining why no O-stars have been
-previously detected.  
+Another possibility is that the O-stars providing most of the observed
+luminosity are embedded in or near the ``shell'' structure of the W51 Main
+region (Figure \ref{fig:coverview_diffuse}).  This region dominates the
+luminosity of W51 Main and is bright enough in near-infrared and radio
+continuum emission to make detection of point sources impossible, explaining
+why no O-stars have been previously confirmed.  There are multiple overlapping
+HII bubbles in the W51 Main shell at different velocities, suggesting that
+there are interacting and  expanding bubbles, which in turn implies that there
+is a separation between the driving sources and the HII region of at least the
+bubble sizes, $\sim0.2-0.3$ pc.  
+
+This latter possibility suggests the existence of a third cluster in W51.
+The sources e20, e21, and e22 may be at the heart of this cluster.  They
+were detected by \citet{Goldader1994a} in the K-band at $m_K < 12$, making
+these the brightest NIR sources outside of W51 IRS2.  Their luminosities
+suggest they are O4 or earlier stars.  Since they were also detected
+in X-rays \citet{Townsley2014a}, it is likely that our faint radio detections
+come from the ionized wind from these stars, not from locally ionized gas.
+The high K-band brightness and weak radio continuum from these sources,
+in contrast with the bright radio continuum and absence of infrared emission
+from e1/e2, supports this hypothesis.
+These stars (e20, e21, and e22) are therefore capable of providing the ionizing
+and infrared luminosity observed from the W51 Main HII region.
+
+A question remains: How close are the e1/e2 and e20/e21/e22 clusters?  They are
+separated by 0.36 pc in projection, but we presently have no direct information
+about the line-of-sight velocity of the e20 cluster.  There is no 68 \kms
+\formaldehyde absorption toward the e20 sources, but morphologically this is
+expected since they just managed to avoid the Dark Lane seen in K-band.  It is
+likely that the other sources in this general area, e12, e13, and e23, are also
+OB stars that are coincidentally behind infrared dark clouds that obscure them
+in the infrared.  It is possible that all of the W51 Main compact sources are
+within a $\sim 0.5$ pc sphere.
+
+%\subsection{Sources of illumination in the extended HII regions}
+%There are many extended HII regions associated with the W51 cluster area.
+%While some have obvious driving sources, the W51 Main region seems not to - the
+%hypercompact HII regions are too small and not leaky enough.  If the
+%hypercompact HII regions were illuminating the W51 Main, we would expect
+%to see some traces of ionized features between e1/e2 and the lobe, or we would
+%expect not to see the O-stars as hypercompact HII regions at all.
+%Additionally, at the W51 Peak position, we have discovered multiple overlapping
+%bubbles at different line-of-sight velocities with centers far from both the
+%W51 IRS2 and W51e clusters.
+%
+%We therefore suggest that a significant fraction of the luminosity in the W51A
+%region, and perhaps all from the W51 Main region, comes from a
+%partially-embedded population of stars that is extremely confused with the
+%luminous HII region it generates.
+%
+%
+%\todo{Fix the naming scheme using \texttt{diffuse\_hii\_regions.reg}.  Create
+%figures showing the different velocity structures.}
+
 
 %However, given the shell-like structure of this loop around
 %W51 Main, it seems likely that at least some of the shell-illuminating sources
 %are near the W51 e1/e2 cluster.
 
-The present stellar mass as inferred from the infrared luminosity is a lower
-limit on the final mass of the cluster.  Star formation in W51 is ongoing and
-is unlikely to cease until supernovae begin to explode, since even ionized gas
-is presently gravitationally bound
-\citep{Ginsburg2012a,Bressert2012a,Ginsburg2015a}.
-The final mass of the clusters will be at least $\sim7\ee{3} + 4\ee{4} \eta$ \msun,
-where $4\ee{4}$ \msun is the approximate dense gas mass within $\sim2$ pc and
-$\eta$ is a star formation efficiency, likely to be at least 10\% in the dense
-gas, so $M_{final} \gtrsim 1.1\ee{4}$ \msun.
 
 %The O3 or O4 star W51d spectrally typed by \citet{Barbosa2008a} is probably
 %illuminating the majority of the ionized gas in the IRS2 region.
@@ -559,7 +620,7 @@ from which both the e1 and e2 clusters have formed.
 
 \Figure
 {figures/contour_movie/e1e2_h2co22_emission_on_cont22_natural_v55to62peak_labeled.png}
-{Peak intensity contours (red) of the naturally weighted \formaldehyde \twotwo
+{\todo{contour unfill} Peak intensity contours (red) of the naturally weighted \formaldehyde \twotwo
 emission from 55 to 62 \kms in the e1/e2 region superposed on the Ku-band
 continuum image.  The contours are at 2,4,6 mJy/beam.  The green circles show
 the apertures used for the spectra shown in Figures
@@ -748,31 +809,6 @@ rate, the ultracompact HII phase must be 10-30\% as long as the hypercompact
 HII phase.  However, both of these assumptions are questionable.
 
 
-\subsection{Sources of illumination in the extended HII regions}
-There are many extended HII regions associated with the W51 cluster area.
-While some have obvious driving sources, the W51 Main region seems not to - the
-hypercompact HII regions are too small and not leaky enough.  If the
-hypercompact HII regions were illuminating the W51 Main, we would expect
-to see some traces of ionized features between e1/e2 and the lobe, or we would
-expect not to see the O-stars as hypercompact HII regions at all.
-Additionally, at the W51 Peak position, we have discovered multiple overlapping
-bubbles at different line-of-sight velocities with centers far from both the
-W51 IRS2 and W51e clusters.
-
-We therefore suggest that a significant fraction of the luminosity in the W51A
-region, and perhaps all from the W51 Main region, comes from a
-partially-embedded population of stars that is extremely confused with the
-luminous HII region it generates.
-
-The different velocities of the HII bubbles in W51 Main suggest that there
-are interacting, expanding bubbles, which in turn implies that there is a separation
-between the driving sources of at least the bubble sizes, $\sim0.2-0.3$ pc.  
-The W51 Peak cluster is therefore less dynamically evolved than W51 IRS2 and W51e,
-which are both centrally concentrated.
-
-\todo{Fix the naming scheme using \texttt{diffuse\_hii\_regions.reg}.  Create
-figures showing the different velocity structures.}
-
 % \section{The distributed population of HCHII regions}
 % We detect an additional XX point sources in the field.
 
@@ -800,8 +836,17 @@ clusters.
 
 We therefore anticipate that the clusters will continue to consume the dense
 gas they presently contain until it is either exhausted or some other feedback
-mechanism takes over.  Other feedback mechanisms may be stellar winds, direct
+mechanism takes over \citep{Ginsburg2012a,Bressert2012a,Ginsburg2015a}.
+Other feedback mechanisms may be stellar winds, direct
 radiation pressure (assuming a single scattering event),  or supernovae.
+
+The present stellar mass as inferred from the infrared luminosity (Section
+\ref{sec:stellarmass}) is a lower
+limit on the final mass of the cluster.  
+The final mass of the clusters will be at least $\sim7\ee{3} + 4\ee{4} \eta$ \msun,
+where $4\ee{4}$ \msun is the approximate dense gas mass within $\sim2$ pc and
+$\eta$ is a star formation efficiency, likely to be at least 10\% in the dense
+gas, so $M_{final} \gtrsim 1.1\ee{4}$ \msun.
 
 Since the free-fall time is very short within these clusters ($t_{ff} < 0.5$
 Myr out to 2.5 pc containing 5\ee{4} \msun of gas), supernovae will not affect
