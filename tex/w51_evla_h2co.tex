@@ -104,20 +104,22 @@ W51e followed by a number.  We identify two new sources, e9 (19:23:43.654
 detected but never officially named (as far as we were able to discover).
 We additionally split source e8 into a north and south component, plus a more
 extended molecular component e8mol.  We also identify a molecular component
-between e1, e8, and e10, which we identify as e10mol.  The source positions
-and approximate radii for resolved sources are listed in Table
-\ref{tab:positions}.
+between e1, e8, and e10, which we label e10mol.  The source positions
+and approximate radii for resolved sources are shown in Figure
+\ref{fig:coverview_pointsrcs} and listed in Table \ref{tab:positions}.
 
 \input{tables/source_positions.tex}
 
 We include in this catalog any pointlike sources (at $\sim0.2-0.4\arcsec$
 resolution) with emission in two bands, Ku and C (14 and 5 GHz).  We also
-include candidate point sources that may instead be artifacts from the data
-reduction process.  In order to identify point sources, we used
+include candidate point sources (denoted with a trailing ? in Table
+\ref{tab:contsrcs}) that may instead be artifacts from the data reduction
+process.  In order to identify point sources, we used
 uniformly-weighted maps, which remove much of the extended emission and make
 pointsource detection simpler, but this process also can result in local peaks
 of the diffuse emission appearing to be pointlike.  However, for many of the
-faint and questionable peaks, we have found clear near-infrared associations,
+faint and questionable peaks, we have found clear near-infrared associations
+(Section \ref{sec:associations}),
 suggesting that the treatment of these point sources as real is justified.
 
 The point source data is listed in Table \ref{tab:contsrcs}.  The Epoch column
@@ -125,23 +127,19 @@ describes the data source: Epoch 1 comes from \citet{Mehringer1994a}, Epoch 2
 comes from \todo{[Ciriaco's Program]}, 12B-365, or 13A-064 (mid 2012-early
 2013), and Epoch 3 (C-band only) comes from
 13A-064 in 2014. For the multi-configuration combined images, we list the date
-of the highest-resolution observations.  There are two flux density
-columns.  The first shows the peak flux density, which in some
-cases is negative because the source sits in a region affected by large angular
-scale negative bowls.  The second, `Peak - Background', shows the peak flux
-minus the lowest value within that same cutout region.  When these two values
-agree, they are reliable, but when they differ significantly they are probably
-affected by image reconstruction artifacts.
+of the highest-resolution observations.
 
-The photometry is performed by measuring the peak flux density within an
-aperture centered on the source with a radius equal to the beam major FWHM; the
-aperture is therefore about twice as large as the full extent of the source.
-We also report `background-subtracted' flux densities, which are these peak
-fluxes minus the minimum flux density in a box $6\times6$ beam FWHMs.  This
+There are two flux density columns.  The first shows the peak flux density
+within an aperture centered on the source with a radius equal to the beam major
+FWHM; the aperture is therefore about twice as large as the full extent of the
+source.  The second column, `Peak - Background', shows the peak flux minus the
+minimum flux density in a box $6\times6$ beam FWHMs.  This
 background-subtracted flux density is meant to account for negative bowling
 that affects parts of the images; there are cases in which a bright point
 source is seen on a deeply negative background such that the measured peak flux
-is near zero.
+is near zero.  When these two values agree, they are reliable, but when they
+differ significantly, they are probably affected by image reconstruction
+artifacts and the background-subtracted version is preferred.
 
 \input{tables/pointsource_photometry.tex}
 
@@ -169,27 +167,28 @@ the Epoch 1 (green) points are within the noise, while all of the Epoch 2 and 3
 \subsubsection{Variability}
 The multi-epoch data demonstrate that some of these sources are variable.  The
 most convincing case for variability is in the (double) source d4 (Figure
-\ref{fig:d4sed}.  In the \citet{Mehringer1994a} data, there is no hint of
-emission at this location, with a 5-$\sigma$ upper limit of 1 mJy.  At the same
-position and frequency in 2014, there is a 1.2 mJy source at the position of
-d4e.  The case for variability in other sources is weaker but nonetheless
-suggestive.
+\ref{fig:d4sed}).  In the \citet{Mehringer1994a} data, there is no hint of
+emission at this location, with a 3-$\sigma$ upper limit of 0.6 mJy.  At the
+same position and frequency in 2014, there is a $1.0 \pm 0.06$ mJy source at
+the position of d4e.  The case for variability in other sources is weaker but
+nonetheless suggestive.
 
-\todo{Move this somewhere relevant.}
-We found a small offset between the 1994 and 2014 images using a
-cross-correlation method (\url{image-registration.rtfd.org}); the 2014 data
-were shifted by 0.16\arcsec, 0.20\arcsec to the southeast from the 1994 data.
-\todo{There also appears to be some "squeezing" mode, which is inexplicable.
-It probably makes more sense to centroid on e2 and match that way.}
+% \todo{Move this somewhere relevant.}
+% We found a small offset between the 1994 and 2014 images using a
+% cross-correlation method (\url{image-registration.rtfd.org}); the 2014 data
+% were shifted by 0.16\arcsec, 0.20\arcsec to the southeast from the 1994 data.
+% \todo{There also appears to be some "squeezing" mode, which is inexplicable.
+% It probably makes more sense to centroid on e2 and match that way.}
 
 
 \subsubsection{Source Associations}
+\label{sec:associations}
 We compare our extracted source catalog with the MOXC Chandra X-ray catalog
 \citep{Townsley2014a}.  Only two of the compact HII regions are close enough to
 X-ray sources to plausibly be associated with them.  Both lobes of d4 are
 0.3\arcsec from MOXC 192339.62+143130.3 and d6 is 0.3\arcsec from MOXC
 192341.23+143111.8.    These
-separations may indicate that either the HII regions in the MOXC point sources
+separations may indicate that either the HII regions or the MOXC point sources
 are associated with diffuse material, e.g. outflows,
 near stars rather than the stars themselves.  
 Candidate sources e20 and e22 are $<0.1$\arcsec from
@@ -229,17 +228,6 @@ We detect \formaldehyde \twotwo emission around W51e2, W51e8, in a region
 between e1, e8, and e10, and in W51 North.  We report the tentative detection
 of an extended structure between e2 and e1, though this structure is weak
 and could be an artifact from the image reconstruction process.
-
-\todo{Explain further.  Probably requires a figure.}
-The W51e emission sources show signs of self-absorption around $v\sim55$ \kms,
-close in velocity to the nadir of the W51e2 spectrum.  A diffuse cloud is
-visible in absorption against the HII region toward the south at this same
-velocity, so it seems that the W51e cluster is either embedded within the
-$\sim55$ \kms cloud or behind it.  The cloud wraps around the W51e cluster at
-lower velocities, so it seems more likely they are embedded within it.  All of
-the W51e sources show absorption against the 68 \kms cloud, so they lie behind
-it.
-
 The fitted emission line parameters are listed in Table \ref{tab:emission22}.
 
 \input{tables/H2CO22_emission_spectral_fits}
@@ -491,6 +479,19 @@ within a $\sim 0.5$ pc sphere.
 % Can W51d be illuminating the W51 Main HII region?
 
 \subsection{\formaldehyde emission features}
+
+
+\todo{Explain further.  Probably requires a figure.}
+\todo{MERGE THIS: (this is also a `TODO: explain more') from Roberto
+The W51e emission sources show signs of self-absorption around $v\sim55$ \kms,
+close in velocity to the nadir of the W51e2 spectrum.  A diffuse cloud is
+visible in absorption against the HII region toward the south at this same
+velocity, so it seems that the W51e cluster is either embedded within the
+$\sim55$ \kms cloud or behind it.  The cloud wraps around the W51e cluster at
+lower velocities, so it seems more likely they are embedded within it.  All of
+the W51e sources show absorption against the 68 \kms cloud, so they lie behind
+it.}
+
 While \formaldehyde \oneone and \twotwo are commonly observed in absorption,
 the \oneone line has only been observed in emission in our galaxy as a maser
 \citep{Araya2007b}.  The \twotwo line has been observed in emission in the
@@ -518,9 +519,10 @@ to the ammonia masers observed by \citet{Zhang1995a} and more recently
 \FigureTwo
 {figures/irs2outflow/IRS2_core_on_cont22.png}
 {figures/irs2outflow/IRS2_core_on_NACO_K.png}
-{The W51 North core shown in emission in contours overlaid on (a) the 14 GHz
-continuum and (b) the NACO K-band continuum image.  The contours are at 3
-mJy/beam at velocities 56 to 60 \kms at 0.5 \kms intervals.
+{The W51 North core shown in \formaldehyde \twotwo emission in contours
+overlaid on (a) the 14 GHz continuum and (b) the NACO K-band continuum image.
+The contours are at 3 mJy/beam at velocities 56 (blue) to 60 (red) \kms at 0.5
+\kms intervals.
 }
 {fig:w51northcore}{1}{3.5in}
 
@@ -638,7 +640,7 @@ velocities superposed on the 15 GHz continuum map.  (a) shows the peak of the e2
 core, where the center of the core is missed because it is in absorption
 against the very bright continuum peak, (b) shows the e2-e8 `bridge' feature,
 and (c) shows the e8 core}
-{fig:w51mainemicontours}{1}{2.5in}
+{fig:w51mainemicontours}{1}{2.1in}
 
 \FigureThreeAA
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e2_a_K.png}
@@ -647,7 +649,7 @@ and (c) shows the e8 core}
 {Spectra of the \twotwo emission around W51e2 at three positions (a)
 north/northwest (b) northeast (c) southeast of the e2 HCHII region.
 \todo{Show where these are on some figure}}
-{fig:w51e2emispec}{1}{3.5in}
+{fig:w51e2emispec}{1}{2.25in}
 
 \FigureTwoAA
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e10mol_K.png}
@@ -752,11 +754,16 @@ number density $6\ee{5} < n(\hh) < 2\ee{7}$ \percc.
 
 The e1 subcluster is more compact, with $r=2.9$ \arcsec (0.07 pc), and its
 velocity dispersion is $\sigma=2.0$ \kms.  It is more symmetric and a virial
-assumption may be more accurate here.  Its implied density
-is $n(\hh)\sim2\ee7$ \percc.
+assumption may be more accurate here.  Its implied density if it is gas-dominated
+is $n(\hh)\sim2\ee7$ \percc, but assuming all 7 HCHII regions represent OB
+stars and the IMF is populated by a standard \citet{Kroupa2001a} mass function,
+the cluster should be star-dominated with a mass $M_{cluster}=700\pm250$ \msun,
+which implies a stellar density $n_* \sim 4 n_{gas}$.  Given that there are 
+hypercompact HII regions, implying gas densities near the stars $n>>10^6$ \percc,
+this is a region where stellar and gas dynamics are closely intertwined.
 
 Given the mass of W51 Main and its $\sim10\kms$ escape velocity, all of these
-(proto)stars are clearly bound to the gas. 
+(proto)stars are clearly bound to the overall cluster gas. 
 
 \FigureTwo
 {figures/spectra/h77/e1_h77a_fit.png}
@@ -792,10 +799,12 @@ In typical analysis of HCHII regions, one can distinguish these scenarios by
 examining the spectral index.  An optically thick source would have a spectral
 index $\alpha=2$, i.e. $S_\nu \propto \nu^2$.  However, excepting e2, none of
 the sources in our catalog exhibit such a slope.  Most sources have
-$\alpha\sim1$ or $\alpha\sim0$ and a minimum at 6 GHz.  Free-free emission does
-not readily explain these SEDs unless the source size is varying as a function
-of frequency, which is possible.  Another possibility is that these sources
-exhibit both free-free and synchrotron emission.
+$\alpha\sim1$ or $\alpha\sim0$, which could be explained by density gradients
+\citep{Keto2008a,Galvan-Madrid2009a}, and a minimum at 6 GHz, which cannot.
+Free-free emission does not readily explain these SEDs unless the source size
+is varying as a function of frequency, which is possible but difficult to
+reconcile with rising low-frequency fluxes.  Another possibility is that these
+sources exhibit both free-free and synchrotron emission.
 
 The diffuse HII regions are unambiguous, though the set of 4 ultracompact HII
 regions with similar size is interesting.  All four of d3, e1, e6, and e7 have
@@ -867,9 +876,9 @@ to unbind the whole GMC.
 
 The \formaldehyde \twotwo 14.488 GHz transition is a good tracer of early-stage
 very massive star formation.  It will be a powerful tool for studying the earliest
-stagest of high-mass star formation throughout the Galaxy with a Square
-Kilometer Array if the high-frequency end includes this transition.  Ongoing
-JVLA surveys (e.g., KuGARS, PI Thompson,
+stagest of high-mass star formation throughout the Galaxy with the Next Generation VLA
+or a Square Kilometer Array if the high-frequency end includes this transition.
+Ongoing JVLA surveys (e.g., KuGARS, PI Thompson,
 \url{http://library.nrao.edu/proposals/catalog/10267}) may detect a significant
 additional population of proto-O-stars.
 

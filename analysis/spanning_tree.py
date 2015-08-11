@@ -47,25 +47,47 @@ while len(vertices) < len(coords):
     all_vertices.remove(smallest_edge[1])
 
 
-mst = minimum_spanning_tree(separation_matrix)
-connections = np.where(mst.toarray())
-lines = [(coords[ii], coords[jj]) for ii,jj in zip(*connections)]
-plotlines = [((a.ra.deg, b.ra.deg), (a.dec.deg, b.dec.deg)) for a,b in lines]
-xx,yy = np.array(zip(*plotlines))
+def examinalyze(smat):
+    mst = minimum_spanning_tree(smat)
+    connections = np.where(mst.toarray())
+    lines = [(coords[ii], coords[jj]) for ii,jj in zip(*connections)]
+    plotlines = [((a.ra.deg, b.ra.deg), (a.dec.deg, b.dec.deg)) for a,b in lines]
+    xx,yy = np.array(zip(*plotlines))
 
-lines2 = [(coords[ll], coords[rr]) for ll,rr in edges]
-plotlines2 = [((a.ra.deg, b.ra.deg), (a.dec.deg, b.dec.deg)) for a,b in lines2]
-xx2,yy2 = np.array(zip(*plotlines2))
+    lines2 = [(coords[ll], coords[rr]) for ll,rr in edges]
+    plotlines2 = [((a.ra.deg, b.ra.deg), (a.dec.deg, b.dec.deg)) for a,b in lines2]
+    xx2,yy2 = np.array(zip(*plotlines2))
 
-import pylab as pl
-pl.clf()
-pl.plot(coords.ra.deg, coords.dec.deg, '*')
-pl.plot(xx.T, yy.T, color='b', alpha=0.5, linewidth=2)
-pl.plot(xx2.T, yy2.T, color='r', alpha=0.5, linewidth=2)
+    import pylab as pl
+    pl.clf()
+    pl.plot(coords.ra.deg, coords.dec.deg, '*')
+    pl.plot(xx.T, yy.T, color='b', alpha=0.5, linewidth=2)
+    pl.plot(xx2.T, yy2.T, color='r', alpha=0.5, linewidth=2)
 
-inds = np.where(np.tril(separation_matrix, -1))
-mps = separation_matrix[inds].mean()
-mbl = mst[mst.nonzero()].mean()
-print("Mean branch length: {0}".format(mbl))
-print("Mean point separation: {0}".format(mps))
-print("Q parameter: {0}".format(mbl/mps))
+    inds = np.where(np.tril(smat, -1))
+    mps = smat[inds].mean()
+    mbl = mst[mst.nonzero()].mean()
+    print("Mean branch length: {0} arcsec".format(mbl*3600))
+    print("Mean point separation: {0} arcsec".format(mps*3600))
+    print("Q parameter: {0}".format(mbl/mps))
+
+examinalyze(separation_matrix)
+
+
+w51e2 = coordinates.SkyCoord('19 23 43.90 +14 30 34.8', unit=('hour', 'deg'), frame='fk5')
+coords_e1e2 = coords[coords.separation(w51e2) < 15*u.arcsec]
+
+separation_matrix_e1e2 = np.array([coords_e1e2.separation(y)
+                                   for y in ProgressBar(coords_e1e2)
+                                  ])
+print("W51e1e2 cluster: ")
+examinalyze(separation_matrix_e1e2)
+
+w51e1 = coordinates.SkyCoord('19 23 43.77 +14 30 25.9', unit=('hour', 'deg'), frame='fk5')
+coords_e1 = coords[coords.separation(w51e1) < 5*u.arcsec]
+
+separation_matrix_e1 = np.array([coords_e1.separation(y)
+                                   for y in ProgressBar(coords_e1)
+                                  ])
+print("W51e1 cluster: ")
+examinalyze(separation_matrix_e1)
