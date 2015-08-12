@@ -45,7 +45,8 @@ star-forming regions in the Galaxy.
 We present observations of the inner few parsecs of the W51 protocluster
 forming region.  We refer to the whole region, including W51 Main (which
 contains the W51e sources) and W51 IRS 2 as `W51A'.  Other names are explained
-when they are used.
+when they are used.  An overview of the names used, including labels, is in the
+Appendix.
 
 \section{Observations}
 We used the JVLA in multiple bands and configurations.  In project 12B-365, we
@@ -334,7 +335,7 @@ are clearly distinct in velocity.  A smaller bubble at 40 \kms shows a velocity
 gradient orthogonal to the gradient seen next to filament A, increasing in
 velocity from southwest to northeast; this gradient may trace the edges of an expanding
 spherical shell.  The large bubble is centered at about 65 \kms and does not
-exhibit any clear gradients.
+exhibit any clear gradients (Figure \ref{fig:coverview_diffuse}).
 
 The HII region between W51 Main and W51 IRS 2 appears connected to the W51 IRS2
 bubble in the continuum, but it peaks at around 75 \kms.  Along this region,
@@ -357,9 +358,9 @@ Parts of the shell close to IRS2 are detected in radio recombination lines
 arrows are not.  The shell to the northwest peaks at $v_{lsr}=37.5$ \kms, and a
 gradient is observed from that shell to the peak velocity of IRS2 at $v_{lsr} =
 62.6$ \kms.  The velocity structure is inconsistent with spherical outflow, but
-it is consistent with a conical flow structure like that expected near
-circumstellar disks.  This flow structure likely indicates that the cluster has
-evacuated a large cavity approximately along the line of sight, which is
+it is consistent with a conical flow structure like that expected from
+disk-driven outflows.  This flow structure likely indicates that the cluster
+has evacuated a large cavity approximately along the line of sight, which is
 consistent with the low observed extinction toward IRS2.  
 
 \todo{Contours at some velocities?}
@@ -397,11 +398,11 @@ larger than the previous estimates based on IRAS and KAO measurements
 a stellar mass $M_{cl} = 6700 \pm 2300$ \msun, with a corresponding number of
 O-stars (greater than 20 \msun) $N_O = 19 \pm 6$, given a \citet{Kroupa2001a} IMF.
 
-Of these expected $\sim20$, we know of 6 as detected O-stars.
-\citet{Figueredo2008a} found 4 exposed O-type stars and \citet{Barbosa2008a}
-found an additional two with strong infrared excess.  None of these coincide
-with ultracompact or hypercompact \hii regions, but all are in the bright and
-diffuse IRS2 region.
+Of these expected $\sim20$, we know of 6 as infrared-detected, spectrally
+confirmed O-stars.  \citet{Figueredo2008a} found 4 exposed O-type stars and
+\citet{Barbosa2008a} found an additional two with strong infrared excess.  None
+of these coincide with ultracompact or hypercompact \hii regions, but all are
+in the bright and diffuse IRS2 region.
 
 \citet{Mehringer1994a} found an additional 8 ultracompact and hypercompact \hii
 regions, all of which appear to be B0 or earlier based on their radio-derived
@@ -512,11 +513,12 @@ absorption because the continuum source has a high brightness temperature
 (Figure \ref{fig:w51bridge22emispec} and Figure \ref{fig:w51mainemicontours}).
 The \hchii region W51e8 exhibits extended \twotwo emission, including a
 somewhat
-diffuse region stretching between W51e4 and W51e1.  Finally, in W51 IRS 2,
-there is extended \twotwo emission stretching between W51d1 and W51d2, adjacent
-to the ammonia masers observed by \citet{Zhang1995a} and more recently
-\citet{Goddi2015a}, and aligned with the
-\citet{Zapata2010a} W51 North Disk (Figure \ref{fig:w51northcore}).
+diffuse region stretching between W51e4 and W51e1 (Section
+\ref{sec:bridgefilament}).  Finally, in W51 IRS 2, there is extended \twotwo
+emission stretching between W51d1 and W51d2, adjacent to the ammonia masers
+observed by \citet{Zhang1995a} and more recently \citet{Goddi2015a}, and
+aligned with the \citet{Zapata2010a} W51 North Disk (Figure
+\ref{fig:w51northcore}, Section \todo{Write W51North section}).
 
 \FigureTwo
 {figures/irs2outflow/IRS2_core_on_cont22.png}
@@ -577,7 +579,7 @@ absorption.
 % Our continuum measurements tighten the limits presented by \citet{Zapata2010a},
 % with 5-sigma upper limits of 1 mJy at both C and Ku-band.
 
-The W51e2 and W51e8 cores both exhibit peak brightness temperatures
+The W51e2, W51e8, and North cores both exhibit peak brightness temperatures
 $T\sim30-60$ K.  W51e8 seems an excellent analog to the W51 North core, at
 least in terms of its gas density (based on the \formaldehyde \twotwo emission
 detection) and temperature.  We have detected a weak extended continuum source
@@ -587,6 +589,7 @@ prevent a detection.  W51e8 contains a hypercompact HII region, and therefore
 an accreting massive star, so it is likely that W51 North does as well.
 
 \subsubsection{An extended molecular structure (a `filament')}
+\label{sec:bridgefilament}
 There is a `bridge' structure connecting the e8 and e2 cores.  This structure
 was seen in \citet{Zhang1997a}, but was poorly resolved and could have been
 dismissed as an artifact of the dirty beam.  This bridge is fainter than either
@@ -612,6 +615,11 @@ The current data do not rule out this scenario, but neither do they strongly
 favor it.  It is more likely that this bridge feature traces the parent filament
 from which both the e1 and e2 clusters have formed.
 
+This bridge filament has dimensions $\sim0.2\times0.05$ pc.  Its implied mass
+is $M\approx100 (n/10^6 \percc) \msun$ assuming it is 0.05 pc along the line of
+sight, where a density $n\gtrsim10^6$ is implied by the detection of
+\formaldehyde \twotwo in emission.
+
 \Figure
 {{figures/spectra/emission/NorthCore_h2co22emisson_baselined}.png}
 {Spectrum of the W51 North core in \ortho \twotwo.}
@@ -619,7 +627,8 @@ from which both the e1 and e2 clusters have formed.
 
 \Figure
 {{figures/spectra/emission/e2-e8 bridge_h2co22emisson_baselined}.png}
-{Spectrum of the `bridge' connecting cores e2 and e8.}
+{Spectrum of the `bridge' connecting cores e2 and e8 in \ortho \twotwo.
+}
 {fig:w51bridge22emispec}{0.5}{6.5in}
 
 \Figure
@@ -649,17 +658,54 @@ and (c) shows the e8 core}
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e2_b_K.png}
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e2_c_K.png}
 {Spectra of the \twotwo emission around W51e2 at three positions (a)
-north/northwest (b) northeast (c) southeast of the e2 HCHII region.
-\todo{Show where these are on some figure}}
+north/northwest (b) northeast (c) southeast of the e2 HCHII region.  See Figure
+\ref{fig:w51mainemilabels} to see where these were extracted.}
 {fig:w51e2emispec}{1}{2.25in}
 
 \FigureTwoAA
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e10mol_K.png}
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e8mol_K.png}
-{Spectra of the \twotwo emission around W51e1.
-\todo{Show where these are on some figure}
+{Spectra of the \twotwo emission around W51e1.  See Figure
+\ref{fig:w51mainemilabels} to see where these were extracted.
 }
 {fig:w51e1emispec}{1}{3.5in}
+
+
+\subsubsection{The W51 North core}
+The W51 North core (Figure \ref{fig:w51northcore}) has been recognized as one
+of the best candidates for a proto-O-star that has not yet reached the main
+sequence \citep{Zapata2009a,Zapata2010a,Goddi2015a}.  
+
+The core exhibits a velocity gradient, shifting its centroid from southeast to
+northwest then back to southeast from red to blue (Figure
+\ref{fig:w51northcentroids}).  The direction is consistent
+with the position angle reported by \citet{Zapata2010a}, but the reversal is
+not.  We suspect that the foreground cloud, which exhibits strong absorption
+toward IRS 2 at 64 \kms, is absorbing some of the core's emission at that
+velocity, causing the centroid to shift away from IRS 2.  Our data also differ
+from \citet{Zapata2010a} in that each channel is centrally peaked, with no
+suggestion of an inner cavity.
+
+% \todo{This paragraph applies to the 56 to 61 \kms figure, which might
+% not be representative.}
+% There is a hint of rotation in our data.  Figure \ref{fig:w51northcentroids}
+% shows the emission centroids determined by 2D gaussian fitting to the naturally
+% weighted cube as a function of velocity.  Excepting the two velocity extrema,
+% there is a clear red and blue side, with the redshifted side to the northwest
+% and the blueshifted toward the southeast.  This gradient agrees with the
+% 22\arcdeg position angle noted by \citet{Zapata2010a}.  However, our data are
+% centrally peaked, with no suggestion of an inner cavity.  We also see the gradient
+% over a smaller velocity range, from 56 to 61 \kms, while \citet{Zapata2010a}
+% observed the gradient from 53 to 68 \kms.   At the higher velocities ($v>61
+% \kms$), the image of W51 North appears to be affected by absorption from the
+% foreground cloud that is seen in absorption against the IRS2 region.
+
+\Figure{figures/w51north_core_gaussfits.png}
+{The centroids of the W51 North core \ortho \twotwo emission as a function of 
+velocity from 56 to 63 \kms.  The positions are shown as RA/Dec offsets from
+19h23m39.999s +14d31m05.41s, the centroid position of the mean over all
+velocities.}
+{fig:w51northcentroids}{1}{5in}
 
 % \subsection{Explanation of the hot gas}
 % The high observed temperatures could be an indication either of genuinely hot
@@ -688,6 +734,7 @@ north/northwest (b) northeast (c) southeast of the e2 HCHII region.
 % \ammonia, which can then decay into different K-ladders \citep[][gives an
 % overview of the selection pseudo-rules]{Henkel2013a}.  Therefore, temperatures
 % inferred from \ammonia may be inaccurate in these hot cores.
+
 
 \subsection{The Lacy jet}
 \label{sec:lacyjet}
@@ -723,6 +770,10 @@ be the driver \citep{Barbosa2008a}.  IRS 2E is the brightest X-ray source in
 W51 with a harder X-ray spectrum than other sources in the region, and it emits
 most of its energy in iron fluorescence lines, indicating that there is a very
 strong interaction with dense material around it \citep{Townsley2014a}.
+Independent of its source, though, this flow is unique in exhibiting a high
+velocity ($v\sim100 \kms$) over a 0.1 pc extent with no obvious gradient.
+Indeed, this lack of a velocity gradient suggests that the flow is launched
+at a high velocity and not decelerated by interaction with its environment.
 
 
 \FigureTwo
@@ -733,8 +784,9 @@ image and (b) the NACO K-band image \citep{Barbosa2008a}.}
 {fig:lacyjetoverlay}{1}{3.5in}
 
 \subsection{The d4 variable source \& \hh region}
-The d4 pair (d4e and d4w) exhibit $\sim$20-year timescale variability.  There
-is a region of \hh emission coincident with their position
+The d4 pair (d4e and d4w) exhibit $\sim$20-year timescale variability.  d4e has
+brightened from $<0.6$ mJy ($3-\sigma$ upper limit) to $>1.0\pm0.06$ mJy.
+There is a region of \hh emission coincident with their position
 \citep{Froebrich2011a}.  We show this in Figure \ref{fig:d4h2}.
 
 \Figure{figures/d4_h2_overlay_ds9.png}
@@ -746,7 +798,8 @@ is a region of \hh emission coincident with their position
 We detect H77$\alpha$ toward 6 of the 8 hyper/ultra compact \hii regions in the
 W51 Main (W51e) cluster; 4 of these 6 are firm detections and two are weak.  We
 also measure a velocity from the \formaldehyde emission toward e8.  The
-resulting 1D velocity dispersion is $\sigma=2.0$ \kms if we exclude sources e9
+resulting 1D velocity dispersion is $\sigma=2.0$ \kms if we exclude the
+uncertain sources e9
 and e10; with e9 and e10 included the dispersion increases to 4.2 \kms, which
 suggests that the uncertainty on those two sources renders their velocity
 measurements unreliable.  This velocity dispersion is confined to
@@ -755,7 +808,7 @@ probably not a good assumption), the implied mass is 350-1600 \msun, or an \hh
 number density $6\ee{5} < n(\hh) < 2\ee{7}$ \percc.
 
 The e1 subcluster is more compact, with $r=2.9$ \arcsec (0.07 pc), and its
-velocity dispersion is $\sigma=2.0$ \kms.  It is more symmetric and a virial
+velocity dispersion is also $\sigma=2.0$ \kms.  It is more symmetric and a virial
 assumption may be more accurate here.  Its implied density if it is gas-dominated
 is $n(\hh)\sim2\ee7$ \percc, but assuming all 7 HCHII regions represent OB
 stars and the IMF is populated by a standard \citet{Kroupa2001a} mass function,
@@ -780,6 +833,15 @@ assuming that the image-based continuum subtraction is accurate.
 }
 {fig:h77afits}{1}{3in}
 
+\subsubsection{The velocity dispersion in the gas cores}
+The gas line width is $\sigma>2.1\kms$ in all of the cores, while in the bridge
+filament it is $\sigma=1.0\kms$.  Since the cores each have higher internal
+velocity dispersion than the surrounding gas, they must have significant
+internal motions, either rotation, turbulence, or gravitational collapse.
+Because the e2 core is resolved and has velocity dispersion greater than the
+observed velocity gradient, internal turbulence or gravitational infall are the
+only viable explanations for the observed velocity dispersion.
+
 \subsection{The nature of the continuum sources}
 The point sources are all most likely to be hypercompact HII regions.  All that
 are detected at low frequencies (2-6 GHz) are also detected at 15 GHz.  Many of
@@ -792,10 +854,11 @@ background galaxies.
 
 Given the faintness of these sources ($S_{5 GHz} \sim 1$ mJy), they must be
 very small or optically thin if they are free-free emission sources.  A 1 mJy
-source has a brightness temperature of 1000 K in our uniformly-weighted C-band
-observations, which implies either that the HII region is optically thin, with
-$\tau < 0.1$, or very small, with $ff<0.1$.  Given a beam radius of 0.3\arcsec,
-the implied upper limit size for an optically thick source is 2 mpc (500 AU).
+source has a brightness temperature of $\sim$1000 K in our uniformly-weighted
+C-band observations, which implies either that the HII region is optically
+thin, with $\tau < 0.1$, or very small, with $ff<0.1$.  Given a beam FWHM of
+0.3\arcsec, the implied upper limit size for an optically thick source is 1 mpc
+(200 AU).
 
 In typical analysis of HCHII regions, one can distinguish these scenarios by
 examining the spectral index.  An optically thick source would have a spectral
@@ -808,9 +871,9 @@ is varying as a function of frequency, which is possible but difficult to
 reconcile with rising low-frequency fluxes.  Another possibility is that these
 sources exhibit both free-free and synchrotron emission.
 
-The diffuse HII regions are unambiguous, though the set of 4 ultracompact HII
-regions with similar size is interesting.  All four of d3, e1, e6, and e7 have
-similar sizes (0.02-0.07 pc) and are fairly round and symmetric.  They exhibit
+The diffuse HII regions are readily identified as such.  There is a set of 4
+ultracompact HII regions with similar size (0.02-0.07 pc): d3, e1, e6, and e7.
+All are round and reasonably symmetric.  They exhibit
 some variations in surface brightness but are essentially circular.  In a
 classical view of an expanding spherical HII region, these sources are at early
 but very similar evolutionary stages.  Assuming that these all went through a
@@ -831,7 +894,7 @@ since the escape velocity is greater than the sound speed in ionized gas
 young massive cluster, though, the gas must be evacuated or exhausted to 
 achieve a final appearance like that of NGC 3603 or Trumpler 14.
 
-Because IRS 2 is already readily seen in the near-infrared, it is clear that
+Because IRS 2 is already seen in the near-infrared, it is clear that
 the cluster leaks photons.  Since long-wavelength photons are not trapped,
 radiation pressure is probably not going to be efficient; the FIR optical depth
 term of \citet{Murray2010a} is very small.  Radiative trapping is only
@@ -857,7 +920,7 @@ limit on the final mass of the cluster.
 The final mass of the clusters will be at least $\sim7\ee{3} + 4\ee{4} \eta$ \msun,
 where $4\ee{4}$ \msun is the approximate dense gas mass within $\sim2$ pc and
 $\eta$ is a star formation efficiency, likely to be at least 10\% in the dense
-gas, so $M_{final} \gtrsim 1.1\ee{4}$ \msun.
+gas, so the stellar $M_{final} \gtrsim 1.1\ee{4}$ \msun.
 
 Since the free-fall time is very short within these clusters ($t_{ff} < 0.5$
 Myr out to 2.5 pc containing 5\ee{4} \msun of gas), supernovae will not affect
@@ -921,11 +984,11 @@ the compact (Figure \ref{fig:coverview_pointsrcs}) and extended (Figure
 \ref{fig:coverview_diffuse}) HII regions.
 
 \Figure{figures/diffuse/W51_C_overview_pointsourcelabels.pdf}
-{The C-band image of the W51 region with point sources labeled.}
+{The C-band image of the W51A region with point sources labeled.}
 {fig:coverview_pointsrcs}{0.9}{6.5in}
 
 \Figure{figures/diffuse/W51_C_overview_diffusehiiregionlabels.pdf}
-{The C-band image of the W51 region with diffuse HII regions labeled.}
+{The C-band image of the W51A region with diffuse HII regions labeled.}
 {fig:coverview_diffuse}{0.9}{6.5in}
 
 %\onecolumn

@@ -3,8 +3,11 @@ import pylab as pl
 from paths import dpath,fpath,rpath
 from spectral_cube import SpectralCube
 from astropy import coordinates
+from astropy.utils.console import ProgressBar
 from astropy import units as u
 from astropy.io import fits
+from astropy import wcs
+from astropy import log
 import aplpy
 
 distance = 5.41*u.kpc
@@ -18,13 +21,8 @@ figure.clf()
 
 # clean the header of junk axes
 hdu = fits.open(dpath('W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits'))
-for ii in [3,4]:
-    for kk in ['CRVAL','CTYPE','CDELT','CRPIX','CUNIT','NAXIS']:
-        k = kk+str(ii)
-        if k in hdu[0].header:
-            del hdu[0].header[k]
-hdu[0].header['NAXIS'] = 2
 hdu[0].data = hdu[0].data.squeeze()
+hdu[0].header = wcs.WCS(hdu[0].header).sub([wcs.WCSSUB_CELESTIAL]).to_header()
 
 F = aplpy.FITSFigure(hdu,convention='calabretta',figure=figure)
 #F = aplpy.FITSFigure(dpath+'W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.rot45.fits',convention='calabretta',figure=figure)
@@ -56,28 +54,38 @@ F.scalebar.set_length(((0.1 * u.pc)/distance*u.radian).to(u.degree).value)
 F.scalebar.set_label('0.1 pc')
 
 F.recenter(290.91644,14.518939,radius=0.3/60.)
+log.info("Reading briggs0_contsub image cube")
 cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
-for velo in np.arange(60,72,0.5):
+for velo in ProgressBar(np.arange(60,72,0.5)):
+    #log.info("Velocity {0}".format(velo))
     c = pl.cm.jet_r((70-velo)/10.)
     #colors = [c[:3] + (x,) for x in (0.9,0.7,0.5,0.3,0.1)]
     #F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
     #               levels=[-1,-0.003,-0.002,-0.001],colors=colors,
-    #               filled=True, layer='temporary')
+    #               filled=False, layer='temporary')
     colors = [c[:3] + (x,) for x in (0.9,0.8,0.7,0.6,0.5)]
-    F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
-                   levels=[-1,-0.003,-0.002,-0.001],colors=colors,
-                   filled=True, layer='temporary')
-    F.add_label(290.91254, 14.522828,
-                text="{0:0.1f} km s$^{{-1}}$".format(velo),
-                color='w', layer='label', size=20)
-    F.recenter(290.91644,14.518939,radius=0.3/60.)
-    F.save(fpath('contour_movie/IRS2_h2co22_on_cont22_v{0}.png'.format(velo)))
+    colors = [c[:3] + (1,) for x in (0.9,0.8,0.7,0.6,0.5)]
+    colors = ['r'] * 10
+    hdu = cube[cube.closest_spectral_channel(velo*u.km/u.s),:,:].hdu
+    if hdu.data.min() < -0.001:
+        F.show_contour(hdu,
+                       levels=[-1,-0.003,-0.002,-0.001],
+                       colors=colors,
+                       filled=False, layer='temporary')
+        F.add_label(290.91254, 14.522828,
+                    text="{0:0.1f} km s$^{{-1}}$".format(velo),
+                    color='w', layer='label', size=20)
+        F.recenter(290.91644,14.518939,radius=0.3/60.)
+        F.save(fpath('contour_movie/IRS2_h2co22_on_cont22_v{0}.png'.format(velo)))
 
-    F.add_label(290.93147, 14.508327,
-                text="{0:0.1f} km s$^{{-1}}$".format(velo),
-                color='w', layer='label', size=20)
-    F.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
-    F.save(fpath('contour_movie/e1e2_h2co22_on_cont22_briggs0_v{0}.png'.format(velo)))
+        F.add_label(290.93147, 14.508327,
+                    text="{0:0.1f} km s$^{{-1}}$".format(velo),
+                    color='w', layer='label', size=20)
+        F.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
+        F.save(fpath('contour_movie/e1e2_h2co22_on_cont22_briggs0_v{0}.png'.format(velo)))
+        #log.info("Finished velo {0}".format(velo))
+    else:
+        log.info("No signal in {0}, continuing".format(velo))
 
     # not emission
     # F.show_regions(rpath('W51_22_emission_labels.reg'), layer='temporary2')
@@ -86,13 +94,17 @@ for velo in np.arange(60,72,0.5):
 
     F.hide_layer('temporary')
 
+log.info("Reading natural_contsub image cube")
 cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
-for velo in np.arange(60,72,0.5):
+for velo in ProgressBar(np.arange(60,72,0.5)):
+    #log.info("Velocity {0}".format(velo))
     c = pl.cm.jet_r((70-velo)/10.)
     colors = [c[:3] + (x,) for x in (0.6,0.5,0.4,0.3,0.2,0.1)]
+    colors = [c[:3] + (1,) for x in (0.6,0.5,0.4,0.3,0.2,0.1)]
+    colors = ['r'] * 10
     F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
                    levels=[-1,-0.01,-0.005,-0.0025,-0.00125],colors=colors,
-                   filled=True, layer='temporary')
+                   filled=False, layer='temporary')
     F.add_label(290.91254, 14.522828,
                 text="{0:0.1f} km s$^{{-1}}$".format(velo),
                 color='w', layer='label', size=20)
@@ -114,12 +126,14 @@ for velo in np.arange(60,72,0.5):
 
 cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
 vr = 52,64
-for velo in np.arange(vr[0],vr[1]+0.5,0.5):
+for velo in ProgressBar(np.arange(vr[0],vr[1]+0.5,0.5)):
     c = pl.cm.jet_r((vr[1]-velo)/(vr[1]-vr[0]))
     colors = [c[:3] + (x,) for x in np.linspace(0.2,0.6,4)]
+    colors = [c[:3] + (1,) for x in np.linspace(0.2,0.6,4)]
+    colors = ['r'] * 10
     F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
                    levels=[0.002,0.004,0.006,1],colors=colors,
-                   filled=True, layer='temporary')
+                   filled=False, layer='temporary')
     F.add_label(290.91254, 14.522828,
                 text="{0:0.1f} km s$^{{-1}}$".format(velo),
                 color='w', layer='label', size=20)
@@ -145,7 +159,7 @@ F.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.011,invert=True)
 F.show_contour(peak.hdu,
                levels=[0.002, 0.004,0.006,0.008,1],
                colors=[(1,0,0,ii) for ii in np.linspace(0.5, 1, 5)],
-               filled=True, layer='temporary')
+               filled=False, layer='temporary')
 F.show_regions(rpath('W51_22_emission_labels.reg'), layer='temporary2')
 F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_natural_v{0}to{1}peak_labeled.png'.format(vr[0],vr[1])))
 F.remove_layer('temporary')
@@ -158,7 +172,7 @@ F.scalebar.set_color('orange')
 F.scalebar.set_linewidth(3)
 F.scalebar.set_font_size(20)
 F.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.05)
-for velo in np.arange(vr[0],vr[1]+0.5,0.5):
+for velo in ProgressBar(np.arange(vr[0],vr[1]+0.5,0.5)):
     c = pl.cm.jet_r((vr[1]-velo)/(vr[1]-vr[0]))
     colors = [c[:3] + (x,) for x in np.linspace(0.6,0.8,6)]
     F.show_contour(cube[cube.closest_spectral_channel(velo*u.km/u.s)].hdu,
