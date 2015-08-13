@@ -1,0 +1,6 @@
+# Region file format: DS9 version 4.1
+global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+fk5
+box(290.91645,14.51903,25.499287",22.394324",1.07556e-05) # text={IRS2}
+box(290.92832,14.508899,57.6",57.6",1.07556e-05) # text={W51Main}
+box(290.92448,14.512031,83.9808",83.35872",1.07556e-05) # text={whole}
