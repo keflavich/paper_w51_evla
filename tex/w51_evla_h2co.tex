@@ -21,6 +21,8 @@ probably hypercompact HII regions, around the W51 proto-clusters
 (3) There are two clearly detected clusters, W51e and W51 IRS 2, but the
 majority of the luminosity in W51 most likely comes from a third, possibly
 un-clustered, population of OB stars between these clusters.
+This paper and all related analysis code are available on the web at
+\url{https://github.com/adamginsburg/paper_w51_evla}.
 }
 
 \maketitle
@@ -59,7 +61,7 @@ at 1 \kms resolution.
 Data reduction was performed using CASA.  The pipeline-calibrated products were
 used, then imaging was performed using CLEAN.  For most images discussed here, we
 used uniform weighting.  The reduction scripts are included in a repository
-\url{https://github.com/keflavich/w51evlareductionscripts}.
+\url{https://github.com/adamginsburg/w51evlareductionscripts}.
 
 The observations and resulting images are summarized in Table
 \ref{tab:observations}.
@@ -435,8 +437,9 @@ there are interacting and  expanding bubbles, which in turn implies that there
 is a separation between the driving sources and the HII region of at least the
 bubble sizes, $\sim0.2-0.3$ pc.  
 
-This latter possibility suggests the existence of a third cluster in W51.
-The sources e20, e21, and e22 may be at the heart of this cluster.  They
+This latter possibility suggests the existence of a third cluster in W51.  The
+sources e20, e21, and e22 may be at the heart of this cluster (Figure
+\ref{fig:w51e20cluster}).  They
 were detected by \citet{Goldader1994a} in the K-band at $m_K < 12$, making
 these the brightest NIR sources outside of W51 IRS2.  Their luminosities
 suggest they are O4 or earlier stars.  Since they were also detected
@@ -447,6 +450,21 @@ in contrast with the bright radio continuum and absence of infrared emission
 from e1/e2, supports this hypothesis.
 These stars (e20, e21, and e22) are therefore capable of providing the ionizing
 and infrared luminosity observed from the W51 Main HII region.
+
+\FigureTwo
+{figures/diffuse/peak_cluster_C_high.png}
+{figures/diffuse/peak_cluster_C_diff.png}
+{({\it a}) A C-band image of the W51 e20/e21/e22 cluster.
+({\it b}) An unsharp-masked version of the image with a 0.3\arcsec smoothing
+kernel. 
+The three point sources toward the bottom of these images are e20, e21, and e22
+respectively.  They correspond to two detected K-band sources from
+\citet{Goldader1994a} and have K-band luminosities consistent with spectral
+type O4 or earlier.  The other point sources seen in this field are not detected
+in the infrared.
+}
+{fig:w51e20cluster}{1}{3.5in}
+
 
 A question remains: How close are the e1/e2 and e20/e21/e22 clusters?  They are
 separated by 0.36 pc in projection, but we presently have no direct information
@@ -506,14 +524,15 @@ within a $\sim 0.5$ pc sphere.
 % the W51e sources show absorption against the 68 \kms cloud, so they lie behind
 % it.}
 
-While \formaldehyde \oneone and \twotwo are commonly observed in absorption,
-the \oneone line has only been observed in emission in our galaxy as a maser
-\citep{Araya2007b}.  The \twotwo line has been observed in emission in the
-starburst M82 \citep{Mangum2008a}, behind the Orion nebula
+\formaldehyde \oneone and \twotwo are commonly observed in absorption
+but rarely in emission \citep[e.g.][]{Mangum1993a,Araya2007b}.  The \twotwo
+line has been observed in emission in the starburst M82 \citep{Mangum2008a},
+behind the Orion nebula
 \citep{Evans1975a,Kutner1976a,Batrla1983a,Johnston1983a,Bastien1985a,Wilson1989a},
-$\rho$ Ophiucus B \citep{Loren1980a,Loren1983a,Martin-Pintado1983a,Wadiak1985a},
-and DR 21 \citep{Wilson1982a,Johnston1984a}.  However, the \twotwo line is more
-commonly observed in absorption at large distances.
+in $\rho$ Ophiucus B
+\citep{Loren1980a,Loren1983a,Martin-Pintado1983a,Wadiak1985a}, and in DR 21
+\citep{Wilson1982a,Johnston1984a}.  However, the \twotwo line is more commonly
+observed in absorption at large distances within the Galaxy.
 
 We have detected 3 regions of \twotwo emission in the W51 region, all
 corresponding to previously detected hot \ammonia cores
@@ -629,7 +648,8 @@ of the cores but clearly detected (Figure \ref{fig:w51bridge22emispec},
 This bridge filament has dimensions $\sim0.2\times0.05$ pc.  Its implied mass
 is $M\approx100 (n/10^6 \percc) \msun$ assuming it is 0.05 pc along the line of
 sight, where a density $n\gtrsim10^6$ is implied by the detection of
-\formaldehyde \twotwo in emission.
+\formaldehyde \twotwo in emission.  It is about twice as large as the `compact
+ridge' in orion, though fainter \citep{Mangum1990a,Mangum1993b}.
 
 \Figure
 {{figures/spectra/emission/NorthCore_h2co22emisson_baselined}.png}
@@ -977,6 +997,19 @@ to unbind the whole GMC.
 % cloud must be limited to XX.
 
 \section{Conclusions}
+We present deep, high-resolution radio continuum images observed in many
+low-frequency bands from the Very Large Array.  These images have yielded the
+first detection of the stellar cluster that is responsible for most of the
+observed radio and infrared luminosity of W51A.  The mass and mass distribution
+of these stars is not yet characterized because many of the stars are hidden
+from near-infrared view by thick absorbing filaments.
+
+Using these continuum data and \formaldehyde emission and absorption line
+information, we have measured the velocity dispersion of the W51 e1/e2
+protocluster $\sigma_v=2.0$ kms.  Although this cluster consists of
+hypercompact and ultracompact HII regions, indicating that is is extremely
+gas-rich, the velocity dispersion implies a stellar mass that is $\sim4\times$
+greater than the gas mass, assuming that the stars are virialized.
 
 The \formaldehyde \twotwo 14.488 GHz transition is a good tracer of early-stage
 very massive star formation.  It will be a powerful tool for studying the earliest
@@ -986,13 +1019,7 @@ Ongoing JVLA surveys (e.g., KuGARS, PI Thompson,
 \url{http://library.nrao.edu/proposals/catalog/10267}) may detect a significant
 additional population of proto-O-stars.
 
-The detected \uchii and \hchii regions and infrared-detect O-stars do not fully
-account for the luminosity of the W51 region.  We argue that more O-stars
-are hiding within the bright shell/ridge between the two clusters.  Since this
-region is by turns both extremely bright in nebular emission and reflection and
-heavily extincted in the near-infrared, deep, high resolution infrared
-observations are the best hope for detecting the hidden stars and completing
-the massive star census in the region.
+
 
 
 \textbf{Acknowledgements}:

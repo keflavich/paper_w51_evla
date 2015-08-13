@@ -47,9 +47,11 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
      ("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits", 'C', [ (290.92402, 14.513314), (290.90971, 14.525246)], (-6e-2, 5), 'irs2_C_low', AsinhStretch()),
      ("W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits", 'Ku', [ (290.92402, 14.513314), (290.90971, 14.525246)], (-6e-2, 5), 'irs2_Ku_low', AsinhStretch()),
      ("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits", 'C', [ (290.92402, 14.513314), (290.90971, 14.525246)], (0, 13), 'irs2_C_high', AsinhStretch()),
+     ("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits", 'C', [ (290.93024, 14.506951), (290.92676, 14.509907)], (-0.02, 1), 'peak_cluster_C_high', LinearStretch()),
      ("W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits", 'Ku', [ (290.92402, 14.513314), (290.90971, 14.525246)], (0, 52), 'irs2_Ku_high', AsinhStretch()),
      ("Cband_Epoch3sm-Epoch3.fits", 'C', [ (290.9304, 14.5083), (290.9194, 14.5189)], (-0.2, 1), 'w51main_peak_diff', LinearStretch()),
      ("Cband_Epoch3sm-Epoch3.fits", 'C', [ (290.92402, 14.513314), (290.90971, 14.525246)], (-0.2, 1.0), 'irs2_C_diff', LinearStretch()),
+     ("Cband_Epoch3sm-Epoch3.fits", 'C', [ (290.93024, 14.506951), (290.92676, 14.509907)], (-0.02, 0.5), 'peak_cluster_C_diff', LinearStretch()),
     ):
 
     hdu = fits.open(paths.dpath(fn))[0]
