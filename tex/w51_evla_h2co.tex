@@ -363,8 +363,6 @@ disk-driven outflows.  This flow structure likely indicates that the cluster
 has evacuated a large cavity approximately along the line of sight, which is
 consistent with the low observed extinction toward IRS2.  
 
-\todo{Contours at some velocities?}
-
 \FigureTwo
 {figures/diffuse/irs2_C_high.png}
 {figures/diffuse/irs2_C_diff.png}
@@ -378,6 +376,19 @@ apparent shell is observed centered on the IRS2 cluster, with edge
 features to the south and east (red arrows).
 }
 {fig:w51irs2}{1}{3.5in}
+
+\Figure{figures/rrls/h77a_channelmaps_W51Main.png}
+{Channel maps of the H77$\alpha$ line integrated over 5 \kms windows
+for the W51 Main region.  There are small ring features notable at low and high
+velocities; these are identified in Figure \ref{fig:coverview_diffuse}.}
+{fig:rrl_chan_main}{1}{7in}
+
+\Figure{figures/rrls/h77a_channelmaps_IRS2.png}
+{Channel maps of the H77$\alpha$ line integrated over 5 \kms windows
+for the IRS2 region.  Around 30-35\kms, the edges of the IRS2 region become
+visible, illustrating the blueshifted cavity discussed in Section
+\ref{sec:diffuseemission}.}
+{fig:rrl_chan_irs2}{1}{7in}
 
 \section{Analysis}
 \subsection{The stellar mass}
@@ -484,16 +495,16 @@ within a $\sim 0.5$ pc sphere.
 \subsection{\formaldehyde emission features}
 
 
-\todo{Explain further.  Probably requires a figure.}
-\todo{MERGE THIS: (this is also a `TODO: explain more') from Roberto
-The W51e emission sources show signs of self-absorption around $v\sim55$ \kms,
-close in velocity to the nadir of the W51e2 spectrum.  A diffuse cloud is
-visible in absorption against the HII region toward the south at this same
-velocity, so it seems that the W51e cluster is either embedded within the
-$\sim55$ \kms cloud or behind it.  The cloud wraps around the W51e cluster at
-lower velocities, so it seems more likely they are embedded within it.  All of
-the W51e sources show absorption against the 68 \kms cloud, so they lie behind
-it.}
+% \todo{Explain further.  Probably requires a figure.}
+% \todo{MERGE THIS: (this is also a `TODO: explain more') from Roberto
+% The W51e emission sources show signs of self-absorption around $v\sim55$ \kms,
+% close in velocity to the nadir of the W51e2 spectrum.  A diffuse cloud is
+% visible in absorption against the HII region toward the south at this same
+% velocity, so it seems that the W51e cluster is either embedded within the
+% $\sim55$ \kms cloud or behind it.  The cloud wraps around the W51e cluster at
+% lower velocities, so it seems more likely they are embedded within it.  All of
+% the W51e sources show absorption against the 68 \kms cloud, so they lie behind
+% it.}
 
 While \formaldehyde \oneone and \twotwo are commonly observed in absorption,
 the \oneone line has only been observed in emission in our galaxy as a maser
@@ -518,7 +529,7 @@ diffuse region stretching between W51e4 and W51e1 (Section
 emission stretching between W51d1 and W51d2, adjacent to the ammonia masers
 observed by \citet{Zhang1995a} and more recently \citet{Goddi2015a}, and
 aligned with the \citet{Zapata2010a} W51 North Disk (Figure
-\ref{fig:w51northcore}, Section \todo{Write W51North section}).
+\ref{fig:w51northcore}, Section \ref{sec:northcore}).
 
 \FigureTwo
 {figures/irs2outflow/IRS2_core_on_cont22.png}
@@ -581,12 +592,11 @@ absorption.
 
 The W51e2, W51e8, and North cores both exhibit peak brightness temperatures
 $T\sim30-60$ K.  W51e8 seems an excellent analog to the W51 North core, at
-least in terms of its gas density (based on the \formaldehyde \twotwo emission
-detection) and temperature.  We have detected a weak extended continuum source
-in e8, with a peak $S_{15 GHZ} \approx 2$ mJy and $S_{5 GHz} \approx 1$ mJy,
-both consistent with the limits on W51North, where confusion from IRS 2 may
-prevent a detection.  W51e8 contains a hypercompact HII region, and therefore
-an accreting massive star, so it is likely that W51 North does as well.
+least in terms of its brightness temperature and size.  We have detected a weak
+extended continuum source in e8, with a peak $S_{15 GHZ} \approx 2$ mJy and
+$S_{5 GHz} \approx 1$ mJy (Figure \ref{fig:w51mainemicontours}c), both
+consistent with the limits on W51North, where confusion from IRS 2 may prevent
+a detection there.
 
 \subsubsection{An extended molecular structure (a `filament')}
 \label{sec:bridgefilament}
@@ -606,14 +616,15 @@ of the cores but clearly detected (Figure \ref{fig:w51bridge22emispec},
 %K}\right)^{3/2} \left(\frac{n}{10^7 \percc}\right)^{-1/2}$ \msun, implying that
 %any fragments will be very large or, more likely, fragmentation is prevented.
 
-The bridge could in principle have been created by the ejection of e2 from the
-e1 cluster.  However, the maser proper motions of \citep{Sato2014a} show that
-e2 and e1 have almost no motion relative to one another.  To achieve their
-current separation at a motion of 1 mas \peryr (25 \kms), which is an upper
-limit on their relative motion, they would have had to separate 5-10 kyr ago.
-The current data do not rule out this scenario, but neither do they strongly
-favor it.  It is more likely that this bridge feature traces the parent filament
-from which both the e1 and e2 clusters have formed.
+%This is not plausible: e2 is not a star, it is a minicluster
+% The bridge could in principle have been created by the ejection of e2 from the
+% e1 cluster.  However, the maser proper motions of \citep{Sato2014a} show that
+% e2 and e1 have almost no motion relative to one another.  To achieve their
+% current separation at a motion of 1 mas \peryr (25 \kms), which is an upper
+% limit on their relative motion, they would have had to separate 5-10 kyr ago.
+% The current data do not rule out this scenario, but neither do they strongly
+% favor it.  It is more likely that this bridge feature traces the parent filament
+% from which both the e1 and e2 clusters have formed.
 
 This bridge filament has dimensions $\sim0.2\times0.05$ pc.  Its implied mass
 is $M\approx100 (n/10^6 \percc) \msun$ assuming it is 0.05 pc along the line of
@@ -633,7 +644,7 @@ sight, where a density $n\gtrsim10^6$ is implied by the detection of
 
 \Figure
 {figures/contour_movie/e1e2_h2co22_emission_on_cont22_natural_v55to62peak_labeled.png}
-{\todo{contour unfill} Peak intensity contours (red) of the naturally weighted \formaldehyde \twotwo
+{ Peak intensity contours (red) of the naturally weighted \formaldehyde \twotwo
 emission from 55 to 62 \kms in the e1/e2 region superposed on the Ku-band
 continuum image.  The contours are at 2,4,6 mJy/beam.  The green circles show
 the apertures used for the spectra shown in Figures
@@ -672,6 +683,7 @@ north/northwest (b) northeast (c) southeast of the e2 HCHII region.  See Figure
 
 
 \subsubsection{The W51 North core}
+\label{sec:northcore}
 The W51 North core (Figure \ref{fig:w51northcore}) has been recognized as one
 of the best candidates for a proto-O-star that has not yet reached the main
 sequence \citep{Zapata2009a,Zapata2010a,Goddi2015a}.  
@@ -705,6 +717,13 @@ must be 2-3 orders of magnitude greater than in the molecular cloud, with
 $X_{\formaldehyde}\sim10^{-6}$ providing a mass consistent with the density
 lower-limit based mass.  For a reasonable range of `core' masses, $10
 \msun<M<100 \msun$, the implied $10^{-6} > X_{\formaldehyde} > 10^{-7}$.
+
+The W51e8 core is similar to W51 North in many respects, including size,
+linewidth, and brightness.  However, W51e8 contains a hypercompact HII region,
+while W51 North does not.  In W51 north, though, detection of a hypercompact
+HII region may be prevented by imaging artifacts from the nearby bright IRS 2.
+It is therefore plausible that W51 North contains a similar continuum source to
+W51e8 ($S_\nu \sim 1$ mJy).
 
 % \todo{This paragraph applies to the 56 to 61 \kms figure, which might
 % not be representative.}
@@ -810,7 +829,8 @@ There is a region of \hh emission coincident with their position
 \citep{Froebrich2011a}.  We show this in Figure \ref{fig:d4h2}.
 
 \Figure{figures/d4_h2_overlay_ds9.png}
-{A UWISH2 \hh image with Ku-band contours of sources d4e and d4w overlaid.}
+{A UWISH2 \hh image with Ku-band contours of sources d4e and d4w overlaid.
+\todo{replace this with a real figure with axis labels, if possible}}
 {fig:d4h2}{1}{6.5in}
 
 \subsection{The velocity dispersion in the W51e cluster}
@@ -907,7 +927,6 @@ HII phase.  However, both of these assumptions are questionable.
 % We detect an additional XX point sources in the field.
 
 \subsection{The future evolution of the W51 clusters and molecular cloud}
-\todo{Some background on the FIR radiation pressure mechanisms is needed.}
 The W51 clusters are likely to reach a very high star formation efficiency,
 since the escape velocity is greater than the sound speed in ionized gas
 \citep{Ginsburg2012a,Bressert2012a}.  If they really are forming one or more
@@ -997,6 +1016,8 @@ the massive star census in the region.
 \section{Point Source Photometry Catalog}
 \todo{The full version of the point source photometry catalog is available in
 digital form...}
+
+\input{ptsrcphotometryfigures.tex}
 
 \section{Figures labeling point sources and diffuse regions}
 We include additional versions of Figure \ref{fig:coverview} with labels for

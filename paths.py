@@ -7,6 +7,7 @@ else:
     root = os.path.expanduser('~/work/w51')
 
 datapath = os.path.join(root, 'paper_w51_evla/data/')
+texpath = os.path.join(root, 'paper_w51_evla/tex/')
 figurepath = os.path.join(root, 'paper_w51_evla/figures/')
 regpath = os.path.join(root, 'paper_w51_evla/regions/')
 gridpath = os.path.join(root, '../h2co/radex/...todo.../')
@@ -45,3 +46,6 @@ def tpath(x, tablepath=tablepath):
 
 def ptsrc_sedpath(x, ptsrc_sed_figure_path=ptsrc_sed_figure_path):
     return os.path.join(ptsrc_sed_figure_path, x)
+
+def texpath(x, texpath=texpath):
+    return os.path.join(texpath, x)
