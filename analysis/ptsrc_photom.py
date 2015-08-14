@@ -47,7 +47,7 @@ for freq,fn in files.iteritems():
     
     data = fits.getdata(fn).squeeze()
     header = flatten_header(fits.getheader(fn))
-    wcs = astropy.wcs.WCS(header)
+    wcs = astropy.wcs.WCS(header).sub([astropy.wcs.WCSSUB_CELESTIAL])
     beam = radio_beam.Beam.from_fits_header(header)
     beams[freq] = beam
     frequencies[freq] = header.get('CRVAL3') or header.get('ACRVAL3')

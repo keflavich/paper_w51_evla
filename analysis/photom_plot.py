@@ -27,7 +27,7 @@ farr = np.linspace(1,40,100)
 for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
 
     log.info("SID: {0}".format(sid))
-    fig = pl.figure(ii,figsize=(10,10))
+    fig = pl.figure(ii,figsize=(10,13))
     fig.clf()
 
     #fplot = [fluxes[k]['A'+sid] for k in sorted_keys]
@@ -38,16 +38,16 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
     nOK = np.count_nonzero(OK)
 
     if nOK > 12:
-        spdim1 = 5
+        spdim1 = 6
         spdim2 = 4
     elif nOK > 9:
-        spdim1 = 4
+        spdim1 = 5
         spdim2 = 4
     else:
-        spdim1 = 4
+        spdim1 = 5
         spdim2 = 3
 
-    ax = fig.add_subplot(spdim1,1,spdim1)
+    ax = fig.add_subplot(spdim1,1,spdim1-1)
     #fig.suptitle(sid,fontsize=20)
 
     ep1color = (0.2,1,0.2,0.5) # light green
@@ -80,9 +80,47 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
     ax.fill_between(freqs.value,-errs*1e3,errs*1e3,color=(1,0.1,0.1,0.5))
     ax.fill_between(freqs.value,-errs*1e3*3,errs*1e3*3,color=(1,0.1,0.1,0.2))
     ax.set_xlim(xlims)
+    if np.abs(ylims[0]) > ylims[1]:
+        ylims = (-np.abs(ylims[1]), ylims[1])
+    ax.set_ylim(ylims)
+    #ax.set_xlabel("Frequency (GHz)")
+    ax.set_ylabel("Peak Flux Density\n (mJy/beam)")
+    ax.set_xticklabels([])
+
+    ax = fig.add_subplot(spdim1,1,spdim1)
+    ax.errorbar(np.array(freqs)[ep2 & OK], np.array(fplot)[ep2 & OK]*1e3,
+                np.array(errs)[ep2 & OK]*1e3, linestyle='none', marker='s',
+                markeredgecolor='none', markerfacecolor=ep2color, color=ep2color)
+    ax.errorbar(np.array(freqs)[ep1 & OK], np.array(fplot)[ep1 & OK]*1e3,
+                np.array(errs)[ep1 & OK]*1e3, linestyle='none', marker='s',
+                color=ep1color, mec='none', mfc=ep1color)
+    ax.errorbar(np.array(freqs)[ep3 & OK], np.array(fplot)[ep3 & OK]*1e3,
+                np.array(errs)[ep3 & OK]*1e3, linestyle='none', marker='s',
+                markeredgecolor='none', markerfacecolor=ep3color, color=ep3color)
+    ax.semilogy(np.array(freqs)[ep2 & OK], np.array(fplot-fmin)[ep2 & OK]*1e3,
+            linestyle='none', marker='o', markeredgecolor='none',
+            markerfacecolor=ep2color)
+    ax.semilogy(np.array(freqs)[ep1 & OK], np.array(fplot-fmin)[ep1 & OK]*1e3,
+            linestyle='none', marker='o', markeredgecolor='none',
+            markerfacecolor=ep1color)
+    ax.semilogy(np.array(freqs)[ep3 & OK], np.array(fplot-fmin)[ep3 & OK]*1e3,
+            linestyle='none', marker='o', markeredgecolor='none',
+            markerfacecolor=ep3color)
+    ylims = ax.get_ylim()
+    ind = np.where(freqs == 12.6*u.GHz)[0][0]
+    ax.semilogy(farr,farr**2/(freqs[ind].value**2)*fplot[ind]*1e3, 'k--')
+    ax.semilogy(farr,farr**1/(freqs[ind].value**1)*fplot[ind]*1e3, 'k:')
+    ax.fill_between(freqs.value,1e-3,errs*1e3,color=(1,0.1,0.1,0.5))
+    ax.fill_between(freqs.value,1e-3,errs*1e3*3,color=(1,0.1,0.1,0.2))
+    ax.set_xlim(xlims)
+    if ylims[0] < 0.05:
+        ylims = (0.05, ylims[1])
     ax.set_ylim(ylims)
     ax.set_xlabel("Frequency (GHz)")
-    ax.set_ylabel("Peak Flux Density\n (mJy/beam)")
+    #ax.set_ylabel("Peak Flux Density\n (mJy/beam)")
+
+    ax = fig.add_subplot(spdim1,1,spdim1)
+
 
     for jj,(key,isOK) in enumerate(zip(sorted_keys, OK)):
 

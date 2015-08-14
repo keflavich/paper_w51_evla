@@ -446,11 +446,14 @@ these the brightest NIR sources outside of W51 IRS2.  Their luminosities
 suggest they are O4 or earlier stars.  Since they were also detected
 in X-rays \citet{Townsley2014a}, it is likely that our faint radio detections
 come from the ionized wind from these stars, not from locally ionized gas.
-The high K-band brightness and weak radio continuum from these sources,
+The high infrared K-band brightness and weak radio continuum from these sources,
 in contrast with the bright radio continuum and absence of infrared emission
-from e1/e2, supports this hypothesis.
-These stars (e20, e21, and e22) are therefore capable of providing the ionizing
-and infrared luminosity observed from the W51 Main HII region.
+from e1/e2, supports this hypothesis.  However, these stars do not exhibit
+the $S\propto \nu^{0.6}$ spectrum expected from a stellar wind
+\citep{Wright1975a,Panagia1975a}.
+Nonetheless, assuming they are early O-stars, e20, e21, and e22 are capable of
+providing the ionizing and infrared luminosity observed from the W51 Main HII
+region.
 
 \FigureTwo
 {figures/diffuse/peak_cluster_C_high.png}
@@ -467,7 +470,8 @@ in the infrared.
 {fig:w51e20cluster}{1}{3.5in}
 
 
-A question remains: How close are the e1/e2 and e20/e21/e22 clusters?  They are
+Questions remain: \todo{Maybe move this into a further discussion section?}
+How close are the e1/e2 and e20/e21/e22 clusters?  They are
 separated by 0.36 pc in projection, but we presently have no direct information
 about the line-of-sight velocity of the e20 cluster.  There is no 68 \kms
 \formaldehyde absorption toward the e20 sources, but morphologically this is
@@ -476,6 +480,37 @@ likely that the other sources in this general area, e12, e13, and e23, are also
 OB stars that are coincidentally behind infrared dark clouds that obscure them
 in the infrared.  It is possible that all of the W51 Main compact sources are
 within a $\sim 0.5$ pc sphere.
+
+Are this new cluster, e20-e22, the distributed sources, e12, e13, e14, and e23,
+and the e1/e2 cluster going to merge?  If so, there are enough O-stars present
+already to imply a $>5000 \msun$ cluster.  If not, though, it seems that the
+W51 e1/e2 cluster is a massive cluster forming within an even more massive OB
+association.  This latter scenario hints that the OB association stars may be
+responsible for shutting off inflow into the forming cluster.  While the gas
+already within $\sim 1$ pc of that cluster will free-fall into the cluster in
+$\lesssim 1$ Myr, any additional gas will be ionized before it can fall in,
+freely streaming out of the cloud and away from the forming cluster.  In this
+way, the cluster's formation would be externally regulated rather than
+self-regulated.
+
+Why is the W51 Main HII region brightest precisely where it is?  The molecular
+gas peaks at e1/e2 \citep{Parsons2012a}, but there is little sign of ionization
+there outside the ultracompact HII regions.  The HII region seems to peak in an
+area containing the least molecular gas, which suggests that whatever mass is
+there is predominantly ionized.  The ionized gas seems to form an ionized outer
+shell around the dense molecular gas, suggesting that any further infall into
+this system must happen along thick, shielded flows.
+
+\Figure
+{figures/diffuse/continuum_on_c18o.png}
+{Contours of the C-band (5 GHz) continuum overlaid on an integrated intensity
+map of \ceighteeno from 45 to 65 \kms \citep{Parsons2012a}.  The contours
+go from 0.1 to 10 mJy in 5 logarithmic steps.  The \ceighteeno peaks on the
+e1/e2 region, and has a clear minimum corresponding to the peak of the radio
+continuum emission.
+}
+{fig:contonco}{1}{6.5in}
+
 
 %\subsection{Sources of illumination in the extended HII regions}
 %There are many extended HII regions associated with the W51 cluster area.
@@ -904,7 +939,7 @@ observed velocity gradient, internal turbulence or gravitational infall are the
 only viable explanations for the observed velocity dispersion.
 
 \subsection{The nature of the continuum sources}
-The point sources are all most likely to be hypercompact HII regions.  All that
+The point sources are most likely to be hypercompact HII regions.  All that
 are detected at low frequencies (2-6 GHz) are also detected at 15 GHz.  Many of
 these sources have peculiar spectral energy distributions, with maxima at 2 and
 15 GHz and a minimum at 6 GHz.  These SEDs are not easily explained by either
@@ -931,6 +966,16 @@ Free-free emission does not readily explain these SEDs unless the source size
 is varying as a function of frequency, which is possible but difficult to
 reconcile with rising low-frequency fluxes.  Another possibility is that these
 sources exhibit both free-free and synchrotron emission.
+
+It is possible that some of the compact sources are stars with no surrounding
+dense medium.  The radio continuum emission would then come from either a
+stellar wind or from nearby compact ionized globules, e.g. disks around nearby
+stars.  Particularly for the sources with near-infrared and X-ray associations
+(e20 and e22), the emission cannot come from a density-bounded hypercompact HII
+region and must instead come from some other mechanism.  However, because these
+sources do not exhibit the typical $S\propto\nu^{0.6}$ spectral energy
+distribution shape, having instead a significant excess in the 2-3 GHz band, it
+they cannot be confirmed as stellar wind emission sources.
 
 The diffuse HII regions are readily identified as such.  There is a set of 4
 ultracompact HII regions with similar size (0.02-0.07 pc): d3, e1, e6, and e7.
@@ -1041,12 +1086,6 @@ additional population of proto-O-stars.
 \input{solobib}
 
 \appendix
-\section{Point Source Photometry Catalog}
-\todo{The full version of the point source photometry catalog is available in
-digital form...}
-
-\input{ptsrcphotometryfigures.tex}
-
 \section{Figures labeling point sources and diffuse regions}
 We include additional versions of Figure \ref{fig:coverview} with labels for
 the compact (Figure \ref{fig:coverview_pointsrcs}) and extended (Figure
@@ -1063,5 +1102,12 @@ the compact (Figure \ref{fig:coverview_pointsrcs}) and extended (Figure
 %\onecolumn
 %\input{tables/pointsource_photometry_full.tex}
 %\twocolumn
+
+\section{Point Source Photometry Catalog}
+\todo{The full version of the point source photometry catalog is available in
+digital form...}
+
+\input{ptsrcphotometryfigures.tex}
+
 
 \end{document}

@@ -13,6 +13,12 @@ import aplpy
 distance = 5.41*u.kpc
 e1e2 = coordinates.SkyCoord(290.93268,14.508363,unit=('deg','deg'), frame='icrs')
 
+def set_tight_ticks(F):
+    F.tick_labels.set_yformat('dd:mm:ss.ss')
+    F.tick_labels.set_xformat('hh:mm:ss.ss')
+    F.ticks.set_xspacing(0.001)
+    F.ticks.set_yspacing(0.001)
+
 #aplpy.make_rgb_cube( ('W51-CBAND-feathered.fits','W51-X-ABCD-S1.VTESS.VTC.DAVID-MEH.fits','W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits'), 'W51_CXU_rgb' )
 
 pl.close(1)
@@ -82,6 +88,7 @@ for velo in ProgressBar(np.arange(60,72,0.5)):
                     text="{0:0.1f} km s$^{{-1}}$".format(velo),
                     color='w', layer='label', size=20)
         F.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
+        set_tight_ticks(F)
         F.save(fpath('contour_movie/e1e2_h2co22_on_cont22_briggs0_v{0}.png'.format(velo)))
         #log.info("Finished velo {0}".format(velo))
     else:
@@ -112,6 +119,7 @@ for velo in ProgressBar(np.arange(60,72,0.5)):
     F.save(fpath('contour_movie/IRS2_h2co22_on_cont22_natural_v{0}.png'.format(velo)))
 
     F.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
+    set_tight_ticks(F)
     F.add_label(290.93147, 14.508327,
                 text="{0:0.1f} km s$^{{-1}}$".format(velo),
                 color='w', layer='label', size=20)
@@ -141,6 +149,7 @@ for velo in ProgressBar(np.arange(vr[0],vr[1]+0.5,0.5)):
     F.save(fpath('contour_movie/IRS2_h2co22_emission_on_cont22_natural_v{0}.png'.format(velo)))
 
     F.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
+    set_tight_ticks(F)
     F.add_label(290.93147, 14.508327,
                 text="{0:0.1f} km s$^{{-1}}$".format(velo),
                 color='w', layer='label', size=20)
@@ -181,6 +190,7 @@ for velo in ProgressBar(np.arange(vr[0],vr[1]+0.5,0.5)):
                    filled=False)
 F.save(fpath('contour_movie/IRS2_h2co22_emission_on_cont22_natural_allvelos.png'))
 F.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
+set_tight_ticks(F)
 F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_natural_allvelos.png'))
 
 for layer in F._layers.keys():
@@ -197,6 +207,7 @@ for velo in np.arange(vr[0],vr[1]+0.5,0.5):
                    filled=False)
 F.save(fpath('contour_movie/IRS2_h2co22_emission_on_cont22_briggs0_allvelos.png'))
 F.recenter(e1e2.ra.value,e1e2.dec.value,width=15/60./60.,height=15/60./60.)
+set_tight_ticks(F)
 F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_briggs0_allvelos.png'))
 
 for layer in F._layers.keys():
