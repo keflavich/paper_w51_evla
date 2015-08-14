@@ -123,7 +123,7 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
     F.colorbar.set_axis_label_text("mJy/beam")
     F.save(paths.fpath("diffuse/{0}_aplpy.png".format(name)))
 
-    fig = pl.figure(1)
+    fig = pl.figure(2)
     fig.clf()
     ax = fig.add_axes([0.15, 0.1, 0.8, 0.8], projection=wcsaxes)
     im = ax.imshow(hdu.data.squeeze()*1e3, cmap=pl.cm.gray_r, origin='lower',
@@ -136,8 +136,8 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
     ra = ax.coords['ra']
     ra.set_major_formatter('hh:mm:ss.s')
     dec = ax.coords['dec']
-    ra.set_axislabel("RA")
-    dec.set_axislabel("Dec")
+    ra.set_axislabel("RA (J2000)")
+    dec.set_axislabel("Dec (J2000)")
     cb = fig.colorbar(im)
     cb.set_label("mJy/beam")
 
