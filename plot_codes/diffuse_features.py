@@ -156,7 +156,7 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
                 linewidth=3,
                 color='black')
         ax.text(np.mean([x2 - np.abs(x2-x1)*0.05,
-                         x2 - np.abs(x2-x1)*0.05 + sblength_pix]),
+                         x2 - np.abs(x2-x1)*0.05 - sblength_pix]),
                 y1 + np.abs(y2-y1)*0.10,
                 horizontalalignment='center',
                 s=str(sblength))
