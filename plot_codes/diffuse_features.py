@@ -31,6 +31,12 @@ annotations['w51main_peak_diff'] = annotations['w51main_peak']
 annotations['irs2_C_high'] = annotations['irs2_C_low'] + [[(290.91597, 14.51945), (0, -2), (0, -30), 'c']]
 annotations['irs2_C_diff'] = annotations['irs2_C_low']
 annotations['irs2_Ku_low'] = annotations['irs2_C_low']
+scalebarpos = {'irs2_C_high': 'right',
+               'irs2_C_diff': 'right',
+               'irs2_C_low':  'right',
+               'irs2_Ku_low': 'right',
+               None: 'left',
+              }
 
 def annotate(ax, xy, to_offset, from_offset, color, mywcs):
 
@@ -143,16 +149,28 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
 
     sblength_deg = (sblength/distance).to(u.degree, u.dimensionless_angles())
     sblength_pix = sblength_deg.value / pixscale
-    ax.plot([x1 + np.abs(x2-x1)*0.05,
-             x1 + np.abs(x2-x1)*0.05 + sblength_pix],
-            [y1 + np.abs(y2-y1)*0.05]*2,
-            linewidth=3,
-            color='black')
-    ax.text(np.mean([x1 + np.abs(x2-x1)*0.05,
-                     x1 + np.abs(x2-x1)*0.05 + sblength_pix]),
-            y1 + np.abs(y2-y1)*0.10,
-            horizontalalignment='center',
-            s=str(sblength))
+    if name in scalebarpos and scalebarpos[name] == 'right':
+        ax.plot([x2 - np.abs(x2-x1)*0.05,
+                 x2 - np.abs(x2-x1)*0.05 - sblength_pix],
+                [y1 + np.abs(y2-y1)*0.05]*2,
+                linewidth=3,
+                color='black')
+        ax.text(np.mean([x2 - np.abs(x2-x1)*0.05,
+                         x2 - np.abs(x2-x1)*0.05 + sblength_pix]),
+                y1 + np.abs(y2-y1)*0.10,
+                horizontalalignment='center',
+                s=str(sblength))
+    else:
+        ax.plot([x1 + np.abs(x2-x1)*0.05,
+                 x1 + np.abs(x2-x1)*0.05 + sblength_pix],
+                [y1 + np.abs(y2-y1)*0.05]*2,
+                linewidth=3,
+                color='black')
+        ax.text(np.mean([x1 + np.abs(x2-x1)*0.05,
+                         x1 + np.abs(x2-x1)*0.05 + sblength_pix]),
+                y1 + np.abs(y2-y1)*0.10,
+                horizontalalignment='center',
+                s=str(sblength))
 
     if name in annotations:
         for xy, to_offset, from_offset, color in annotations[name]:
