@@ -142,7 +142,7 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
     cb.set_label("mJy/beam")
 
     sblength_deg = (sblength/distance).to(u.degree, u.dimensionless_angles())
-    sblength_pix = sblength_deg.value * pixscale
+    sblength_pix = sblength_deg.value / pixscale
     ax.plot([x1 + np.abs(x2-x1)*0.05,
              x1 + np.abs(x2-x1)*0.05 + sblength_pix],
             [y1 + np.abs(y2-y1)*0.05]*2,
@@ -150,7 +150,8 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
             color='black')
     ax.text(np.mean([x1 + np.abs(x2-x1)*0.05,
                      x1 + np.abs(x2-x1)*0.05 + sblength_pix]),
-            y1 + np.abs(y2-y1)*0.05,
+            y1 + np.abs(y2-y1)*0.10,
+            horizontalalignment='center',
             s=str(sblength))
 
     if name in annotations:
