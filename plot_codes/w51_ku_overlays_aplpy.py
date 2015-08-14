@@ -9,8 +9,9 @@ from astropy.io import fits
 from astropy import wcs
 from astropy import log
 import aplpy
+import common_constants
+from common_constants import distance
 
-distance = 5.41*u.kpc
 e1e2 = coordinates.SkyCoord(290.93268,14.508363,unit=('deg','deg'), frame='icrs')
 
 def set_tight_ticks(F):
@@ -44,7 +45,7 @@ F.recenter(290.92345,14.511772,radius=1.5/60.)
 
 F.add_scalebar(length=((0.5 * u.pc)/distance*u.radian).to(u.degree).value)
 F.scalebar.set_label('0.5 pc')
-F.scalebar.set_color('orange')
+F.scalebar.set_color('black')
 F.scalebar.set_linewidth(3)
 F.scalebar.set_font_size(20)
 

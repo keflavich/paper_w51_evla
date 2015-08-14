@@ -1,4 +1,7 @@
 import numpy as np
+from astropy import log
+from astropy import units as u
+import aplpy
 import paths
 from astropy.io import fits
 import wcsaxes
@@ -7,6 +10,8 @@ from astropy import wcs
 import pylab as pl
 from astropy.visualization import AsinhStretch,LinearStretch
 from astropy.visualization.mpl_normalize import ImageNormalize
+import common_constants
+from common_constants import distance
 pl.matplotlib.rc_file('pubfiguresrc')
 
 annotations = {'w51main_peak': [[(290.92755, 14.511689), [-3, 3], [-20, 20], 'r'],
@@ -54,15 +59,73 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
      ("Cband_Epoch3sm-Epoch3.fits", 'C', [ (290.93024, 14.506951), (290.92676, 14.509907)], (-0.02, 0.5), 'peak_cluster_C_diff', LinearStretch()),
     ):
 
+    log.info("file {0} name {1}".format(fn, name))
+
     hdu = fits.open(paths.dpath(fn))[0]
     mywcs = wcs.WCS(hdu.header).sub([wcs.WCSSUB_CELESTIAL])
     wcsaxes = WCSaxes(mywcs.to_header())
 
 
+    fig = pl.figure(1, figsize=(10,10))
+    fig.clf()
+
+    F = aplpy.FITSFigure(hdu, subplot=[0.15, 0.1, 0.8, 0.8], figure=fig)
+
+    F.show_grayscale(invert=True, vmin=vmin/1e3, vmax=vmax/1e3, stretch='linear' if
+                     stretch == LinearStretch() else 'arcsinh')
+
+    cx = (coord_limits[0][0] + coord_limits[1][0])/2.
+    cy = (coord_limits[0][1] + coord_limits[1][1])/2.
+    # radius = diamater / 2.
+    coord_diffs = np.abs(np.array(coord_limits[0])-np.array(coord_limits[1]))
+    radius = np.max(coord_diffs)/2.
+    log.info("circle({0}, {1}, {2})".format(cx, cy, radius))
+    F.recenter(cx, cy, radius=radius)
+
+    if radius > 0.006:
+        F.tick_labels.set_yformat('dd:mm:ss.s')
+        F.tick_labels.set_xformat('hh:mm:ss.s')
+        F.ticks.set_xspacing(0.005)
+        F.ticks.set_yspacing(0.005)
+    elif radius > 0.003:
+        F.tick_labels.set_yformat('dd:mm:ss.ss')
+        F.tick_labels.set_xformat('hh:mm:ss.ss')
+        F.ticks.set_xspacing(0.001)
+        F.ticks.set_yspacing(0.001)
+    elif radius < 0.001:
+        F.tick_labels.set_yformat('dd:mm:ss.sss')
+        F.tick_labels.set_xformat('hh:mm:ss.sss')
+        F.ticks.set_xspacing(0.0025)
+        F.ticks.set_yspacing(0.0025)
+    else:
+        F.tick_labels.set_yformat('dd:mm:ss.ss')
+        F.tick_labels.set_xformat('hh:mm:ss.ss')
+        F.ticks.set_xspacing(0.001)
+        F.ticks.set_yspacing(0.001)
+
+    if radius > 0.003:
+        sblength = 0.1*u.pc
+    else:
+        sblength = 0.05*u.pc
+    F.add_scalebar(length=(sblength/distance*u.radian).to(u.degree).value)
+    F.scalebar.set_label(sblength)
+    F.scalebar.set_color('black')
+    F.scalebar.set_linewidth(3)
+    F.scalebar.set_font_size(20)
+    pixscale = np.abs(F._wcs.pixel_scale_matrix[1,1])
+    if name in annotations:
+        for (x,y), to_offset, from_offset, color in annotations[name]:
+            dx = (from_offset[0]-to_offset[0]) / pixscale
+            dy = (from_offset[1]-to_offset[1]) / pixscale
+            F.show_arrows(x, y, dx, dy, color=color)
+
+    F.show_colorbar()
+    F.colorbar.set_axis_label_text("mJy/beam")
+    F.save(paths.fpath("diffuse/{0}_aplpy.png".format(name)))
+
     fig = pl.figure(1)
     fig.clf()
     ax = fig.add_axes([0.15, 0.1, 0.8, 0.8], projection=wcsaxes)
-
     im = ax.imshow(hdu.data.squeeze()*1e3, cmap=pl.cm.gray_r, origin='lower',
                    vmin=vmin, vmax=vmax,
                    norm=ImageNormalize(stretch=stretch))
@@ -78,10 +141,20 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
     cb = fig.colorbar(im)
     cb.set_label("mJy/beam")
 
+    sblength_deg = (sblength/distance).to(u.degree, u.dimensionless_angles())
+    sblength_pix = sblength_deg.value * pixscale
+    ax.plot([x1 + np.abs(x2-x1)*0.05,
+             x1 + np.abs(x2-x1)*0.05 + sblength_pix],
+            [y1 + np.abs(y2-y1)*0.05]*2,
+            linewidth=3,
+            color='black')
+    ax.text(np.mean([x1 + np.abs(x2-x1)*0.05,
+                     x1 + np.abs(x2-x1)*0.05 + sblength_pix]),
+            y1 + np.abs(y2-y1)*0.05,
+            s=str(sblength))
+
     if name in annotations:
         for xy, to_offset, from_offset, color in annotations[name]:
             annotate(ax, xy, to_offset, from_offset, color, mywcs)
-
     pl.draw(); pl.show()
     pl.savefig(paths.fpath("diffuse/{0}.png".format(name)), bbox_inches='tight')
-
