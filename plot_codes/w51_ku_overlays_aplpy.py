@@ -102,6 +102,10 @@ for velo in ProgressBar(np.arange(60,72,0.5)):
 
     F.hide_layer('temporary')
 
+F.show_regions(rpath('shi2010_notext.reg'), layer='shi2010')
+F.hide_layer('shi2010_txt')
+F.hide_layer('shi2010')
+
 log.info("Reading natural_contsub image cube")
 cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
 for velo in ProgressBar(np.arange(60,72,0.5)):
@@ -125,6 +129,12 @@ for velo in ProgressBar(np.arange(60,72,0.5)):
                 text="{0:0.1f} km s$^{{-1}}$".format(velo),
                 color='w', layer='label', size=20)
     F.save(fpath('contour_movie/e1e2_h2co22_on_cont22_natural_v{0}.png'.format(velo)))
+
+    F.show_layer('shi2010')
+    F.show_layer('shi2010_txt')
+    F.save(fpath('contour_movie/e1e2_h2co22_on_cont22_natural_v{0}_shi2010.png'.format(velo)))
+    F.hide_layer('shi2010_txt')
+    F.hide_layer('shi2010')
 
     # not emission
     # F.show_regions(rpath('W51_22_emission_labels.reg'), layer='temporary2')
@@ -157,9 +167,16 @@ for velo in ProgressBar(np.arange(vr[0],vr[1]+0.5,0.5)):
     F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_natural_v{0}.png'.format(velo)))
     F.show_regions(rpath('W51_22_emission_labels.reg'), layer='temporary2')
     F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_natural_v{0}_labeled.png'.format(velo)))
+    F.remove_layer('label')
+
+    F.show_layer('shi2010')
+    F.show_layer('shi2010_txt')
+    F.save(fpath('contour_movie/e1e2_h2co22_emission_on_cont22_natural_v{0}_shi2010.png'.format(velo)))
+    F.hide_layer('shi2010_txt')
+    F.hide_layer('shi2010')
+
     F.remove_layer('temporary')
     F.remove_layer('temporary2')
-    F.remove_layer('label')
 
 #cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
 cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_natural_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
