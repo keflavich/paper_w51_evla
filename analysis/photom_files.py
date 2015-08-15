@@ -1,9 +1,9 @@
 from paths import datapath
 
 files = {
-        '25.0 GHz Epoch 2':datapath+"goddi/W51-25GHzcont-pb.map.image.fits",
-        '27.0 GHz Epoch 2':datapath+"goddi/W51-27GHzcont-pb.map.image.fits",
-        '29.0 GHz Epoch 2':datapath+"goddi/W51-29GHzcont-pb.map.image.fits",
+        '25.0 GHz Epoch 2':datapath+"goddi/W51-25GHzcont-large-pb.map.image.fits",
+        '27.0 GHz Epoch 2':datapath+"goddi/W51-27GHzcont-large-pb.map.image.fits",
+        '29.0 GHz Epoch 2':datapath+"goddi/W51-29GHzcont-large-pb.map.image.fits",
         '33.0 GHz Epoch 2':datapath+"goddi/W51-33GHzcont-pb.map.image.fits",
         '36.0 GHz Epoch 2':datapath+"goddi/W51-36GHzcont-pb.map.image.fits",
         # too low-res '1.4 GHz Epoch 1': 'W51-LBAND-feathered_ABCD.fits',

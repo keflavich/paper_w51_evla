@@ -51,25 +51,33 @@ for name, fn in files.iteritems():
     pl.figure(1).clf()
 
     F = aplpy.FITSFigure(hdu)
-    F.show_colorscale(cmap=pl.cm.RdYlBu_r, vmin=52, vmax=62)
+    F.set_auto_refresh(False)
+    F.show_colorscale(cmap=pl.cm.RdYlBu_r, vmin=54, vmax=59)
     F.show_colorbar()
     F.add_beam()
     F.beam.set_facecolor('none')
     F.beam.set_hatch('//')
+    F.refresh()
     F.save(fpath('velocity/w51e2zoom_{0}.png'.format(name)))
 
     F.show_regions(rpath('shi2010.reg'), layer='shi2010')
+    F.refresh()
     F.save(fpath('velocity/w51e2zoom_{0}_labeled.png'.format(name)))
     F.hide_layer('shi2010')
     F.hide_layer('shi2010_txt')
     F.show_regions(rpath('shi2010_notext.reg'), layer='shi2010_notext')
+    F.refresh()
     F.save(fpath('velocity/w51e2zoom_{0}_marked.png'.format(name)))
 
     #F.show_contour(m0.hdu, levels=[-0.4,-0.3,-0.2,-0.1, 0.020, 0.040], colors=['k']*8)
-    F.show_contour(m0.hdu, levels=levels[name], colors=['k']*8,
+    F.show_contour(m0.hdu, levels=[ L for L in levels[name] if L < 0], colors=['k']*8,
+                   linewidths=[0.5]*8, alpha=0.5, linestyle='--')
+    F.show_contour(m0.hdu, levels=[ L for L in levels[name] if L > 0], colors=['k']*8,
                    linewidths=[0.5]*8, alpha=0.5)
+    F.refresh()
     F.save(fpath('velocity/w51e2zoom_{0}_contoured_marked.png'.format(name)))
 
     F.hide_layer('shi2010_notext')
     F.hide_layer('shi2010_notext_txt')
+    F.refresh()
     F.save(fpath('velocity/w51e2zoom_{0}_contoured.png'.format(name)))
