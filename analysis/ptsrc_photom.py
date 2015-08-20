@@ -34,6 +34,7 @@ gfits = {}
 obsdate = {}
 beams = {}
 frequencies = {}
+reg_centers = {}
 
 for freq,fn in files.iteritems():
     fluxes[freq] = {}
@@ -44,6 +45,7 @@ for freq,fn in files.iteritems():
     gpars[freq] = {}
     gparerrs[freq] = {}
     gfits[freq] = {}
+    reg_centers[freq] = {}
     
     data = fits.getdata(fn).squeeze()
     header = flatten_header(fits.getheader(fn))
@@ -90,6 +92,7 @@ for freq,fn in files.iteritems():
         co = data[int(yc-3*rp):int(yc+3*rp+1),
                   int(xc-3*rp):int(xc+3*rp+1)]
         cutouts[freq][name] = co
+        reg_centers[freq][name] = ra,dec,xc-int(xc-3*rp),yc-int(yc-3*rp),rad,rp
 
         yy,xx = np.indices(co.shape)
         # rr = radius grid

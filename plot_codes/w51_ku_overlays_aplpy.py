@@ -63,7 +63,8 @@ F.scalebar.set_label('0.1 pc')
 F.recenter(290.91644,14.518939,radius=0.3/60.)
 log.info("Reading briggs0_contsub image cube")
 cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio')
-for velo in ProgressBar(np.arange(60,72,0.5)):
+# 53 for e1e2
+for velo in ProgressBar(np.arange(53,72,0.5)):
     #log.info("Velocity {0}".format(velo))
     c = pl.cm.jet_r((70-velo)/10.)
     #colors = [c[:3] + (x,) for x in (0.9,0.7,0.5,0.3,0.1)]
