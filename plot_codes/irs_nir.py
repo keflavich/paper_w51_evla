@@ -14,7 +14,15 @@ pl.close(1)
 figure = pl.figure(1)
 figure.clf()
 
+def set_tight_ticks(F):
+    F.tick_labels.set_yformat('dd:mm:ss.ss')
+    F.tick_labels.set_xformat('hh:mm:ss.ss')
+    F.ticks.set_xspacing(0.001)
+    F.ticks.set_yspacing(0.001)
+    F.tick_labels.set_x_full_label_side('left')
+
 hdu = fits.open(paths.dpath('naco_Kband_W51.fits'))
+w = wcs.WCS(hdu[0].header)
 
 F = aplpy.FITSFigure(hdu,convention='calabretta',figure=figure)
 F.set_auto_refresh(False)
@@ -31,6 +39,7 @@ F.show_grayscale(stretch='log',vmin=-1,vmid=-1.5,vmax=1e2,invert=True)
 F.add_scalebar(length=((0.5 * u.pc)/distance*u.radian).to(u.degree).value)
 
 F.recenter(290.91669,14.518151,radius=8./3600.)
+set_tight_ticks(F)
 F.scalebar.set_length(((0.1 * u.pc)/distance*u.radian).to(u.degree).value)
 F.scalebar.set_label('0.1 pc')
 F.scalebar.set_color('orange')
@@ -78,10 +87,11 @@ F.show_contour(neii_outflow.hdu, levels=np.arange(30,190,10), colors=neiicolors,
 F.save(fpath('irs2outflow/IRS2_neii_on_NACO_K.png'), dpi=150)
 
 c = (0,0.9,0.1)
-h77acolors = [c[:3] + (x,) for x in (0.1,0.2,0.3,0.4,0.5,0.6,0.7)]
+#h77acolors = [c[:3] + (x,) for x in (0.1,0.2,0.3,0.4,0.5,0.6,0.7)]
+h77acolors = [c[:3] + (1,) for x in (0.1,0.2,0.3,0.4,0.5,0.6,0.7)]
 h77alevels = np.arange(0.01,0.05,0.005)
 F.show_contour(h77a_outflow.hdu, levels=h77alevels, colors=h77acolors,
-               filled=True, layer='temporary')
+               filled=False, layer='temporary')
 F.save(fpath('irs2outflow/IRS2_h77a_on_NACO_K.png'), dpi=150)
 
 F.remove_layer('temporary')
