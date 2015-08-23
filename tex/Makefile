@@ -21,7 +21,7 @@ w51_evla_h2co:
 diff:
 	python parse_macros.py w51_evla_h2co.tex w51_evla_h2co_fordiff.tex
 	python parse_macros.py w51_evla_h2co_jun7.tex w51_evla_h2co_jun7_fordiff.tex
-	latexdiff w51_evla_h2co_fordiff.tex w51_evla_h2co_jun7_fordiff.tex > diff.tex
+	latexdiff w51_evla_h2co_jun7_fordiff.tex w51_evla_h2co_fordiff.tex > diff.tex
 	${SKIPERR} diff.tex
 	${BIBTEX} diff
 	${SKIPERR} diff.tex

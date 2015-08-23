@@ -213,7 +213,11 @@ diffuse region e7 to the south is an exception, associated with UGPS
 J192344.79+142911.2 \citep{Lucas2012a}.  Three candidate sources, e20, e21, and
 e22, have clear K-band counterparts, though the UGPS cataloged sources do not align
 with the evident K-band sources.  e20 and e22 correspond to \citet{Goldader1994a}
-source RS7 and RS8 respectively.  e15, a diffuse source, has a counterpart UGPS
+source RS7 and RS8 respectively\footnote{The \citet{Goldader1994a} astrometry
+is slightly offset - \todo{I'd like to check the astrometry against a K-band image
+with good astrometry, but I don't have one at high enough resolution.  UKIDSS is high
+enough resolution, but I have 4 overlapping frames that are offset from each other by
+about an arcsecond}}.  e15, a diffuse source, has a counterpart UGPS
 J192338.65+143005.8.  e14 is associated with UGPS J192342.60+143042.2.  e5
 exhibits some K-band emission, though because of the diffuse surroundings,
 this emission is not cataloged in the UGPS.
@@ -269,13 +273,13 @@ velocity field of a 6x6\arcsec region centered on W51e2 in Figure
 \FigureTwo
 {figures/velocity/w51e2zoom_natural_contoured_marked.png}
 {figures/velocity/w51e2zoom_briggs_contoured_marked.png}
-{Velocity (moment 1) maps of the W51e2 region using (a) the naturally weighted
-map and (b) the Briggs-weighted map.  The X's mark \citet{Shi2010a} cores. Top
-left: W51e2-N, top-center: W51e2-NW, left-center: W51e2-E, center: W51e2-W.
-The latter, W51e2-W, is the hypercompact HII region.  The contours show the
-moment 0 maps integrated from 50 to 63 \kms at [-0.4,-0.3,-0.2,-0.1, 0.010,
-0.020, 0.030, 0.040] Jy \kms (natural) and [-0.28,-0.21,-0.14,-0.07, 0.007,
-0.0105, 0.014] Jy \kms (Briggs).
+{Velocity (moment 1) maps of \ortho \twotwo in the W51e2 region using (a) the
+naturally weighted map and (b) the Briggs-weighted map.  The X's mark
+\citet{Shi2010a} cores. Top left: W51e2-N, top-center: W51e2-NW, left-center:
+W51e2-E, center: W51e2-W.  The latter, W51e2-W, is the hypercompact HII region.
+The contours show the moment 0 maps integrated from 50 to 63 \kms at
+[-0.4,-0.3,-0.2,-0.1, 0.010, 0.020, 0.030, 0.040] Jy \kms (natural) and
+[-0.28,-0.21,-0.14,-0.07, 0.007, 0.0105, 0.014] Jy \kms (Briggs).
 }
 {fig:w51e2velofield}{1}{3.5in}
 
@@ -463,9 +467,9 @@ sources e20, e21, and e22 may be at the heart of this cluster (Figure
 \ref{fig:w51e20cluster}).  They
 were detected by \citet{Goldader1994a} in the K-band at $m_K < 12$, making
 these the brightest NIR sources outside of W51 IRS2.  Their luminosities
-suggest they are O4 or earlier stars.  Since they were also detected
-in X-rays \citet{Townsley2014a}, it is likely that our faint radio detections
-come from the ionized wind from these stars, not from locally ionized gas.
+suggest they are O-type stars.  Since they were also detected
+in X-rays \citep{Townsley2014a}, it is likely that our faint radio detections
+come from the ionized wind from these stars, not from locally ionized nebular gas.
 The high infrared K-band brightness and weak radio continuum from these sources,
 in contrast with the bright radio continuum and absence of infrared emission
 from e1/e2, supports this hypothesis.  However, these stars do not exhibit
@@ -490,7 +494,7 @@ in the infrared.
 {fig:w51e20cluster}{1}{3.5in}
 
 
-Questions remain: \todo{Maybe move this into a further discussion section?}
+Questions remain: %\todo{Maybe move this into a further discussion section?}
 How close are the e1/e2 and e20/e21/e22 clusters?  They are
 separated by 0.36 pc in projection, but we presently have no direct information
 about the line-of-sight velocity of the e20 cluster.  There is no 68 \kms
@@ -513,13 +517,13 @@ freely streaming out of the cloud and away from the forming cluster.  In this
 way, the cluster's formation would be externally regulated rather than
 self-regulated.
 
-Why is the W51 Main HII region brightest precisely where it is?  The molecular
-gas peaks at e1/e2 \citep{Parsons2012a}, but there is little sign of ionization
-there outside the ultracompact HII regions.  The HII region seems to peak in an
-area containing the least molecular gas, which suggests that whatever mass is
-there is predominantly ionized.  The ionized gas seems to form an ionized outer
-shell around the dense molecular gas, suggesting that any further infall into
-this system must happen along thick, shielded flows.
+%Why is the W51 Main HII region brightest precisely where it is?  The molecular
+%gas peaks at e1/e2 \citep{Parsons2012a}, but there is little sign of ionization
+%there outside the ultracompact HII regions.  The HII region seems to peak in an
+%area containing the least molecular gas, which suggests that whatever mass is
+%there is predominantly ionized.  The ionized gas seems to form an ionized outer
+%shell around the dense molecular gas, suggesting that any further infall into
+%this system must happen along thick, shielded flows.
 
 \Figure
 {figures/diffuse/continuum_on_c18o.png}
@@ -591,11 +595,11 @@ in $\rho$ Ophiucus B
 observed in absorption at large distances within the Galaxy.
 
 We have detected 3 regions of \twotwo emission in the W51 region, all
-corresponding to previously detected hot \ammonia cores
-\citep{Zhang1997a,Goddi2015a}.  The bright
+corresponding to previously detected hot molecular cores
+\citep{Zhang1997a,Shi2010a,Shi2010b,Goddi2015a}.  The bright
 maser source W51e2 is partially surrounded by a `halo' of \formaldehyde \twotwo
 emission to its northeast; the \hchii region itself shows only \twotwo
-absorption because the continuum source has a high brightness temperature
+absorption because the continuum source is bright
 (Figure \ref{fig:w51bridge22emispec} and Figure \ref{fig:w51mainemicontours}).
 The \hchii region W51e8 exhibits extended \twotwo emission, including a
 somewhat
@@ -796,7 +800,7 @@ lower-limit based mass.  For a reasonable range of `core' masses, $10
 
 The W51e8 core is similar to W51 North in many respects, including size,
 linewidth, and brightness.  However, W51e8 contains a hypercompact HII region,
-while W51 North does not.  In W51 north, though, detection of a hypercompact
+while W51 North does not.  In W51 North, though, detection of a hypercompact
 HII region may be prevented by imaging artifacts from the nearby bright IRS 2.
 It is therefore plausible that W51 North contains a similar continuum source to
 W51e8 ($S_\nu \sim 1$ mJy).
@@ -1063,7 +1067,7 @@ clusters.
 We therefore anticipate that the clusters will continue to consume the dense
 gas they presently contain until it is either exhausted or some other feedback
 mechanism takes over \citep{Ginsburg2012a,Bressert2012a,Ginsburg2015a}.  The
-exhaustion of \emph{local} gas, out to $\sim1-2 pc$, is a necessary
+exhaustion of \emph{local} gas, out to $\sim1-2$ pc, is a necessary
 precondition for the formation of a bound cluster \citep{Kruijssen2012a}.
 Other feedback mechanisms may be stellar winds, direct radiation pressure
 (assuming a single scattering event per photon), or supernovae.
