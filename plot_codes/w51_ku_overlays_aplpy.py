@@ -19,6 +19,7 @@ def set_tight_ticks(F):
     F.tick_labels.set_xformat('hh:mm:ss.ss')
     F.ticks.set_xspacing(0.001)
     F.ticks.set_yspacing(0.001)
+    F.tick_labels.set_x_full_label_side('left')
 
 #aplpy.make_rgb_cube( ('W51-CBAND-feathered.fits','W51-X-ABCD-S1.VTESS.VTC.DAVID-MEH.fits','W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits'), 'W51_CXU_rgb' )
 
