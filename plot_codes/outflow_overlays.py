@@ -25,8 +25,8 @@ figure.clf()
 def set_tight_ticks(F):
     F.tick_labels.set_yformat('dd:mm:ss.ss')
     F.tick_labels.set_xformat('hh:mm:ss.ss')
-    F.ticks.set_xspacing(0.001)
-    F.ticks.set_yspacing(0.001)
+    F.ticks.set_xspacing(0.0015)
+    F.ticks.set_yspacing(0.0015)
     F.tick_labels.set_x_full_label_side('left')
 
 # clean the header of junk axes
@@ -93,11 +93,12 @@ F.save(fpath('irs2outflow/IRS2_neii_on_cont22.png'), dpi=150)
 log.debug("End neii_outflow")
 
 c = (0,0.9,0.1)
-h77acolors = [c[:3] + (x,) for x in (0.1,0.2,0.3,0.4,0.5,0.6,0.7)]
+#h77acolors = [c[:3] + (x,) for x in (0.1,0.2,0.3,0.4,0.5,0.6,0.7)]
+h77acolors = [c[:3] + (1.,) for x in (0.1,0.2,0.3,0.4,0.5,0.6,0.7)]
 h77alevels = np.arange(0.01,0.05,0.005)
 log.debug("Begin h77a_outflow")
 F.show_contour(h77a_outflow.hdu, levels=h77alevels, colors=h77acolors,
-               filled=True, layer='temporary')
+               filled=False, layer='temporary')
 F.save(fpath('irs2outflow/IRS2_h77a_on_cont22.png'), dpi=150)
 
 F.remove_layer('temporary')
