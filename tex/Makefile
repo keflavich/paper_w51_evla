@@ -1,6 +1,7 @@
 # latex Makefile
 texpath=/usr/texbin/
 PDFLATEX=${texpath}pdflatex -halt-on-error -synctex=1 --interaction=nonstopmode
+SKIPERR=${texpath}pdflatex --interaction=nonstopmode
 LATEX=${PDFLATEX}
 BIBTEX=bibtex
 DVIPS=dvips
@@ -16,3 +17,14 @@ w51_evla_h2co:
 	${BIBTEX} w51_evla_h2co
 	${LATEX} w51_evla_h2co.tex
 	gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=w51_evla_h2co_compressed.pdf w51_evla_h2co.pdf
+
+diff:
+	python parse_macros.py w51_evla_h2co.tex w51_evla_h2co_fordiff.tex
+	python parse_macros.py w51_evla_h2co_jun7.tex w51_evla_h2co_jun7_fordiff.tex
+	latexdiff w51_evla_h2co_fordiff.tex w51_evla_h2co_jun7_fordiff.tex > diff.tex
+	${SKIPERR} diff.tex
+	${BIBTEX} diff
+	${SKIPERR} diff.tex
+	${BIBTEX} diff
+	${SKIPERR} diff.tex
+	gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=diff_compressed.pdf diff.pdf
