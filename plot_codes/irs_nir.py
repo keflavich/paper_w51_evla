@@ -5,6 +5,7 @@ from spectral_cube import SpectralCube
 from astropy import coordinates
 from astropy import units as u
 from astropy.io import fits
+from astropy import wcs
 import aplpy
 import paths
 from common_constants import distance

@@ -16,19 +16,13 @@ from astropy.visualization import SqrtStretch,AsinhStretch
 from astropy.visualization.mpl_normalize import ImageNormalize
 pl.matplotlib.rc_file('pubfiguresrc')
 
-def set_tight_ticks(F):
-    F.tick_labels.set_yformat('dd:mm:ss.ss')
-    F.tick_labels.set_xformat('hh:mm:ss.ss')
-    F.ticks.set_xspacing(0.001)
-    F.ticks.set_yspacing(0.001)
-    F.tick_labels.set_x_full_label_side('left')
 
 pl.figure(1).clf()
 F = aplpy.FITSFigure(dpath("c18o_45to65_moment0.fits"), figure=pl.figure(1))
 F.show_grayscale(invert=True, vmax=160)
 
 F.recenter(290.92456, 14.51073, radius=0.04)
-set_tight_ticks(F)
+F.tick_labels.set_x_full_label_side('left')
 F.show_contour(dpath("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits"),
                 colors=['r']*10, levels=np.logspace(-4,-2, 5), smooth=5) 
 

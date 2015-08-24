@@ -30,8 +30,6 @@ region = pyregion.open(rpath('w51e2zoom.reg'))
 def set_tight_ticks(F):
     F.tick_labels.set_yformat('dd:mm:ss.ss')
     F.tick_labels.set_xformat('hh:mm:ss.ss')
-    F.ticks.set_xspacing(0.001)
-    F.ticks.set_yspacing(0.001)
     F.tick_labels.set_x_full_label_side('left')
 
 for name, fn in files.iteritems():
