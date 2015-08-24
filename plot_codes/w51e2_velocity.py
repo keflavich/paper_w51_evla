@@ -27,6 +27,13 @@ levels = {'natural': [-0.4,-0.3,-0.2,-0.1, 0.010, 0.020, 0.030, 0.040],
 
 region = pyregion.open(rpath('w51e2zoom.reg'))
 
+def set_tight_ticks(F):
+    F.tick_labels.set_yformat('dd:mm:ss.ss')
+    F.tick_labels.set_xformat('hh:mm:ss.ss')
+    F.ticks.set_xspacing(0.001)
+    F.ticks.set_yspacing(0.001)
+    F.tick_labels.set_x_full_label_side('left')
+
 for name, fn in files.iteritems():
     cube = SpectralCube.read(paths.dpath(fn))
     scube = (cube
@@ -52,6 +59,7 @@ for name, fn in files.iteritems():
 
     F = aplpy.FITSFigure(hdu)
     F.set_auto_refresh(False)
+    set_tight_ticks(F)
     F.show_colorscale(cmap=pl.cm.RdYlBu_r, vmin=54, vmax=59)
     F.show_colorbar()
     F.add_beam()

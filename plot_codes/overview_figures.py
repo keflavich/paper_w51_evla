@@ -47,6 +47,7 @@ for fn,(vmin,vmax),name in (("W51C_ACarray_continuum_4096_both_uniform_contsplit
     #F.recenter(e1.ra.value,e1.dec.value,width=1/60.,height=1/60.)
     #F.recenter(290.92633,14.514769,radius=1.4/60.)
     F.recenter(290.92345,14.511772,radius=1.1/60.)
+    F.tick_labels.set_x_full_label_side('left')
     F.add_scalebar(length=((0.5 * u.pc)/(5.4*u.kpc)*u.radian).to(u.degree).value)
     F.scalebar.set_label('0.5 pc')
     F.scalebar.set_color('orange')
