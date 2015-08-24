@@ -17,10 +17,11 @@
 {
 (1) \ortho \twotwo emission traces forming very massive (proto-O) stars
 (2) There is a spatially distributed population of $\sim$mJy continuum sources,
-probably hypercompact HII regions, around the W51 proto-clusters
+including probable hypercompact HII regions and O-stars with ionized winds,
+around the W51 proto-clusters
 (3) There are two clearly detected clusters, W51e and W51 IRS 2, but the
-majority of the luminosity in W51 most likely comes from a third, possibly
-un-clustered, population of OB stars between these clusters.
+majority of the luminosity in W51 most likely comes from a third population of
+OB stars between these clusters.
 }
 
 \maketitle
@@ -82,10 +83,15 @@ identifying the regions discussed are available in the Appendix.}
 {fig:coverview}{0.9}{6.5in}
 
 \section{Observational Results}
-We report four key observational results: 
+We report six key observational results: 
 \begin{enumerate}
     \item Section \ref{sec:pointsources}: The detection of new continuum
-        sources, which are most likely hypercompact \hii regions. 
+        sources, most of which are most likely hypercompact \hii regions. 
+    \item Section \ref{sec:variability}: The detection of variability in
+        some of the faint point sources over 20 year timescales
+    \item Section \ref{sec:associations}: The detection of radio continuum
+        sources associated with near-infrared sources, most likely unembedded
+        O-stars
     \item Section \ref{sec:twotwoemission}: The detection of \formaldehyde
         \twotwo emission around sources e2, e8, and W51 North
     \item Section \ref{sec:LOSvelo}: Measurements of line-of-sight velocities
@@ -172,6 +178,7 @@ the Epoch 1 (green) points are within the noise, while all of the Epoch 2 and 3
 {fig:d4sed}{0.5}{6.5in}
 
 \subsubsection{Variability}
+\label{sec:variability}
 The multi-epoch data demonstrate that some of these sources are variable.  The
 most convincing case for variability is in the (double) source d4 (Figure
 \ref{fig:d4sed}).  In the \citet{Mehringer1994a} data, there is no hint of
@@ -939,11 +946,11 @@ sources \citep{Townsley2014a}.
 
 \subsection{The velocity dispersion in the W51e cluster}
 \label{sec:vdisp}
-We detect H77$\alpha$ toward 6 of the 8 hyper/ultra compact \hii regions in the
-W51 Main (W51e) cluster; 4 of these 6 are firm detections and two are weak.  We
-also measure a velocity from the \formaldehyde emission toward e8.  The
-resulting 1D velocity dispersion is $\sigma=2.0$ \kms if we exclude the
-uncertain sources e9
+We detect H77$\alpha$ toward six of the eight hyper/ultra compact \hii regions
+in the W51 Main (W51e) cluster; four of these six are firm detections and two
+are weak.  We also measure a velocity from the \formaldehyde emission toward
+e8.  The resulting 1D velocity dispersion is $\sigma=2.0$ \kms if we exclude
+the uncertain sources e9
 and e10; with e9 and e10 included the dispersion increases to 4.2 \kms, which
 suggests that the uncertainty on those two sources renders their velocity
 measurements unreliable.  This velocity dispersion is confined to
@@ -978,31 +985,32 @@ assuming that the image-based continuum subtraction is accurate.
 {fig:h77afits}{1}{3in}
 
 \subsubsection{The velocity dispersion in the gas cores}
-The gas line width is $\sigma>2.1\kms$ in all of the cores, while in the bridge
-filament it is $\sigma=1.0\kms$.  Since the cores each have higher internal
-velocity dispersion than the surrounding gas, they must have significant
-internal motions, either rotation, turbulence, or gravitational collapse.
-Because the e2 core is resolved and has velocity dispersion greater than the
-observed velocity gradient, internal turbulence or gravitational infall are the
-only viable explanations for the observed velocity dispersion.
+The gas line width is $\sigma>2.1$ \kms in all of the cores, while in the
+bridge filament it is $\sigma=1.0$ \kms.  Since the cores each have higher
+internal velocity dispersion than the surrounding gas, they must have
+significant internal motions, either rotation, turbulence, or gravitational
+collapse.  Because the e2 core is resolved and has velocity dispersion greater
+than the observed velocity gradient, internal turbulence or gravitational
+infall are the only viable explanations for the observed velocity dispersion.
 
 \subsection{The nature of the continuum sources}
-The point sources are most likely to be hypercompact HII regions.  All that
-are detected at low frequencies (2-6 GHz) are also detected at 15 GHz.  Many of
-these sources have peculiar spectral energy distributions, with maxima at 2 and
-15 GHz and a minimum at 6 GHz.  These SEDs are not easily explained by either
-simple HII region models or as synchrotron emission sources.  However, the
-association of all of these sources with the W51 region - all are within
+Most of the detected point sources are likely to be hypercompact HII regions.
+All that are detected at low frequencies (2-6 GHz) are also detected at 15 GHz.
+Many of these sources have peculiar spectral energy distributions, with maxima
+at 2 and 15 GHz and a minimum at 6 GHz.  These SEDs are not easily explained by
+either simple HII region models or as synchrotron emission sources.  However,
+the association of all of these sources with the W51 region - all are within
 $\sim2\arcmin$ of the central clusters - means they are unlikely to be
 background galaxies.  
 
 Given the faintness of these sources ($S_{5 GHz} \sim 1$ mJy), they must be
 very small or optically thin if they are free-free emission sources.  A 1 mJy
 source has a brightness temperature of $\sim$1000 K in our uniformly-weighted
-C-band observations, which implies either that the HII region is optically
+C-band observations, which implies either that such an HII region is optically
 thin, with $\tau < 0.1$, or very small, with $ff<0.1$.  Given a beam FWHM of
-0.3\arcsec, the implied upper limit size for an optically thick source is 1 mpc
-(200 AU).
+0.3\arcsec, the implied upper limit size for an optically thick 1 mJy source is
+1 mpc (200 AU).
+% see HIIregion_size.py
 
 In typical analysis of HCHII regions, one can distinguish these scenarios by
 examining the spectral index.  An optically thick source would have a spectral
@@ -1030,16 +1038,17 @@ could result in different spectral indices, but the shallowest they derive
 are $\alpha=-0.1$ corresponding to optically thin free-free emission, so even
 these models cannot explain the long-wavelength excess.
 
-The diffuse HII regions are readily identified as such.  There is a set of 4
-ultracompact HII regions with similar size (0.02-0.07 pc): d3, e1, e6, and e7.
-All are round and reasonably symmetric.  They exhibit
-some variations in surface brightness but are essentially circular.  In a
-classical view of an expanding spherical HII region, these sources are at early
-but very similar evolutionary stages.  Assuming that these all went through a
-hypercompact HII region phase, and assuming that all of the hypercompact and
-ultracompact HII regions within W51 go through the same phases at the same
-rate, the ultracompact HII phase must be 10-30\% as long as the hypercompact
-HII phase.  However, both of these assumptions are questionable.
+The diffuse continuum sources are assumed to be HII regions, as previously
+reported \citep{Gaume1993a,Mehringer1994a}.  There is a set of 4 ultracompact
+HII regions with similar size (0.02-0.07 pc): d3, e1, e6, and e7.  All are
+round and reasonably symmetric.  They exhibit some variations in surface
+brightness but are essentially circular.  In a classical view of an expanding
+spherical HII region, these sources are at early but very similar evolutionary
+stages.  Assuming that these all went through a hypercompact HII region phase,
+and assuming that all of the hypercompact and ultracompact HII regions within
+W51 go through the same phases at the same rate, the ultracompact HII phase
+must be 10-30\% as long as the hypercompact HII phase.  However, both of these
+assumptions are questionable.
 
 
 % \section{The distributed population of HCHII regions}
@@ -1096,6 +1105,48 @@ to unbind the whole GMC.
 % If the cluster progresses to 100\% efficiency, as we predict, the rest of the
 % cloud must be limited to XX.
 
+\subsection{The distributed and clustered O-star populations}
+The IRS2 and e1/e2 clusters each contain at least 5-10 OB stars, but within 2-3
+parsecs of these clusters, there appear to be 10-20 additional OB stars.  Some
+of these, like e20-e22, are in their own subclusters, but together they form a
+distributed population in the same proto-cluster region.
+
+Among these stars, some are almost certainly still accreting - the unresolved
+hypercompact HII regions, at least, must be surrounded by high-density neutral
+material, since otherwise they would have expanded into diffuse HII regions.
+Others, e.g., e20, may have completed accreting and transitioned into an
+exposed phase during which the ionized material in their immediate vicinity is
+mass lost from the stars themselves.  The coexistence of both of these phases
+implies that there must be some age spread within the distributed population.
+
+%If the age spread is large compared to the age of an O-star, it is plausible
+%that the distributed population may produce one or more supernovae before the
+%natal clusters have completed their formation.  While this mechanism would
+%provide a way to remove the gas and end the star and cluster formation process
+%in the cloud, it is intrinsically unlikely since even the shortest stellar
+%lifetimes are an order of magnitude longer than the free fall collapse time in
+%gas at cluster densities.
+
+If any of the observed subclusters merge, e.g., if the e20 and e1/e2 clusters
+merge, the resulting cluster will have an age spread corresponding to the present
+age spread.  As a lower limit to the age of the e20 cluster, if we assume it is
+responsible for driving the nearest part of the W51 Main shell at a separation
+of 0.35 parsecs with a D-type ionization front at $v\sim2$ \kms, we get
+$t_{e20} > 0.17$ Myr.  This lower limit is comparable to the gas free fall
+time in the cluster and is still consistent with the most accurate stellar age
+spread estimates available from photometry of young clusters
+\citep[e.g.,][]{Kudryavtseva2012a}.
+
+The coexistence of distributed and clustered populations over a fairly compact
+region carries important implications for stellar feedback.  Because these
+populations are nearly coeval and spatially coincident, the feedback from the
+OB star population onto the gas should not be treated as point-symmetric as if
+it were injected from a single cluster.  The distributed population will render
+the parent cloud more holy (swiss-cheese-like) than would be implied by a
+smooth or even a very turbulent molecular cloud.  These holes would likely
+provide networks of low-density gaps through which radiation can escape,
+reducing the overall impact of radiative feedback on the cloud.
+
 \section{Conclusions}
 We present deep, high-resolution radio continuum images observed in many
 low-frequency bands from the Very Large Array.  These images have yielded the
@@ -1106,7 +1157,7 @@ from near-infrared view by thick absorbing filaments.
 
 Using these continuum data and \formaldehyde emission and absorption line
 information, we have measured the velocity dispersion of the W51 e1/e2
-protocluster $\sigma_v=2.0$ kms.  Although this cluster consists of
+protocluster $\sigma_v=2.0$ \kms.  Although this cluster consists of
 hypercompact and ultracompact HII regions, indicating that is is extremely
 gas-rich, the velocity dispersion implies a stellar mass that is $\sim4\times$
 greater than the gas mass, assuming that the stars are virialized.
