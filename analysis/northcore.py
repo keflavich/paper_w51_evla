@@ -6,8 +6,8 @@ from astropy import units as u
 from astropy import constants
 import pyradex
 
-integrated_intensity = 109*u.mJy # from centroid_north_core
-line_integral = 644*u.K*u.km/u.s / 5 # 5 beams
+integrated_intensity = 54.5*u.mJy # from centroid_north_core
+line_integral = 322*u.K*u.km/u.s / 5 # 5 beams
 radius = 0.024*u.pc
 
 density = 1e6 * u.cm**-3

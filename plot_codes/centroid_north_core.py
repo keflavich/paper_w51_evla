@@ -35,7 +35,7 @@ gaussfits = [gaussfitter.gaussfit(
     err=noise_norm,
     return_error=True )  for v in ProgressBar(np.arange(vr[0],vr[1]+dv.value,dv.value))]
 
-integrated_image = (scube.spectral_slab(vr[0]*u.km/u.s, vr[1]*u.km/u.s).sum(axis=0))
+integrated_image = (scube.spectral_slab(vr[0]*u.km/u.s, vr[1]*u.km/u.s).moment0(axis=0))
 gaussfit_total,fitimage = gaussfitter.gaussfit(np.nan_to_num(integrated_image.value),
                                                err=noise.value,
                                                returnfitimage=True
@@ -43,6 +43,12 @@ gaussfit_total,fitimage = gaussfitter.gaussfit(np.nan_to_num(integrated_image.va
 # sanity check: make sure the fit is OK (it is)
 pl.figure(2).clf()
 pl.imshow(integrated_image.value, cmap=pl.cm.bone_r)
+cb = pl.colorbar()
+pl.contour(fitimage, cmap=pl.cm.spectral)
+
+pl.figure(3).clf()
+pl.imshow((integrated_image/(u.km/u.s)).to(u.K, u.brightness_temperature(beam, 14.488*u.GHz)).value, cmap=pl.cm.bone_r)
+cb = pl.colorbar()
 pl.contour(fitimage, cmap=pl.cm.spectral)
 
 print("Integrated gaussfit: ", gaussfit_total)
@@ -51,6 +57,7 @@ center_coord = coordinates.SkyCoord(*scube.wcs.sub([wcs.WCSSUB_CELESTIAL]).wcs_p
 print("Center position: {0}".format(center_coord.to_string('hmsdms')))
 integ_intens = 1.*u.Jy/beam * gaussfit_total[1] * (gaussfit_total[4]*pixscale_as * gaussfit_total[5]*pixscale_as * 2 * np.pi)
 nbeams = ((gaussfit_total[4]*pixscale_as * gaussfit_total[5]*pixscale_as * 2 * np.pi) / beam).decompose()
+print("nbeams: {0}".format(nbeams))
 print("Integrated intensity: {0}".format(integ_intens.to(u.mJy)*dv))
 print("Integrated brightness: {0}".format(integ_intens.to(u.K, u.brightness_temperature(beam, 14.488*u.GHz))*dv))
 print("Integrated average brightness: {0}".format(integ_intens.to(u.K, u.brightness_temperature(beam, 14.488*u.GHz))*dv/nbeams))
