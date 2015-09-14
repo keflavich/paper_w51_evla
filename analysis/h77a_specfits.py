@@ -13,8 +13,13 @@ from latex_info import latexdict
 import pylab as pl
 pl.matplotlib.rc_file('pubfiguresrc')
 
+h77a_freq = pyspeckit.spectrum.models.hydrogen.rrl(77)*u.GHz
+he77a_freq = pyspeckit.spectrum.models.hydrogen.rrl(77, amu=4)*u.GHz
+c77a_freq = pyspeckit.spectrum.models.hydrogen.rrl(77, amu=12)*u.GHz
+
 # Read in all spectra extracted to the h77a directory matching the "best" h77a file
 # May 18, 2015: I think H77a big2 is best, but I haven't inspected.  EDIT: big2 is in velocity.
+# September 9, 2015: I think I deleted big2
 # Exclude "mol" files since they are molecular and should be extracted from the molecular cubes
 # Exclude "?" files since they are misnamed and use the obsolete scheme from
 # before I decided upon e9/e10
@@ -22,10 +27,19 @@ sp = [pyspeckit.Spectrum(x) for x in
       ProgressBar(
           glob.glob(
               paths.dpath(
-                  "spectra_h77/H77a_BDarray_speccube_uniform_contsub_cvel_big2*e[0-9]*.fits")))
+                  "spectra_h77/H77a_BDarray_speccube_uniform_contsub_cvel_big*e[0-9]*.fits")))
       if 'mol' not in x and '?' not in x
      ]
 spectra = sp
+# Also fit, but don't include in the table, the IRS 1 / IRS 2 / Lacy Jet spectra
+# (important for inspecting for CRRLs)
+sp_other = [pyspeckit.Spectrum(x) for x in
+            ProgressBar(
+                glob.glob(
+                    paths.dpath(
+                        "spectra_h77/H77a_BDarray_speccube_uniform_contsub_cvel_big_[ilr]*.fits")))
+            if 'mol' not in x and '?' not in x
+           ]
 
 # My manual inspection: which are detected?
 # weakdetections are those that are not clearly believable
@@ -33,10 +47,10 @@ detections = ['e1', 'e2', 'e3', 'e4', 'e6',]
 weakdetections = ['e5', 'e9', 'e10']
 
 # conversion....
-[s.xarr.convert_to_unit('km/s') for s in sp]
+[s.xarr.convert_to_unit('km/s') for s in sp+sp_other]
 
 # setup
-for ss in sp:
+for ss in sp+sp_other:
     ss.data *= 1e3 # convery Jy->mJy
     ss.unit = 'mJy/beam'
     ss.specname = ss.fileprefix.split("_")[-1]
@@ -45,7 +59,7 @@ for ss in sp:
     ss.error[:] = ss.data[noiseregion].std()
 
 # fitting
-for ii,ss in enumerate(sp):
+for ii,ss in enumerate(sp+sp_other):
     pl.figure(ii).clf()
     assert ss.xarr.unit == u.km/u.s
     ss.plotter(xmin=-10,xmax=120, figure=pl.figure(ii))
@@ -68,6 +82,32 @@ for ii,ss in enumerate(sp):
     ss.specfit.plotresiduals(axis=ss.plotter.axis,clear=False,yoffset=-0.3,label=False)
     ss.plotter.savefig(paths.fpath('spectra/h77/'+ss.specname+"_h77a_fit.png"),
                                   bbox_inches='tight')
+
+    pl.figure(ii).clf()
+    ss.plotter(xmin=-10,xmax=120, figure=pl.figure(ii), axis=pl.subplot(2,1,1))
+    ss.plotter.ymin -= 0.3
+    ss.plotter.label(ylabel='$S_\\nu$ (mJy beam$^{-1}$)')
+    ss.specfit.plot_fit()
+
+    ax2 = ss.plotter.axis.twinx()
+    ax2.set_ylim(*(np.array(ss.plotter.axis.get_ylim()) * ss.header['JYTOK']/1e3))
+    ax2.set_ylabel("$T_B$ (K)")
+
+    ss.specfit.plotresiduals(axis=ss.plotter.axis,clear=False,yoffset=-0.3,label=False)
+
+    ss_he = ss.copy()
+    ss_he.xarr.convert_to_unit(u.GHz)
+    ss_he.xarr.refX = he77a_freq
+    ss_he.xarr.convert_to_unit(u.km/u.s)
+    ss_he.plotter(xmin=-10, xmax=120, axis=pl.subplot(2,1,2))
+    ss_c = ss.copy()
+    ss_c.xarr.convert_to_unit(u.GHz)
+    ss_c.xarr.refX = c77a_freq
+    ss_c.xarr.convert_to_unit(u.km/u.s)
+    ss_c.plotter(xmin=-10, xmax=120, axis=pl.subplot(2,1,2), clear=False, color='blue')
+    ss.plotter.savefig(paths.fpath('spectra/h77/'+ss.specname+"_h_he_c.png"),
+                                  bbox_inches='tight')
+
 
 tbl = table.Table()
 names = table.Column(data=[sp.specname for sp in spectra], name='ObjectName')
