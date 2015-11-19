@@ -13,6 +13,7 @@ from astropy import log
 import aplpy
 from astropy.visualization import SqrtStretch,AsinhStretch
 from astropy.visualization.mpl_normalize import ImageNormalize
+import warnings
 
 
 regions = pyregion.open(paths.rpath('RRL_subframes.reg'))
@@ -42,16 +43,29 @@ for reg in regions:
     F.show_contour(layer3.hdu, smooth=3, levels=np.linspace(0.003, 0.12, 6), colors=['r']*10)
     F.save(paths.fpath('rrls/h77a_3layers_{0}.png'.format(name)))
 
-    layers = [scube.spectral_slab(vv*u.km/u.s,
-                                  (vv+5)*u.km/u.s).moment0() for ii,vv in enumerate(np.arange(15, 95, 5))]
-    mx = np.max([np.nanmax(x).value for x in layers])
-
+    # Begin channel map code here
     pl.figure(3, figsize=(16,16)).clf()
     Nrows=Ncols=4
     fig, ax = pl.subplots(Nrows, Ncols,
                           sharex=True,
                           sharey=True, num=3)
-    for ii,vv in enumerate(np.arange(15, 95, 5, dtype='int')):
+    
+    # integrate over velocities to make channel maps of a set width
+    vstart = 15 #km/s
+    vend = 95
+    vstep = 5
+    if int(vend-vstart)/vend > Nrows*Ncols:
+        warnings.warn("More slices than rows*columns!")
+    if int(vend-vstart)/vend < Nrows*Ncols:
+        warnings.warn("Fewer slices than rows*columns")
+
+    layers = [scube.spectral_slab(vv*u.km/u.s,
+                                  (vv+5)*u.km/u.s).moment0() for ii,vv in enumerate(np.arange(vstart,vend,vstep))]
+    # Determine the maximum value to display
+    mx = np.max([np.nanmax(x).value for x in layers])
+
+
+    for ii,vv in enumerate(np.arange(vstart, vend, vstep, dtype='int')):
         v1 = vv
         v2 = (vv+5)
         #pl.subplot(4, 4, ii+1)
