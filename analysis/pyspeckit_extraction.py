@@ -116,7 +116,7 @@ for cube_name, cube_fn in fnames.cube_names.items():
             sp.data *= 1e3
             sp.error *= 1e3
             #sp.unit = '$T_B$ (K)'
-            sp.unit = 'mJy/beam'
+            sp.unit = 'average mJy/beam'
             sp.plotter(errstyle='fill')
             ax2 = sp.plotter.axis.twinx()
             ax2.set_ylim(*(np.array(sp.plotter.axis.get_ylim()) * JyToK/1e3))
