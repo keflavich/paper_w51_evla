@@ -40,7 +40,7 @@ for fn,(vmin,vmax),name in (("W51C_ACarray_continuum_4096_both_uniform_contsplit
     #F = aplpy.FITSFigure(dpath+'W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.rot45.fits',convention='calabretta',figure=figure)
     #F.tick_labels.set_xformat('dd.dd')
     #F.tick_labels.set_yformat('dd.dd')
-    F.tick_labels.set_font(size=20)
+    F.tick_labels.set_font(size=18)
     F.axis_labels.set_font(size=20)
     F.show_grayscale(stretch='arcsinh',vmin=vmin,vmax=vmax, invert=True)
     #e1 = coordinates.ICRS(290.93263,14.50745,unit=('deg','deg'))
@@ -53,6 +53,8 @@ for fn,(vmin,vmax),name in (("W51C_ACarray_continuum_4096_both_uniform_contsplit
     F.scalebar.set_color('orange')
     F.scalebar.set_linewidth(3)
     F.scalebar.set_font_size(20)
+    F.add_colorbar()
+    F.colorbar.set_axis_label_text("Jy")
     F.save(paths.fpath('diffuse/{0}_overview.pdf'.format(name)), dpi=300)
 
     F.recenter(290.92345,14.511772,radius=1.6/60.)
