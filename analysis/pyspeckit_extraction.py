@@ -97,9 +97,12 @@ for cube_name, cube_fn in fnames.cube_names.items():
             # sanity checks: we want to make sure that the RMS has decreased
             # appropriately
             thirty_fifty = (sp.xarr>30*u.km/u.s).value & (sp.xarr<50*u.km/u.s).value
-            sp.header['RMS30_50'] = sp.data[thirty_fifty].std()
-            sp.header['RMSMEAN'] = sp.error.mean()
-            sp.header['CUBERMS'] = errspec[thirty_fifty].mean().value
+            sp.header['RMS30_50'] = (sp.data[thirty_fifty].std(), 'Spectrum RMS from 30 to 50 km/s')
+            sp.header['RMSMEAN'] = (sp.error.mean(), 'Mean of the spectrum error')
+            sp.header['CUBERMS'] = (errspec[thirty_fifty].mean().value, 'Cube RMS from 30 to 50 km/s')
+            sp.header['RTPIXAR'] = (np.sqrt(sp.header['APAREAPX']), 'Square Root of the # of pixels in the aperture')
+            sp.header['PPBEAM'] = (ppbeam, 'Pixels per beam')
+            sp.header['NBEAMS'] = (sp.header['APAREAPX']/ppbeam, 'Number of beams in aperature')
 
             sp.write(os.path.join(outpath, '%s_%s.fits' % (prefix,name)))
 
