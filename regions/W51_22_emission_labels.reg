@@ -7,7 +7,6 @@ ellipse(290.91669,14.518151,2.0000855",1.5349486",1.4619984e-05) # color=darkgre
 ellipse(290.93337,14.509338,0.65113304",1.1958924",36.4205) # color=darkgreen font="helvetica 14 normal roman"
 ellipse(290.93331,14.509842,0.65113304",1.1958924",335.378) # color=darkgreen font="helvetica 14 normal roman"
 ellipse(290.93287,14.510036,0.65113304",1.1958924",256.58) # color=darkgreen font="helvetica 14 normal roman"
-ellipse(290.93286,14.508645,1.2003919",1.7263191",18.5802) # color=darkgreen font="helvetica 14 normal roman"
 circle(290.93293,14.507803,0.521197") # color=darkgreen font="helvetica 14 normal roman"
 ellipse(290.93279,14.5076,0.45528239",0.59700769",313.297) # color=darkgreen font="helvetica 14 normal roman"
 # vector(290.93132,14.510238,4.0323818",188.25944) vector=1 color=darkgreen font="helvetica 14 normal roman"
@@ -17,7 +16,6 @@ ellipse(290.93279,14.5076,0.45528239",0.59700769",313.297) # color=darkgreen fon
 # text(290.93451,14.509863) color=darkgreen font="helvetica 14 normal roman" text={e2b}
 # text(290.93425,14.509075) color=darkgreen font="helvetica 14 normal roman" text={e2a}
 # vector(290.93426,14.508379,3.2408102",14.401806) vector=1 color=darkgreen font="helvetica 14 normal roman"
-# text(290.93412,14.508227) color=darkgreen font="helvetica 14 normal roman" text={e2-e8 bridge}
 # text(290.93393,14.506913) color=darkgreen font="helvetica 14 normal roman" text={e8mol}
 # text(290.93287,14.506575) color=darkgreen font="helvetica 14 normal roman" text={e10mol}
 # vector(290.93366,14.507131,2.786639",45.302711) vector=1 color=darkgreen font="helvetica 14 normal roman"

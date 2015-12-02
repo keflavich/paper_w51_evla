@@ -16,6 +16,9 @@ from astropy.table import Table,Column
 matplotlib.rc_file(pcpath('pubfiguresrc'))
 import radio_beam
 
+import pylab as pl
+pl.ioff()
+
 cube_name_titles = {'11_natural': 'H$_2$CO 1-1 natural',
                     '22_natural': 'H$_2$CO 2-2 natural',
                     '22_briggs0': 'H$_2$CO 2-2 Robust 0',
@@ -34,7 +37,8 @@ for cube_name, cube_fn in fnames.cube_names.items():
     JyToK = u.Jy.to(u.K, equivalencies=u.brightness_temperature(beam,
                                                                 cube.wcs.wcs.restfrq*u.Hz))
 
-    for regname, outdir in [('W51_22_emission.reg', 'emission'), ('W51_e_apertures.reg', 'hiiregionh2co')]:
+    for regname, outdir in [('W51_22_emission.reg', 'emission'),
+                            ('W51_e_apertures.reg', 'hiiregionh2co')]:
 
         outpath = dpath('spectra/{0}'.format(outdir))
         figpath = fpath('spectra/{0}'.format(outdir))
@@ -90,7 +94,8 @@ for cube_name, cube_fn in fnames.cube_names.items():
             sp.header['JYTOK'] = JyToK
             sp.write(os.path.join(outpath, '%s_%s.fits' % (prefix,name)))
 
-            sp.plotter(errstyle='fill')
+            pl.figure(1).clf()
+            sp.plotter(errstyle='fill', figure=pl.figure(1))
             sp.plotter.axis.set_title("{0}: {1}".format(cube_name_titles[cube_name], name))
             sp.plotter.figure.savefig(os.path.join(figpath, '%s_%s.png' %
                                                    (prefix,name)))
@@ -107,3 +112,5 @@ for cube_name, cube_fn in fnames.cube_names.items():
 
             sp.plotter.figure.savefig(os.path.join(figpath, '%s_%s_K.png' %
                                                    (prefix,name)))
+
+pl.ion()
