@@ -80,7 +80,8 @@ for cube_name, cube_fn in fnames.cube_names.items():
             sp.error = (sp[:sp.xarr.x_to_pix(45)].stats()['std']*errspec/errspec.min()).value
             #sp.error = errspec/ppbeam**0.5
             if 'APRADIUS' in sp.header:
-                sp.header['APRADPIX'] = sp.header['APRADIUS'] / np.abs(sp.header['OLDCDEL1']*sp.header['CDELT2'])**0.5
+                sp.header['APRADPIX'] = (sp.header['APRADIUS'] /
+                                         np.abs(sp.header['OLDCDEL1']*sp.header['CDELT2'])**0.5)
                 sp.header['APAREA'] = sp.header['APRADIUS']**2 * np.pi
             else:
                 sp.header['APRADPIX'] = (sp.header['APMAJ'] *
@@ -92,6 +93,14 @@ for cube_name, cube_fn in fnames.cube_names.items():
 
             sp.header['FILENAME'] = cube_fn
             sp.header['JYTOK'] = JyToK
+
+            # sanity checks: we want to make sure that the RMS has decreased
+            # appropriately
+            thirty_fifty = (sp.xarr>30*u.km/u.s).value & (sp.xarr<50*u.km/u.s).value
+            sp.header['RMS30_50'] = sp.data[thirty_fifty].std()
+            sp.header['RMSMEAN'] = sp.error.mean()
+            sp.header['CUBERMS'] = errspec[thirty_fifty].mean().value
+
             sp.write(os.path.join(outpath, '%s_%s.fits' % (prefix,name)))
 
             pl.figure(1).clf()
