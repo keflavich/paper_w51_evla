@@ -148,11 +148,11 @@ tbl[ok].write(paths.tpath('H77a_spectral_fits.ipac'), format='ascii.ipac')
 
 for old,new in [('ObjectName','Object Name'),
                 ('H77a_amplitude', 'Amplitude',),
-                ('eH77a_amplitude','$\sigma$(Amplitude)',),
+                ('eH77a_amplitude','$E$(Amplitude)',),
                 ('H77a_velocity',  '$V_{LSR}$',),
-                ('eH77a_velocity', '$\sigma(V_{LSR})$',),
-                ('H77a_width',     '$dV (\sigma)$',),
-                ('eH77a_width',    '$\sigma(dV)$'),
+                ('eH77a_velocity', '$E(V_{LSR})$',),
+                ('H77a_width',     '$\sigma_V$',),
+                ('eH77a_width',    '$E(\sigma_V)$'),
                 ('DetectionStatus', 'Detection Status'),
                ]:
     tbl.rename_column(old, new)
