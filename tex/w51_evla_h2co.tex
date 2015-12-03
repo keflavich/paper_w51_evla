@@ -688,11 +688,14 @@ emission is likely to be obscured by foreground absorption.
 
 The W51e2, W51e8, and North cores both exhibit peak brightness temperatures
 $T\sim30-60$ K.  W51e8 seems an excellent analog to the W51 North core, at
-least in terms of its brightness temperature and size.  We have detected a weak
-extended continuum source in e8, with a peak $S_{15 GHZ} \approx 2$ mJy and
-$S_{5 GHz} \approx 1$ mJy (Figure \ref{fig:w51mainemicontours}c), both
-consistent with the limits on W51North, where confusion from IRS 2 may prevent
-a detection there.
+least in terms of its brightness temperature and size (see Section
+\ref{sec:northcore}).  
+
+% We have detected a weak
+% extended continuum source in e8, with a peak $S_{15 GHZ} \approx 2$ mJy and
+% $S_{5 GHz} \approx 1$ mJy (Figure \ref{fig:w51mainemicontours}c), both
+% consistent with the limits on W51North, where confusion from IRS 2 may prevent
+% a detection there.
 
 %bridge is not real
 % \subsubsection{An extended molecular structure (a `filament')}
@@ -734,7 +737,11 @@ a detection there.
 
 \Figure
 {{figures/spectra/emission/NorthCore_h2co22emisson_baselined}.png}
-{Spectrum of the W51 North core in \ortho \twotwo.
+{Spectrum of the W51 North core in \ortho \twotwo.  The spectrum
+is the average over a $2\arcsec\times1.5\arcsec$ elliptical aperture extracted
+from the Briggs-weighted cube (about 14$\times$ the beam area).  The grey
+shading shows the $1\sigma$
+errorbars.
 }
 {fig:w51bridge22emispec}{0.5}{3.5in}
 
@@ -791,9 +798,10 @@ northwest then back to southeast from red to blue (Figure
 with the position angle reported by \citet{Zapata2010a}, but the reversal is
 not.  We suspect that the foreground cloud, which exhibits strong absorption
 toward IRS 2 at 64 \kms, is absorbing some of the core's emission at that
-velocity, causing the centroid to shift away from IRS 2.  Our data also differ
-from \citet{Zapata2010a} in that each channel is centrally peaked, with no
-suggestion of an inner cavity.
+velocity, causing the centroid to shift away from IRS 2.
+%Our data also differ
+%from \citet{Zapata2010a} in that each channel is centrally peaked, with no
+%suggestion of an inner cavity.
 
 % see northcore and centroid_north_core
 We can estimate the mass of this core in a few ways.  A reasonable lower limit
@@ -804,16 +812,17 @@ $\sigma=0.9\arcsec$ or 0.025 pc (FWHM=2.1\arcsec, 0.056 pc).  If we assume it
 is spherical and gaussian in
 all dimensions, the resulting mass is $M\gtrsim14\msun$.
 We compute the \ortho \twotwo column density using \citet{Mangum2015a} equation
-100, with a measured integrated intensity of 110 mJy \kms or 640 K \kms given
-the $1.1\times0.9$\arcsec restoring beam.  The inferred column of \ortho,
-assuming LTE, is $\sim1\ee{16} - 1\ee{17}$ \persc, depending on the assumed
+100, with a measured integrated intensity of 54.5 mJy \kms or 65.5 K \kms given
+the $2\times1.5$\arcsec source area.  The inferred column of \ortho,
+assuming LTE, is $\sim5\ee{15} - 5\ee{16}$ \persc, depending on the assumed
 kinetic temperature and excitation temperature.  This \formaldehyde column
-implies an absurdly large mass ($M\sim10^4$ \msun) for typical assumed abundances
+implies an absurdly large mass ($M\sim5\ee{3}$ \msun) for typical assumed abundances
 ($X_{\formaldehyde}\sim10^{-9}$), so we conclude that the \formaldehyde abundance
 must be 2-3 orders of magnitude greater than in the molecular cloud, with
-$X_{\formaldehyde}\sim10^{-6}$ providing a mass consistent with the density
+$X_{\formaldehyde}\sim3\ee{-7}$ providing a mass consistent with the density
 lower-limit based mass.  For a reasonable range of `core' masses, $10
-\msun<M<100 \msun$, the implied $10^{-6} > X_{\formaldehyde} > 10^{-7}$.
+\msun<M<100 \msun$, the implied abundance is $3\ee{-7} > X_{\formaldehyde} >
+5\ee{-8}$.
 
 The W51e8 core is similar to W51 North in many respects, including size,
 linewidth, and brightness.  However, W51e8 contains a hypercompact HII region,
@@ -890,7 +899,10 @@ lines, we would have assumed it to be slightly redshifted Helium.
 {figures/jetpv/H77a_cutout_1.png}
 {figures/jetpv/w51.neii.square.png}
 {Position-velocity slices through (a) the H77$\alpha$ cube and (b) the [Ne II]
-cube from \citet{Lacy2007a} tracking the approximate path of the Lacy jet.  The
+cube from \citet{Lacy2007a} tracking the approximate path of the Lacy jet.  Emission is black,
+absorption (which in both images is due to reduction artifacts rather than true
+physical absorption) is white.  The vertical streaks are continuum sources.
+The
 abscissa shows the offset position along the slice from J2000 19:23:40.464
 +14:31:07.9536 to 19:23:39.4176 +14:31:04.7172, position angle 258\arcdeg.
 The blueshifted lobe is evident at -50 \kms in both cubes, and neither show a
@@ -957,7 +969,14 @@ sources \citep{Townsley2014a}.
 We detect H77$\alpha$ toward six of the eight hyper/ultra compact \hii regions
 in the W51 Main (W51e) cluster; four of these six are firm detections and two
 are weak.  We also measure a velocity from the \formaldehyde emission toward
-e8.  The resulting 1D velocity dispersion is $\sigma=2.0$ \kms if we exclude
+e8.  Although the molecular and ionized emission trace dramatically different
+processes, we treat the line-of-sight velocities of both tracers as though they
+are representative of the stellar velocity for this analysis.  With such
+compact \hii regions, the ionized gas is unlikely to be significantly shifted
+from the stellar velocity.  The core emission is likely to be dominated by the
+densest component nearest the central accreting source.
+
+The resulting 1D velocity dispersion is $\sigma=2.0$ \kms if we exclude
 the uncertain sources e9
 and e10; with e9 and e10 included the dispersion increases to 4.2 \kms, which
 suggests that the uncertainty on those two sources renders their velocity
@@ -992,14 +1011,17 @@ assuming that the image-based continuum subtraction is accurate.
 }
 {fig:h77afits}{1}{3in}
 
-\subsubsection{The velocity dispersion in the gas cores}
-The gas line width is $\sigma>2.1$ \kms in all of the cores.  Since the cores
-each have higher internal velocity dispersion than the surrounding gas, they
-must have significant internal motions, either rotation, turbulence, or
-gravitational collapse.  Because the e2 core is resolved and has velocity
-dispersion greater than the observed velocity gradient, internal turbulence or
-gravitational infall are the only viable explanations for the observed velocity
-dispersion.
+% \subsubsection{The velocity dispersion in the gas cores}
+% The molecular gas line width is $\sigma>2.1$ \kms in all of the emission cores
+% (Table \ref{tab:emission22}).
+% Since the cores
+% each have higher internal velocity dispersion than the surrounding gas, they
+% must have significant internal motions, either rotation, turbulence, or
+% gravitational collapse.
+% Because the e2 core is resolved and has velocity
+% dispersion greater than the observed velocity gradient, internal turbulence or
+% gravitational infall are the only viable explanations for the observed velocity
+% dispersion.
 
 \subsection{The nature of the continuum sources}
 Most of the detected point sources are likely to be hypercompact HII regions.
