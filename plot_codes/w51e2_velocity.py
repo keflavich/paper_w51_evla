@@ -67,11 +67,15 @@ for name, fn in files.iteritems():
     F.save(fpath('velocity/w51e2zoom_{0}.png'.format(name)))
 
     F.show_regions(rpath('shi2010.reg'), layer='shi2010')
+    for artist in F.get_layer('shi2010_txt').artistlist:
+        artist.set_color('black')
     F.refresh()
     F.save(fpath('velocity/w51e2zoom_{0}_labeled.png'.format(name)))
     F.hide_layer('shi2010')
     F.hide_layer('shi2010_txt')
     F.show_regions(rpath('shi2010_notext.reg'), layer='shi2010_notext')
+    for artist in F.get_layer('shi2010_notext_txt').artistlist:
+        artist.set_color('black')
     F.refresh()
     F.save(fpath('velocity/w51e2zoom_{0}_marked.png'.format(name)))
 
