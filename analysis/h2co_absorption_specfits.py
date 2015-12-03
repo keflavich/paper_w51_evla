@@ -11,6 +11,7 @@ import paths
 from astropy.table import Table, Column
 from rounded import rounded
 from latex_info import latexdict, format_float
+import pylab as pl
 
 sp = [pyspeckit.Spectrum(x) for x in
       ProgressBar(
@@ -52,7 +53,9 @@ for s in sp:
 
 # fitting
 for thisspec in sp:
-    thisspec.plotter(xmin=30,xmax=90)
+    fig = pl.figure(1)
+    fig.clf()
+    thisspec.plotter(xmin=30,xmax=90, figure=fig)
     thisspec.specfit(fittype='gaussian',
               guesses=[-0.03,thisspec.xarr[thisspec.data.argmin()].value,3],
               limited=[(False,True),(False,False),(True,False)])

@@ -3,14 +3,14 @@
 # datatype:
 # - {name: Object Name, datatype: string}
 # - {name: Amplitude, datatype: float64}
-# - {name: $\sigma(Amplitude)$, datatype: float64}
+# - {name: $E$(Amplitude), datatype: float64}
 # - {name: '$V_{LSR}$', datatype: float64}
-# - {name: '$\sigma(V_{LSR})$', datatype: float64}
-# - {name: $dV$, datatype: float64}
-# - {name: $\sigma(dV)$, datatype: float64}
+# - {name: '$E(V_{LSR})$', datatype: float64}
+# - {name: $\sigma_V$, datatype: float64}
+# - {name: $E(\sigma_V)$, datatype: float64}
 # - {name: '$\Omega_{ap}$', datatype: float64}
 # - {name: Detection Status, datatype: string}
-"Object Name" Amplitude $\sigma(Amplitude)$ $V_{LSR}$ $\sigma(V_{LSR})$ $dV$ $\sigma(dV)$ $\Omega_{ap}$ "Detection Status"
+"Object Name" Amplitude $E$(Amplitude) $V_{LSR}$ $E(V_{LSR})$ $\sigma_V$ $E(\sigma_V)$ $\Omega_{ap}$ "Detection Status"
 NorthCore 0.652 0.018 58.877 0.074 2.375 0.074 2.3e-10 -
 "e2-e8 bridge" 0.369 0.022 56.554 0.07 1.0 0.07 1.5e-10 -
 e2_a 0.641 0.026 57.412 0.1 2.167 0.1 5.7e-11 -

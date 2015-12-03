@@ -60,9 +60,10 @@ for ss in sp+sp_other:
 
 # fitting
 for ii,ss in enumerate(sp+sp_other):
-    pl.figure(ii).clf()
+    fig = pl.figure(1)
+    fig.clf()
     assert ss.xarr.unit == u.km/u.s
-    ss.plotter(xmin=-10,xmax=120, figure=pl.figure(ii))
+    ss.plotter(xmin=-10,xmax=120, figure=fig)
     try:
         assert ss.plotter.xlabel == 'Velocity (km / s)'
     except AssertionError:

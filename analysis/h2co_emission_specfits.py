@@ -55,7 +55,9 @@ for s in sp:
 
 # fitting
 for ii,thisspec in enumerate(sp):
-    thisspec.plotter(xmin=30,xmax=90, errstyle='fill', figure=pl.figure(ii))
+    fig = pl.figure(1)
+    fig.clf()
+    thisspec.plotter(xmin=30,xmax=90, errstyle='fill', figure=fig)
     thisspec.specfit(fittype='gaussian',
                      guesses='moments',
                      negamp=False,
