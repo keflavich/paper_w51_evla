@@ -40,7 +40,7 @@ for name, fn in files.iteritems():
              .spectral_slab(50*u.km/u.s, 63*u.km/u.s))
     beam = radio_beam.Beam.from_fits_header(cube.header)
 
-    sigma = np.percentile(scube.std(axis=0), 25)
+    sigma = np.nanpercentile(scube.std(axis=0), 25)
     min = scube.min(axis=0)
     max = scube.max(axis=0)
     ok = (min.value < -5*sigma) | (max.value > 3*sigma)
