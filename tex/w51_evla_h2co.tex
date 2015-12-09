@@ -59,8 +59,10 @@ We used the JVLA in multiple bands and configurations.  In project 12B-365, we
 observed in A-array in S and C bands with 2 GHz total bandwidth.  In project
 13A-064, we observed in C-Band in C (1h) and A (5h) arrays and in Ku-band in D
 (1h) and B (5h) arrays.  Our spectral coverage included \ortho \oneone 4.82966 GHz
-and \twotwo at 14.488 GHz with 0.3 \kms resolution and H77$\alpha$ and H110$\alpha$
-at 1 \kms resolution.
+and \twotwo at 14.488 GHz with 0.3 \kms resolution and the radio recombination
+lines (RRLs) H77$\alpha$ and H110$\alpha$ at 1 \kms resolution.  The H110$\alpha$
+line had lower S/N than the H77$\alpha$ line but was otherwise similar, so it is
+not discussed any more in this paper.
 
 Data reduction was performed using CASA.  The pipeline-calibrated products were
 used, then imaging was performed using CLEAN.  For most images discussed here, we
@@ -286,8 +288,7 @@ velocity field of a 6x6\arcsec region centered on W51e2 in Figure
 {figures/velocity/w51e2zoom_briggs_contoured_marked.png}
 {Velocity (moment 1) maps of \ortho \twotwo in the W51e2 region using (a) the
 naturally weighted map and (b) the Briggs-weighted map.  The X's mark
-\citet{Shi2010a} cores. Top left: W51e2-N, top-center: W51e2-NW, left-center:
-W51e2-E, center: W51e2-W.  The latter, W51e2-W, is the hypercompact HII region.
+\citet{Shi2010a} cores.   
 The contours show the moment 0 maps integrated from 50 to 63 \kms at
 [-0.4,-0.3,-0.2,-0.1, 0.010, 0.020, 0.030, 0.040] Jy \kms (natural) and
 [-0.28,-0.21,-0.14,-0.07, 0.007, 0.0105, 0.014] Jy \kms (Briggs).
@@ -457,7 +458,9 @@ larger than the previous estimates based on IRAS and KAO measurements
 a stellar mass $M_{cl} = 6700 \pm 2300$ \msun, with a corresponding number of
 O-stars (greater than 20 \msun) $N_O = 19 \pm 6$, assuming a
 \citet{Kroupa2001a} IMF at the zero-age main sequence using \citet{Vacca1996a}
-stellar parameters.
+stellar parameters.  This is a lower limit on the present day O-star population,
+since much of the short-wavelength radiation is able to escape and is not
+reprocessed into the far infrared we have used to infer the luminosity.
 
 Of these expected $\sim20$, we know of 6 as infrared-detected, spectrally
 confirmed O-stars.  \citet{Figueredo2008a} found 4 exposed O-type stars and
@@ -553,7 +556,7 @@ self-regulated.
 \Figure
 {figures/diffuse/continuum_on_c18o.png}
 {Contours of the C-band (5 GHz) continuum overlaid on an integrated intensity
-map of \ceighteeno from 45 to 65 \kms \citep{Parsons2012a}.  The contours
+map of \ceighteeno 3-2 from 45 to 65 \kms \citep{Parsons2012a}.  The contours
 go from 0.1 to 10 mJy in 5 logarithmic steps.  The \ceighteeno peaks on the
 e1/e2 region, and has a clear minimum corresponding to the peak of the radio
 continuum emission.
@@ -795,12 +798,13 @@ north/northwest (b) northeast (c) southeast of the e2 HCHII region.  See Figure
 
 \subsubsection{The W51 North core}
 \label{sec:northcore}
+\todo{Consider removing this subsection}
 The W51 North core (Figure \ref{fig:w51northcore}) has been recognized as one
 of the best candidates for a proto-O-star that has not yet reached the main
 sequence \citep{Zapata2009a,Zapata2010a,Goddi2015a}.  
 
-The core exhibits a velocity gradient, shifting its centroid from southeast to
-northwest then back to southeast from red to blue (Figure
+The core exhibits a velocity gradient, shifting its centroid position from
+southeast to northwest then back to southeast from red to blue (Figure
 \ref{fig:w51northcentroids}).  The direction is consistent
 with the position angle reported by \citet{Zapata2010a}, but the reversal is
 not.  We suspect that the foreground cloud, which exhibits strong absorption
@@ -816,7 +820,7 @@ on the mass is given by assuming it has a volume density $n\gtrsim10^6$ \percc,
 which is required to see it in emission in \ortho \twotwo.  Its radius, as
 meaured by fitting a 2D gaussian to its integrated intensity emission map, is
 $\sigma=0.9\arcsec$ or 0.025 pc (FWHM=2.1\arcsec, 0.056 pc).  If we assume it
-is spherical and gaussian in
+is spherically symmetric and gaussian in
 all dimensions, the resulting mass is $M\gtrsim14\msun$.
 We compute the \ortho \twotwo column density using \citet{Mangum2015a} equation
 100, with a measured integrated intensity of 54.5 mJy \kms or 65.5 K \kms given
@@ -1231,12 +1235,14 @@ core, we have found a compact continuum source, indicating unambiguously that
 these cores are forming massive stars.
 
 The \formaldehyde \twotwo 14.488 GHz transition is a good tracer of early-stage
-very massive star formation.  It will be a powerful tool for studying the earliest
-stagest of high-mass star formation throughout the Galaxy with the Next Generation VLA
-or a Square Kilometer Array if the high-frequency end includes this transition.
-Ongoing JVLA surveys (e.g., KuGARS, PI Thompson,
-\url{http://library.nrao.edu/proposals/catalog/10267}) may detect a significant
-additional population of proto-O-stars.
+very massive star formation.  It is apparently enhanced in abundance by 2-3
+orders of magnitude over ISM values in high-mass protostellar cores, allowing
+it to be detected in emission at long wavelengths.  It will be a powerful tool
+for studying the earliest stagest of high-mass star formation throughout the
+Galaxy with the Next Generation VLA or a Square Kilometer Array if the
+high-frequency end includes this transition.  Ongoing JVLA surveys (e.g.,
+KuGARS, PI Thompson, \url{http://library.nrao.edu/proposals/catalog/10267}) may
+detect a significant additional population of proto-O-stars.
 
 
 
@@ -1279,6 +1285,8 @@ sources are previously known; the green are new additions in this paper.}
 \section{Point Source Photometry Catalog}
 \todo{The full version of the point source photometry catalog is available in
 digital form...}
+
+\todo{d3 is not a point source}
 
 \input{ptsrcphotometryfigures.tex}
 
