@@ -21,6 +21,7 @@ from photom_files import files
 
 reglist = pyregion.open(paths.rpath('pointsource_centroids.reg'))
 
+max_rad = 4 # arcsec
 
 fluxes = {}
 peaks = {}
@@ -91,8 +92,14 @@ for freq,fn in files.iteritems():
         # co: short for cutout
         co = data[int(yc-3*rp):int(yc+3*rp+1),
                   int(xc-3*rp):int(xc+3*rp+1)]
-        cutouts[freq][name] = co
-        reg_centers[freq][name] = ra,dec,xc-int(xc-3*rp),yc-int(yc-3*rp),rad,rp
+        max_rp = max_rad/3600./pixscale
+        cotoplot = data[int(yc-max_rp):int(yc+max_rp+1),
+                        int(xc-max_rp):int(xc+max_rp+1)]
+        cutouts[freq][name] = (co, cotoplot, pixscale)
+        shiftx = xc-int(xc-max_rp)-(xc-int(xc-3*rp))
+        shifty = yc-int(yc-max_rp)-(yc-int(yc-3*rp))
+        reg_centers[freq][name] = (ra, dec, xc-int(xc-3*rp), yc-int(yc-3*rp),
+                                   rad, rp, shiftx, shifty)
 
         yy,xx = np.indices(co.shape)
         # rr = radius grid

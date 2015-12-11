@@ -3,7 +3,7 @@ Run ptsrc_photom interactively first
 and %run -i this
 """
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-from matplotlib.patches import Circle
+from matplotlib.patches import Circle,Ellipse
 import pylab as pl
 import paths
 from astropy import log
@@ -27,7 +27,7 @@ farr = np.linspace(1,40,100)
 for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
 
     log.info("SID: {0}".format(sid))
-    fig = pl.figure(ii,figsize=(10,13))
+    fig = pl.figure(1,figsize=(10,13))
     fig.clf()
 
     #fplot = [fluxes[k]['A'+sid] for k in sorted_keys]
@@ -128,7 +128,8 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
         if not isOK:
             continue
 
-        sh = cutouts[key][sid].shape
+        photcutout, cutout, pixscale = cutouts[key][sid]
+        sh = cutout.shape
 
         # skip empties
         if any([s==0 for s in sh]):
@@ -138,12 +139,40 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
 
         ax = fig.add_subplot(spdim1,spdim2,1+spnum)
         rightside = spnum%spdim2 == (spdim2-1) # is this plot on the right edge?
-        im = ax.imshow(cutouts[key][sid]*1000, cmap=pl.cm.gray_r) # convert to mJy
+
+        log.info("key={0} sid={1} cutout.max={2} "
+                 "peak={3}".format(key,sid,cutout.max(),peaks[key][sid]))
+        cmax = (cutout.max() if (np.abs(cutout.max()) > np.abs(cutout.min()))
+                else -cutout.min())
+        std = cutout.std()
+        vmax = (np.max([peaks[key][sid]*1.5, std])
+                if (cutout.max() > peaks[key][sid] and
+                    peaks[key][sid]>0) else
+                cmax)
+
+        im = ax.imshow(cutout*1000, cmap=pl.cm.gray_r,
+                       vmax=vmax*1000) # convert to mJy
         #ax.contour(gfits[k][sid], levels=np.array([2,5,10,50])*errors[k][sid], colors=['b']*10)
-        ra,dec,xc,yc,rad,rp = reg_centers[key][sid]
-        ax.add_artist(Circle((xc, yc),radius=rp,facecolor='none',edgecolor='#FF0000',alpha=0.5))
+        ra,dec,xc,yc,rad,rp,shiftx,shifty = reg_centers[key][sid]
+        ax.add_artist(Circle((xc+shiftx,
+                              yc+shifty), radius=rp, facecolor='none',
+                             edgecolor='#FF0000', alpha=0.5))
+        ax.add_artist(Ellipse((sh[1]+5, sh[0]-5),
+                               beam.major.to(u.deg).value/pixscale,
+                               beam.minor.to(u.deg).value/pixscale,
+                               beam.pa.to(u.deg).value,
+                              facecolor='none',
+                              edgecolor='b',
+                              alpha=0.5,
+                              linewidth=2,
+                             ))
         ax.set_xticks([])
         ax.set_yticks([])
+
+        # Draw a 1" scalebar
+        as_per_pix = pixscale * 3600
+        ax.plot([5,5+1./as_per_pix], [5, 5], color='r', alpha=0.5,
+                linewidth=2.0)
 
         # create an axes on the right side of ax. The width of cax will be 5%
         # of ax and the padding between cax and ax will be fixed at 0.05 inch.
