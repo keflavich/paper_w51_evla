@@ -1,30 +1,32 @@
 Source   Classification
 d2       b,d
-d3       diffuse (E)
+d3       E
 d4e      f,v
 d4w      f
 d5       w
 d6       f
 d7       f
-e1       diffuse (E)
+e1       E
 e2       a,d
 e3       b,d
 e4       b,d
 e5       b,d
-e6       diffuse (E)
-e7       diffuse (E)
+e6       E
+e7       E
 e8n      b/w
 e8s      b
 e9       c,f
 e10      f
 e11      b
-e12      c,f
+e11d     E
+e12?     c,f
 e13      b,c
 e14      b,c
 e15      b,c
 e16?     w
 e17?     w
 e18?     b,d
+e18d     E
 e19?     w
 e20?     b,c
 e21?     b,c

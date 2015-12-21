@@ -17,17 +17,27 @@ points = [reg for reg in points if reg.attr[1]['text'] not in diffuse_list]
 # slower but correct by doing it twice (in case one is fk5 and one is galactic)
 coords = coordinates.SkyCoord([coordinates.SkyCoord(*reg.coord_list[:2],
                                                     unit=(u.deg, u.deg),
-                                                    frame=reg.coord_format) for
+                                                    frame=reg.coord_format).fk5 for
                                reg in points+diffuse])
 radii = ([(reg.coord_list[2]) if len(reg.coord_list) > 2 else np.nan
           for reg in points+diffuse]*u.deg).to(u.arcsec)
 names = [reg.attr[1]['text'] for reg in points+diffuse]
-                              
+
+with open(paths.tpath("SED_class")) as f:
+    lines = f.readlines()
+    end = lines.index('\n')
+    split = lines[0].find('Classification')
+    data = {x[:split].strip():"${0}$".format(x[split:].strip()) for x in lines[1:end]}
+    SEDclasscolumn = Column(data=[data[n] if n in data else '-' for n in names], name="SED Class")
+    footnotes_start = lines.index('Classification Key\n') + 1
+    footer = "".join(["${0}${1} \\\\\n".format(x[0],x[1:].strip()) for x in lines[footnotes_start:]])
+
 postbl = Table([Column(data=names, name='Source Name'),
                 Column(data=coords.ra.to_string(unit=u.hour, sep=':'), name='RA'),
                 Column(data=coords.dec.to_string(unit=u.deg, sep=':'), name='Dec'),
                 Column(data=radii, name='Radius'),
                 Column(data=(radii*5.1*u.kpc).to(u.pc, u.dimensionless_angles()), name='Phys. Radius'),
+                SEDclasscolumn,
                ])
 postbl.sort('Source Name')
 
@@ -38,7 +48,8 @@ latexdict['tablefoot'] = ('\par\nObjects with name e\#d are the diffuse '
                           'trailing ? are candidate sources that are only weakly '
                           'detected.   Sources with no radius are unresolved, '
                           'with '
-                          'upper limits of 0.3\\arcsec (0.007 pc).')
+                          'upper limits of 0.3\\arcsec (0.007 pc).\\\\\n' +
+                         footer)
 latexdict['col_align'] = 'lllrr'
 #latexdict['tabletype'] = 'longtable'
 #latexdict['tabulartype'] = 'longtable'
