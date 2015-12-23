@@ -55,7 +55,7 @@ latexdict['tablefoot'] = ('\par\nObjects with name e\#d are the diffuse '
                           'with '
                           'upper limits of 0.3\\arcsec (0.007 pc).\\\\\n' +
                          footer)
-latexdict['col_align'] = 'lllrrl'
+latexdict['col_align'] = 'lllrrll'
 #latexdict['tabletype'] = 'longtable'
 #latexdict['tabulartype'] = 'longtable'
 postbl.write(paths.tpath('source_positions.tex'), format='ascii.latex',

@@ -1,10 +1,10 @@
 Source   SED Class    Classification
 d2       b,d,n        HCHII  
 d3       E            UCHII  
-d4e      f,v          unknown
-d4w      f            unknown
-d5       w            weak/cCWB
-d6       f,n          unknown
+d4e      f,v          cCWB
+d4w      f            cCWB
+d5       w            cCWB
+d6       f,n          cCWB
 d7       f            cCWB
 e1       E            UCHII
 e2       a,d          HCHII
