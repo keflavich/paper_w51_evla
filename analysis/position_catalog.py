@@ -33,8 +33,13 @@ with open(paths.tpath("SED_class")) as f:
     classification = {x[:split1].strip():"{0}".format(x[split2:].strip()) for x in lines[1:end]}
     classificationcolumn = Column(data=[classification[n] if n in classification else '-' for n in names], name="Classification")
     footnotes_start = lines.index('Classification Key\n') + 1
-    footer = "".join(["{0}{1} \\\\\n".format("${0}$".format(x[0]) if len(x) > 1 and x[1]==':' else x[0],
-                                             x[1:].strip()) for x in lines[footnotes_start:]])
+    footer = "".join(["{0}{1} \\\\\n"
+                      .format("${0}$".format(x[0])
+                              if len(x) > 1 and x[1]==':'
+                              else "\\newline" if len(x) <= 1
+                              else x[0],
+                              x[1:].strip()) for x in
+                      lines[footnotes_start:]])
 
 postbl = Table([Column(data=names, name='Source Name'),
                 Column(data=coords.ra.to_string(unit=u.hour, sep=':'), name='RA'),
