@@ -13,6 +13,7 @@ lrad = (4*np.pi*distance**2 * tbl['peak_flux'] * u.beam * tbl['Frequency']).to(u
 
 bieging = ascii.read(paths.tpath('bieging1989.tbl'))
 beck = Table.read(paths.tpath('debecker2013.tbl'), format='ascii.commented_header')
+lrad_bieging = (bieging['f6cm_hi']*u.mJy * (4*np.pi*(bieging['distance']*u.kpc)**2) * 5*u.GHz).to(u.erg/u.s)
 
 
 pl.figure(1).clf()
@@ -47,6 +48,9 @@ axis = pl.axis()
 pl.hist(np.log10(beck['L_rad']), bins=bins,
         histtype='stepfilled',
         label='de Becker 2013', alpha=0.5)
+pl.hist(np.log10(lrad_bieging.value), bins=bins,
+        histtype='stepfilled',
+        label='Bieging 1989', alpha=0.5)
 pl.legend(loc='best')
 pl.axis(axis)
 

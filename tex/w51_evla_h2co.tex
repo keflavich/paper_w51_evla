@@ -477,6 +477,8 @@ observed total luminosity may be these most luminous hypercompact \hii regions.
 However, it is difficult to explain the total luminosity of the region from
 hypercompact HII regions alone, since their emission is necessarily confined to
 a small region and they contribute minimally to the overall radio luminosity.
+The thermal radiation from the OB-stars in \hii regions may illuminate a large
+portion of the cloud and contribute substantially to the infrared luminosity.
 
 Another possibility is that the O-stars providing most of the observed
 luminosity are near or within the ``shell'' structure of the W51 Main region
@@ -499,30 +501,56 @@ hyper-compact HII regions.  The ultracompact HII regions are clearly
 identified as resolved sources, with $r>0.005$ pc.  The HCHII regions
 are more challenging to identify, as they are observed only as unresolved
 sources.  Normally, these could be identified by their SEDs, which should
-follow a $\nu^2$ Rayleigh-Jeans law up to some turnover point, at which
-they would become optically thin and turn over to a $\nu^{-0.1}$ power law
+follow a $\alpha\propto2$ Rayleigh-Jeans law up to some turnover point, at which
+they would become optically thin and turn over to a $\alpha\propto{-0.1}$ power law
 \citep{Wilson2009a}.  However, the SEDs we observed do not exhibit such clean
 behavior for any cases except e2.  For the rest, we see $\nu^1$ power laws at
 low frequencies (e.g., e4), negative power-laws at low frequencies (e.g.,
-e9), or entirely flat SEDs (e.g., e10).  
-CONTINUE HERE
+e9), or entirely flat SEDs (e.g., e10)\footnote{More complete SED classifications
+are given in Table \ref{tab:positions}, and plotted SEDs can be seen in
+Appendix \ref{sec:SEDs}.}.
 
-The sources e20, e21, and e22 are likely members of a distribution O-star
+Negative spectral indices at low frequencies are usually assumed to indicate
+synchrotron emission \citep{Wilson2009a,Condon2007a}, but young and forming
+stars and HII regions are generally not strong synchrotron emitters.  However,
+colliding-wind binaries (CWBs) often exhibit nonthermal SEDs, likely caused by
+accelerated particles in the wind-wind collision zone \citep{De-Becker2013a}.
+Stellar winds around massive stars may also exhibit $\alpha<2$ power-laws, but
+they are not expected to deviate far from $\alpha\sim0.6-0.7$
+\citep{Wright1975a,Panagia1975b,Reynolds1986a}.
+
+CWBs typically have radio luminosities
+$L_{rad}\sim10^{29}-10^{30}$ erg \pers \citep{De-Becker2013a}.   At the
+distance of W51, this corresponds to 0.5-5 mJy at 5 GHz, so such binaries
+should be detected.  By contrast, single star winds range from $L_{rad} \sim
+10^{27}-5\times10^{29}$ erg \pers, with only a few known in the high range
+\citep{Bieging1989a}, so these are less likely to be detected.
+
+Both CWBs and radio-bright stellar wind sources should be bright in the
+optical and near-infrared, with stellar luminosities $10^5-10^6$ \lsun.
+Much of W51 is obscured by infrared extinction from the Galactic plane
+and the local cloud, but in the near-IR an unextincted O9 star would have
+$M_K\sim10.5$
+\citep{Pecaut2013a}\footnote{\url{http://www.pas.rochester.edu/~emamajek/EEM_dwarf_UBVIJHK_colors_Teff.txt}},
+or $M_K\sim 13.0$ with (non-local) extinction $A_K=2.6$ \citep{Goldader1994a}.
+Some of these stars therefore ought to be detected in the NIR.
+
+
+Based on these arguments, we have classified each detected compact source
+in Table \ref{tab:positions}.
+
+\subsubsection{The faint sources in W51 Main}
+
+The sources e20, e21, and e22 are likely members of a distributed O-star
 population, rather than members of the clusters of compact HII regions (Figure
 \ref{fig:w51e20cluster}).  They were detected by \citet{Goldader1994a} in the
 K-band at $m_K < 12$, making these the brightest NIR sources outside of W51
 IRS2.  Their luminosities suggest they are O-type stars.  Since they were also
-detected in X-rays \citep{Townsley2014a}, it is likely that our faint radio
-detections come from the ionized wind from these stars, not from locally
-ionized nebular gas.  The high infrared K-band brightness and weak radio
+detected in X-rays \citep{Townsley2014a}, these are very strong candidate CWBs.
+The high infrared K-band brightness and weak radio
 continuum from these sources, in contrast with the bright radio continuum and
-absence of infrared emission from e1/e2, supports this hypothesis.  These stars
-do not exhibit the $S\propto \nu^{0.6}$ spectrum expected from a stellar wind
-\citep{Wright1975a,Panagia1975b,Reynolds1986a}, and even an O3 star would be
-expected to be $<50$ $\mu$Jy in wind emission alone \citep{Dzib2013d}.
-Instead, their SEDs appear nonthermal, suggesting that they may be
-colliding-wind binaries \citep{Dzib2013d,De-Becker2013a}.  Nonetheless,
-assuming they are early O-stars, e20, e21, and e22 are capable of providing the
+absence of infrared emission from e1/e2, supports this hypothesis.  
+Assuming they are early O-stars, e20, e21, and e22 are capable of providing the
 ionizing and infrared luminosity observed from the W51 Main HII region.
 
 \FigureTwo
@@ -545,7 +573,7 @@ How close are the e1/e2 and e20/e21/e22 clusters?  They are
 separated by 0.36 pc in projection, but we presently have no direct information
 about the line-of-sight velocity of the e20 cluster.  There is no 68 \kms
 \formaldehyde absorption toward the e20 sources, but morphologically this is
-expected since they just managed to avoid the Dark Lane seen in K-band.  It is
+expected since they just managed to avoid the Dark Lane seen in the NIR K-band.  It is
 likely that the other sources in this general area, e12, e13, and e23, are also
 OB stars that are coincidentally behind infrared dark clouds that obscure them
 in the infrared.  It is possible that all of the W51 Main compact sources are
@@ -581,6 +609,7 @@ continuum emission.
 }
 {fig:contonco}{1}{6.5in}
 
+\subsubsection{The W51 IRS2 faint sources}
 
 %\subsection{Sources of illumination in the extended HII regions}
 %There are many extended HII regions associated with the W51 cluster area.
@@ -1302,6 +1331,7 @@ sources are previously known; the green are new additions in this paper.}
 
 \clearpage
 \section{Point Source Photometry Catalog}
+\label{sec:SEDs}
 \todo{The full version of the point source photometry catalog is available in
 digital form...}
 

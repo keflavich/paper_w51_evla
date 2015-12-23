@@ -26,11 +26,15 @@ names = [reg.attr[1]['text'] for reg in points+diffuse]
 with open(paths.tpath("SED_class")) as f:
     lines = f.readlines()
     end = lines.index('\n')
-    split = lines[0].find('Classification')
-    data = {x[:split].strip():"${0}$".format(x[split:].strip()) for x in lines[1:end]}
-    SEDclasscolumn = Column(data=[data[n] if n in data else '-' for n in names], name="SED Class")
+    split2 = lines[0].find('Classification')
+    split1 = lines[0].find('SED Class')
+    seddata = {x[:split1].strip():"${0}$".format(x[split1:split2].strip()) for x in lines[1:end]}
+    SEDclasscolumn = Column(data=[seddata[n] if n in seddata else '$E$' for n in names], name="SED Class")
+    classification = {x[:split1].strip():"{0}".format(x[split2:].strip()) for x in lines[1:end]}
+    classificationcolumn = Column(data=[classification[n] if n in classification else '-' for n in names], name="Classification")
     footnotes_start = lines.index('Classification Key\n') + 1
-    footer = "".join(["${0}${1} \\\\\n".format(x[0],x[1:].strip()) for x in lines[footnotes_start:]])
+    footer = "".join(["{0}{1} \\\\\n".format("${0}$".format(x[0]) if len(x) > 1 and x[1]==':' else x[0],
+                                             x[1:].strip()) for x in lines[footnotes_start:]])
 
 postbl = Table([Column(data=names, name='Source Name'),
                 Column(data=coords.ra.to_string(unit=u.hour, sep=':'), name='RA'),
@@ -38,6 +42,7 @@ postbl = Table([Column(data=names, name='Source Name'),
                 Column(data=radii, name='Radius'),
                 Column(data=(radii*5.1*u.kpc).to(u.pc, u.dimensionless_angles()), name='Phys. Radius'),
                 SEDclasscolumn,
+                classificationcolumn,
                ])
 postbl.sort('Source Name')
 
@@ -50,7 +55,7 @@ latexdict['tablefoot'] = ('\par\nObjects with name e\#d are the diffuse '
                           'with '
                           'upper limits of 0.3\\arcsec (0.007 pc).\\\\\n' +
                          footer)
-latexdict['col_align'] = 'lllrr'
+latexdict['col_align'] = 'lllrrl'
 #latexdict['tabletype'] = 'longtable'
 #latexdict['tabulartype'] = 'longtable'
 postbl.write(paths.tpath('source_positions.tex'), format='ascii.latex',
