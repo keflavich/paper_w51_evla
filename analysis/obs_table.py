@@ -14,8 +14,8 @@ from astropy import wcs
 from photom_files import files
 
 # add images that merge subbands
-files["5 GHz Epoch 3"] = paths.dpath("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits")
-files["13 GHz Epoch 2"] = paths.dpath('W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits')
+files["5.5 GHz Epoch 3"] = paths.dpath("W51C_ACarray_continuum_4096_both_uniform_contsplit.clean.image.fits")
+files["13.4 GHz Epoch 2"] = paths.dpath('W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits')
 
 beams = {name: radio_beam.Beam.from_fits_header(fits.getheader(fn))
          for name,fn in files.items()}
@@ -60,17 +60,19 @@ latexdict['header_start'] = '\label{tab:observations}'
 latexdict['caption'] = 'Observations'
 latexdict['tablefoot'] = ('\par\nJy-Kelvin gives the conversion factor from Jy '
                           'to Kelvin given the synthesized beam size and '
-                          'observation frequency')
+                          'observation frequency.')
 #latexdict['col_align'] = 'lllrr'
 #latexdict['tabletype'] = 'longtable'
 #latexdict['tabulartype'] = 'longtable'
+def round_to_n(x, n):
+    return round(x, -int(np.floor(np.log10(x))) + (n - 1))
 obstbl.write(paths.tpath('observations.tex'), format='ascii.latex',
              latexdict=latexdict,
              formats={'BMAJ': lambda x: '{0:0.2f}'.format(x),
                       'BMIN': lambda x: '{0:0.2f}'.format(x),
                       'BPA':  lambda x: '{0:0.2f}'.format(x),
                       'Noise Estimate': lambda x: '{0:0.2f}'.format(x),
-                      'Dynamic Range': lambda x: '{0:d}'.format(int(round(x))),
+                      'Dynamic Range': lambda x: '{0:d}'.format(int(round_to_n(x, 2))),
                       'Jy-Kelvin':  format_float,
                      },
             )

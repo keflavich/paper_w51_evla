@@ -60,11 +60,12 @@ observed in A-array in S and C bands with 2 GHz total bandwidth.  In project
 13A-064, we observed in C-Band in C (1h) and A (5h) arrays and in Ku-band in D
 (1h) and B (5h) arrays.  Our spectral coverage included \ortho \oneone 4.82966 GHz
 and \twotwo at 14.488 GHz with 0.3 \kms resolution and the radio recombination
-lines (RRLs) H77$\alpha$ and H110$\alpha$ at 1 \kms resolution.  The H110$\alpha$
-line had lower S/N than the H77$\alpha$ line but was otherwise similar, so it is
-not discussed any more in this paper.
+lines (RRLs) H77$\alpha$ (14.1286 GHz) and H110$\alpha$ (4.8741 GHz) at 1 \kms
+resolution.  The H110$\alpha$ line had lower S/N than the H77$\alpha$ line but
+was otherwise similar, so it is not discussed any more in this paper.
 
-Data reduction was performed using CASA.  The pipeline-calibrated products were
+Data reduction was performed using CASA\footnote{\url{http://casa.nrao.edu}}
+\citep{McMullin2007a}.  The pipeline-calibrated products were
 used, then imaging was performed using CLEAN.  For most images discussed here, we
 used uniform weighting.  The reduction scripts are included in a repository
 \url{https://github.com/adamginsburg/w51evlareductionscripts}.
@@ -83,7 +84,19 @@ at the low-signal end, where inadequately cleaned sidelobes of bright features
 provide significant non-gaussian noise.  Some of these artifacts can be seen
 in Figure \ref{fig:coverview}.
 
-Despite the deficiency in the image quality.
+Despite the deficiency in the image quality, the new observations are
+$\sim5\times$ more sensitive than any previous observations in bands that were
+previously observed, and the new observations cover a much broader range of
+frequencies.
+
+Figures \ref{fig:kuoverview} and \ref{fig:coverview} show the best-quality
+images in the Ku-band and C-band combining the short and long array
+configurations.  These were made from a combination of the full bandwidth in
+their respective bands, so each image includes 2 GHz of bandwidth.  These
+images are used in the images in the main text of the paper, and they were used
+for source identification, but they were not used for photometry.  Instead, for
+the 13A-064 data, individual 1 GHz bands including only the longer-baseline
+configuration were used for photometry.
 
 
 \Figure{figures/diffuse/W51_Ku_overview.pdf}
@@ -105,7 +118,7 @@ We report six key observational results:
     \item Section \ref{sec:variability}: The detection of variability in
         some of the faint point sources over 20 year timescales
     \item Section \ref{sec:associations}: The detection of radio continuum
-        sources associated with near-infrared sources, most likely unembedded
+        sources associated with near-infrared sources, most likely un-embedded
         O-stars
     \item Section \ref{sec:twotwoemission}: The detection of \formaldehyde
         \twotwo emission around sources e2, e8, and W51 North
@@ -1357,7 +1370,8 @@ sources are previously known; the green are new additions in this paper.}
 {fig:coverview_pointsrcs}{0.9}{6.5in}
 
 \Figure{figures/diffuse/W51_C_overview_diffusehiiregionlabels.pdf}
-{The C-band image of the W51A region with diffuse HII regions labeled.}
+{The C-band image of the W51A region with diffuse HII regions labeled.  The labels
+are above the circles except where arrows are used.}
 {fig:coverview_diffuse}{0.9}{6.5in}
 
 %\onecolumn

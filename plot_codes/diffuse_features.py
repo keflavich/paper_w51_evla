@@ -128,6 +128,9 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
     F.show_colorbar()
     F.colorbar.set_axis_label_text("mJy/beam")
     F.save(paths.fpath("diffuse/{0}_aplpy.png".format(name)))
+    if name == 'peak_cluster_C_diff':
+        F.show_regions(paths.rpath("e20arrows.reg"))
+        F.save(paths.fpath("diffuse/{0}_aplpy_arrows.png".format(name)))
 
     fig = pl.figure(2)
     fig.clf()
