@@ -404,31 +404,33 @@ velocities; these are identified in Figure \ref{fig:coverview_diffuse}.}
 {fig:rrl_chan_main}{1}{7in}
 
 The HII region between W51 Main and W51 IRS 2 appears connected to the W51 IRS2
-bubble in the continuum, but it peaks at around 75 \kms.  Along this region,
-there are weak `striations' at PA 126 degrees, vaguely orthogonal to a line
-pointing back to IRS 2.  These striations are similar in scale to PSF artifacts
-from bright pointlike sources, but no such artifaces are seen at this PA
-elsewhere in the image and they are smoother than similar features, so they are
-probably real.  They may trace the outer edge of the expanding IRS 2 region.
-There is also an arc to the southwest of this between-clusters region.
+bubble in the continuum (Figure \ref{fig:w51mainpeak}), but it peaks at around 75 \kms
+(Figure \ref{fig:rrl_chan_main}).  Along this region,
+there are weak `striations' at PA 126 degrees (parallel to the
+cyan arrow in Figure \ref{fig:w51mainpeak}), vaguely orthogonal to a line
+pointing back to IRS 2.  These striations  may trace the outer edge of the
+expanding IRS 2 region.  There is also an arc to the southwest of this
+between-clusters region that appears to be a bow shock from gas outflowing
+along the same axis.
 
 The IRS2 region peaks in velocity around 62 \kms at the center, but exhibits a
 consistent gradient from its center to its surroundings, with a more extended
 component peaking around 47 \kms.  There is a clear shell around IRS2
 with maximum projected radius 21\arcsec (0.5 pc; Figures \ref{fig:w51irs2} and
-\ref{fig:rrl_chan_irs2}).  There is a prominent sharp edge feature extending to
-the northeast from the central cluster: it may trace the outflow of hot
-material from the cluster.
+\ref{fig:rrl_chan_irs2}).  There is a prominent sharp edge feature (blue arrow
+in Figure \ref{fig:w51irs2}) extending to the northeast from the central
+cluster: it may trace the outflow of hot material from the cluster.
 
 Parts of the shell close to IRS2 are detected in radio recombination lines
-(H77$\alpha$), but the regions marked in Figure \ref{fig:w51irs2} with red
-arrows are not.  The shell to the northwest peaks at $v_{lsr}=37.5$ \kms, and a
-gradient is observed from that shell to the peak velocity of IRS2 at $v_{lsr} =
-62.6$ \kms.  The velocity structure is inconsistent with spherical outflow, but
-it is consistent with a conical flow structure like that expected from
-disk-driven outflows.  This flow structure likely indicates that the cluster
-has evacuated a large cavity approximately along the line of sight, which is
-consistent with the low observed extinction toward IRS2.  
+(H77$\alpha$), but the more distant regions marked in Figure \ref{fig:w51irs2}
+with red arrows are not.  The shell to the northwest peaks at $v_{lsr}=37.5$
+\kms, and a gradient is observed from that shell to the peak velocity of IRS2
+at $v_{lsr} = 62.6$ \kms.  The velocity structure is inconsistent with
+spherical outflow, but it is consistent with a conical flow structure like that
+expected from disk-driven outflows (though this flow is driven by a cluster of
+stars, not a disk).  This flow structure likely indicates that
+the cluster has evacuated a large cavity approximately along the line of sight,
+which is consistent with the low observed extinction toward IRS2.  
 
 \FigureTwo
 {figures/diffuse/irs2_C_high.png}
@@ -454,7 +456,7 @@ visible, illustrating the blueshifted cavity discussed in Section
 % Cometary clouds in the W51 region:
 % 19:23:42.397 +14:30:07.70 ?
 
-\section{Analysis \& Discussion}
+\section{Analysis}
 \subsection{The stellar mass}
 \label{sec:stellarmass}
 
@@ -501,16 +503,17 @@ portion of the cloud and contribute substantially to the infrared luminosity.
 
 Another possibility is that the O-stars providing most of the observed
 luminosity are near or within the ``shell'' structure of the W51 Main region
-(Figure \ref{fig:coverview_diffuse}).  This region dominates the optical and
-radio luminosity of W51 Main (though it provides $\lesssim 1/4$ of the FIR
-luminosity) and is bright enough in near-infrared and radio continuum emission
-to make detection of point sources impossible, explaining why no O-stars have
-been previously confirmed.  There are multiple overlapping HII bubbles in the
-W51 Main shell at different velocities (Figure \ref{fig:rrl_chan_main}),
-suggesting that there are interacting and  expanding bubbles, which in turn
-implies that there is a separation between the driving sources and the HII
-region of at least the bubble sizes, $\sim0.2-0.3$ pc.  This scenario suggests
-the existence of a population of un-embedded O-stars in W51.  
+(Figure \ref{fig:coverview_diffuse}, Section \ref{sec:diffuseemission}).  This
+region dominates the optical and radio luminosity of W51 Main (though it
+provides $\lesssim 1/4$ of the FIR luminosity) and is bright enough in
+near-infrared and radio continuum emission to make detection of point sources
+impossible, explaining why no O-stars have been previously confirmed.  There
+are multiple overlapping HII bubbles in the W51 Main shell at different
+velocities (Figure \ref{fig:rrl_chan_main}), suggesting that there are
+interacting and  expanding bubbles, which in turn implies that there is a
+separation between the driving sources and the HII region of at least the
+bubble sizes, $\sim0.2-0.3$ pc.  This scenario suggests the existence of a
+population of un-embedded O-stars in W51.  
 
 \subsection{The nature of the continuum sources}
 % 27 dervied by looking at source_positions table and subtracting extended
@@ -520,10 +523,10 @@ hyper-compact HII regions.  The ultracompact HII regions are clearly
 identified as resolved sources, with $r>0.005$ pc.  The HCHII regions
 are more challenging to identify, as they are observed only as unresolved
 sources.  Normally, these could be identified by their SEDs, which should
-follow a $\alpha\propto2$ Rayleigh-Jeans law up to some turnover point, at which
-they would become optically thin and turn over to a $\alpha\propto{-0.1}$ power law
+follow a $\alpha=2$ Rayleigh-Jeans law up to some turnover point, at which
+they would become optically thin and turn over to a $\alpha={-0.1}$ power law
 \citep{Wilson2009a}.  However, the SEDs we observed do not exhibit such clean
-behavior for any cases except e2.  For the rest, we see $\nu^1$ power laws at
+behavior for any cases except e2.  For the rest, we see $\alpha=1$ power laws at
 low frequencies (e.g., e4), negative power-laws at low frequencies (e.g.,
 e9), or entirely flat SEDs (e.g., e10)\footnote{More complete SED classifications
 are given in Table \ref{tab:positions}, and plotted SEDs can be seen in
@@ -533,7 +536,8 @@ An SED with $\alpha\sim1$ or $\alpha\sim0$ can be explained by density
 gradients \citep{Keto2008a,Galvan-Madrid2009a}. However, a minimum at $\sim6$
 GHz cannot.  Aditionally, an optically thick HII region that is just unresolved
 would have $S_{5 GHz} \sim 70$ mJy, so for the sources discussed in this
-section with $S_{5 GHz} < 1$ mJy, the upper limit on the source radius is
+section with $S_{5 GHz} < 1$ mJy, the upper limit on the source radius of
+an optically thick HII region with electron temperature $T_e=10^4$ K is
 $\lesssim160$ au.  If any of these sources are HII regions, then, they are
 among the most compact of HCHII regions in the galaxy.
 
@@ -553,7 +557,7 @@ CWBs typically have radio luminosities
 $L_{rad}\sim10^{29}-10^{30}$ erg \pers \citep{De-Becker2013a}.   At the
 distance of W51, this corresponds to 0.5-5 mJy at 5 GHz, so such binaries
 should be detected.  By contrast, single star winds range from $L_{rad} \sim
-10^{27}-5\times10^{29}$ erg \pers, with only a few known in the high range
+10^{27}-10^{29}$ erg \pers, with only a few known in the high range
 \citep{Bieging1989a}, so these are less likely to be detected.
 
 Both CWBs and radio-bright stellar wind sources should be bright in the
@@ -763,11 +767,13 @@ observed in absorption at large distances within the Galaxy.
 
 We have detected 3 regions of \twotwo emission in the W51 region, all
 corresponding to previously detected hot molecular cores
-\citep{Zhang1997a,Shi2010a,Shi2010b,Goddi2015a}.  The bright
-maser source W51e2 is partially surrounded by a `halo' of \formaldehyde \twotwo
-emission to its northeast; the \hchii region itself shows only \twotwo
+\citep{Zhang1997a,Shi2010a,Shi2010b,Goddi2015a}.   W51e2 is partially
+surrounded by a `halo' of \formaldehyde \twotwo emission to its northeast; the
+\hchii region itself shows only \twotwo
 absorption because the continuum source is bright
 (Figure \ref{fig:w51bridge22emispec} and Figure \ref{fig:w51mainemicontours}).
+The emission corresponds to the cores W51e2e and W51e2nw and the diffuse
+emission between them \citep{Goddi2015b,Shi2010a}.
 The \hchii region W51e8 exhibits extended \twotwo emission, including a
 somewhat diffuse region stretching between W51e4 and W51e1.  Finally, in W51
 IRS 2, there is extended \twotwo
@@ -1271,6 +1277,8 @@ the parent cloud more holy (swiss-cheese-like) than would be implied by a
 smooth or even a very turbulent molecular cloud.  These holes would likely
 provide networks of low-density gaps through which radiation can escape,
 reducing the overall impact of radiative feedback on the cloud.
+
+\section{Discussion}
 
 \section{Conclusions}
 We present deep, high-resolution radio continuum images observed in many
