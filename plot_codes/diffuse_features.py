@@ -10,10 +10,10 @@ from astropy import wcs
 import pylab as pl
 from astropy.visualization import AsinhStretch,LinearStretch
 from astropy.visualization.mpl_normalize import ImageNormalize
-import common_constants
 from common_constants import distance
 pl.matplotlib.rc_file('pubfiguresrc')
 
+#                                 origion               from_offset to_offset color
 annotations = {'w51main_peak': [[(290.92755, 14.511689), [-3, 3], [-20, 20], 'r'],
                                 [(290.92839, 14.510252), [-5, 0], [-30, 0], 'r'],
                                 [(290.92643, 14.512817), [-10, 0], [-35, 0], 'b'],
@@ -26,6 +26,13 @@ annotations = {'w51main_peak': [[(290.92755, 14.511689), [-3, 3], [-20, 20], 'r'
                                [(290.92088, 14.516285), [0, 0], [20, 20], 'r'],
                                [(290.91549, 14.51498), [0, 0], [-5, 25], 'r'],
                               ],
+               'peak_cluster_C_diff':[
+                                      [(290.92866,14.507667), [-15, 0], [0, 0], 'r'],
+                                      [(290.92843,14.507658), [0, -15], [0, 0], 'r'],
+                                      [(290.92821,14.507623), [7, -10], [0, 0], 'r'],
+                                      [(290.92866,14.508448), [-12, 4], [0, 0], 'r'],
+                                      [(290.92944,14.509612), [-12, -4], [0, 0], 'r'],
+                                     ],
               }
 annotations['w51main_peak_diff'] = annotations['w51main_peak']
 annotations['irs2_C_high'] = annotations['irs2_C_low'] + [[(290.91597, 14.51945), (0, -2), (0, -30), 'c']]
@@ -128,9 +135,6 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
     F.show_colorbar()
     F.colorbar.set_axis_label_text("mJy/beam")
     F.save(paths.fpath("diffuse/{0}_aplpy.png".format(name)))
-    if name == 'peak_cluster_C_diff':
-        F.show_regions(paths.rpath("e20arrows.reg"))
-        F.save(paths.fpath("diffuse/{0}_aplpy_arrows.png".format(name)))
 
     fig = pl.figure(2)
     fig.clf()
