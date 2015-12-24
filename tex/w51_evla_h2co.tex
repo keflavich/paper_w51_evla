@@ -156,7 +156,7 @@ include candidate point sources (denoted with a trailing ? in Table
 \ref{tab:contsrcs}) that may instead be artifacts from the data reduction
 process.  In order to identify point sources, we used
 uniformly-weighted maps, which remove much of the extended emission and make
-point source detection simpler, but this process make local peaks
+point source detection simpler, but this process can make local peaks
 of the diffuse emission appear to be pointlike.  However, for many of the
 faint and questionable peaks, we have found clear near-infrared associations
 (Section \ref{sec:associations}),
@@ -167,7 +167,8 @@ describes the data source: Epoch 1 comes from \citet{Mehringer1994a}, Epoch 2
 comes from 12A-274, 12B-365, or 13A-064 (mid 2012-early
 2013), and Epoch 3 (C-band only) comes from
 13A-064 in 2014. For the multi-configuration combined images, we list the date
-of the highest-resolution observations.
+of the highest-resolution observations.  Full details of the data origin
+are given in Table \ref{tab:obs_meta}.
 
 There are two flux density columns.  The first shows the peak flux density
 within an aperture centered on the source with a radius equal to the beam major
@@ -180,6 +181,11 @@ source is seen on a deeply negative background such that the measured peak flux
 is near zero.  When these two values agree, they are reliable, but when they
 differ significantly, they are probably affected by image reconstruction
 artifacts and the background-subtracted version is preferred.
+
+The RMS column gives the error measured in a signal-free region of the image.
+It should be approximately the same as that shown in Table
+\ref{tab:observations}, though slightly different regions are used in each
+case.
 
 \input{tables/pointsource_photometry.tex}
 
@@ -208,13 +214,13 @@ the Epoch 1 (green) points are within the noise, while all of the Epoch 2 and 3
 
 \subsubsection{Variability}
 \label{sec:variability}
-The multi-epoch data demonstrate that some of these sources are variable.  The
-most convincing case for variability is in the (double) source d4 (Figure
-\ref{fig:d4sed}).  In the \citet{Mehringer1994a} data, there is no hint of
-emission at this location, with a 3-$\sigma$ upper limit of 0.6 mJy.  At the
-same position and frequency in 2014, there is a $1.0 \pm 0.06$ mJy source at
-the position of d4e.  The case for variability in other sources is weaker but
-nonetheless suggestive.
+The multi-epoch data demonstrate that at least one of these sources is
+variable.  The most convincing case for variability is in the (double) source
+d4 (Figure \ref{fig:d4sed}).  In the \citet{Mehringer1994a} data, there is no
+hint of emission at this location, with a 3-$\sigma$ upper limit of 0.6 mJy.
+At the same position and frequency in 2014, there is a $1.0 \pm 0.06$ mJy
+source at the position of d4e.  The case for variability in other sources is
+weaker but nonetheless suggestive.
 
 % \todo{Move this somewhere relevant.}
 % We found a small offset between the 1994 and 2014 images using a
@@ -307,24 +313,6 @@ lines.  The \formaldehyde absorption is likely from cloud in the foreground.
 
 \input{tables/H77a_spectral_fits}
 
-\subsubsection{Velocity Fields}
-Many works have examined the velocity field of the gas in W51e2
-\citep{Zhang1997a,Keto2008b,Shi2010b,Shi2010a,Goddi2015b}.  For comparison, we
-show the velocity field of a $6\arcsec\times6\arcsec$ region centered on W51e2
-in Figure
-\ref{fig:w51e2velofield}.
-
-\FigureTwo
-{figures/velocity/w51e2zoom_natural_contoured_marked.png}
-{figures/velocity/w51e2zoom_briggs_contoured_marked.png}
-{Velocity (moment 1) maps of \ortho \twotwo in the W51e2 region using (a) the
-naturally weighted map and (b) the Briggs-weighted map.  The X's mark
-\citet{Shi2010a} cores.   
-The contours show the moment 0 maps integrated from 50 to 63 \kms at
-[-0.4,-0.3,-0.2,-0.1, 0.010, 0.020, 0.030, 0.040] Jy \kms (natural) and
-[-0.28,-0.21,-0.14,-0.07, 0.007, 0.0105, 0.014] Jy \kms (Briggs).
-}
-{fig:w51e2velofield}{1}{3.5in}
 
 \subsection{Diffuse continuum emission features}
 \label{sec:diffuseemission}
@@ -354,8 +342,8 @@ observations, a relatively smooth and clumpy structure was seen, the new images
 reveal a network of wispy, filamentary structures.  Figure
 \ref{fig:w51mainpeak} shows the region between the W51e and W51 IRS2 clusters.
 While this area contains few clear individual sources, it accounts for the
-majority of the radio luminosity of the W51 Main region and about half the
-total luminosity of the W51 Main/IRS2 complex.
+majority of the radio luminosity of the W51 Main region and somewhere between
+one quarter and one half the total luminosity of the W51 Main/IRS2 complex.
 
 The filamentary structures in the W51 Main peak are unresolved along the short
 axis, with aspect ratios $>25$.   These resemble the ``stringlike ionized
@@ -406,7 +394,8 @@ smaller bubble at 40 \kms shows a velocity gradient orthogonal to the gradient
 seen next to filament A, increasing in velocity from southwest to northeast;
 this gradient may trace the edges of an expanding spherical shell.  The large
 bubble is centered at about 65 \kms and does not exhibit any clear gradients
-(Figure \ref{fig:coverview_diffuse}).
+(Figure \ref{fig:rrl_chan_main}, for labels see Figure
+\ref{fig:coverview_diffuse}).
 
 \Figure{figures/rrls/h77a_channelmaps_W51Main.png}
 {Channel maps of the H77$\alpha$ line integrated over 5 \kms windows
@@ -1204,12 +1193,12 @@ term of \citet{Murray2010a} is very small.  Radiative trapping is only
 relevant within the $<2\arcsec$ ultracompact HII regions, in which the FIR optical
 depth exceeds unity.
 
-The ongoing accretion onto the source IRS2E and probable ongoing accretion onto
-the hot cores and HCHII regions throughout these clusters implies that ionizing
-radiation is, at present, not halting star formation.  The presence of
-accreting stars within large HII regions further confirms that ionizing
-radiation and ionized gas pressure is inadequate to stop star formation in the
-clusters.
+The ongoing accretion onto the source IRS2E \citep{Figueredo2008a} and probable
+ongoing accretion onto the hot cores and HCHII regions throughout these
+clusters implies that ionizing radiation is, at present, not halting star
+formation.  The presence of accreting stars within large HII regions further
+confirms that ionizing radiation and ionized gas pressure is inadequate to stop
+star formation in the clusters.
 
 We therefore anticipate that the clusters will continue to consume the dense
 gas they presently contain until it is either exhausted or some other feedback
@@ -1391,5 +1380,25 @@ digital form...}
 \section{Observation metadata}
 The observation metadata is summarized in Table \ref{tab:obs_meta}.
 \input{tables/obs_meta.tex}
+
+
+\section{Velocity Field in W51e2}
+Many works have examined the velocity field of the gas in W51e2
+\citep{Zhang1997a,Keto2008b,Shi2010b,Shi2010a,Goddi2015b}.  For comparison, we
+show the velocity field of a $6\arcsec\times6\arcsec$ region centered on W51e2
+in Figure
+\ref{fig:w51e2velofield}.
+
+\FigureTwo
+{figures/velocity/w51e2zoom_natural_contoured_marked.png}
+{figures/velocity/w51e2zoom_briggs_contoured_marked.png}
+{Velocity (moment 1) maps of \ortho \twotwo in the W51e2 region using (a) the
+naturally weighted map and (b) the Briggs-weighted map.  The X's mark
+\citet{Shi2010a} cores.   
+The contours show the moment 0 maps integrated from 50 to 63 \kms at
+[-0.4,-0.3,-0.2,-0.1, 0.010, 0.020, 0.030, 0.040] Jy \kms (natural) and
+[-0.28,-0.21,-0.14,-0.07, 0.007, 0.0105, 0.014] Jy \kms (Briggs).
+}
+{fig:w51e2velofield}{1}{3.5in}
 
 \end{document}

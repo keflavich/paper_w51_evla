@@ -242,7 +242,7 @@ cols = {'SourceName': 'Object',
         'ObservationDate': 'Obs. Date',
         'peak_flux': 'Peak $S_{\\nu}$',
         'peak_m_background': 'Peak - Background',
-        'local_rms_noise': '$\sigma$',
+        'local_rms_noise': 'RMS',
        }
 
 textbl = tbl.copy()[cols_order]
@@ -263,7 +263,7 @@ latexdict['header_start'] = '\label{tab:contsrcs}'
 latexdict['caption'] = 'Continuum Point Sources (excerpt)'
 latexdict['tablefoot'] = '\par\nAn excerpt from the point source catalog.  For the full catalog, see Table \\ref{tbl:contsrcs_full}'
 textbl[::10].write(paths.tpath('pointsource_photometry.tex'), format='ascii.latex', latexdict=latexdict,
-             formats={'$\sigma$': format_float,
+             formats={'RMS': format_float,
                       'Peak $S_{\\nu}$': format_float,
                       'Peak - Background': format_float, 
                       'Obs. Date': lambda x: time.Time(x).iso[:10],
@@ -275,8 +275,8 @@ latexdict['tablefoot'] = ''
 #latexdict['tabletype'] = 'longtable'
 latexdict['tabulartype'] = 'longtable'
 textbl.write(paths.tpath('pointsource_photometry_full.tex'), format='ascii.latex', latexdict=latexdict,
-             formats={'$\sigma$': format_float,
+             formats={'RMS': format_float,
                       'Peak $S_{\\nu}$': format_float,
-                      'Peak - Background': format_float, 
+                      'Peak - Background': format_float,
                       'Obs. Date': lambda x: time.Time(x).iso[:10],
                      })

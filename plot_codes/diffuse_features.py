@@ -13,29 +13,30 @@ from astropy.visualization.mpl_normalize import ImageNormalize
 from common_constants import distance
 pl.matplotlib.rc_file('pubfiguresrc')
 
-#                                 origion               from_offset to_offset color
-annotations = {'w51main_peak': [[(290.92755, 14.511689), [-3, 3], [-20, 20], 'r'],
-                                [(290.92839, 14.510252), [-5, 0], [-30, 0], 'r'],
-                                [(290.92643, 14.512817), [-10, 0], [-35, 0], 'b'],
-                                [(290.92375, 14.511762), [-10, 0], [-40, 0], 'b'],
-                                #[(290.92358, 14.510963), [10, -10], [30, -30], 'b'],
-                                [(290.92064, 14.510635), [0, 0], [-52, 78], 'c'],
+# I made my own arrows because the ds9 ones don't put text in nice places
+#                                 origin               from_offset to_offset color
+annotations = {'w51main_peak': [[(290.92755, 14.511689), [-3, 3], [-20, 20], 'r',{}],
+                                [(290.92839, 14.510252), [-5, 0], [-30, 0], 'r',{}],
+                                [(290.92643, 14.512817), [-10, 0], [-35, 0], 'b',{}],
+                                [(290.92375, 14.511762), [-10, 0], [-40, 0], 'b',{}],
+                                #[(290.92358, 14.510963), [10, -10], [30, -30], 'b',{}],
+                                [(290.92064, 14.510635), [0, 0], [-52, 78], 'c',{}],
                                ],
-               'irs2_C_low' : [[(290.91379, 14.522722), [-5, 5], [-20, 30], 'b'],
-                               [(290.92188, 14.518806), [0, 0], [30, 0], 'r'],
-                               [(290.92088, 14.516285), [0, 0], [20, 20], 'r'],
-                               [(290.91549, 14.51498), [0, 0], [-5, 25], 'r'],
+               'irs2_C_low' : [[(290.91379, 14.522722), [-5, 5], [-20, 30], 'b',{}],
+                               [(290.92188, 14.518806), [0, 0], [30, 0], 'r',{}],
+                               [(290.92088, 14.516285), [0, 0], [20, 20], 'r',{}],
+                               [(290.91549, 14.51498), [0, 0], [-5, 25], 'r',{}],
                               ],
                'peak_cluster_C_diff':[
-                                      [(290.92866,14.507667), [-15, 0], [0, 0], 'r'],
-                                      [(290.92843,14.507658), [0, -15], [0, 0], 'r'],
-                                      [(290.92821,14.507623), [7, -10], [0, 0], 'r'],
-                                      [(290.92866,14.508448), [-12, 4], [0, 0], 'r'],
-                                      [(290.92944,14.509612), [-12, -4], [0, 0], 'r'],
+                                      [(290.92866,14.507667), [0, 0],  [-15, 0], 'r', {'text':'e20'}],
+                                      [(290.92843,14.507658), [0, 0],  [0, -15], 'r', {'text':'e21'}],
+                                      [(290.92821,14.507623), [0, 0],  [7, -10], 'r', {'text':'e22'}],
+                                      [(290.92866,14.508448), [0, 0],  [-12, 4], 'r', {'text':'e12'}],
+                                      [(290.92944,14.509612), [0, 0],  [-12, -4],'r', {'text':'e23'}],
                                      ],
               }
 annotations['w51main_peak_diff'] = annotations['w51main_peak']
-annotations['irs2_C_high'] = annotations['irs2_C_low'] + [[(290.91597, 14.51945), (0, -2), (0, -30), 'c']]
+annotations['irs2_C_high'] = annotations['irs2_C_low'] + [[(290.91597, 14.51945), (0, -2), (0, -30), 'c', {}]]
 annotations['irs2_C_diff'] = annotations['irs2_C_low']
 annotations['irs2_Ku_low'] = annotations['irs2_C_low']
 scalebarpos = {'irs2_C_high': 'right',
@@ -45,14 +46,15 @@ scalebarpos = {'irs2_C_high': 'right',
                None: 'left',
               }
 
-def annotate(ax, xy, to_offset, from_offset, color, mywcs):
+def annotate(ax, xy, to_offset, from_offset, color, mywcs, text="."):
 
-    ann = pl.Annotation(".", xy=mywcs.wcs_world2pix([xy],0)[0]+np.array(to_offset),
+    ann = pl.Annotation(text, xy=mywcs.wcs_world2pix([xy],0)[0]+np.array(to_offset),
                         xytext=mywcs.wcs_world2pix([xy],0)[0]+np.array(from_offset),
                         arrowprops=dict(arrowstyle="->", edgecolor=color,
                                         color=color), color=color,
                         clip_on=False)
-    ann.set_text("")
+    if text == ".":
+        ann.set_text("")
     ax.add_artist(ann)
 
 for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
@@ -127,7 +129,7 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
     F.scalebar.set_font_size(20)
     pixscale = np.abs(F._wcs.pixel_scale_matrix[1,1])
     if name in annotations:
-        for (x,y), to_offset, from_offset, color in annotations[name]:
+        for (x,y), to_offset, from_offset, color, kwargs in annotations[name]:
             dx = (from_offset[0]-to_offset[0]) / pixscale
             dy = (from_offset[1]-to_offset[1]) / pixscale
             F.show_arrows(x, y, dx, dy, color=color)
@@ -180,7 +182,7 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
                 s=str(sblength))
 
     if name in annotations:
-        for xy, to_offset, from_offset, color in annotations[name]:
-            annotate(ax, xy, to_offset, from_offset, color, mywcs)
+        for xy, to_offset, from_offset, color, kwargs in annotations[name]:
+            annotate(ax, xy, to_offset, from_offset, color, mywcs, **kwargs)
     pl.draw(); pl.show()
     pl.savefig(paths.fpath("diffuse/{0}.png".format(name)), bbox_inches='tight')
