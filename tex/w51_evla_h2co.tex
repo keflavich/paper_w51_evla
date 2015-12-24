@@ -98,6 +98,12 @@ for source identification, but they were not used for photometry.  Instead, for
 the 13A-064 data, individual 1 GHz bands including only the longer-baseline
 configuration were used for photometry.
 
+For the spectral line analysis, we used the cubes listed in Table
+\ref{tab:cubes}.  For the Ku-band naturally-weighted cube, the noise is higher
+than in the robust-weighted cube because large angular scale artifacts are
+prevalent, especially at the image edges.
+
+\input{tables/cubes.tex}
 
 \Figure{figures/diffuse/W51_Ku_overview.pdf}
 {The Ku-band image of the W51 region produced with a combination of
@@ -800,9 +806,10 @@ It is therefore not maser emission.
 %There is not a 1-1 detection.  But my judgement on this has varied.
 None of these detections have corresponding \oneone emission.  This
 nondetection is likely because our brightness sensitivity at C-band is very
-poor.  \todo{The upper limit is XXX, ruling out strong masers.}  Additionally,
-the foreground cloud is a much stronger absorber in the \oneone line, so any
-emission is likely to be obscured by foreground absorption.
+poor.  The upper limit is $T_B<300$ K (Table \ref{tab:cubes}, ruling out strong
+masers.  Additionally, the foreground cloud is a much stronger absorber in the
+\oneone line, so any emission is likely to be obscured by foreground
+absorption.
 
 %\todo{
 %The physical conditions required to produce these extremely bright emission
