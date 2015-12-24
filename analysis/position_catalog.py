@@ -49,7 +49,9 @@ postbl = Table([Column(data=names, name='Source Name'),
                 SEDclasscolumn,
                 classificationcolumn,
                ])
-postbl.sort('Source Name')
+
+import natsort
+postbl = postbl[natsort.index_natsorted(postbl['Source Name'])]
 
 latexdict['header_start'] = '\label{tab:positions}'
 latexdict['caption'] = 'Source Positions'
