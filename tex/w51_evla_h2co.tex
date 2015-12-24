@@ -75,7 +75,15 @@ and program IDs, is in Table \ref{tab:obs_meta}.
 
 \input{tables/observations.tex}
 
-\input{tables/obs_meta.tex}
+While the noise levels in the images are frequently low, we did not achieve a
+thermal-noise-limited image in any of the 13A-064 data.  For example, in the
+C-band A-array data, the thermal noise is $\sim5$ \microjy, while the achieved
+RMS is $\sim30-60$ \microjy.  The images are generally ``artifact-dominated''
+at the low-signal end, where inadequately cleaned sidelobes of bright features
+provide significant non-gaussian noise.  Some of these artifacts can be seen
+in Figure \ref{fig:coverview}.
+
+Despite the deficiency in the image quality.
 
 
 \Figure{figures/diffuse/W51_Ku_overview.pdf}
@@ -1366,5 +1374,8 @@ digital form...}
 
 \input{ptsrcphotometryfigures.tex}
 
+\section{Observation metadata}
+The observation metadata is summarized in Table \ref{tab:obs_meta}.
+\input{tables/obs_meta.tex}
 
 \end{document}
