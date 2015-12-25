@@ -117,7 +117,7 @@ identifying the regions discussed are available in the Appendix.}
 {fig:coverview}{0.9}{6.5in}
 
 \section{Observational Results}
-We report six key observational results: 
+We report seven distinct observational results: 
 \begin{enumerate}
     \item Section \ref{sec:pointsources}: The detection of new continuum
         sources, most of which are most likely hypercompact \hii regions. 
@@ -134,6 +134,9 @@ We report six key observational results:
     \item Section \ref{sec:diffuseemission}: Detection of Orion-bar-like sharp
         edges to the W51 Main HII region, most likely tracing a
         photon-dominated region (PDR)
+    \item Section \ref{sec:lacyjet}: Detection of a $\sim0.1$ pc ionized
+        outflow in H77$\alpha$ that had previously been seen in mid-infrared
+        ionized line emission.
 \end{enumerate}
 
 \subsection{Continuum sources and photometry}
@@ -461,6 +464,59 @@ visible, illustrating the blueshifted cavity discussed in Section
 
 % Cometary clouds in the W51 region:
 % 19:23:42.397 +14:30:07.70 ?
+
+\subsection{The Lacy IRS2 ionized outflow}
+\label{sec:lacyjet}
+\citet{Lacy2007a} reported the detection of very high velocity ionized gas
+in the mid-infrared [Ne II] 12.8\um and S IV 10.5\um lines.  They observed the
+gas at a velocity blueshifted about 100 \kms from the IRS2 ionized and molecular
+gas velocity.  We have detected the same feature in the H77$\alpha$ RRL.
+The RRL shows the same position-velocity structure as the infrared ionized
+features.  No redshifted counterflow is detected (Figure \ref{fig:lacyjetslice}).
+
+One minor but notable feature of the H77$\alpha$ flow is that it is very close
+to the rest velocity of the He77$\alpha$ line.  If \citet{Lacy2007a} had not
+already unambiguously identified the high velocity of this feature in two
+lines, we would have assumed it to be slightly redshifted Helium.
+
+\FigureTwo
+{figures/jetpv/H77a_cutout_1.png}
+{figures/jetpv/w51.neii.square.png}
+{Position-velocity slices through (a) the H77$\alpha$ cube and (b) the [Ne II]
+cube from \citet{Lacy2007a} tracking the approximate path of the Lacy jet.  Emission is black,
+absorption (which in both images is due to reduction artifacts rather than true
+physical absorption) is white.  The vertical streaks are continuum sources.
+The
+abscissa shows the offset position along the slice from J2000 19:23:40.464
++14:31:07.9536 to 19:23:39.4176 +14:31:04.7172, position angle 258\arcdeg.
+The blueshifted lobe is evident at -50 \kms in both cubes, and neither show a
+redshifted counterpart.  The H77$\alpha$ data reveal that there is truly no
+counterpart, ruling out the possibility that it was simply too extincted to be
+observed in the infrared.}
+{fig:lacyjetslice}{1}{3.5in}
+
+% unnecessary and the source is known from the Goddi NH3 data.
+%This outflow is close to W51 North, which is a likely driver of the outflow based
+%on the highly excited \ammonia around it \citep{Henkel2013a,Goddi2015a}.  However,
+%the accreting O-star W51 IRS 2E is also very close to the outflow and could plausibly
+%be the driver \citep{Barbosa2008a}.  IRS 2E is the brightest X-ray source in
+%W51 with a harder X-ray spectrum than other sources in the region, and it emits
+%most of its energy in iron fluorescence lines, indicating that there is a very
+%strong interaction with dense material around it \citep{Townsley2014a}.
+%Independent of its source, though, this flow is unique in exhibiting a high
+%velocity ($v\sim100$ \kms) over a 0.1 pc extent with no obvious gradient.
+%Indeed, this lack of a velocity gradient suggests that the flow is launched
+%at a high velocity and not decelerated by interaction with its environment.
+
+
+\FigureTwo
+{figures/irs2outflow/IRS2_h77a_on_cont22.png} % outflow_overlay.py
+{figures/irs2outflow/IRS2_h77a_on_NACO_K.png} % irs_nir.py
+{The `Lacy Jet' as seen in H77$\alpha$ overlaid on (a) the 14 GHz continuum
+image and (b) the NACO K-band image \citep{Barbosa2008a}.  Contours are at 
+0.1, 0.2, 0.3, 0.4, 0.5, 0.6, and 0.7 Jy \kms, integrated over the velocity
+range -60 to -16 \kms.}
+{fig:lacyjetoverlay}{1}{3.5in}
 
 \section{Analysis}
 \subsection{The stellar mass}
@@ -1045,57 +1101,6 @@ W51e8 ($S_\nu \sim 1$ mJy).
 % inferred from \ammonia may be inaccurate in these hot cores.
 
 
-\subsection{The Lacy jet}
-\label{sec:lacyjet}
-\citet{Lacy2007a} reported the detection of very high velocity ionized gas
-in the mid-infrared [Ne II] 12.8\um and S IV 10.5\um lines.  They observed the
-gas at a velocity blueshifted about 100 \kms from the IRS2 ionized and molecular
-gas velocity.  We have detected the same feature in the H77$\alpha$ RRL.
-The RRL shows the same position-velocity structure as the infrared ionized
-features.  No redshifted counterflow is detected (Figure \ref{fig:lacyjetslice}).
-
-One minor but notable feature of the H77$\alpha$ flow is that it is very close
-to the rest velocity of the He77$\alpha$ line.  If \citet{Lacy2007a} had not
-already unambiguously identified the high velocity of this feature in two
-lines, we would have assumed it to be slightly redshifted Helium.
-
-\FigureTwo
-{figures/jetpv/H77a_cutout_1.png}
-{figures/jetpv/w51.neii.square.png}
-{Position-velocity slices through (a) the H77$\alpha$ cube and (b) the [Ne II]
-cube from \citet{Lacy2007a} tracking the approximate path of the Lacy jet.  Emission is black,
-absorption (which in both images is due to reduction artifacts rather than true
-physical absorption) is white.  The vertical streaks are continuum sources.
-The
-abscissa shows the offset position along the slice from J2000 19:23:40.464
-+14:31:07.9536 to 19:23:39.4176 +14:31:04.7172, position angle 258\arcdeg.
-The blueshifted lobe is evident at -50 \kms in both cubes, and neither show a
-redshifted counterpart.  The H77$\alpha$ data reveal that there is truly no
-counterpart, ruling out the possibility that it was simply too extincted to be
-observed in the infrared.}
-{fig:lacyjetslice}{1}{3.5in}
-
-This outflow is close to W51 North, which is a likely driver of the outflow based
-on the highly excited \ammonia around it \citep{Henkel2013a,Goddi2015a}.  However,
-the accreting O-star W51 IRS 2E is also very close to the outflow and could plausibly
-be the driver \citep{Barbosa2008a}.  IRS 2E is the brightest X-ray source in
-W51 with a harder X-ray spectrum than other sources in the region, and it emits
-most of its energy in iron fluorescence lines, indicating that there is a very
-strong interaction with dense material around it \citep{Townsley2014a}.
-Independent of its source, though, this flow is unique in exhibiting a high
-velocity ($v\sim100$ \kms) over a 0.1 pc extent with no obvious gradient.
-Indeed, this lack of a velocity gradient suggests that the flow is launched
-at a high velocity and not decelerated by interaction with its environment.
-
-
-\FigureTwo
-{figures/irs2outflow/IRS2_h77a_on_cont22.png} % outflow_overlay.py
-{figures/irs2outflow/IRS2_h77a_on_NACO_K.png} % irs_nir.py
-{The `Lacy Jet' as seen in H77$\alpha$ overlaid on (a) the 14 GHz continuum
-image and (b) the NACO K-band image \citep{Barbosa2008a}.  Contours are at 
-0.1, 0.2, 0.3, 0.4, 0.5, 0.6, and 0.7 Jy \kms, integrated over the velocity
-range -60 to -16 \kms.}
-{fig:lacyjetoverlay}{1}{3.5in}
 
 \subsection{The d4 variable source \& \hh region}
 \label{sec:d4}
@@ -1193,6 +1198,19 @@ assuming that the image-based continuum subtraction is accurate.
 % \section{The distributed population of HCHII regions}
 % We detect an additional XX point sources in the field.
 
+\section{Discussion}
+
+\subsection{The massive stars and the clusters}
+The W51 IRS2 cluster is closer to exhausting its available gas reservoir than
+the W51e1/e2 cluster, since it is visible in the near-infrared and shows signs
+of bulk outflow from the cluster.  In this sense, and because it contains many
+of stars that appear to have no ongoing accretion, it is older.  In a similar
+vein, the W51 e20 stars are likely the oldest in the W51 Main system.
+
+However, W51 e20 and the related W51e candidate CWBs constitute an unclustered
+population.  The Chandra MOXC catalog reveals that the most clear cluster is the
+W51 IRS2 cluster, and while there is a mild overdensity 
+
 \subsection{The future evolution of the W51 clusters and molecular cloud}
 The W51 clusters are likely to reach a very high star formation efficiency,
 since the escape velocity is greater than the sound speed in ionized gas
@@ -1200,27 +1218,28 @@ since the escape velocity is greater than the sound speed in ionized gas
 young massive cluster, though, the gas within $\sim 1$ pc must be evacuated or
 exhausted to achieve a final appearance like that of NGC 3603 or Trumpler 14.
 
-Because IRS 2 is already seen in the near-infrared, it is clear that
-the cluster leaks photons.  Since long-wavelength photons are not trapped,
-radiation pressure is probably not going to be efficient; the FIR optical depth
-term of \citet{Murray2010a} is very small.  Radiative trapping is only
-relevant within the $<2\arcsec$ ultracompact HII regions, in which the FIR optical
-depth exceeds unity.
+%Because IRS 2 is already seen in the near-infrared, it is clear that
+%the cluster leaks photons.  Since long-wavelength photons are not trapped,
+%radiation pressure is not efficient; the FIR optical depth
+%term of \citet{Murray2010a} is very small.  Radiative trapping is only
+%relevant within the $<2\arcsec$ ultracompact HII regions, in which the FIR optical
+%depth exceeds unity.
 
 The ongoing accretion onto the source IRS2E \citep{Figueredo2008a} and probable
 ongoing accretion onto the hot cores and HCHII regions throughout these
 clusters implies that ionizing radiation is, at present, not halting star
 formation.  The presence of accreting stars within large HII regions further
 confirms that ionizing radiation and ionized gas pressure is inadequate to stop
-star formation in the clusters.
+star formation in the clusters.  This point confirms the \citet{Matzner2015a}
+argument that the most massive clumps in the galaxy  end their formation by
+exhausting their parent reservoir rather than by feedback disruption.
 
-We therefore anticipate that the clusters will continue to consume the dense
-gas they presently contain until it is either exhausted or some other feedback
-mechanism takes over \citep{Ginsburg2012a,Bressert2012a,Ginsburg2015a}.  The
-exhaustion of \emph{local} gas, out to $\sim1-2$ pc, is a necessary
-precondition for the formation of a bound cluster \citep{Kruijssen2012a}.
-Other feedback mechanisms may be stellar winds, direct radiation pressure
-(assuming a single scattering event per photon), or supernovae.
+%We therefore anticipate that the clusters will continue to consume the dense
+%gas they presently contain until it is either exhausted or some other feedback
+%mechanism (i.e., supernovae) takes over
+%\citep{Ginsburg2012a,Bressert2012a,Ginsburg2015a}.  The exhaustion of
+%\emph{local} gas, out to $\sim1-2$ pc, is a necessary precondition for the
+%formation of a bound cluster \citep{Kruijssen2012a}.
 
 The present stellar mass as inferred from the infrared luminosity (Section
 \ref{sec:stellarmass}) is a lower limit on the final mass of the cluster.  The
@@ -1232,7 +1251,7 @@ gas, so the stellar $M_{final} \gtrsim 1.1\ee{4}$ \msun.
 Since the free-fall time is very short within these clusters ($t_{ff} < 0.5$
 Myr out to 2.5 pc containing 5\ee{4} \msun of gas), supernovae will not affect
 their formation.  However, once the clusters have exhausted gas locally, there
-is both plenty of time and a relatively free path from the clusters to the rest
+is both plenty of time and a relatively free line-of-sight from the clusters to the rest
 of the molecular cloud.  The binding energy of a $10^6$ \msun, $r=50$ pc 
 molecular cloud is only about $10^{51}$ ergs, so a single supernova perfectly
 coupled to the gas could unbind it all.  The $\sim20$ O-stars presently formed,
@@ -1286,7 +1305,6 @@ smooth or even a very turbulent molecular cloud.  These holes would likely
 provide networks of low-density gaps through which radiation can escape,
 reducing the overall impact of radiative feedback on the cloud.
 
-\section{Discussion}
 
 \section{Conclusions}
 We present deep, high-resolution radio continuum images observed in many
