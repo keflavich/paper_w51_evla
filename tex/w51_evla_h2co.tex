@@ -103,6 +103,11 @@ For the spectral line analysis, we used the cubes listed in Table
 than in the robust-weighted cube because large angular scale artifacts are
 prevalent, especially at the image edges.
 
+In some figures, we show ``unsharp-masked'' versions of the data.  These are
+equivalent to maps made excluding short baselines, but we instead performed
+unsharp masking (subtracting a gaussian-smoothed version of the image from
+itself) in the image domain for computational convenience.
+
 \input{tables/cubes.tex}
 
 \Figure{figures/diffuse/W51_Ku_overview.pdf}

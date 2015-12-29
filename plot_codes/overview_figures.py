@@ -50,7 +50,7 @@ for fn,(vmin,vmax),name in (("W51C_ACarray_continuum_4096_both_uniform_contsplit
     F.tick_labels.set_x_full_label_side('left')
     F.add_scalebar(length=((0.5 * u.pc)/(5.4*u.kpc)*u.radian).to(u.degree).value)
     F.scalebar.set_label('0.5 pc')
-    F.scalebar.set_color('orange')
+    F.scalebar.set_color('black')
     F.scalebar.set_linewidth(3)
     F.scalebar.set_font_size(20)
     F.add_colorbar()

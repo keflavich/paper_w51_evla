@@ -43,7 +43,7 @@ F.recenter(290.91669,14.518151,radius=8./3600.)
 set_tight_ticks(F)
 F.scalebar.set_length(((0.1 * u.pc)/distance*u.radian).to(u.degree).value)
 F.scalebar.set_label('0.1 pc')
-F.scalebar.set_color('orange')
+F.scalebar.set_color('black')
 F.scalebar.set_linewidth(3)
 F.scalebar.set_font_size(20)
 
@@ -52,9 +52,12 @@ F.save(fpath('IRS2_NACO_Kband.pdf'), dpi=150)
 radiohdu = fits.open(dpath('W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits'))
 for ii in [3,4]:
     for kk in ['CRVAL','CTYPE','CDELT','CRPIX','CUNIT','NAXIS']:
-        k = kk+str(ii)
+        k = (kk+'{0}').format(str(ii))
         if k in radiohdu[0].header:
             del radiohdu[0].header[k]
+for k in set(radiohdu[0].header.keys()):
+    if k[:2] == 'PC':
+        del radiohdu[0].header[k]
 radiohdu[0].header['NAXIS'] = 2
 radiohdu[0].data = radiohdu[0].data.squeeze()
 
