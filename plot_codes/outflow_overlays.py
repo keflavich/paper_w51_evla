@@ -50,7 +50,7 @@ F.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.011,invert=True)
 
 F.add_scalebar(length=((0.5 * u.pc)/distance*u.radian).to(u.degree).value)
 F.scalebar.set_label('0.5 pc')
-F.scalebar.set_color('orange')
+F.scalebar.set_color('black')
 F.scalebar.set_linewidth(3)
 F.scalebar.set_font_size(20)
 
@@ -69,7 +69,7 @@ sivcolors = [c[:3] + (x,) for x in (0.7,0.6,0.5,0.4,0.3,0.2,0.1)[::-1]]
 
 F.recenter(290.91669,14.518151,radius=8./3600.)
 F.scalebar.set_length(((0.1 * u.pc)/distance*u.radian).to(u.degree).value)
-F.scalebar.set_color('orange')
+F.scalebar.set_color('black')
 F.scalebar.set_linewidth(3)
 F.scalebar.set_font_size(20)
 F.scalebar.set_label('0.1 pc')
