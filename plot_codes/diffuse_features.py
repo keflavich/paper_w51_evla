@@ -4,7 +4,6 @@ from astropy import units as u
 import aplpy
 import paths
 from astropy.io import fits
-import wcsaxes
 from wcsaxes import WCS as WCSaxes
 from astropy import wcs
 import pylab as pl

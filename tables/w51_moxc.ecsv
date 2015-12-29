@@ -4,492 +4,481 @@
 # - name: _RAJ2000
 #   unit: deg
 #   datatype: float64
-#   format: !!python/unicode '%10.6f'
-#   description: !!python/unicode 'Right ascension (FK5, Equinox=J2000.0) (computed
-#     by VizieR, not part of the original data)'
+#   format: '%10.6f'
+#   description: Right ascension (FK5, Equinox=J2000.0) (computed by VizieR, not part
+#     of the original data)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'POS_EQ_RA'}
-#   - {!!python/unicode 'width': 10}
-#   - {!!python/unicode 'precision': !!python/unicode '6'}
+#   - {ucd: POS_EQ_RA}
+#   - {width: 10}
+#   - {precision: '6'}
 # - name: _DEJ2000
 #   unit: deg
 #   datatype: float64
-#   format: !!python/unicode '%10.6f'
-#   description: !!python/unicode 'Declination (FK5, Equinox=J2000.0) (computed by VizieR,
-#     not part of the original data)'
+#   format: '%10.6f'
+#   description: Declination (FK5, Equinox=J2000.0) (computed by VizieR, not part of
+#     the original data)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'POS_EQ_DEC'}
-#   - {!!python/unicode 'width': 10}
-#   - {!!python/unicode 'precision': !!python/unicode '6'}
+#   - {ucd: POS_EQ_DEC}
+#   - {width: 10}
+#   - {precision: '6'}
 # - name: Region
 #   datatype: string
-#   description: !!python/unicode 'Massive Star-forming Region (MSFR) name'
+#   description: Massive Star-forming Region (MSFR) name
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ID_REGION'}
+#   - {ucd: ID_REGION}
 # - name: p
 #   datatype: string
-#   description: !!python/unicode '{\bf p} indicates that the source exists in published
-#     Chandra catalogs (table6)'
+#   description: '{\bf p} indicates that the source exists in published Chandra catalogs
+#     (table6)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'DATA_LINK'}
+#   - {ucd: DATA_LINK}
 # - name: CXOU
 #   datatype: string
-#   description: !!python/unicode 'X-ray source name in IAU format (HHMMSS.ss+DDMMSS.s;
-#     J2000)'
+#   description: X-ray source name in IAU format (HHMMSS.ss+DDMMSS.s; J2000)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ID_MAIN'}
+#   - {ucd: ID_MAIN}
 # - name: Label
 #   datatype: string
-#   description: !!python/unicode 'X-ray source name used in the project (G1)'
+#   description: X-ray source name used in the project (G1)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'OBS_ID'}
+#   - {ucd: OBS_ID}
 # - name: RAJ2000
 #   unit: deg
 #   datatype: float64
-#   format: !!python/unicode '%10.6f'
-#   description: !!python/unicode 'Right ascension (J2000)'
+#   format: '%10.6f'
+#   description: Right ascension (J2000)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'POS_EQ_RA_MAIN'}
-#   - {!!python/unicode 'width': 10}
-#   - {!!python/unicode 'precision': !!python/unicode '6'}
+#   - {ucd: POS_EQ_RA_MAIN}
+#   - {width: 10}
+#   - {precision: '6'}
 # - name: DEJ2000
 #   unit: deg
 #   datatype: float64
-#   format: !!python/unicode '%10.6f'
-#   description: !!python/unicode 'Declination (J2000)'
+#   format: '%10.6f'
+#   description: Declination (J2000)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'POS_EQ_DEC_MAIN'}
-#   - {!!python/unicode 'width': 10}
-#   - {!!python/unicode 'precision': !!python/unicode '6'}
+#   - {ucd: POS_EQ_DEC_MAIN}
+#   - {width: 10}
+#   - {precision: '6'}
 # - name: ePos
 #   unit: arcs
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode '[0/2.5] 1-{sigma} error circle around (RA,DE)'
+#   format: '%5.2f'
+#   description: '[0/2.5] 1-{sigma} error circle around (RA,DE)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ERROR'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
+#   - {ucd: ERROR}
+#   - {width: 5}
+#   - {precision: '2'}
 # - name: PosType
 #   datatype: string
-#   description: !!python/unicode 'Algorithm used to estimate position (2)'
+#   description: Algorithm used to estimate position (2)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'MODEL_ID'}
-# - name: no-m
+#   - {ucd: MODEL_ID}
+# - name: no_m
 #   datatype: float32
-#   format: !!python/unicode '%7.4f'
-#   description: !!python/unicode '[0/0.01] Merged p-value for no-source hypothesis
-#     (smallest of no-t/no-s/no-h)'
+#   format: '%7.4f'
+#   description: '[0/0.01] Merged p-value for no-source hypothesis (smallest of no-t/no-s/no-h)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'STAT_PROBABILITY'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '4'}
-# - name: no-t
+#   - {ucd: STAT_PROBABILITY}
+#   - {width: 7}
+#   - {precision: '4'}
+# - name: no_t
 #   datatype: float32
-#   format: !!python/unicode '%7.4f'
-#   description: !!python/unicode '[0/0.4] p-value for 0.5-8keV no-source hypothesis
-#     (3)'
+#   format: '%7.4f'
+#   description: '[0/0.4] p-value for 0.5-8keV no-source hypothesis (3)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'STAT_PROBABILITY'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '4'}
-# - name: no-s
+#   - {ucd: STAT_PROBABILITY}
+#   - {width: 7}
+#   - {precision: '4'}
+# - name: no_s
 #   datatype: float32
-#   format: !!python/unicode '%7.4f'
-#   description: !!python/unicode '? p-value for 0.5-2keV no-source hypothesis (3)'
+#   format: '%7.4f'
+#   description: '? p-value for 0.5-2keV no-source hypothesis (3)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'STAT_PROBABILITY'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '4'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
-# - name: no-h
+#   - {ucd: STAT_PROBABILITY}
+#   - {width: 7}
+#   - {precision: '4'}
+#   - values: {'null': .nan}
+# - name: no_h
 #   datatype: float32
-#   format: !!python/unicode '%7.4f'
-#   description: !!python/unicode '? p-value for 2-8keV no-source hypothesis (3)'
+#   format: '%7.4f'
+#   description: '? p-value for 2-8keV no-source hypothesis (3)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'STAT_PROBABILITY'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '4'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
+#   - {ucd: STAT_PROBABILITY}
+#   - {width: 7}
+#   - {precision: '4'}
+#   - values: {'null': .nan}
 # - name: KS_S
 #   datatype: float32
-#   format: !!python/unicode '%7.4f'
-#   description: !!python/unicode '? Smallest p-value under the no-variability null
-#     hypothesis within a single-observation for one-sample Kolmogorov-Smirnov statistic
-#     (4)'
+#   format: '%7.4f'
+#   description: '? Smallest p-value under the no-variability null hypothesis within
+#     a single-observation for one-sample Kolmogorov-Smirnov statistic (4)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'VAR_PROBABILITY'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '4'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
+#   - {ucd: VAR_PROBABILITY}
+#   - {width: 7}
+#   - {precision: '4'}
+#   - values: {'null': .nan}
 # - name: KS_M
 #   datatype: float32
-#   format: !!python/unicode '%7.4f'
-#   description: !!python/unicode '? Smallest p-value under the no-variability null
-#     hypothesis over merged observations for one-sample Kolmogorov-Smirnov statistic
-#     (4)'
+#   format: '%7.4f'
+#   description: '? Smallest p-value under the no-variability null hypothesis over merged
+#     observations for one-sample Kolmogorov-Smirnov statistic (4)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'VAR_PROBABILITY'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '4'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
+#   - {ucd: VAR_PROBABILITY}
+#   - {width: 7}
+#   - {precision: '4'}
+#   - values: {'null': .nan}
 # - name: ExpNom
 #   unit: s
 #   datatype: float64
-#   format: !!python/unicode '%8.1f'
-#   description: !!python/unicode '[11660/494630] Total exposure time in merged observations'
+#   format: '%8.1f'
+#   description: '[11660/494630] Total exposure time in merged observations'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'TIME_EXPTIME'}
-#   - {!!python/unicode 'width': 8}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
+#   - {ucd: TIME_EXPTIME}
+#   - {width: 8}
+#   - {precision: '1'}
 # - name: ExpFrac
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode '[0/1] Fraction of ExpNom source was observed'
+#   format: '%5.2f'
+#   description: '[0/1] Fraction of ExpNom source was observed'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'OBS_PRED/OBS'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
+#   - {ucd: OBS_PRED/OBS}
+#   - {width: 5}
+#   - {precision: '2'}
 # - name: Ct
 #   unit: ct
 #   datatype: float64
-#   format: !!python/unicode '%8.5f'
-#   description: !!python/unicode '[0/0.6] 0.5-8keV rate in 3x3 CCD pixel cell in count/frame
-#     (RateIn3x3Cell) (5)'
+#   format: '%8.5f'
+#   description: '[0/0.6] 0.5-8keV rate in 3x3 CCD pixel cell in count/frame (RateIn3x3Cell)
+#     (5)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_BACKGROUND'}
-#   - {!!python/unicode 'width': 8}
-#   - {!!python/unicode 'precision': !!python/unicode '5'}
+#   - {ucd: INST_BACKGROUND}
+#   - {width: 8}
+#   - {precision: '5'}
 # - name: Nobs
 #   datatype: uint8
-#   description: !!python/unicode '[1/9] Total number of observations extracted'
+#   description: '[1/9] Total number of observations extracted'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'NUMBER'}
-#   - {!!python/unicode 'width': 1}
+#   - {ucd: NUMBER}
+#   - {width: 1}
 # - name: Nph
 #   datatype: uint8
-#   description: !!python/unicode '[1/9] Number of observations merged to estimate photometry
-#     properties'
+#   description: '[1/9] Number of observations merged to estimate photometry properties'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'NUMBER'}
-#   - {!!python/unicode 'width': 1}
+#   - {ucd: NUMBER}
+#   - {width: 1}
 # - name: Fdis
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode '[0/1] Fraction of exposure discarded in merge'
+#   format: '%5.2f'
+#   description: '[0/1] Fraction of exposure discarded in merge'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'OBS_PRED/OBS'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
+#   - {ucd: OBS_PRED/OBS}
+#   - {width: 5}
+#   - {precision: '2'}
 # - name: b_theta
 #   unit: arcm
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode 'Smallest value of {theta}'
+#   format: '%5.2f'
+#   description: Smallest value of {theta}
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ERROR'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
+#   - {ucd: ERROR}
+#   - {width: 5}
+#   - {precision: '2'}
 # - name: theta
 #   unit: arcm
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode 'Average off-axis angle {theta} for merged observations'
+#   format: '%5.2f'
+#   description: Average off-axis angle {theta} for merged observations
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_ANG_OFFAXIS'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
+#   - {ucd: INST_ANG_OFFAXIS}
+#   - {width: 5}
+#   - {precision: '2'}
 # - name: B_theta
 #   unit: arcm
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode 'Largest value of {theta}'
+#   format: '%5.2f'
+#   description: Largest value of {theta}
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ERROR'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
+#   - {ucd: ERROR}
+#   - {width: 5}
+#   - {precision: '2'}
 # - name: PSFf
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode '[0.3/1] Average PSF fraction at 1.5keV for merged
-#     observations'
+#   format: '%5.2f'
+#   description: '[0.3/1] Average PSF fraction at 1.5keV for merged observations'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_PSF'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
+#   - {ucd: INST_PSF}
+#   - {width: 5}
+#   - {precision: '2'}
 # - name: Area
 #   datatype: float32
-#   format: !!python/unicode '%7.2f'
-#   description: !!python/unicode '[1/2146] Average aperture area for merged observations
-#     in (0.492arcsec)^2^ units'
+#   format: '%7.2f'
+#   description: '[1/2146] Average aperture area for merged observations in (0.492arcsec)^2^
+#     units'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_AREA'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
+#   - {ucd: INST_AREA}
+#   - {width: 7}
+#   - {precision: '2'}
 # - name: aglow
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode '[0/0.7]? Suspected afterglow fraction (6)'
+#   format: '%5.2f'
+#   description: '[0/0.7]? Suspected afterglow fraction (6)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'FIT_PARAM_VALUE'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
-# - name: Oct-t
+#   - {ucd: FIT_PARAM_VALUE}
+#   - {width: 5}
+#   - {precision: '2'}
+#   - values: {'null': .nan}
+# - name: Oct_t
 #   unit: ct
 #   datatype: int16
-#   description: !!python/unicode '[1/31170] Observed 0.5-8keV counts in merged apertures'
+#   description: '[1/31170] Observed 0.5-8keV counts in merged apertures'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHOT_COUNTS_X'}
-#   - {!!python/unicode 'width': 5}
-# - name: Oct-s
+#   - {ucd: PHOT_COUNTS_X}
+#   - {width: 5}
+# - name: Oct_s
 #   unit: ct
 #   datatype: int16
-#   description: !!python/unicode 'Observed 0.5-2keV counts in merged apertures'
+#   description: Observed 0.5-2keV counts in merged apertures
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHOT_COUNTS_X'}
-#   - {!!python/unicode 'width': 5}
-# - name: Oct-h
+#   - {ucd: PHOT_COUNTS_X}
+#   - {width: 5}
+# - name: Oct_h
 #   unit: ct
 #   datatype: int16
-#   description: !!python/unicode 'Observed 2-8keV counts in merged apertures'
+#   description: Observed 2-8keV counts in merged apertures
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHOT_COUNTS_X'}
-#   - {!!python/unicode 'width': 5}
+#   - {ucd: PHOT_COUNTS_X}
+#   - {width: 5}
 # - name: bgScl
 #   datatype: float32
-#   format: !!python/unicode '%6.1f'
-#   description: !!python/unicode 'Scaling of background extraction'
+#   format: '%6.1f'
+#   description: Scaling of background extraction
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_BACKGROUND'}
-#   - {!!python/unicode 'width': 6}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
-# - name: bgct-t
+#   - {ucd: INST_BACKGROUND}
+#   - {width: 6}
+#   - {precision: '1'}
+# - name: bgct_t
 #   unit: ct
 #   datatype: int16
-#   description: !!python/unicode '[0/10377] Observed 0.5-8keV counts in merged background
-#     regions'
+#   description: '[0/10377] Observed 0.5-8keV counts in merged background regions'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_BACKGROUND'}
-#   - {!!python/unicode 'width': 5}
-# - name: bgct-s
+#   - {ucd: INST_BACKGROUND}
+#   - {width: 5}
+# - name: bgct_s
 #   unit: ct
 #   datatype: int16
-#   description: !!python/unicode 'Observed 0.5-2keV counts in merged background regions'
+#   description: Observed 0.5-2keV counts in merged background regions
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_BACKGROUND'}
-#   - {!!python/unicode 'width': 4}
-# - name: bgct-h
+#   - {ucd: INST_BACKGROUND}
+#   - {width: 4}
+# - name: bgct_h
 #   unit: ct
 #   datatype: int16
-#   description: !!python/unicode 'Observed 2-8keV counts in merged background regions'
+#   description: Observed 2-8keV counts in merged background regions
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_BACKGROUND'}
-#   - {!!python/unicode 'width': 4}
-# - name: b_Nct-t
+#   - {ucd: INST_BACKGROUND}
+#   - {width: 4}
+# - name: b_Nct_t
 #   unit: ct
 #   datatype: float32
-#   format: !!python/unicode '%7.1f'
-#   description: !!python/unicode '1{sigma} lower bound on NCt-t (7)'
+#   format: '%7.1f'
+#   description: 1{sigma} lower bound on NCt-t (7)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ERROR'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
-# - name: Nct-t
+#   - {ucd: ERROR}
+#   - {width: 7}
+#   - {precision: '1'}
+# - name: Nct_t
 #   unit: ct
 #   datatype: float32
-#   format: !!python/unicode '%7.1f'
-#   description: !!python/unicode '[0.2/30101] Net 0.5-8keV counts in merged apertures'
+#   format: '%7.1f'
+#   description: '[0.2/30101] Net 0.5-8keV counts in merged apertures'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHOT_COUNTS_X'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
-# - name: B_Nct-t
+#   - {ucd: PHOT_COUNTS_X}
+#   - {width: 7}
+#   - {precision: '1'}
+# - name: B_Nct_t
 #   unit: ct
 #   datatype: float32
-#   format: !!python/unicode '%7.1f'
-#   description: !!python/unicode '1{sigma} upper bound on NCt-t (7)'
+#   format: '%7.1f'
+#   description: 1{sigma} upper bound on NCt-t (7)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ERROR'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
-# - name: b_Nct-s
+#   - {ucd: ERROR}
+#   - {width: 7}
+#   - {precision: '1'}
+# - name: b_Nct_s
 #   unit: ct
 #   datatype: float32
-#   format: !!python/unicode '%7.1f'
-#   description: !!python/unicode '? 1{sigma} lower bound on NCt-s (7)'
+#   format: '%7.1f'
+#   description: '? 1{sigma} lower bound on NCt-s (7)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ERROR'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
-# - name: Nct-s
+#   - {ucd: ERROR}
+#   - {width: 7}
+#   - {precision: '1'}
+#   - values: {'null': .nan}
+# - name: Nct_s
 #   unit: ct
 #   datatype: float32
-#   format: !!python/unicode '%7.1f'
-#   description: !!python/unicode 'Net 0.5-2keV counts in merged apertures'
+#   format: '%7.1f'
+#   description: Net 0.5-2keV counts in merged apertures
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHOT_COUNTS_X'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
-# - name: B_Nct-s
+#   - {ucd: PHOT_COUNTS_X}
+#   - {width: 7}
+#   - {precision: '1'}
+# - name: B_Nct_s
 #   unit: ct
 #   datatype: float32
-#   format: !!python/unicode '%7.1f'
-#   description: !!python/unicode '1{sigma} upper bound on NCt-s (7)'
+#   format: '%7.1f'
+#   description: 1{sigma} upper bound on NCt-s (7)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ERROR'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
-# - name: b_Nct-h
+#   - {ucd: ERROR}
+#   - {width: 7}
+#   - {precision: '1'}
+# - name: b_Nct_h
 #   unit: ct
 #   datatype: float32
-#   format: !!python/unicode '%7.1f'
-#   description: !!python/unicode '? 1{sigma} lower bound on NCt-h (7)'
+#   format: '%7.1f'
+#   description: '? 1{sigma} lower bound on NCt-h (7)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ERROR'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
-# - name: Nct-h
+#   - {ucd: ERROR}
+#   - {width: 7}
+#   - {precision: '1'}
+#   - values: {'null': .nan}
+# - name: Nct_h
 #   unit: ct
 #   datatype: float32
-#   format: !!python/unicode '%7.1f'
-#   description: !!python/unicode 'Net 2-8keV counts in merged apertures'
+#   format: '%7.1f'
+#   description: Net 2-8keV counts in merged apertures
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHOT_COUNTS_X'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
-# - name: B_Nct-h
+#   - {ucd: PHOT_COUNTS_X}
+#   - {width: 7}
+#   - {precision: '1'}
+# - name: B_Nct_h
 #   unit: ct
 #   datatype: float32
-#   format: !!python/unicode '%7.1f'
-#   description: !!python/unicode '1{sigma} upper bound on NCt-h (7)'
+#   format: '%7.1f'
+#   description: 1{sigma} upper bound on NCt-h (7)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'ERROR'}
-#   - {!!python/unicode 'width': 7}
-#   - {!!python/unicode 'precision': !!python/unicode '1'}
-# - name: Area-t
+#   - {ucd: ERROR}
+#   - {width: 7}
+#   - {precision: '1'}
+# - name: Area_t
 #   unit: cm2
 #   datatype: float32
-#   format: !!python/unicode '%6.2f'
-#   description: !!python/unicode '[30/246] Mean effective area (ARF value) in cm^2^.count/photon
-#     in 0.5-8keV (8)'
+#   format: '%6.2f'
+#   description: '[30/246] Mean effective area (ARF value) in cm^2^.count/photon in
+#     0.5-8keV (8)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_AREA'}
-#   - {!!python/unicode 'width': 6}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
-# - name: Area-s
+#   - {ucd: INST_AREA}
+#   - {width: 6}
+#   - {precision: '2'}
+# - name: Area_s
 #   unit: cm2
 #   datatype: float32
-#   format: !!python/unicode '%6.2f'
-#   description: !!python/unicode 'Mean effective area (ARF value) in cm^2^.count/photon
-#     in 0.5-2keV (8)'
+#   format: '%6.2f'
+#   description: Mean effective area (ARF value) in cm^2^.count/photon in 0.5-2keV (8)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_AREA'}
-#   - {!!python/unicode 'width': 6}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
-# - name: Area-h
+#   - {ucd: INST_AREA}
+#   - {width: 6}
+#   - {precision: '2'}
+# - name: Area_h
 #   unit: cm2
 #   datatype: float32
-#   format: !!python/unicode '%6.2f'
-#   description: !!python/unicode 'Mean effective area (ARF value) in cm^2^.count/photon
-#     in 2-8keV (8)'
+#   format: '%6.2f'
+#   description: Mean effective area (ARF value) in cm^2^.count/photon in 2-8keV (8)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'INST_AREA'}
-#   - {!!python/unicode 'width': 6}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
-# - name: E-t
+#   - {ucd: INST_AREA}
+#   - {width: 6}
+#   - {precision: '2'}
+# - name: E_t
 #   unit: keV
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode '[0.5/7] Median 0.5-8keV energy, observed spectrum
-#     (9)'
+#   format: '%5.2f'
+#   description: '[0.5/7] Median 0.5-8keV energy, observed spectrum (9)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHYS_ENERGY_X'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
-# - name: E-s
+#   - {ucd: PHYS_ENERGY_X}
+#   - {width: 5}
+#   - {precision: '2'}
+# - name: E_s
 #   unit: keV
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode '? Median 0.5-2keV energy, observed spectrum (9)'
+#   format: '%5.2f'
+#   description: '? Median 0.5-2keV energy, observed spectrum (9)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHYS_ENERGY_X'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
-# - name: E-h
+#   - {ucd: PHYS_ENERGY_X}
+#   - {width: 5}
+#   - {precision: '2'}
+#   - values: {'null': .nan}
+# - name: E_h
 #   unit: keV
 #   datatype: float32
-#   format: !!python/unicode '%5.2f'
-#   description: !!python/unicode '? Median 2-8keV energy, observed spectrum (9)'
+#   format: '%5.2f'
+#   description: '? Median 2-8keV energy, observed spectrum (9)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHYS_ENERGY_X'}
-#   - {!!python/unicode 'width': 5}
-#   - {!!python/unicode 'precision': !!python/unicode '2'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
-# - name: XFlx-t
+#   - {ucd: PHYS_ENERGY_X}
+#   - {width: 5}
+#   - {precision: '2'}
+#   - values: {'null': .nan}
+# - name: XFlx_t
 #   unit: ph s / cm2
 #   datatype: float32
-#   format: !!python/unicode '%9.2g'
-#   description: !!python/unicode 'Apparent photon flux in total (0.5-8keV) band (10)'
+#   format: '%9.2g'
+#   description: Apparent photon flux in total (0.5-8keV) band (10)
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHOT_FLUX_X'}
-#   - {!!python/unicode 'width': 9}
-#   - {!!python/unicode 'precision': !!python/unicode 'E2'}
-# - name: XFlx-s
+#   - {ucd: PHOT_FLUX_X}
+#   - {width: 9}
+#   - {precision: E2}
+# - name: XFlx_s
 #   unit: ph s / cm2
 #   datatype: float32
-#   format: !!python/unicode '%9.2g'
-#   description: !!python/unicode 'Apparent photon flux in soft (0.5-2keV) band'
+#   format: '%9.2g'
+#   description: Apparent photon flux in soft (0.5-2keV) band
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHOT_FLUX_X'}
-#   - {!!python/unicode 'width': 9}
-#   - {!!python/unicode 'precision': !!python/unicode 'E2'}
-# - name: XFlx-h
+#   - {ucd: PHOT_FLUX_X}
+#   - {width: 9}
+#   - {precision: E2}
+# - name: XFlx_h
 #   unit: ph s / cm2
 #   datatype: float32
-#   format: !!python/unicode '%9.2g'
-#   description: !!python/unicode 'Apparent photon flux in hard (2-8keV) band'
+#   format: '%9.2g'
+#   description: Apparent photon flux in hard (2-8keV) band
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHOT_FLUX_X'}
-#   - {!!python/unicode 'width': 9}
-#   - {!!python/unicode 'precision': !!python/unicode 'E2'}
-# - name: EFlx-t
+#   - {ucd: PHOT_FLUX_X}
+#   - {width: 9}
+#   - {precision: E2}
+# - name: EFlx_t
 #   unit: mW / m2
 #   datatype: float32
-#   format: !!python/unicode '%8.1g'
-#   description: !!python/unicode 'Apparent energy flux in total (0.5-8keV) band (max(EFlx-s,0)+max(EFlx-h,0))'
+#   format: '%8.1g'
+#   description: Apparent energy flux in total (0.5-8keV) band (max(EFlx-s,0)+max(EFlx-h,0))
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHYS_ENERGY_X'}
-#   - {!!python/unicode 'width': 8}
-#   - {!!python/unicode 'precision': !!python/unicode 'E1'}
-# - name: EFlx-s
+#   - {ucd: PHYS_ENERGY_X}
+#   - {width: 8}
+#   - {precision: E1}
+# - name: EFlx_s
 #   unit: mW / m2
 #   datatype: float32
-#   format: !!python/unicode '%8.1g'
-#   description: !!python/unicode '? Apparent energy flux in soft (0.5-2keV) band (11)'
+#   format: '%8.1g'
+#   description: '? Apparent energy flux in soft (0.5-2keV) band (11)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHYS_ENERGY_X'}
-#   - {!!python/unicode 'width': 8}
-#   - {!!python/unicode 'precision': !!python/unicode 'E1'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
-# - name: EFlx-h
+#   - {ucd: PHYS_ENERGY_X}
+#   - {width: 8}
+#   - {precision: E1}
+#   - values: {'null': .nan}
+# - name: EFlx_h
 #   unit: mW / m2
 #   datatype: float32
-#   format: !!python/unicode '%8.1g'
-#   description: !!python/unicode '? Apparent energy flux in hard (2-8keV) band (11)'
+#   format: '%8.1g'
+#   description: '? Apparent energy flux in hard (2-8keV) band (11)'
 #   meta: !!omap
-#   - {!!python/unicode 'ucd': !!python/unicode 'PHYS_ENERGY_X'}
-#   - {!!python/unicode 'width': 8}
-#   - {!!python/unicode 'precision': !!python/unicode 'E1'}
-#   - !!python/unicode 'values': {!!python/unicode 'null': .nan}
+#   - {ucd: PHYS_ENERGY_X}
+#   - {width: 8}
+#   - {precision: E1}
+#   - values: {'null': .nan}
 # meta: !!omap
-# - {!!python/unicode 'ID': !!python/unicode 'J_ApJS_213_1_table3'}
-# - {!!python/unicode 'description': !!python/unicode 'MOXC X-ray sources and properties'}
-# - {!!python/unicode 'name': !!python/unicode 'J/ApJS/213/1/table3'}
-_RAJ2000 _DEJ2000 Region p CXOU Label RAJ2000 DEJ2000 ePos PosType no-m no-t no-s no-h KS_S KS_M ExpNom ExpFrac Ct Nobs Nph Fdis b_theta theta B_theta PSFf Area aglow Oct-t Oct-s Oct-h bgScl bgct-t bgct-s bgct-h b_Nct-t Nct-t B_Nct-t b_Nct-s Nct-s B_Nct-s b_Nct-h Nct-h B_Nct-h Area-t Area-s Area-h E-t E-s E-h XFlx-t XFlx-s XFlx-h EFlx-t EFlx-s EFlx-h
+# - {name: J/ApJS/213/1/table3}
+# - {description: MOXC X-ray sources and properties}
+# - {ID: J_ApJS_213_1_table3}
+_RAJ2000 _DEJ2000 Region p CXOU Label RAJ2000 DEJ2000 ePos PosType no_m no_t no_s no_h KS_S KS_M ExpNom ExpFrac Ct Nobs Nph Fdis b_theta theta B_theta PSFf Area aglow Oct_t Oct_s Oct_h bgScl bgct_t bgct_s bgct_h b_Nct_t Nct_t B_Nct_t b_Nct_s Nct_s B_Nct_s b_Nct_h Nct_h B_Nct_h Area_t Area_s Area_h E_t E_s E_h XFlx_t XFlx_s XFlx_h EFlx_t EFlx_s EFlx_h
 290.900776 14.469873 W51A  192336.18+142811.5 p1_253 290.900776 14.469873 0.43 "AE mean data" 0.0006 0.0074 0.0006 -- -- -- 70214.7 0.96 0.00015 2 2 0.00 3.23 3.23 3.23 0.89 20.16 -- 3 3 0 305.1 125 48 77 1.1 2.6 4.7 1.4 2.8 5.0 -- -0.3 1.1 225.06 323.32 200.43 1.23 1.23 -- 1.6e-07 1.2e-07 -1.8e-08 3e-16 3e-16 --
 290.921234 14.518080 W51A  192341.09+143105.0 p1_474 290.921234 14.518080 0.24 "AE mean data" 0.0079 0.0122 -- 0.0079 -- -- 70214.7 0.96 0.00039 2 2 0.00 0.49 0.49 0.49 0.89 7.58 -- 3 0 3 257.2 129 17 112 1.1 2.5 4.7 -- -0.1 1.1 1.1 2.6 4.7 237.55 339.92 211.89 2.87 -- 2.87 1.5e-07 -2.8e-09 1.7e-07 8e-16 -- 8e-16
 290.957181 14.538228 W51A  192349.72+143217.6 p1_748 290.957181 14.538228 0.24 "AE reconstruction" 0.0003 0.0008 -- 0.0003 -- -- 70214.7 0.96 0.00047 2 2 0.00 2.69 2.69 2.69 0.54 4.02 -- 3 0 3 673.2 147 33 114 1.3 2.8 4.9 -- 0.0 1.1 1.4 2.8 5.0 132.50 205.66 114.17 4.46 -- 4.46 3e-07 -3.4e-09 3.5e-07 2e-15 -- 2e-15

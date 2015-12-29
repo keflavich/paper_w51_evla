@@ -1,6 +1,6 @@
 Source   Xray_Association          NIR_Association              Goldader1994
 d2       -                         -                            -
-d3       -                         2MASS19233587+1431286        -
+d3       -                         UGPSJ192335.88+143128.8      -
 d4e      CXOJ192339.6+143130       UGPSJ192339.65+143130.9      -
 d4w      CXOJ192339.6+143130       UGPSJ192339.65+143130.9      -
 d5       -                         UGPSJ192341.77+143127.6      -
@@ -29,6 +29,6 @@ e18?     -                         -                            -
 e18d     -                         -                            -
 e19?     -                         -                            -
 e20?     CXOU192342.86+143027.5    UGPSJ192342.85+143027.7      RS7
-e21?     (same as e20)             (same as e20)                -
+e21?     (same as e20)             (same as e20)                (same as e20)
 e22?     CXOU192342.77+143027.5    UGPSJ192342.84+143027.5      RS8
 e23?     -                         -                            -

@@ -578,6 +578,7 @@ bubble sizes, $\sim0.2-0.3$ pc.  This scenario suggests the existence of a
 population of un-embedded O-stars in W51.  
 
 \subsection{The nature of the continuum sources}
+\label{sec:contnature}
 % 27 dervied by looking at source_positions table and subtracting extended
 % sources
 Out of the 27 compact continuum sources reported, most are ultra- or
@@ -968,23 +969,25 @@ errorbars.
 {figures/contour_movie/e1e2_h2co22_emission_on_cont22_natural_v55to62peak_labeled.png}
 { Peak intensity contours (red) of the naturally weighted \formaldehyde \twotwo
 emission from 55 to 62 \kms in the e1/e2 region superposed on the Ku-band
-continuum image.  The contours are at 2,4,6 mJy/beam.  The green circles show
+continuum image.  The contours are at 2, 4, 6 mJy/beam.  The green circles show
 the apertures used for the spectra shown in Figures
 \ref{fig:w51e2emispec} and
 \ref{fig:w51e1emispec}.  The larger apertures around e8mol and e10mol are
-e8mol\_ext and e10mol\_ext.
+e8mol\_ext and e10mol\_ext.  The feature denoted `e2-e8 bridge' is a likely
+imaging artifact that is seen in the naturally-weighted but not in the
+robust-weighted images.
 }{fig:w51mainemilabels}{1}{6.5in}
 
 \FigureThreeAA
 {figures/contour_movie/e1e2_h2co22_emission_on_cont22_natural_v56.0.png}
 {figures/contour_movie/e1e2_h2co22_emission_on_cont22_natural_v57.0.png}
 {figures/contour_movie/e1e2_h2co22_emission_on_cont22_natural_v59.5.png}
-{Contours of the \formaldehyde \twotwo emission in the W51 Main region at 3
-velocities superposed on the 15 GHz continuum map.  (a) shows the peak of the e2
-core, where the center of the core is missed because it is in absorption
-against the very bright continuum peak, (b) shows the overlap velocity (the
-connecting region between the clumps is an imaging artifact),
-and (c) shows the e8 core}
+{Contours of the \formaldehyde \twotwo naturally weighted emission in the W51
+Main region at 3 velocities superposed on the 15 GHz continuum map.  (a) shows
+the peak of the e2 core, where the center of the core is missed because it is
+in absorption against the very bright continuum peak, (b) shows the overlap
+velocity (the connecting region between the clumps is an imaging artifact), and
+(c) shows the e8 core}
 {fig:w51mainemicontours}{1}{2.1in}
 
 \FigureThreeAA
@@ -1121,16 +1124,31 @@ based on morphological and velocity structure in the \citet{Hodapp2002a}
 spectra, and these bow shocks point back to an origin in IRS 2.  The high
 velocity [Fe II] features ($\pm150$ \kms) are a clear indication of a bow
 shock.  It is therefore possible that the d4 sources are just emission features
-within the bow shock.  Since such features are not observed in the nearby Orion
-KL outflow, where the bow shocks are orders of magnitude fainter (Forbrich et
-al, in prep), such an association implies that this outflow is much more
-powerful than any seen in nearby star forming regions.
+within the bow shock.  Since bright radio and X-ray features are not observed
+in the nearby Orion KL outflow, where the bow shocks are orders of magnitude
+fainter (Forbrich et al, in prep), such an association implies that this
+outflow is much more massive and higher-velocity than any seen in nearby star
+forming regions.
+
+An alternative possibility, in keeping with the SED interpretation from Section
+\ref{sec:contnature}, is that the d4 sources are massive stars with strong
+stellar winds.  In this interpretation, the overlap with the outflow emission
+may either be pure coincidence, or the winds of the massive stars may be
+interacting directly with the outflow from IRS 2.  While it is highly unlikely
+that an outflow would impact these rare windy stars, the interaction would
+provide a natural explanation for the high line widths observed in the infrared
+and for the presence of radio emission.  However, the weakness of the K-band
+detection ($M_K \sim 15$, and apparently extended) hints against this
+interpretation.
 
 \Figure{figures/d4_h2_overlay.png}
 {A UWISH2 \hh image with Ku-band contours of sources d4e and d4w overlaid at
 0.15, 0.30, 0.45, 0.60, 0.75, and 0.90 mJy/beam.  The box shows the slit
-position used in \citet{Hodapp2002a}.  The X's mark positions of MOXC X-ray
-sources \citep{Townsley2014a}.
+position used in \citet{Hodapp2002a}, in which [Fe II] emission spanning
+$>200$ \kms was detected.  The X's mark positions of MOXC X-ray
+sources \citep{Townsley2014a}.  Both radio sources are considered
+associated with the closer MOXC source in Table \ref{tab:associations}.
+This figure is discussed in Section \ref{sec:d4}.
 }
 {fig:d4h2}{1}{6.5in}
 
@@ -1201,15 +1219,39 @@ assuming that the image-based continuum subtraction is accurate.
 \section{Discussion}
 
 \subsection{The massive stars and the clusters}
+\label{sec:mstarscluster}
 The W51 IRS2 cluster is closer to exhausting its available gas reservoir than
 the W51e1/e2 cluster, since it is visible in the near-infrared and shows signs
 of bulk outflow from the cluster.  In this sense, and because it contains many
 of stars that appear to have no ongoing accretion, it is older.  In a similar
 vein, the W51 e20 stars are likely the oldest in the W51 Main system.
 
-However, W51 e20 and the related W51e candidate CWBs constitute an unclustered
-population.  The Chandra MOXC catalog reveals that the most clear cluster is the
-W51 IRS2 cluster, and while there is a mild overdensity 
+However, W51 e20 and the related W51e candidate CWBs may constitute an
+unclustered population.  The Chandra MOXC catalog \citep{Townsley2014a} reveals
+that the most evident cluster is W51 IRS2, and while there is a mild
+overdensity associated with the W51 Main region, it is more amorphous than
+centrally concentrated (Figure \ref{fig:moxconc}).  While it is possible that
+the e20 group will merge with the e1/e2 cluster, the later evolutionary stage
+of the e20 group (they are not embedded or accreting) suggests that they formed
+separately and in smaller groupings.
+
+\Figure{figures/moxc_points_contours_on_cband.png}
+{Contours \& individual points showing the X-ray source density from the 
+MOXC \citep{Townsley2014a} catalog overlaid on the C-band image of W51.
+See Section \ref{sec:mstarscluster}.}
+{fig:moxconc}{1}{6.5in}
+
+The W51d CWB candidates, by contrast, are each isolated and distributed around
+W51 IRS2 (Figure \ref{fig:coverview_pointsrcs}).  These could therefore be
+runaway stars from the IRS 2 cluster.  d5
+is the furthest of these in projection, so with a distance of 0.9 pc, its
+ejection time is $t = 0.08 Myr \left(v_*/ 10 \kms\right)^{-1}$.  The runaway
+scenario may also provide an alternate explanation for the observed SEDs:
+synchrotron emission from the wind-ISM
+bow-shock might provide the emission we detect.  This scenario can be readily
+verified if high ($>10 \kms$) line-of-sight velocities to the infrared-visible
+stars are measured.
+
 
 \subsection{The future evolution of the W51 clusters and molecular cloud}
 The W51 clusters are likely to reach a very high star formation efficiency,
@@ -1232,7 +1274,8 @@ formation.  The presence of accreting stars within large HII regions further
 confirms that ionizing radiation and ionized gas pressure is inadequate to stop
 star formation in the clusters.  This point confirms the \citet{Matzner2015a}
 argument that the most massive clumps in the galaxy  end their formation by
-exhausting their parent reservoir rather than by feedback disruption.
+exhausting their parent reservoir rather than by disrupting their parent cloud
+via feedback.
 
 %We therefore anticipate that the clusters will continue to consume the dense
 %gas they presently contain until it is either exhausted or some other feedback
@@ -1251,8 +1294,9 @@ gas, so the stellar $M_{final} \gtrsim 1.1\ee{4}$ \msun.
 Since the free-fall time is very short within these clusters ($t_{ff} < 0.5$
 Myr out to 2.5 pc containing 5\ee{4} \msun of gas), supernovae will not affect
 their formation.  However, once the clusters have exhausted gas locally, there
-is both plenty of time and a relatively free line-of-sight from the clusters to the rest
-of the molecular cloud.  The binding energy of a $10^6$ \msun, $r=50$ pc 
+is both plenty of time for the stars to evolve while still in the
+molecular cloud and a relatively free line-of-sight from the clusters to the rest
+of the cloud.  The binding energy of a $10^6$ \msun, $r=50$ pc 
 molecular cloud is only about $10^{51}$ ergs, so a single supernova perfectly
 coupled to the gas could unbind it all.  The $\sim20$ O-stars presently formed,
 plus at least that many expected to form, will provide more than enough energy
