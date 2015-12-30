@@ -1,0 +1,10 @@
+#CRTFv0 CASA Region Text Format version 0
+box [[19:23:43.97632, +014.30.33.4703], [19:23:43.82743, +014.30.35.4075]] coord=J2000, linewidth=1, linestyle=-, symsize=1, symthick=1, color=magenta, font="Lucida Grande", fontsize=11, fontstyle=normal, usetex=false
+box [[19:23:43.93641, +014.30.29.0714], [19:23:43.87313, +014.30.29.9757]] coord=J2000, linewidth=1, linestyle=-, symsize=1, symthick=1, color=magenta, font="Lucida Grande", fontsize=11, fontstyle=normal, usetex=false
+box [[19:23:43.97499, +014.30.26.6916], [19:23:43.93497, +014.30.27.2469]] coord=J2000, linewidth=1, linestyle=-, symsize=1, symthick=1, color=magenta, font="Lucida Grande", fontsize=11, fontstyle=normal, usetex=false
+box [[19:23:43.86584, +014.30.24.4442], [19:23:43.80763, +014.30.25.0788]] coord=J2000, linewidth=1, linestyle=-, symsize=1, symthick=1, color=magenta, font="Lucida Grande", fontsize=11, fontstyle=normal, usetex=false
+box [[19:23:43.67848, +014.30.26.4538], [19:23:43.63301, +014.30.27.0091]] coord=J2000, linewidth=1, linestyle=-, symsize=1, symthick=1, color=magenta, font="Lucida Grande", fontsize=11, fontstyle=normal, usetex=false
+box [[19:23:43.86039, +014.30.25.3696], [19:23:43.73851, +014.30.26.9826]] coord=J2000, linewidth=1, linestyle=-, symsize=1, symthick=1, color=magenta, font="Lucida Grande", fontsize=11, fontstyle=normal, usetex=false
+box [[19:23:43.92952, +014.30.27.6435], [19:23:43.87313, +014.30.28.5161]] coord=J2000, linewidth=1, linestyle=-, symsize=1, symthick=1, color=magenta, font="Lucida Grande", fontsize=11, fontstyle=normal, usetex=false
+box [[19:23:41.88102, +014.30.56.4815], [19:23:41.84291, +014.30.56.9560]] coord=J2000, linewidth=1, linestyle=-, symsize=1, symthick=1, color=magenta, font="Lucida Grande", fontsize=11, fontstyle=normal, usetex=false
+box [[19:23:40.12174, +014.31.05.5435], [19:23:39.61510, +014.31.12.1356]] coord=J2000, linewidth=1, linestyle=-, symsize=1, symthick=1, color=magenta, font="Lucida Grande", fontsize=11, fontstyle=normal, usetex=false
