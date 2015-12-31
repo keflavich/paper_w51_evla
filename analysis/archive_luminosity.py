@@ -10,7 +10,7 @@ Akari = Irsa.query_region(coordinates.SkyCoord.from_name('W51'),
 
 # formulae from http://marc.sauvage.free.fr/astro_book/IRAS_pages/IRAS.html
 fir_lum_iras = 3.96e5 * (2.58*IRAS['fnu_60'][0] + IRAS['fnu_100'][0]) * (distance.to(u.Mpc).value)**2 * u.L_sun
-mir_lum_iras = 1.611e6 * (2.61*IRAS['fnu_12'][0] + IRAS['fnu_25'][0]) *(distance.to(u.Mpc).value)**2 * u.L_sun
+mir_lum_iras = 1.611e6 * (2.61*IRAS['fnu_12'][0] + IRAS['fnu_25'][0]) * (distance.to(u.Mpc).value)**2 * u.L_sun
 
 print("IRAS FIR luminosity: {0}".format(fir_lum_iras))
 print("IRAS MIR luminosity: {0}".format(mir_lum_iras))

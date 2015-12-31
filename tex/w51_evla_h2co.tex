@@ -10,18 +10,21 @@
 \date{Date: \today ~~ Time: \currenttime}
 
 \abstract
-{}
-{}
-{}
-{}
 {
-(1) \ortho \twotwo emission traces forming very massive (proto-O) stars
-(2) There is a spatially distributed population of $\sim$mJy continuum sources,
+We present new JVLA observations of the high-mass star- and cluster-forming region
+W51 Main / IRS2.  The data reveal a wealth of observational results:
+(1) We detect \ortho \twotwo emission tracing forming very massive (proto-O) stars,
+suggesting that this line can be used efficiently as a massive protostar tracer
+with future instruments
+(2) There is a spatially distributed population of $\lesssim$mJy continuum sources,
 including probable hypercompact HII regions and O-stars with ionized winds,
-around the W51 proto-clusters
+around the W51 proto-clusters.  
 (3) There are two clearly detected clusters, W51e and W51 IRS 2, but the
-majority of the luminosity in W51 most likely comes from a third population of
-OB stars between these clusters.
+majority of the bolometric luminosity in W51 most likely comes from a third
+population of OB stars between these clusters.
+The presence of a substantial population of exposed O-stars coincident with
+a population of still-forming massive stars implies that feedback is ineffective
+at halting star formation in massive protoclusters.
 }
 
 \maketitle
@@ -37,23 +40,29 @@ https://github.com/adamginsburg/paper\_w51\_evla.
 The highest-mass clusters forming in our Galaxy have masses $M\sim10^4$ \msun.
 These rare regions mark the high end of the protocluster mass function, and
 recent surveys have provided a complete census of all protoclusters in this
-high mass range \citep{Ginsburg2012a,Urquhart2013b,Urquhart2014b}.
+high mass range \citep{Ginsburg2012a,Urquhart2013b,Urquhart2014b}.  As the
+most massive and dense star-forming regions in the Galaxy, these locations
+provide an important local analogue to the high-density star formation
+that occurred in the early universe.
 
-
-The protoclusters within W51 contain many forming massive stars
-\citep{Zhang1997a,Keto2008b,Zapata2008a,Zapata2009a,Zapata2010a,Shi2010b,Shi2010a,Goddi2015a}
-and a few that have already reached the main sequence and are visible in the
-infrared \citep{Goldader1994a,Okumura2000a,Kumar2004a,Barbosa2008a,Figueredo2008a}.
-It is at a parallax-measured distance of 5.41 kpc \citep{Sato2010a,Xu2009a}.
 
 Of all the star forming regions included in the Red MSX Survey, which is
 complete to sources with infrared luminosity $L>10^4$ \lsun, W51 is the most
-luminous \citep{Urquhart2014a}.
-The total luminosity of the W51 protocluster complex has been estimated a few
-times using IRAS and KAO to measure the peak of the SED in the far infrared.
-The measurements converge on $\sim8.3\ee{6} (D/5.1\mathrm{kpc})$ \lsun
-\citep{Harvey1986a,Sievers1991a}.  It is therefore among the most luminous
-star-forming regions in the Galaxy.
+luminous \citep{Urquhart2014a} and among the closest at a parallax-measured
+distance of 5.41 kpc \citep{Sato2010a,Xu2009a}.  The total luminosity of the
+W51 protocluster complex has been estimated using IRAS and KAO,
+$L_{bol}\sim9.3\ee{6} (D/5.4\mathrm{kpc})^2$ \lsun
+\citep{Harvey1986a,Sievers1991a}.  
+
+As one of the most luminous star-forming regions in our Galaxy, W51 has been
+well-studied in the radio and millimeter.  
+Previous works have shown that the protoclusters within W51 contain many
+forming massive stars. Five high-mass protostars have been clearly identified:
+W51 North, W51e8, W51e2w, W52e2e, and W51e2nw
+\citep{Zhang1997a,Keto2008b,Zapata2008a,Zapata2009a,Zapata2010a,Shi2010b,Shi2010a,Goddi2015a}
+Another handful have already reached the main sequence and are visible in the
+infrared \citep{Goldader1994a,Okumura2000a,Kumar2004a,Barbosa2008a,Figueredo2008a}.
+However, the census of both massive stars and protostars in W51 is incomplete.
 
 We present observations of the inner few parsecs of the W51 protocluster
 forming region.  We refer to the whole region, including W51 Main (which
@@ -61,7 +70,23 @@ contains the W51e sources) and W51 IRS 2 as `W51A'.  Other names are explained
 when they are used.  An overview of the names used, including labels, is in the
 Appendix.
 
+In Section \ref{sec:observations}, we describe the observations and data
+reduction.  Section \ref{sec:results} presents the observational results,
+summarizing key features identified in the images and describing the
+point-source photometry (\S \ref{sec:pointsources}).  Section
+\ref{sec:analysis} provides analysis and interpretation of the observational
+results.  Section \ref{sec:discussion} discusses the importance of the
+observations.  Section \ref{sec:conclusion} concludes.
+
+Finally, we include the following appendices: Appendix
+\ref{sec:appendix_labels} provides figures labeling named objects,
+\ref{sec:SEDs} provides cutout images and SED plots for all point sources,
+\ref{sec:obsmeta} includes tables of observational metadata, and
+\ref{sec:vfield} shows the velocity field of the molecular gas.
+
+
 \section{Observations}
+\label{sec:observations}
 We used the JVLA in multiple bands and configurations.  In project 12B-365, we
 observed in A-array in S and C bands with 2 GHz total bandwidth.  In project
 13A-064, we observed in C-Band in C (1h) and A (5h) arrays and in Ku-band in D
@@ -86,7 +111,7 @@ and program IDs, is in Table \ref{tab:obs_meta}.
 While the noise levels in the images are frequently low, we did not achieve a
 thermal-noise-limited image in any of the 13A-064 data.  For example, in the
 C-band A-array data, the thermal noise is $\sim5$ \microjy, while the achieved
-RMS is $\sim30-60$ \microjy.  The images are generally ``artifact-dominated''
+RMS is $\sim30-60$ \microjy.  The images are generally artifact-dominated
 at the low-signal end, where inadequately cleaned sidelobes of bright features
 provide significant non-gaussian noise.  Some of these artifacts can be seen
 in Figure \ref{fig:coverview}.
@@ -110,7 +135,7 @@ For the spectral line analysis, we used the cubes listed in Table
 than in the robust-weighted cube because large angular scale artifacts are
 prevalent, especially at the image edges.
 
-In some figures, we show ``unsharp-masked'' versions of the data.  These are
+In some figures, we show unsharp-masked versions of the data.  These are
 equivalent to maps made excluding short baselines, but we instead performed
 unsharp masking (subtracting a gaussian-smoothed version of the image from
 itself) in the image domain for computational convenience.
@@ -129,6 +154,7 @@ identifying the regions discussed are available in the Appendix.}
 {fig:coverview}{0.9}{6.5in}
 
 \section{Observational Results}
+\label{sec:results}
 We report seven distinct observational results: 
 \begin{enumerate}
     \item Section \ref{sec:pointsources}: The detection of new continuum
@@ -211,7 +237,8 @@ case.
 \input{tables/pointsource_photometry.tex}
 
 Figure \ref{fig:d4sed} shows the cutout images with apertures for the source
-d4e.  \todo{Additional figures for all candidates are included in the Appendix.}
+d4e.  Additional figures for all candidates are included in Appendix
+\ref{sec:SEDs}.
 
 \Figure{figures/pointsource_seds/d4e_SED.png}
 {Cutouts of the source W51 d4e and its SED.
@@ -242,13 +269,6 @@ hint of emission at this location, with a 3-$\sigma$ upper limit of 0.6 mJy.
 At the same position and frequency in 2014, there is a $1.0 \pm 0.06$ mJy
 source at the position of d4e.  The case for variability in other sources is
 weaker but nonetheless suggestive.
-
-% \todo{Move this somewhere relevant.}
-% We found a small offset between the 1994 and 2014 images using a
-% cross-correlation method (\url{image-registration.rtfd.org}); the 2014 data
-% were shifted by 0.16\arcsec, 0.20\arcsec to the southeast from the 1994 data.
-% \todo{There also appears to be some "squeezing" mode, which is inexplicable.
-% It probably makes more sense to centroid on e2 and match that way.}
 
 
 \subsubsection{Source Associations}
@@ -293,13 +313,6 @@ this position.  More curiously, the associated MOXC Chandra source
 than the correct location.  Despite this confusion, we regard the NIR, X-ray,
 and radio features to have a common origin.
 
-
-
-%\todo{Is this a worthwhile observation?  The flux distribution of detected
-%sources at C-band (4.9 GHz) is essentially flat from 1\ee{-4} to 1\ee{-2} Jy.
-%There is a hint of a power-law or bimodal distribution from 1\ee{-4} to
-%1\ee{-1} Jy at 14.1 GHz.  The distribution probably reflects varying optical
-%depth.}
 
 \subsection{\formaldehyde \twotwo emission}
 \label{sec:twotwoemission}
@@ -533,6 +546,7 @@ range -60 to -16 \kms.}
 {fig:lacyjetoverlay}{1}{3.5in}
 
 \section{Analysis}
+\label{sec:analysis}
 \subsection{The stellar mass}
 \label{sec:stellarmass}
 
@@ -832,7 +846,11 @@ discussed in Section \ref{sec:d4}.
 % the W51e sources show absorption against the 68 \kms cloud, so they lie behind
 % it.}
 
-\formaldehyde \oneone and \twotwo are commonly observed in absorption
+\formaldehyde is generally a good tracer of molecular gas, showing up at typical
+abundances $\sim10^{-9}$ \hh anywhere CO is detected \citep[e.g.][]{Mangum1993a}.
+The centimeter lines of \ortho are often used as a measure of gas density when
+seen in absorption \citep[e.g.][]{Ginsburg2011a,Zeiger2010a}.
+\ortho \oneone and \twotwo are commonly observed in absorption
 but rarely in emission \citep[e.g.][]{Mangum1993a,Araya2007b}.  The \twotwo
 line has been observed in emission in the starburst M82 \citep{Mangum2008a},
 behind the Orion nebula
@@ -1231,6 +1249,7 @@ assuming that the image-based continuum subtraction is accurate.
 % We detect an additional XX point sources in the field.
 
 \section{Discussion}
+\label{sec:discussion}
 
 \subsection{The massive stars and the clusters}
 \label{sec:mstarscluster}
@@ -1390,6 +1409,7 @@ strongest evidence of interacting and colliding HII region shells (Figure
 
 
 \section{Conclusions}
+\label{sec:conclusion}
 We present deep, high-resolution radio continuum images observed in many
 low-frequency bands from the Very Large Array.  These images have yielded the
 first detection of the stellar cluster that is responsible for most of the
@@ -1466,6 +1486,7 @@ detect a significant additional population of proto-O-stars.
 
 \appendix
 \section{Figures labeling point sources and diffuse regions}
+\label{sec:appendix_labels}
 We include additional versions of Figure \ref{fig:coverview} with labels for
 the compact (Figure \ref{fig:coverview_pointsrcs}) and extended (Figure
 \ref{fig:coverview_diffuse}) HII regions.
@@ -1495,11 +1516,14 @@ digital form...}
 \input{ptsrcphotometryfigures.tex}
 
 \section{Observation metadata}
+\label{sec:obsmeta}
 The observation metadata is summarized in Table \ref{tab:obs_meta}.
+
 \input{tables/obs_meta.tex}
 
 
 \section{Velocity Field in W51e2}
+\label{sec:vfield}
 Many works have examined the velocity field of the gas in W51e2
 \citep{Zhang1997a,Keto2008b,Shi2010b,Shi2010a,Goddi2015b}.  For comparison, we
 show the velocity field of a $6\arcsec\times6\arcsec$ region centered on W51e2

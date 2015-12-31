@@ -51,7 +51,7 @@ F.show_grayscale(stretch='arcsinh',vmin=-5e-4,vmax=0.011,invert=True)
 F.add_scalebar(length=((0.5 * u.pc)/distance*u.radian).to(u.degree).value)
 F.scalebar.set_label('0.5 pc')
 F.scalebar.set_color('black')
-F.scalebar.set_linewidth(3)
+#F.scalebar.set_linewidth(3)
 F.scalebar.set_font_size(20)
 
 
