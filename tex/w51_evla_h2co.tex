@@ -11,13 +11,13 @@
 
 \abstract
 {
-We present new JVLA observations of the high-mass star- and cluster-forming region
+We present new JVLA observations of the high-mass cluster-forming region
 W51 Main / IRS2.  The data reveal a wealth of observational results:
 (1) We detect \ortho \twotwo emission tracing forming very massive (proto-O) stars,
 suggesting that this line can be used efficiently as a massive protostar tracer
 with future instruments
 (2) There is a spatially distributed population of $\lesssim$mJy continuum sources,
-including probable hypercompact HII regions and O-stars with ionized winds,
+including hypercompact HII regions and candidate colliding wind binaries,
 around the W51 proto-clusters.  
 (3) There are two clearly detected clusters, W51e and W51 IRS 2, but the
 majority of the bolometric luminosity in W51 most likely comes from a third
@@ -42,15 +42,28 @@ These rare regions mark the high end of the protocluster mass function, and
 recent surveys have provided a complete census of all protoclusters in this
 high mass range \citep{Ginsburg2012a,Urquhart2013b,Urquhart2014b}.  As the
 most massive and dense star-forming regions in the Galaxy, these locations
-provide an important local analogue to the high-density star formation
-that occurred in the early universe.
+provide an important local analogue the early universe, where stars more
+commonly formed in clusters and generally formed in denser gas
+\citep{Kruijssen2012a,Madau2014a}.
 
+In such environments, feedback from massive stars is a major factor.  Most star
+formation within high-mass clusters is likely to occur after at least one
+high-mass star has turned on.  Many open questions remain about the effects of
+this feedback, as the physical complexity of such regions means they have been
+difficult to simulate.  A crucial question is whether the clusters complete the
+star formation process by consuming all of their gas, by \emph{exhaustion}, or
+by removing it via feedback, by \emph{expulsion}
+\citep{Longmore2014a,Matzner2015a}, since this distinction governs whether the
+forming stars will be observable as a bound cluster or an expanding OB
+association.
 
-Of all the star forming regions included in the Red MSX Survey, which is
-complete to sources with infrared luminosity $L>10^4$ \lsun, W51 is the most
-luminous \citep{Urquhart2014a} and among the closest at a parallax-measured
-distance of 5.41 kpc \citep{Sato2010a,Xu2009a}.  The total luminosity of the
-W51 protocluster complex has been estimated using IRAS and KAO,
+W51 contains two of the best candidates for protoclusters that will experience
+gas exhaustion, and the region is already extremely luminous.  Of all the star
+forming regions included in the Red MSX Survey, which is complete to sources
+with infrared luminosity $L>10^4$ \lsun, W51 is the most luminous
+\citep{Urquhart2014a} and among the closest at a parallax-measured distance of
+5.41 kpc \citep{Sato2010a,Xu2009a}.  The total luminosity of the W51
+protocluster complex has been estimated using IRAS and KAO,
 $L_{bol}\sim9.3\ee{6} (D/5.4\mathrm{kpc})^2$ \lsun
 \citep{Harvey1986a,Sievers1991a}.  
 
@@ -87,24 +100,25 @@ Finally, we include the following appendices: Appendix
 
 \section{Observations}
 \label{sec:observations}
-We used the JVLA in multiple bands and configurations.  In project 12B-365, we
-observed in A-array in S and C bands with 2 GHz total bandwidth.  In project
-13A-064, we observed in C-Band in C (1h) and A (5h) arrays and in Ku-band in D
-(1h) and B (5h) arrays.  Our spectral coverage included \ortho \oneone 4.82966 GHz
-and \twotwo at 14.488 GHz with 0.3 \kms resolution and the radio recombination
-lines (RRLs) H77$\alpha$ (14.1286 GHz) and H110$\alpha$ (4.8741 GHz) at 1 \kms
-resolution.  The H110$\alpha$ line had lower S/N than the H77$\alpha$ line but
-was otherwise similar, so it is not discussed any more in this paper.
+We used the JVLA in multiple bands and configurations. 
+The observations and resulting images are summarized in Table
+\ref{tab:observations}.  The complete observational metadata, including times
+of observation and program IDs, are in Table \ref{tab:obs_meta}.  In project
+12B-365, we observed in A-array in S and C bands with 2 GHz total bandwidth.
+In project 13A-064, we observed in C-Band in C (1h) and A (5h) arrays and in
+Ku-band in D (1h) and B (5h) arrays.  Our spectral coverage included \ortho
+\oneone 4.82966 GHz and \twotwo at 14.488 GHz with 0.3 \kms resolution and the
+radio recombination lines (RRLs) H77$\alpha$ (14.1286 GHz) and H110$\alpha$
+(4.8741 GHz) at 1 \kms resolution.  The H110$\alpha$ line had lower S/N than
+the H77$\alpha$ line but was otherwise similar, so it is not discussed any more
+in this paper.
+
 
 Data reduction was performed using CASA\footnote{\url{http://casa.nrao.edu}}
 \citep{McMullin2007a}.  The pipeline-calibrated products were
 used, then imaging was performed using CLEAN.  For most images discussed here, we
 used uniform weighting.  The reduction scripts are included in a repository
 \url{https://github.com/adamginsburg/w51evlareductionscripts}.
-
-The observations and resulting images are summarized in Table
-\ref{tab:observations}.  The observation metadata, including times of observation
-and program IDs, is in Table \ref{tab:obs_meta}.
 
 \input{tables/observations.tex}
 
@@ -119,7 +133,9 @@ in Figure \ref{fig:coverview}.
 Despite the deficiency in the image quality, the new observations are
 $\sim5\times$ more sensitive than any previous observations in bands that were
 previously observed, and the new observations cover a much broader range of
-frequencies.
+frequencies.  Table \ref{tab:observations} gives the estimated noise in each 
+image and an estimate of the dynamic range, which is the peak flux in the image
+divided by the noise measured in a signal-free region of the image.  
 
 Figures \ref{fig:kuoverview} and \ref{fig:coverview} show the best-quality
 images in the Ku-band and C-band combining the short and long array
@@ -158,9 +174,9 @@ identifying the regions discussed are available in the Appendix.}
 We report seven distinct observational results: 
 \begin{enumerate}
     \item Section \ref{sec:pointsources}: The detection of new continuum
-        sources, most of which are most likely hypercompact \hii regions. 
+        sources, many of which are  hypercompact \hii regions. 
     \item Section \ref{sec:variability}: The detection of variability in
-        some of the faint point sources over 20 year timescales
+        some of the faint point sources over a 20 year timescale
     \item Section \ref{sec:associations}: The detection of radio continuum
         sources associated with near-infrared sources, most likely un-embedded
         O-stars
@@ -201,13 +217,13 @@ We include in this catalog any pointlike sources (at $\sim0.2-0.4\arcsec$
 resolution) with emission in two bands, Ku and C (14 and 5 GHz).  We also
 include candidate point sources (denoted with a trailing ? in Table
 \ref{tab:contsrcs}) that may instead be artifacts from the data reduction
-process.  In order to identify point sources, we used
-uniformly-weighted maps, which remove much of the extended emission and make
-point source detection simpler, but this process can make local peaks
-of the diffuse emission appear to be pointlike.  However, for many of the
-faint and questionable peaks, we have found clear near-infrared associations
-(Section \ref{sec:associations}),
-suggesting that the treatment of these point sources as real is justified.
+process.  In order to identify point sources, we used uniformly-weighted maps,
+which remove much of the extended emission and make point source detection
+simpler, but this process can make local peaks of the diffuse emission appear
+to be pointlike.  However, for many of the faint and questionable peaks, we
+have found clear near-infrared associations (Section \ref{sec:associations})
+and have detected the sources in multiple bands, suggesting that the treatment
+of these point sources as real is justified.
 
 The point source data is listed in Table \ref{tab:contsrcs}.  The Epoch column
 describes the data source: Epoch 1 comes from \citet{Mehringer1994a}, Epoch 2
@@ -217,7 +233,8 @@ comes from 12A-274, 12B-365, or 13A-064 (mid 2012-early
 of the highest-resolution observations.  Full details of the data origin
 are given in Table \ref{tab:obs_meta}.
 
-There are two flux density columns.  The first shows the peak flux density
+There are two flux density columns in Table \ref{tab:contsrcs}.  The first
+shows the peak flux density
 within an aperture centered on the source with a radius equal to the beam major
 FWHM; the aperture is therefore about twice as large as the full extent of the
 source.  The second column, `Peak - Background', shows the peak flux minus the
@@ -274,9 +291,10 @@ weaker but nonetheless suggestive.
 \subsubsection{Source Associations}
 \label{sec:associations}
 We compare our extracted source catalog with the MOXC Chandra X-ray catalog
-\citep{Townsley2014a}.  The associations are listed in Table
-\ref{tab:associations}.  We discuss some individual source associations
-in more detail in this section.
+\citep{Townsley2014a} and the UKIDSS Galactic Plane Survey
+\citep[UGPS;][]{Lucas2008a}.  The associations are listed in Table
+\ref{tab:associations}.  We discuss some
+individual source associations in more detail in this section.
 
 Both lobes of d4 are
 0.3\arcsec from MOXC 192339.62+143130.3 and d6 is 0.3\arcsec from MOXC
@@ -287,11 +305,11 @@ near stars rather than the stars themselves.
 Candidate sources e20 and e22 are $<0.1$\arcsec from
 MOXC 192342.86+143027.5 and 192342.77+143027.5, respectively.
 There are a handful of X-ray
-sources within W51 IRS2 that could be associated with faint HCHII regions that
+sources within W51 IRS2 that could be associated with faint \hchii regions that
 we do not detect due to confusion, but these could also be associated with
 outflowing material (e.g., the Lacy jet; see Section \ref{sec:lacyjet}).  The
-lack of correlation between X-ray and HCHII regions clearly indicates that the
-embedded OB stars within these HCHII regions are weak X-ray emitters.  
+lack of correlation between X-ray and \hchii regions clearly indicates that the
+embedded OB stars within these \hchii regions are at most weak X-ray emitters.  
 
 We compared our point source catalog to the UKIDSS K-band and UWISH2 \hh images
 to search for infrared associations with our detected radio sources
@@ -300,9 +318,12 @@ association, as is expected given the high extinction in this region.  The
 diffuse region e7 to the south is an exception, associated with UGPS
 J192344.79+142911.2 \citep{Lucas2008a}.  Three candidate sources, e20, e21, and
 e22, have clear K-band counterparts, though the UGPS cataloged sources do not
-align with the evident K-band sources.    e5 exhibits some K-band emission,
-though because of the diffuse surroundings, this emission is not cataloged in
-the UGPS.
+align with the evident K-band sources. We nonetheless consider these sources
+to have infrared counterparts; likely adaptive optics imaging will be required
+to obtain reliable fluxes for these due to both point source and extended emission
+confusion in the region.   Similarly, e5 exhibits some K-band emission, though
+because of the diffuse surroundings, this emission is not cataloged in the
+UGPS.
 
 The source d7 is clearly associated with a luminous infrared source, which is
 seen both in UKIDSS \citep{Lucas2008a} and NACO \citep{Figueredo2008a} images.
@@ -319,8 +340,11 @@ and radio features to have a common origin.
 We detect \formaldehyde \twotwo emission around W51e2, W51e8, in a region
 between e1, e8, and e10, and in W51 North.  We report the tentative detection
 of an extended structure between e2 and e1, though this structure is weak
-and could be an artifact from the image reconstruction process.
-The fitted emission line parameters are listed in Table \ref{tab:emission22}.
+and could be an artifact from the image reconstruction process.  The fitted
+emission line parameters are listed in Table \ref{tab:emission22}.  The
+emission is shown in Figures \ref{fig:w51northcore},
+\ref{fig:w51mainemilabels}, and \ref{fig:w51mainemicontours} and discussed in
+Section \ref{sec:h2coemission}.
 
 \input{tables/H2CO22_emission_spectral_fits}
 
@@ -334,11 +358,12 @@ The H77$\alpha$ emission line parameters are listed in Table \ref{tab:h77a}, and
 the \para \twotwo absorption line parameters are in Table \ref{tab:absorption22}.
 %The emission line parameters are only relevant for source e8mol.
 
-The e5 and e6 sources are close to one another (separation 3.1 \arcsec, or
-projected distance 0.08 pc), and both exhibit \formaldehyde absorption at 62-63
-\kms.  e6 is detected in H77$\alpha$ at 68 \kms, suggesting that the true
-velocity of both e5 and e6 are not the same as the \formaldehyde absorption
-lines.  The \formaldehyde absorption is likely from cloud in the foreground.
+The \formaldehyde absorption lines give velocities of foreground gas, not of
+the \hii regions.  The e5 and e6 sources are close to one another (separation
+3.1 \arcsec, or projected distance 0.08 pc), and both exhibit \formaldehyde
+absorption at 62-63 \kms.  e6 is detected in H77$\alpha$ at 68 \kms, suggesting
+that the true velocity of both e5 and e6 are not the same as the \formaldehyde
+absorption lines. 
 %    , \emph{but} the line profile of the e6 H77$\alpha$ line suggests that the
 %velocity measurement may be affected by image reconstruction artifacts from
 %50-63 \kms.
@@ -361,13 +386,13 @@ points away from e11, suggesting that it is the driving source.
 \Figure{figures/diffuse/e11_bow.png}
 {A bow-shaped feature toward the northeast of the source e11 in the Ku-band
 continuum image.  The feature resembles the bow shocks of Herbig-Haro object,
-but is more likely to be an HII region given its smooth structure.}
+but is more likely to be an \hii region given its smooth structure.}
 {fig:e11bow}{0.5}{6.5in}
 
-The source d3 is a diffuse HII region with radius $r\sim1.9$\arcsec.  It is
+The source d3 is a diffuse \hii region with radius $r\sim1.9$\arcsec.  It is
 associated with a Spitzer source and the 2MASS source 2MASX J19233591+1431288.
 The sources d3, e1, e6, and e7 are compact (0.02-0.07 pc) and fairly round;
-they are classed as ultracompact HII regions.
+they are therefore classified as ultracompact \hii regions.
 
 The diffuse emission associated with W51 Main traces a broad arc
 ($r\sim42\arcsec$) that has been seen in many previous data sets.  The new
@@ -377,7 +402,7 @@ reveal a network of wispy, filamentary structures.  Figure
 \ref{fig:w51mainpeak} shows the region between the W51e and W51 IRS2 clusters.
 While this area contains few clear individual sources, it accounts for the
 majority of the radio luminosity of the W51 Main region and somewhere between
-one quarter and one half the total luminosity of the W51 Main/IRS2 complex.
+one quarter and one half the bolometric luminosity of the W51 Main/IRS2 complex.
 
 The filamentary structures in the W51 Main peak are unresolved along the short
 axis, with aspect ratios $>25$.   These resemble the ``stringlike ionized
@@ -385,7 +410,7 @@ features'' noted by \citet[][see
 \url{http://images.nrao.edu/402}]{Yusef-Zadeh1990a}, which are associated
 primarily with the Orion Bar PDR and its fainter cousin to the northeast.  The
 similarity suggests that these features are PDRs, highlighting the sharp
-interaction points between the HII region and the surrounding molecular cloud.
+interaction points between the \hii region and the surrounding molecular cloud.
 
 The two most prominent of these sharp features are on opposite sides of the W51
 Peak (Figure \ref{fig:w51mainpeak}, blue arrows).  The long vertical filament
@@ -437,15 +462,16 @@ for the W51 Main region.  There are small ring features notable at low and high
 velocities; these are identified in Figure \ref{fig:coverview_diffuse}.}
 {fig:rrl_chan_main}{1}{7in}
 
-The HII region between W51 Main and W51 IRS 2 appears connected to the W51 IRS2
-bubble in the continuum (Figure \ref{fig:w51mainpeak}), but it peaks at around 75 \kms
-(Figure \ref{fig:rrl_chan_main}).  Along this region,
-there are weak `striations' at PA 126 degrees (parallel to the
-cyan arrow in Figure \ref{fig:w51mainpeak}), vaguely orthogonal to a line
-pointing back to IRS 2.  These striations  may trace the outer edge of the
-expanding IRS 2 region.  There is also an arc to the southwest of this
-between-clusters region that appears to be a bow shock from gas outflowing
-along the same axis.
+The \hii region between W51 Main and W51 IRS 2 appears connected to the W51 IRS2
+bubble in the continuum (Figure \ref{fig:w51mainpeak} shows the
+apparently-connected region, Figure \ref{fig:w51irs2} shows the IRS 2 bubble),
+but it peaks at around 75 \kms (Figure \ref{fig:rrl_chan_main}).  Along this
+region, there are weak `striations' at PA 126 degrees (parallel to the cyan
+arrow in Figure \ref{fig:w51mainpeak}), orthogonal to a line pointing back to
+IRS 2.  These striations  may trace the outer edge of the expanding IRS 2
+region.  There is also an arc to the southwest of this region that appears to
+be a bow shock from gas outflowing along the same axis; the cyan arrow points
+to this arc in Figure \ref{fig:w51mainpeak}.
 
 The IRS2 region peaks in velocity around 62 \kms at the center, but exhibits a
 consistent gradient from its center to its surroundings, with a more extended
@@ -504,7 +530,8 @@ features.  No redshifted counterflow is detected (Figure \ref{fig:lacyjetslice})
 One minor but notable feature of the H77$\alpha$ flow is that it is very close
 to the rest velocity of the He77$\alpha$ line.  If \citet{Lacy2007a} had not
 already unambiguously identified the high velocity of this feature in two
-lines, we would have assumed it to be slightly redshifted Helium.
+lines, we would have assumed it to be slightly redshifted Helium, since
+He77$\alpha$ is detected at $v\sim60$ \kms in IRS2.
 
 \FigureTwo
 {figures/jetpv/H77a_cutout_1.png}
@@ -564,7 +591,7 @@ saturated, so we have interpolated from neighboring pixels to estimate the flux.
 Our luminosity is therefore a lower limit.}, which includes
 both the W51 IRS2 and W51 Main protoclusters.  It does not include the
 mid-infrared luminosity, which may provide an additional $\sim25-50\%$ based on
-the IRAS 12 and 25 \um measurements.  Our measured total luminosity is a little
+the IRAS 12 and 25 \um measurements.  Our measured total luminosity is somewhat
 larger than the previous estimates based on IRAS and KAO measurements
 \citep{Harvey1986a,Sievers1991a}.  A luminosity $L=2\pm0.5\ee{7}$ \lsun implies
 a stellar mass $M_{cl} = 6700 \pm 2300$ \msun, with a corresponding number of
@@ -582,14 +609,16 @@ in the bright and diffuse IRS2 region.
 
 \citet{Mehringer1994a} found an additional 8 ultracompact and hypercompact \hii
 regions, all of which appear to be B0 or earlier based on their radio-derived
-ionizing photon luminosity.  In this work, we report a handful more.
-The other 9-20 O-stars expected to have \emph{already} formed given the
-observed total luminosity may be these most luminous hypercompact \hii regions.
-However, it is difficult to explain the total luminosity of the region from
-hypercompact HII regions alone, since their emission is necessarily confined to
-a small region and they contribute minimally to the overall radio luminosity.
-The thermal radiation from the OB-stars in \hii regions may illuminate a large
-portion of the cloud and contribute substantially to the infrared luminosity.
+ionizing photon luminosity.  In this work, we report a handful more.  The other
+9-20 O-stars expected to have \emph{already} formed given the observed total
+luminosity may be these most luminous hypercompact \hii regions.  However, it
+is difficult to explain the total luminosity of the region from hypercompact
+\hii regions alone, since their emission is necessarily confined by optical
+depth to a small region, and they contribute minimally to the overall radio
+luminosity.  The thermal radiation from the OB-stars in the diffuse \hii
+regions may illuminate a large portion of the cloud and contribute
+substantially to the
+infrared luminosity.
 
 Another possibility is that the O-stars providing most of the observed
 luminosity are near or within the ``shell'' structure of the W51 Main region
@@ -598,7 +627,7 @@ region dominates the optical and radio luminosity of W51 Main (though it
 provides $\lesssim 1/4$ of the FIR luminosity) and is bright enough in
 near-infrared and radio continuum emission to make detection of point sources
 impossible, explaining why no O-stars have been previously confirmed.  There
-are multiple overlapping HII bubbles in the W51 Main shell at different
+are multiple overlapping \hii bubbles in the W51 Main shell at different
 velocities (Figure \ref{fig:rrl_chan_main}), suggesting that there are
 interacting and  expanding bubbles, which in turn implies that there is a
 separation between the driving sources and the HII region of at least the
@@ -611,7 +640,7 @@ population of un-embedded O-stars in W51.
 % sources
 Out of the 27 compact continuum sources reported, most are ultra- or
 hyper-compact HII regions.  The ultracompact HII regions are clearly
-identified as resolved sources, with $r>0.005$ pc.  The HCHII regions
+identified as resolved sources, with $r>0.005$ pc.  The \hchii regions
 are more challenging to identify, as they are observed only as unresolved
 sources.  Normally, these could be identified by their SEDs, which should
 follow a $\alpha=2$ Rayleigh-Jeans law up to some turnover point, at which
@@ -630,7 +659,7 @@ would have $S_{5 GHz} \sim 70$ mJy, so for the sources discussed in this
 section with $S_{5 GHz} < 1$ mJy, the upper limit on the source radius of
 an optically thick HII region with electron temperature $T_e=10^4$ K is
 $\lesssim160$ au.  If any of these sources are HII regions, then, they are
-among the most compact of HCHII regions in the galaxy.
+among the most compact of \hchii regions in the galaxy.
 
 
 
@@ -833,6 +862,7 @@ discussed in Section \ref{sec:d4}.
 % Can W51d be illuminating the W51 Main HII region?
 
 \subsection{\formaldehyde emission features}
+\label{sec:h2coemission}
 
 
 % \todo{Explain further.  Probably requires a figure.}
@@ -1027,7 +1057,7 @@ velocity (the connecting region between the clumps is an imaging artifact), and
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e2_b_K.png}
 {figures/spectra/emission/W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits_e2_c_K.png}
 {Spectra of the \twotwo emission around W51e2 at three positions (a)
-north/northwest (b) northeast (c) southeast of the e2 HCHII region.  See Figure
+north/northwest (b) northeast (c) southeast of the e2 \hchii region.  See Figure
 \ref{fig:w51mainemilabels} to see where these were extracted.}
 {fig:w51e2emispec}{1}{2.25in}
 
@@ -1208,7 +1238,7 @@ number density $6\ee{5} < n(\hh) < 2\ee{7}$ \percc.
 The e1 subcluster is more compact, with $r=2.9$ \arcsec (0.07 pc), and its
 velocity dispersion is also $\sigma=2.0$ \kms.  It is more symmetric and a virial
 assumption may be more accurate here.  Its implied density if it is gas-dominated
-is $n(\hh)\sim2\ee7$ \percc, but assuming all 7 HCHII regions represent OB
+is $n(\hh)\sim2\ee7$ \percc, but assuming all 7 \hchii regions represent OB
 stars and the IMF is populated by a standard \citet{Kroupa2001a} mass function,
 the cluster should be star-dominated with a mass $M_{cluster}=700\pm250$ \msun,
 which implies a stellar density $n_* \sim 4 n_{gas}$.  Given that there are 
@@ -1301,7 +1331,7 @@ exhausted to achieve a final appearance like that of NGC 3603 or Trumpler 14.
 %depth exceeds unity.
 
 The ongoing accretion onto the source IRS2E \citep{Figueredo2008a} and  the hot
-cores and HCHII regions throughout these clusters implies that ionizing
+cores and \hchii regions throughout these clusters implies that ionizing
 radiation is, at present, not halting star
 formation.  The presence of accreting stars within large HII regions further
 confirms that ionizing radiation and ionized gas pressure is inadequate to stop
