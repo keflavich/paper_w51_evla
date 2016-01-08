@@ -74,7 +74,15 @@ W51 North, W51e8, W51e2w, W52e2e, and W51e2nw
 \citep{Zhang1997a,Keto2008b,Zapata2008a,Zapata2009a,Zapata2010a,Shi2010b,Shi2010a,Goddi2015a}
 Another handful have already reached the main sequence and are visible in the
 infrared \citep{Goldader1994a,Okumura2000a,Kumar2004a,Barbosa2008a,Figueredo2008a}.
-However, the census of both massive stars and protostars in W51 is incomplete.
+
+W51 contains many independent \hii regions.  These are classified as extended
+\hii regions if they are large ($\sim10 pc$), ultracompact \hii regions
+(\uchii's) if they have $r\sim0.1$ pc, or hypercompact \hii regions (\hchii's)
+if they are tiny, $r<0.05$ pc or $2\arcsec$ at the distance to W51
+\citep{Kurtz2002a}.  About ten of these \hchii regions, which are the youngest
+\hii region class and likely contain accreting proto-OB stars
+\citep{Peters2010c}, have been found in W51 \citep{Mehringer1994a}.  However,
+the census of both massive stars and protostars in W51 is incomplete.
 
 We present observations of the inner few parsecs of the W51 protocluster
 forming region.  We refer to the whole region, including W51 Main (which
@@ -133,8 +141,8 @@ Despite the deficiency in the image quality, the new observations are
 $\sim5\times$ more sensitive than any previous observations in bands that were
 previously observed, and the new observations cover a much broader range of
 frequencies.  Table \ref{tab:observations} gives the estimated noise in each 
-image and an estimate of the dynamic range, which is the peak flux in the image
-divided by the noise measured in a signal-free region of the image.  
+image and an estimate of the dynamic range, which is the peak intensity in the
+image divided by the noise measured in a signal-free region of the image.  
 
 Figures \ref{fig:kuoverview} and \ref{fig:coverview} show the best-quality
 images in the Ku-band and C-band combining the short and long array
@@ -233,17 +241,17 @@ of the highest-resolution observations.  Full details of the data origin
 are given in Table \ref{tab:obs_meta}.
 
 There are two flux density columns in Table \ref{tab:contsrcs}.  The first
-shows the peak flux density
-within an aperture centered on the source with a radius equal to the beam major
-FWHM; the aperture is therefore about twice as large as the full extent of the
-source.  The second column, `Peak - Background', shows the peak flux minus the
-minimum flux density in a box $6\times6$ beam FWHMs.  This
-background-subtracted flux density is meant to account for negative bowling
-that affects parts of the images; there are cases in which a bright point
-source is seen on a deeply negative background such that the measured peak flux
-is near zero.  When these two values agree, they are reliable, but when they
-differ significantly, they are probably affected by image reconstruction
-artifacts and the background-subtracted version is preferred.
+shows the peak flux density within an aperture centered on the source with a
+radius equal to the beam major FWHM; the aperture is therefore about twice as
+large as the full extent of the source.  The second column, `Peak -
+Background', shows the peak flux density minus the minimum flux density in a
+box $6\times6$ beam FWHMs.  This background-subtracted flux density is meant to
+account for negative bowling that affects parts of the images; there are cases
+in which a bright point source is seen on a deeply negative background such
+that the measured peak flux density is near zero.  When these two values agree,
+they are reliable, but when they differ significantly, they are probably
+affected by image reconstruction artifacts and the background-subtracted
+version is preferred.
 
 The RMS column gives the error measured in a signal-free region of the image.
 It should be approximately the same as that shown in Table
@@ -259,7 +267,7 @@ d4e.  Additional figures for all candidates are included in Appendix
 \Figure{figures/pointsource_seds/d4e_SED.png}
 {Cutouts of the source W51 d4e and its SED.
 The red circle shows the source aperture used to measure the peak and total
-flux.  The red line shows a 1\arcsec scalebar.  The Epochs are indicated as E1,
+flux density.  The red line shows a 1\arcsec scalebar.  The Epochs are indicated as E1,
 E2, and E3.
 In the SED plot, the dark and light red show the 1-$\sigma$ and 3-$\sigma$
 noise levels.  The SED plot is shown twice, first linear-linear, and second
@@ -319,16 +327,16 @@ J192344.79+142911.2 \citep{Lucas2008a}.  Three candidate sources, e20, e21, and
 e22, have clear K-band counterparts, though the UGPS cataloged sources do not
 align with the evident K-band sources. We nonetheless consider these sources
 to have infrared counterparts; likely adaptive optics imaging will be required
-to obtain reliable fluxes for these due to both point source and extended emission
-confusion in the region.   Similarly, e5 exhibits some K-band emission, though
-because of the diffuse surroundings, this emission is not cataloged in the
-UGPS.
+to obtain reliable flux density measurements for these due to both point source
+and extended emission confusion in the region.   Similarly, e5 exhibits some
+K-band emission, though because of the diffuse surroundings, this emission is
+not cataloged in the UGPS.
 
 The source d7 is clearly associated with a luminous infrared source, which is
 seen both in UKIDSS \citep{Lucas2008a} and NACO \citep{Figueredo2008a} images.
 However, the reported position of \citet{Goldader1994a} source RS15 is
-0.7\arcsec away, even though in the UKIDSS images there is no detected flux at
-this position.  More curiously, the associated MOXC Chandra source
+0.7\arcsec away, even though in the UKIDSS images there is no detected emission
+at this position.  More curiously, the associated MOXC Chandra source
 \citep{Townsley2014a} is more closely aligned with the offset RS15 position
 than the correct location.  Despite this confusion, we regard the NIR, X-ray,
 and radio features to have a common origin.
@@ -572,7 +580,8 @@ evident \citep{Sievers1991a} - it provides a good approximation to the total
 infrared luminosity, which is dominated by a single warm ($\sim60$ K)
 component.  The infrared luminosity is about $L\sim2\ee{7}$ \lsun within a 2 pc
 radius\footnote{In many bands, W51 Main and W51 IRS2 are
-saturated, so we have interpolated from neighboring pixels to estimate the flux.
+saturated, so we have interpolated from neighboring pixels to estimate the flux
+density.
 Our luminosity is therefore a lower limit.}, which includes
 both the W51 IRS2 and W51 Main protoclusters.  It does not include the
 mid-infrared luminosity, which may provide an additional $\sim25-50\%$ based on
