@@ -1,3 +1,18 @@
+"""
+Results:
+Mean velocity including only solid detections: 57.428999999999995
+Velocity dispersion including only solid detections: 1.967670958265126
+Virial mass in e1e2 using R=0.16 pc from spanning_tree: 431.9806822908472 solMass
+Density from that mass: 366617.8952524318 1 / cm3
+Mean velocity including weak detections: 57.87785714285714
+Velocity dispersion including weak detections: 4.544453728874081
+Virial mass in e1e2 using R=0.16 pc from spanning_tree: 2304.2136568113438 solMass
+Density from that mass: 1955564.2085479042 1 / cm3
+Mean velocity in e1: 57.78625
+Velocity dispersion in e1: 2.0497618001855726
+Virial mass in e1 using R=0.07 pc from spanning_tree: 205.08987600154953 solMass
+Density from that mass: 2078544.7743644696 1 / cm3
+"""
 import numpy as np
 import paths
 from astropy import table

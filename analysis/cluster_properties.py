@@ -1,5 +1,16 @@
+"""
+Results:
+Implied stellar mass of e1 cluster, assuming 7 stars are OB stars: 683.1740479924961 +/- 216.68608280894213 M_sun
+Implied stellar mass of e1 cluster, assuming 7 stars are O stars: 2325.0125309614355 +/- 807.0686206062493 M_sun
+Implied stellar mass of e1e2 cluster, assuming 12 stars are O stars: 4187.004606488459 +/- 1172.7498994742245 M_sun
+Implied stellar mass of e1e2IRS2 cluster, assuming 18 stars are O stars: 5845.065779607007 +/- 1266.3844454611049 M_sun
+emcee estimates given L=2e7+/-5e6
+Cluster mass: 6544.185646762511 \pm 2370.8187171691534
+N(Ostars): 18.92140625 \pm 6.2906031193991465
+"""
+
 import numpy as np
-import imf
+from imf import imf
 import pylab as pl
 from astropy.utils.console import ProgressBar
 import paths
@@ -82,6 +93,7 @@ pl.clf()
 pl.hist(sampler.flatchain, bins=100)
 pl.xlabel("Cluster Mass at $L=2 \pm 0.5\\times10^7$ L$_\odot$")
 
+print("emcee estimates given L=2e7+/-5e6")
 print("Cluster mass: {0} \pm {1}".format(sampler.flatchain.mean(),
                                          sampler.flatchain.std()))
 
