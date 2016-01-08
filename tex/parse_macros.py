@@ -122,7 +122,7 @@ def test():
 #def replace_macro(lines, macro, macroname, nargs):
 #    substitutions = find_macro_in_use(lines, macro, macroname, nargs)
 #    for (start,end),macargs in substitutions.items():
-#        print "replacing {0} with {1}".format(lines[start:end+1],
+#        print("replacing {0} with {1}".format(lines[start:end+1],)
 #                                              macro.format(*macargs).split("\n"))
 #        
 #        lines = lines[:start] + macro.format(*macargs).split("\n") + lines[end:]
@@ -141,12 +141,12 @@ def find_next_macro_in_use(lines, macro, macroname, nargs):
         src = usecommand.search(line)
         if src:
             if defcommand.search(line):
-                print "Skipped {0} on {2}:{1}".format(macroname, line, linenum)
+                print("Skipped {0} on {2}:{1}".format(macroname, line, linenum))
                 continue
             if line.find("%")>=0 and line.find("%") < src.start:
-                print "COMMENT Skipped {0} on {2}:{1}".format(macroname, line, linenum)
+                print("COMMENT Skipped {0} on {2}:{1}".format(macroname, line, linenum))
                 continue
-            print "Matched {0} on {2}:{1}".format(macroname, line, linenum)
+            print("Matched {0} on {2}:{1}".format(macroname, line, linenum))
             end_num, macargs = find_matching_braces(lines[linenum:], nargs)
             #substitutions[(linenum, linenum+end_num-1)] = macargs
             return linenum, linenum+end_num, macargs
@@ -159,7 +159,7 @@ def replace_all_macros_onepass(lines, macros):
                                             macroname, nargs)
         while next_macro:
             start,end,macargs = next_macro
-            print index,start,end, macargs
+            print(index,start,end, macargs)
             newlines = [x+"\n" for x in macro.format(*macargs).split("\n")]
 
             lines = lines[:start+index] + newlines + lines[end+1+index:]
