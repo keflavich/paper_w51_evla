@@ -1109,7 +1109,7 @@ We compute the \ortho \twotwo column density using \citet{Mangum2015a} equation
 100, with a measured integrated intensity of 54.5 mJy \kms or 65.5 K \kms given
 the $2\times1.5$\arcsec source area.  The inferred column of \ortho,
 assuming LTE, is $\sim5\ee{15} - 5\ee{16}$ \persc, depending on the assumed
-kinetic temperature and excitation temperature.  This \formaldehyde column
+kinetic temperature and excitation temperature (20-200 K).  This \formaldehyde column
 implies an absurdly large mass ($M\sim5\ee{3}$ \msun) for typical assumed abundances
 ($X_{\formaldehyde}\sim10^{-9}$), so we conclude that the \formaldehyde abundance
 must be 2-3 orders of magnitude greater than in the molecular cloud, with
@@ -1117,10 +1117,10 @@ $X_{\formaldehyde}\sim3\ee{-7}$ providing a mass consistent with the density
 lower-limit based mass.  For a reasonable range of `core' masses, $10
 \msun<M<100 \msun$, the implied abundance is $3\ee{-7} > X_{\formaldehyde} >
 5\ee{-8}$.
+Using the same assumptions, the $n\gtrsim10^6$ \percc lower limit yields
+$M_{e8}>4$ \msun.  Similarly, this core requires high abundance to explain its
+emission detection.
 
-\todo{Same estimate for e8}
-
-\todo{Re-calculation \ortho column using correct (vamdc) Q}
 
 
 % \todo{This paragraph applies to the 56 to 61 \kms figure, which might
@@ -1176,39 +1176,66 @@ lower-limit based mass.  For a reasonable range of `core' masses, $10
 
 \subsection{The d4 variable source \& \hh region}
 \label{sec:d4}
-The d4 pair (d4e and d4w) exhibit $\sim$20-year timescale variability.  d4e has
-brightened from $<0.6$ mJy ($3-\sigma$ upper limit) to $>1.0\pm0.06$ mJy.
-There is a region of \hh emission, MHO 2419, coincident with their position
-\citep[Figure \ref{fig:d4h2}][]{Hodapp2002a,Froebrich2011a}.
+The source d4e exhibits $\sim$20-year timescale variability.  d4e has
+brightened from $<0.6$ mJy ($3-\sigma$ upper limit) to $>1.0\pm0.06$ mJy.  We
+consider a few possibilities for the origin of this variable emission: a
+protostellar jet,  a stellar wind, ionized accretion onto a star, or a knot in
+a high-velocity outflow.  While we cannot definitively rule out any of these
+scenarios, we favor the outflow-ISM interaction because it explains the
+coincidence of d4e and d4w with extended \hh and [Fe II] emission.
 
-Similar variability in radio sources has been observed in nearby star forming
-regions \citep{Liu2014c,Forbrich2013a} and associated with variability in
-accretion or jet related processes.  It is possible that the variability
-observed here is similarly related to jet formation, and it is even plausible
+Protostellar jets exhibit radio emission that can be variable.  Radio
+variability has been observed in nearby star forming regions
+\citep{Liu2014c,Forbrich2013a} and associated with variability in accretion or
+jet related processes, but all sources seen in these regions are orders of
+magnitude fainter than d4e, so a jet from a low-mass star is unlikely to be
+responsible for the emission.  Radio jets from high-mass stars, e.g., the W75N
+jet \citep{Carrasco-Gonzalez2015a}, are also too faint: the expanding jet in
+W75N would have a flux density $S_{5 GHz} < 0.1$ mJy at the distance of W51.
+Nonetheless, jets are highly variable and may interact with a surrounding
+medium of dramatically different density in different regions, resulting in
+wildly different luminosities.  We therefore cannot rule out the possibility
+that the emission comes from the formation of a jet, and it is even plausible
 that the d4 pair represents two opposing jets forming the base of a larger
 outflow structure.
 
-However, the \hh and [Fe II] emission are clearly associated with bow shocks
-based on morphological and velocity structure in the \citet{Hodapp2002a}
-spectra, and these bow shocks point back to an origin in IRS 2.  The high
-velocity [Fe II] features ($\pm150$ \kms) are a clear indication of a bow
-shock.  It is therefore possible that the d4 sources are just emission features
-within the bow shock.  Since bright radio and X-ray features are not observed
-in the nearby Orion KL outflow, where the bow shocks are orders of magnitude
-fainter (Forbrich et al, in prep), such an association implies that this
-outflow is much more massive and higher-velocity than any seen in nearby star
-forming regions.
+In keeping with the SED interpretation from Section \ref{sec:contnature}, it is
+possible that the d4 sources are massive stars with strong stellar winds.  In
+this interpretation, the overlap with the outflow emission may either be pure
+coincidence, or the winds of the massive stars may be interacting directly with
+the outflow from IRS 2.  While it is highly unlikely that an outflow would
+impact these rare windy stars, the interaction would provide a natural
+explanation for the high line widths observed in the infrared and for the
+presence of radio emission.  However, the weakness of the NIR K-band detection
+($M_K \sim 15$, and apparently extended) hints against this interpretation.
 
-An alternative possibility, in keeping with the SED interpretation from Section
-\ref{sec:contnature}, is that the d4 sources are massive stars with strong
-stellar winds.  In this interpretation, the overlap with the outflow emission
-may either be pure coincidence, or the winds of the massive stars may be
-interacting directly with the outflow from IRS 2.  While it is highly unlikely
-that an outflow would impact these rare windy stars, the interaction would
-provide a natural explanation for the high line widths observed in the infrared
-and for the presence of radio emission.  However, the weakness of the K-band
-detection ($M_K \sim 15$, and apparently extended) hints against this
-interpretation.
+The radio emission could come from ionized gas accreting onto a star.  The
+brightest T Tauri stars in the ONC have $L_{rad}<10^{28}$ erg \pers, or a flux
+density $S_{5 GHz} < 0.1$ mJy \citep{Forbrich2013a,Zapata2004a}, so it is
+unlikely that these are accreting low- or intermediate- mass stars.  These
+could be very compact \hchii regions, in which case their variability may be
+caused by variable accretion flow \citep{Peters2010c}.  In this scenario,
+the source d4e was fainter 20 years ago because the accretion rate was higher,
+which meant that the \hchii region was smaller.
+
+The interaction between protostellar outflows and the ISM can result in radio
+and X-ray emission at great distances from the driving source \citep[e.g.,
+HH80/81][]{Lopez-Santiago2013a,Masque2015a}.  There is a region of \hh emission,
+MHO 2419, coincident with d4 \citep[Figure
+\ref{fig:d4h2}][]{Hodapp2002a,Froebrich2011a}.  The \hh and [Fe II] emission
+come from bow shocks based on morphological and velocity structure in the
+\citet{Hodapp2002a} spectra, and these bow shocks point back to an origin in
+IRS 2.  The high velocity [Fe II] features ($\pm150$ \kms) are a strong
+indication that this is a bow shock from a high-velocity outflow.  It is
+therefore possible that the d4 sources are emission features within the bow
+shock.  The variability arises because the shocks are short-lived transient
+phenomena.  The flux density of d4e and d4w is consistent with that observed
+in HH 80/81 \citep{Masque2015a} to within an order of magnitude, though d4
+is more luminous.  Given all of the observed coincident features, d4 is best
+explained as an outflow knot.  
+%Since it is detected in X-rays as a pointlike source,
+%some fraction of the X-ray sources detected in star forming regions are likely
+%to be outflow knots, but that fraction should be small.
 
 \Figure{figures/d4_h2_overlay.png}
 {A UWISH2 \hh image with Ku-band contours of sources d4e and d4w overlaid at

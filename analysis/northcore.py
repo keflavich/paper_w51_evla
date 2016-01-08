@@ -1,5 +1,19 @@
 """
 Simple analysis of the north core
+Mass assuming n=300000.0 1 / cm3: 4.771900937579172 solMass
+Mass assuming n=1000000.0 1 / cm3: 15.906336458597238 solMass
+The partition function may be very inaccurate using LAMDA files because they include a small fraction of the total available states.
+Q(20) = 15.186776711508795, Q(150) = 441.4955834836552
+Q(20) = 49.49153310105068, Q(150) = 1019.97053159
+Column density assuming LTE and T=Tex=25.0 K: 7.204817e+15 1 / cm2
+Column density assuming LTE and T=Tex=50.0 K: 1.229669e+16 1 / cm2
+Column density assuming LTE and T=20.0 K and Tex=20.0 K: 6.575477e+15 1 / cm2
+Column density assuming LTE and T=100.0 K and Tex=100.0 K: 2.692123e+16 1 / cm2
+Column density assuming LTE and T=200.0 K and Tex=200.0 K: 6.704627e+16 1 / cm2
+Mass given column, assuming T=200.0 K X=1e-09: 5627.794412339245 solMass
+Mass given column, assuming T=200.0 K X=1e-07: 56.27794412339246 solMass
+Mass given column, assuming T=200.0 K X=3e-07: 18.759314707797486 solMass
+Mass given column, assuming T=200.0 K X=5e-08: 112.55588824678492 solMass
 """
 import numpy as np
 from astropy import units as u
@@ -77,7 +91,7 @@ def Nthintot(nu, line_integral, degeneracy_u, dipole_moment, temperature, Eu, Te
 
 temperature = Tex = 25*u.K
 
-J = np.array([int(x.split("_")[0]) for x in R.quantum_number[R.upperlevelindex]])
+J = np.array([int(x.split(b"_")[0]) for x in R.quantum_number[R.upperlevelindex]])
 gI = 3/4. # see h2co_modeling.lte_model
 degeneracy_u = (2*J+1)*gI
 
@@ -88,7 +102,7 @@ column = Nthintot(nu=R.frequency[2], line_integral=line_integral,
                   Eu=R.upperstateenergy[2]*u.K*constants.k_B,
                   Tex=Tex,).to(u.cm**-2)
 
-print("Column density assuming LTE and T=Tex={0}: {1}".format(temperature, column))
+print("Column density assuming LTE and T=Tex={0}: {1:e}".format(temperature, column))
 
 temperature = Tex = 50*u.K
 column = Nthintot(nu=R.frequency[2], line_integral=line_integral,
@@ -96,7 +110,7 @@ column = Nthintot(nu=R.frequency[2], line_integral=line_integral,
                   dipole_moment=dipole_moment, temperature=temperature,
                   Eu=R.upperstateenergy[2]*u.K*constants.k_B,
                   Tex=Tex,).to(u.cm**-2)
-print("Column density assuming LTE and T=Tex={0}: {1}".format(temperature, column))
+print("Column density assuming LTE and T=Tex={0}: {1:e}".format(temperature, column))
 
 temperature = 20*u.K
 Tex = 20*u.K
@@ -106,7 +120,7 @@ column = Nthintot(nu=R.frequency[2], line_integral=line_integral,
                   dipole_moment=dipole_moment, temperature=temperature,
                   Eu=R.upperstateenergy[2]*u.K*constants.k_B,
                   Tex=Tex,).to(u.cm**-2)
-print("Column density assuming LTE and T={2} and Tex={0}: {1}".format(temperature, column, temperature))
+print("Column density assuming LTE and T={2} and Tex={0}: {1:e}".format(temperature, column, temperature))
 
 temperature = 100*u.K
 Tex = 100*u.K
@@ -116,7 +130,7 @@ column = Nthintot(nu=R.frequency[2], line_integral=line_integral,
                   dipole_moment=dipole_moment, temperature=temperature,
                   Eu=R.upperstateenergy[2]*u.K*constants.k_B,
                   Tex=Tex,).to(u.cm**-2)
-print("Column density assuming LTE and T={2} and Tex={0}: {1}".format(temperature, column, temperature))
+print("Column density assuming LTE and T={2} and Tex={0}: {1:e}".format(temperature, column, temperature))
 
 temperature = 200*u.K
 Tex = 200*u.K
@@ -126,7 +140,7 @@ column = Nthintot(nu=R.frequency[2], line_integral=line_integral,
                   dipole_moment=dipole_moment, temperature=temperature,
                   Eu=R.upperstateenergy[2]*u.K*constants.k_B,
                   Tex=Tex,).to(u.cm**-2)
-print("Column density assuming LTE and T={2} and Tex={0}: {1}".format(temperature, column, temperature))
+print("Column density assuming LTE and T={2} and Tex={0}: {1:e}".format(temperature, column, temperature))
 
 Xh2co = 1e-9
 mass_col = column * ((2*np.pi)**0.5 * radius)**2 * 2.8*u.Da / Xh2co
