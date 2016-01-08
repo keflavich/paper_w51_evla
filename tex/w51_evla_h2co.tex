@@ -355,7 +355,6 @@ as measured from gaussian profile fits to their extracted spectra.
 
 The H77$\alpha$ emission line parameters are listed in Table \ref{tab:h77a}, and
 the \para \twotwo absorption line parameters are in Table \ref{tab:absorption22}.
-%The emission line parameters are only relevant for source e8mol.
 
 The \formaldehyde absorption lines give velocities of foreground gas, not of
 the \hii regions.  The e5 and e6 sources are close to one another (separation
@@ -548,19 +547,6 @@ counterpart, ruling out the possibility that it was simply too extincted to be
 observed in the infrared.}
 {fig:lacyjetslice}{1}{3.5in}
 
-% unnecessary and the source is known from the Goddi NH3 data.
-%This outflow is close to W51 North, which is a likely driver of the outflow based
-%on the highly excited \ammonia around it \citep{Henkel2013a,Goddi2015a}.  However,
-%the accreting O-star W51 IRS 2E is also very close to the outflow and could plausibly
-%be the driver \citep{Barbosa2008a}.  IRS 2E is the brightest X-ray source in
-%W51 with a harder X-ray spectrum than other sources in the region, and it emits
-%most of its energy in iron fluorescence lines, indicating that there is a very
-%strong interaction with dense material around it \citep{Townsley2014a}.
-%Independent of its source, though, this flow is unique in exhibiting a high
-%velocity ($v\sim100$ \kms) over a 0.1 pc extent with no obvious gradient.
-%Indeed, this lack of a velocity gradient suggests that the flow is launched
-%at a high velocity and not decelerated by interaction with its environment.
-
 
 \FigureTwo
 {figures/irs2outflow/IRS2_h77a_on_cont22.png} % outflow_overlay.py
@@ -660,9 +646,7 @@ discussed in this section with $S_{5 GHz} < 1$ mJy, the upper limit on the
 source radius of an optically thick \hii region with electron temperature
 $T_e=10^4$ K is $\lesssim160$ au.  If any of these sources are \hii regions,
 then, they are among the most compact of \hchii regions in the galaxy.
-
-
-
+% HIIregion_size.py
 
 Negative spectral indices at low frequencies are usually assumed to indicate
 synchrotron emission \citep{Wilson2009a,Condon2007a}, but young and forming
@@ -767,26 +751,7 @@ discussed in Section \ref{sec:d4}.
 
 \input{tables/associations.tex}
 
-% \subsection{The nature of the continuum sources}
-% Most of the detected point sources are likely to be hypercompact \hii regions.
-% All that are detected at low frequencies (2-6 GHz) are also detected at 15 GHz.
-% Many of these sources have peculiar spectral energy distributions, with maxima
-% at 2 and 15 GHz and a minimum at 6 GHz.  These SEDs are not easily explained by
-% either simple \hii region models or as synchrotron emission sources.  However,
-% the association of all of these sources with the W51 region - all are within
-% $\sim2\arcmin$ of the central clusters - means they are unlikely to be
-% background galaxies.  
-% 
-% Given the faintness of these sources ($S_{5 GHz} \sim 1$ mJy), they must be
-% very small or optically thin if they are free-free emission sources.  A 1 mJy
-% source has a brightness temperature of $\sim$1000 K in our uniformly-weighted
-% C-band observations, which implies either that such an \hii region is optically
-% thin, with $\tau < 0.1$, or very small, with $ff<0.1$.  Given a beam FWHM of
-% 0.3\arcsec, the implied upper limit size for an optically thick 1 mJy source is
-% 1 mpc (200 AU).
-% % see HIIregion_size.py
-% 
-% 
+%kept as useful notes with some nice refs
 % It is possible that some of the compact sources are stars with no surrounding
 % dense medium.  The radio continuum emission would then come from either a
 % stellar wind \citep{Gaume1993a} or from nearby compact ionized globules, e.g.
@@ -801,52 +766,7 @@ discussed in Section \ref{sec:d4}.
 % could result in different spectral indices, but the shallowest they derive
 % are $\alpha=-0.1$ corresponding to optically thin free-free emission, so even
 % these models cannot explain the long-wavelength excess.
-% 
-% The diffuse continuum sources are assumed to be \hii regions, as previously
-% reported \citep{Gaume1993a,Mehringer1994a}.  There is a set of 4 ultracompact
-% \hii regions with similar size (0.02-0.07 pc): d3, e1, e6, and e7.  All are
-% round and reasonably symmetric.  They exhibit some variations in surface
-% brightness but are essentially circular.  In a classical view of an expanding
-% spherical \hii region, these sources are at early but very similar evolutionary
-% stages.  Assuming that these all went through a hypercompact \hii region phase,
-% and assuming that all of the hypercompact and ultracompact \hii regions within
-% W51 go through the same phases at the same rate, the ultracompact \hii phase
-% must be 10-30\% as long as the hypercompact \hii phase.  However, both of these
-% assumptions are questionable.
 
-%\subsection{Sources of illumination in the extended \hii regions}
-%There are many extended \hii regions associated with the W51 cluster area.
-%While some have obvious driving sources, the W51 Main region seems not to - the
-%hypercompact \hii regions are too small and not leaky enough.  If the
-%hypercompact HII regions were illuminating the W51 Main, we would expect
-%to see some traces of ionized features between e1/e2 and the lobe, or we would
-%expect not to see the O-stars as hypercompact HII regions at all.
-%Additionally, at the W51 Peak position, we have discovered multiple overlapping
-%bubbles at different line-of-sight velocities with centers far from both the
-%W51 IRS2 and W51e clusters.
-%
-%We therefore suggest that a significant fraction of the luminosity in the W51A
-%region, and perhaps all from the W51 Main region, comes from a
-%partially-embedded population of stars that is extremely confused with the
-%luminous HII region it generates.
-%
-%
-%\todo{Fix the naming scheme using \texttt{diffuse\_hii\_regions.reg}.  Create
-%figures showing the different velocity structures.}
-
-
-%However, given the shell-like structure of this loop around
-%W51 Main, it seems likely that at least some of the shell-illuminating sources
-%are near the W51 e1/e2 cluster.
-
-
-%The O3 or O4 star W51d spectrally typed by \citet{Barbosa2008a} is probably
-%illuminating the majority of the ionized gas in the IRS2 region.
-% It is
-% particularly impressive, though, since the star is shining through a layer of
-% molecular gas that extincts the star.
-
-% Can W51d be illuminating the W51 Main HII region?
 
 \subsection{\formaldehyde emission features}
 \label{sec:h2coemission}

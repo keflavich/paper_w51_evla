@@ -1,3 +1,8 @@
+"""
+A 1 mJy source will have T_B = 811.6665408856167 K at 4.9 GHz
+The upper size limit for a 10^4 K source is 0.030297250253506165 arcsec,or 0.7946490089788438 mpc = 163.9081238701842 AU
+"""
+
 import numpy as np
 from astropy.io import fits
 from astropy import units as u
