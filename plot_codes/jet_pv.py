@@ -22,7 +22,9 @@ import paths
 from pvextractor import extract_pv_slice
 from pvextractor.geometry import Path
 
-jet_endpoints = coordinates.SkyCoord([290.9186, 290.91424]*u.deg, [14.518876, 14.517977]*u.deg, frame='fk5')
+jet_endpoints = coordinates.SkyCoord([290.9186, 290.91424]*u.deg, [14.518876,
+                                                                   14.517977]*u.deg,
+                                     frame='fk5')
 
 xy = Path(jet_endpoints, width=2.8*u.arcsec)
 for ii,(fn,stretch) in enumerate((('w51.neii.square.fits','arcsinh'),
