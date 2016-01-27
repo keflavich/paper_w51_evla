@@ -42,8 +42,8 @@ with open(paths.tpath("SED_class")) as f:
                       lines[footnotes_start:]])
 
 postbl = Table([Column(data=names, name='Source Name'),
-                Column(data=coords.ra.to_string(unit=u.hour, sep=':'), name='RA'),
-                Column(data=coords.dec.to_string(unit=u.deg, sep=':'), name='Dec'),
+                Column(data=coords.ra.to_string(unit=u.hour, sep=':', precision=2), name='RA'),
+                Column(data=coords.dec.to_string(unit=u.deg, sep=':', precision=1), name='Dec'),
                 Column(data=radii, name='Radius'),
                 Column(data=(radii*5.1*u.kpc).to(u.pc, u.dimensionless_angles()), name='Phys. Radius'),
                 SEDclasscolumn,
@@ -56,9 +56,10 @@ postbl = postbl[natsort.index_natsorted(postbl['Source Name'])]
 latexdict['header_start'] = '\label{tab:positions}'
 latexdict['caption'] = 'Source Positions'
 latexdict['tablefoot'] = ('\par\nObjects with name e\#d are the diffuse '
-                          'counterparts to point sources.  Those with a '
-                          'trailing ? are candidate sources that are only weakly '
-                          'detected.   Sources with no radius are unresolved, '
+                          'counterparts to point sources.  '
+                          'The absolute positional accuracy is '
+                          '$\sim0.2\\arcsec$.  '
+                          'Sources with no radius are unresolved, '
                           'with '
                           'upper limits of 0.3\\arcsec (0.007 pc).\\\\\n' +
                          footer)
@@ -67,7 +68,7 @@ latexdict['col_align'] = 'lllrrll'
 #latexdict['tabulartype'] = 'longtable'
 postbl.write(paths.tpath('source_positions.tex'), format='ascii.latex',
              latexdict=latexdict,
-             formats={'Radius': lambda x: '-' if np.isnan(x) else '{0:0.2f}'.format(x),
+             formats={'Radius': lambda x: '-' if np.isnan(x) else '{0:0.1f}'.format(x),
                       'Phys. Radius': lambda x: '-' if np.isnan(x) else '{0:0.2f}'.format(x),
                      },
             )

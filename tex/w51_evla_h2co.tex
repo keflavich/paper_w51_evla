@@ -159,7 +159,7 @@ than in the robust-weighted cube because large angular scale artifacts are
 prevalent, especially at the image edges.
 
 In some figures, we show unsharp-masked versions of the data.  These are
-equivalent to maps made excluding short baselines, but we instead performed
+equivalent to images made excluding short baselines, but we instead performed
 unsharp masking (subtracting a gaussian-smoothed version of the image from
 itself) in the image domain for computational convenience.
 
@@ -180,23 +180,24 @@ sources are previously known; the green are new additions in this paper.}
 We report seven distinct observational results: 
 \begin{enumerate}
     \item Section \ref{sec:pointsources}: The detection of new continuum
-        sources, many of which are  hypercompact \hii regions. 
+        sources, including hypercompact \hii regions and probable
+        colliding wind binaries. 
     \item Section \ref{sec:variability}: The detection of variability in
-        some of the faint point sources over a 20 year timescale
+        some of the faint point sources over a 20 year timescale.
     \item Section \ref{sec:associations}: The detection of radio continuum
         sources associated with near-infrared sources, most likely un-embedded
-        O-stars
+        O-stars.
     \item Section \ref{sec:twotwoemission}: The detection of \formaldehyde
-        \twotwo emission around sources e2, e8, and W51 North
+        \twotwo emission around sources e2, e8, and W51 North.
     \item Section \ref{sec:LOSvelo}: Measurements of line-of-sight velocities
         toward many ultracompact \hii regions using H77$\alpha$ and/or
-        \formaldehyde
+        \formaldehyde.
     \item Section \ref{sec:diffuseemission}: Detection of Orion-bar-like sharp
         edges to the W51 Main \hii region, most likely tracing a
-        photon-dominated region (PDR)
+        photon-dominated region (PDR).
     \item Section \ref{sec:lacyjet}: Detection of a $\sim0.1$ pc ionized
-        outflow in H77$\alpha$ that had previously been seen in mid-infrared
-        ionized line emission.
+        outflow in H77$\alpha$ that had previously been observed in
+        mid-infrared ionized line emission.
 \end{enumerate}
 
 \subsection{Continuum sources and photometry}
@@ -208,28 +209,26 @@ reported.
 
 We follow the naming scheme introduced by \citet{Mehringer1994a}.  For the
 compact ($r<1\arcsec$) sources within 1 arcminute of W51e2, we use the name
-W51e followed by a number.  We identify two new sources, e9 (19:23:43.654
-+14:30:26.81) and e10 (19:23:43.956 +14:30:26.95), which were previously
-detected but never officially named (as far as we were able to discover).
-We additionally split source e8 into a north and south component, plus a more
-extended molecular component e8mol.  We also identify a molecular component
-between e1, e8, and e10, which we label e10mol.  The source positions
-and approximate radii for resolved sources are shown in Figure
+W51e followed by a number.  We identify two new sources, e9  and e10, which
+were previously detected but never named.  We split source e8 into a north and
+south component, plus a more extended molecular component e8mol.  We also
+identify a molecular component between e1, e8, and e10: e10mol.  The source
+positions and approximate radii for resolved sources are shown in Figure
 \ref{fig:coverview_pointsrcs} and listed in Table \ref{tab:positions}.
+The positions and radii are estimated by eye; they are not fits to the data.
 
 \input{tables/source_positions.tex}
 
 We include in this catalog any pointlike sources (at $\sim0.2-0.4\arcsec$
-resolution) with emission in two bands, Ku and C (14 and 5 GHz).  We also
-include candidate point sources (denoted with a trailing ? in Table
-\ref{tab:contsrcs}) that may instead be artifacts from the data reduction
-process.  In order to identify point sources, we used uniformly-weighted maps,
-which remove much of the extended emission and make point source detection
-simpler, but this process can make local peaks of the diffuse emission appear
-to be pointlike.  However, for many of the faint and questionable peaks, we
+resolution) with emission in two bands, Ku and C (14 and 5 GHz; Table
+\ref{tab:contsrcs}).  To identify point sources, we used uniformly-weighted
+images.  These images exclude much of the extended emission, which makes point
+source detection more straightforward.  There is some reason for concern about
+this approach, since it can make local peaks of the diffuse emission appear to
+be pointlike.  However, for many of the faint and low-significance peaks, we
 have found clear near-infrared associations (Section \ref{sec:associations})
-and have detected the sources in multiple bands, suggesting that the treatment
-of these point sources as real is justified.
+and have detected the sources in multiple bands, suggesting that these point
+sources are real.
 
 The point source data is listed in Table \ref{tab:contsrcs}.  The Epoch column
 describes the data source: Epoch 1 comes from \citet{Mehringer1994a}, Epoch 2
@@ -253,9 +252,8 @@ affected by image reconstruction artifacts and the background-subtracted
 version is preferred.
 
 The RMS column gives the error measured in a signal-free region of the image.
-It should be approximately the same as that shown in Table
-\ref{tab:observations}, though slightly different regions are used in each
-case.
+It is approximately the same as that shown in Table \ref{tab:observations},
+though slightly different regions are used in each case.
 
 \input{tables/pointsource_photometry.tex}
 
@@ -289,9 +287,8 @@ The multi-epoch data demonstrate that at least one of these sources is
 variable.  The most convincing case for variability is in the (double) source
 d4 (Figure \ref{fig:d4sed}).  In the \citet{Mehringer1994a} data, there is no
 hint of emission at this location, with a 3-$\sigma$ upper limit of 0.6 mJy.
-At the same position and frequency in 2014, there is a $1.0 \pm 0.06$ mJy
-source at the position of d4e.  The case for variability in other sources is
-weaker but nonetheless suggestive.
+At the same position and frequency in 2014, there is a $1.03 \pm 0.06$ mJy
+source at the position of d4e. 
 
 
 \subsubsection{Source Associations}
@@ -312,33 +309,37 @@ Candidate sources e20 and e22 are $<0.1$\arcsec from
 MOXC 192342.86+143027.5 and 192342.77+143027.5, respectively.
 There are a handful of X-ray
 sources within W51 IRS2 that could be associated with faint \hchii regions that
-we do not detect due to confusion, but these could also be associated with
+we are unable to detect against the bright diffuse background emission, but
+these X-ray sources could also be associated with
 outflowing material (e.g., the Lacy jet; see Section \ref{sec:lacyjet}).  The
 lack of correlation between X-ray and \hchii regions clearly indicates that the
 embedded OB stars within these \hchii regions are at most weak X-ray emitters.  
+\todo{last sentence is interpretation - can this be moved to discussion?}
 
 We compared our point source catalog to the UKIDSS K-band and UWISH2 \hh images
 to search for infrared associations with our detected radio sources
 \citep{Lucas2008a,Froebrich2011a}.  Most of the W51e sources have no
-association, as is expected given the high extinction in this region.  The
+association, as is expected given the high extinction in this region
+($A_V>100$, based on mm emission).  The
 diffuse region e7 to the south is an exception, associated with UGPS
 J192344.79+142911.2 \citep{Lucas2008a}.  Three candidate sources, e20, e21, and
-e22, have clear K-band counterparts, though the UGPS cataloged sources do not
-align with the evident K-band sources. We nonetheless consider these sources
+e22, have clear NIR K-band counterparts, though the UGPS cataloged sources do not
+align with the evident NIR K-band sources. We nonetheless consider these sources
 to have infrared counterparts; likely adaptive optics imaging will be required
 to obtain reliable flux density measurements for these due to both point source
 and extended emission confusion in the region.   Similarly, e5 exhibits some
-K-band emission, though because of the diffuse surroundings, this emission is
+NIR K-band emission, though because it is diffuse, this emission is
 not cataloged in the UGPS.
 
 The source d7 is clearly associated with a luminous infrared source, which is
 seen both in UKIDSS \citep{Lucas2008a} and NACO \citep{Figueredo2008a} images.
 However, the reported position of \citet{Goldader1994a} source RS15 is
 0.7\arcsec away, even though in the UKIDSS images there is no detected emission
-at this position.  More curiously, the associated MOXC Chandra source
+at this position.  Surprisingly, the associated MOXC Chandra source
 \citep{Townsley2014a} is more closely aligned with the offset RS15 position
-than the correct location.  Despite this confusion, we regard the NIR, X-ray,
-and radio features to have a common origin.
+than the true source location in the NACO and UKIDSS images.  Despite this
+confusion, we regard the NIR, X-ray, and radio features to have a common
+origin.
 
 
 \subsection{\formaldehyde \twotwo emission}
@@ -363,11 +364,11 @@ as measured from gaussian profile fits to their extracted spectra.
 The H77$\alpha$ emission line parameters are listed in Table \ref{tab:h77a}, and
 the \para \twotwo absorption line parameters are in Table \ref{tab:absorption22}.
 
-The \formaldehyde absorption lines give velocities of foreground gas, not of
-the \hii regions.  The e5 and e6 sources are close to one another (separation
-3.1 \arcsec, or projected distance 0.08 pc), and both exhibit \formaldehyde
-absorption at 62-63 \kms.  e6 is detected in H77$\alpha$ at 68 \kms, suggesting
-that the true velocity of both e5 and e6 are not the same as the \formaldehyde
+The \formaldehyde absorption lines provide velocities of foreground molecular
+gas.  The e5 and e6 sources are close to one another (separation 3.1 \arcsec,
+or projected distance 0.08 pc), and both exhibit \formaldehyde absorption at
+62-63 \kms.  Source e6 is detected in H77$\alpha$ at 68 \kms, suggesting that
+the true velocity of both e5 and e6 are redshifted from the \formaldehyde
 absorption lines. 
 %    , \emph{but} the line profile of the e6 H77$\alpha$ line suggests that the
 %velocity measurement may be affected by image reconstruction artifacts from
@@ -381,12 +382,13 @@ absorption lines.
 \subsection{Diffuse continuum emission features}
 \label{sec:diffuseemission}
 There are a few new notable continuum emission features detected in our data
-that were not seen in previous shallower data.
+that were not detected in previous shallower data.
 
 Near source e11, there is a bow-shaped feature (Figure \ref{fig:e11bow}).
-There are no known associated sources at shorter wavelengths, though in Spitzer
-bands there is some diffuse emission at this location.  The bow-like structure
-points away from e11, suggesting that it is the driving source.
+There are no known associated sources, though in the Spitzer GLIMPSE
+\citep{Benjamin2003a} images, there is some diffuse emission at this location.
+The bow-like structure points away from e11, suggesting that it is the driving
+source.
 
 \Figure{figures/diffuse/e11_bow.png}
 {A bow-shaped feature toward the northeast of the source e11 in the Ku-band
@@ -397,38 +399,40 @@ but is more likely to be an \hii region given its smooth structure.}
 The source d3 is a diffuse \hii region with radius $r\sim1.9$\arcsec.  It is
 associated with a Spitzer source and the 2MASS source 2MASX J19233591+1431288.
 The sources d3, e1, e6, and e7 are compact but resolved (0.02-0.07 pc) and
-fairly round; they are therefore classified as ultracompact \hii regions.
+round; they are therefore classified as ultracompact \hii regions.
 
 The diffuse emission associated with W51 Main traces a broad arc
-($r\sim42\arcsec$) that has been seen in many previous data sets.  The new
-deeper, higher-resolution data are dramatically improved.  Where in previous
-observations, a relatively smooth and clumpy structure was seen, the new images
-reveal a network of wispy, filamentary structures.  Figure
-\ref{fig:w51mainpeak} shows the region between the W51e and W51 IRS2 clusters.
-While this area contains few clear individual sources, it accounts for the
-majority of the radio luminosity of the W51 Main region and somewhere between
-one quarter and one half the bolometric luminosity of the W51 Main/IRS2 complex.
+($r\sim42\arcsec$) that has been observed in many previous data sets.  The new
+deeper, higher-resolution data represent a dramatic imrpovement in image
+quality.  Where in previous observations, a relatively smooth and clumpy
+structure was observed, the new images reveal a network of wispy, filamentary
+structures.  Figure \ref{fig:w51mainpeak} shows the region between the W51e and
+W51 IRS2 clusters.  While this area contains few clear individual sources, it
+accounts for the majority of the radio luminosity of the W51 Main region and
+somewhere between one quarter and one half the bolometric luminosity of the W51
+Main/IRS2 complex.
 
 The filamentary structures in the W51 Main peak are unresolved along the short
 axis, with aspect ratios $>25$.   These resemble the ``stringlike ionized
 features'' noted by \citet[][see
 \url{http://images.nrao.edu/402}]{Yusef-Zadeh1990a}, which are associated
-primarily with the Orion Bar PDR and its fainter cousin to the northeast.  The
-similarity suggests that these features are PDRs, highlighting the sharp
+primarily with the Orion Bar PDR and the nearby fainter PDR to the northeast.
+The similarity suggests that these features are PDRs, highlighting the sharp
 interaction points between the \hii region and the surrounding molecular cloud.
 
 The two most prominent of these sharp features are on opposite sides of the W51
 Peak (Figure \ref{fig:w51mainpeak}, blue arrows).  The long vertical filament
-at RA = 19:23:42.4 (Filament A) approximately faces W51e, while the S-shaped
-filament at RA=19:23:41.6 (Filament B) faces nothing in particular.  The
-presence of multiple features raises questions about the ionizing source.  In
-Orion, the Trapezium is 0.2 pc in projection from the Bar PDR.  The left
-filament is 0.6 pc from the W51e cluster, which contains enough O-stars to
-illuminate the filaments, but it is not clear whether there is a clear
-line-of-sight from those stars, which appear to be deeply embedded in molecular
-material, to the filament.  It is possible that there are additional OB stars
-embedded in the W51 Peak driving much of its luminosity that have never been
-resolved because they are confused with the ionized nebula they produce.
+on the left (Filament A) approximately faces W51e, while the S-shaped filament
+on the right (Filament B) faces outward, away from the e1/e2 group and toward a
+region that contains no known OB stars.  The presence of multiple features
+raises questions about the ionizing source(s).  In Orion, the Trapezium is 0.2
+pc in projection from the Bar PDR.  Filament A is 0.6 pc from the W51e cluster,
+which contains enough O-stars to illuminate the filaments, but there may not be
+a clear line-of-sight from those stars, which appear to be deeply embedded in
+molecular material, to the filament.  It is possible that there are additional
+OB stars embedded in the W51 Peak HII region that drive much of its luminosity.
+% In this case, these stars have never been identified because they are confused
+% with the ionized nebula they produce.
 
 \FigureTwo
 {figures/diffuse/w51main_peak.png}
@@ -447,7 +451,7 @@ southwest.  A counterpart to the northeast is barely visible.
 }
 {fig:w51mainpeak}{1}{3.5in}
 
-Additionally, the W51 Main ridge is cleanly detected in H77$\alpha$.  Filament
+Additionally, the W51 Main ridge is detected in H77$\alpha$.  Filament
 B peaks in the range 40-50 \kms.  From its sharp start toward the southeast,
 there is continuous H77$\alpha$ emission toward the northeast from 40 to 80
 \kms.
