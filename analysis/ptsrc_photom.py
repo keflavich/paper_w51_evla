@@ -265,7 +265,7 @@ latexdict['tablefoot'] = '\par\nAn excerpt from the point source catalog.  For t
 textbl[::10].write(paths.tpath('pointsource_photometry.tex'), format='ascii.latex', latexdict=latexdict,
              formats={'RMS': format_float,
                       'Peak $S_{\\nu}$': format_float,
-                      'Peak - Background': format_float, 
+                      'Peak - Background': format_float,
                       'Obs. Date': lambda x: time.Time(x).iso[:10],
                      })
 
