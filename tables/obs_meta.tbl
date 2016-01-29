@@ -1,6 +1,6 @@
-|Band            | Program  | TOS       |  Config |  Reference             | BW    | Date      | Notes             |
-|char            | char     | int       |  char   |  char                  | int   | char      | char              |
-|                |          | s         |         |                        | MHz   |           |                   |
+|Band            | Program  | TOS       |  Config |  Reference             | BW    | Date      | Notes              |
+|char            | char     | int       |  char   |  char                  | int   | char      | char               |
+|                |          | s         |         |                        | MHz   |           |                    |
                                         
  4.9 GHz Epoch 3   13A-064    15952        A         -                       1024   14-Apr-19   -                  
  5.9 GHz Epoch 3   13A-064    15952        A         -                       1024   14-Apr-19   -                  
@@ -17,15 +17,15 @@
  4.9 GHz Epoch 1   AM0367     4800         D         Mehringer1994a          100    92-Aug-04   -                  
  4.9 GHz Epoch 1   AD0128     6830         B         Mehringer1994a          25     84-Feb-06   -                  
  22.5 GHz Epoch 1  AM0374     6360         B         Gaume1993a              100    93-Mar-16   -                  
- 8.4 GHz Epoch 1   AP0242     2640         B         Gaume1993a              50     92-Oct-24   Uncertain lineage  
- 25.0 GHz Epoch 2  12A-274    3829         B         Goddi2015a,Goddi2015b   64     12-May-31   -                  
- 27.0 GHz Epoch 2  12A-274    3829         B         Goddi2015a,Goddi2015b   64     12-May-31   -                  
- 29.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2015b   64     12-Jun-21   -                  
- 33.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2015b   64     12-Jun-21   -                  
- 36.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2015b   64     12-Jun-21   -                  
- 29.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2015b   64     12-Aug-07   -                  
- 33.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2015b   64     12-Aug-07   -                  
- 36.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2015b   64     12-Aug-07   -                  
+ 8.4 GHz Epoch 1   AP0242     2640         B         Gaume1993a              50     92-Oct-24   Uncertain provenance  
+ 25.0 GHz Epoch 2  12A-274    3829         B         Goddi2015a,Goddi2016a   64     12-May-31   -                  
+ 27.0 GHz Epoch 2  12A-274    3829         B         Goddi2015a,Goddi2016a   64     12-May-31   -                  
+ 29.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2016a   64     12-Jun-21   -                  
+ 33.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2016a   64     12-Jun-21   -                  
+ 36.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2016a   64     12-Jun-21   -                  
+ 29.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2016a   64     12-Aug-07   -                  
+ 33.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2016a   64     12-Aug-07   -                  
+ 36.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2016a   64     12-Aug-07   -                  
  5.9 GHz Epoch 2   12B-365    2154         A         -                       1024   12-Oct-16   -                  
  4.9 GHz Epoch 2   12B-365    2154         A         -                       1024   12-Oct-16   -                  
  5.9 GHz Epoch 2   12B-365    777          A         -                       1024   12-Oct-29   -                  
