@@ -327,7 +327,7 @@ these X-ray sources could also be associated with
 outflowing material (e.g., the Lacy jet; see Section \ref{sec:lacyjet}).  The
 lack of correlation between X-ray and \hchii regions clearly indicates that the
 embedded OB stars within these \hchii regions are at most weak X-ray emitters.  
-\todo{last sentence is interpretation - can this be moved to discussion?}
+%\todo{last sentence is interpretation - can this be moved to discussion?}
 
 We compared our point source catalog to the UKIDSS K-band and UWISH2 \hh images
 to search for infrared associations with our detected radio sources
@@ -473,8 +473,8 @@ Additionally, the W51 Main ridge is detected in H77$\alpha$.  Filament
 B peaks in the range 40-50 \kms.  Filament A is the sharp edge feature
 spanning $v_{LSR}\sim38-48$ \kms.  From Filament A, there is continuous
 H77$\alpha$ emission toward the northeast from 40 to 80 \kms that exhibits a
-gradient from blue to red from southeast to northwest.  \todo{Interpret this
-gradient?}
+gradient from blue to red from southeast to northwest.  
+%\todo{Interpret this gradient?}
 
 The H77$\alpha$ lines reveal two circular features (bubbles) that overlap along
 the line of sight but are clearly distinct in velocity (Figure
@@ -589,9 +589,9 @@ observed in the infrared.}
 \FigureTwo
 {figures/irs2outflow/IRS2_h77a_on_cont22.png} % outflow_overlay.py
 {figures/irs2outflow/IRS2_h77a_on_NACO_K.png} % irs_nir.py
-{The `Lacy Jet' as seen in H77$\alpha$ contours overlaid on (a) the 14 GHz
+{The `Lacy Jet' as seen in H77$\alpha$ contours overlaid on (a) the 15 GHz
 continuum image (synthesized beam $\theta_{FWHM}\approx0.33\arcsec$) and (b)
-the NACO K-band image \citep[resolution $\approx0.2\arcsec][]{Barbosa2008a}.
+the NACO K-band image \citep[resolution $\approx0.2\arcsec$][]{Barbosa2008a}.
 The H77$\alpha$ contours are at 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, and 0.7 Jy \kms,
 integrated over the velocity range -60 to -16 \kms.}
 {fig:lacyjetoverlay}{1}{3.5in}
@@ -1122,8 +1122,42 @@ assuming that the image-based continuum subtraction is accurate.
 {fig:h77afits}{1}{3in}
 
 \subsection{Constraints on the outflow from IRS2}
--use continuum to estimate EM
--upper limit on total outflowing ionized mass $M\lesssim300$ \msun?
+\label{sec:irs2outflow}
+In Section \ref{sec:diffuseemission}, we noted that the velocity structure of
+the RRL emission in W51 IRS2 is consistent with outflowing ionized gas.  We use
+the RRL emission to constrain the ionized gas mass loss rate from this cluster.
+The outflowing ionized gas we observe is unbound from the system, moving at
+$\sim25$ \kms relative to the cluster rest velocity, which is greater than the
+escape velocity $v_{esc}\approx8$ \kms assuming $M_{cluster}=10^4$ \msun and
+$r_{cluster}=1.5$ pc.  The rest of the ionized gas is bound to the system, with
+thermal line width $c_s\approx7.7$ \kms.
+
+We use Equation 14.28 of \citet{Wilson2009a} to estimate the emission measure:
+\begin{equation}
+    EM = 5.2\ee{-4} 
+    \left(\frac{T_B}{\mathrm{K}}\right)
+    \left(\frac{T_e}{\mathrm{K}}\right)^{3/2} \left(\frac{\Delta
+    \nu}{\mathrm{kHz}}\right) \mathrm{cm}^{-6}\mathrm{~pc}
+\end{equation}
+To estimate an upper limit, we use the peak brightness in the shell at 37.5
+\kms of 1.7 mJy beam$^{-1}$ in a 10 \kms band (60 K;
+ see Figure
+\ref{fig:rrl_chan_main}, panel 4) and assume it fills the entire shell with
+$r=0.25$ pc.  The resulting emission measure is $EM\approx10^7$ cm$^{-6}$~pc,
+which for a shell with width 0.03 pc yields a density $n_e\approx2.4\ee{4}$
+\percc and a mass $M_{shell}=3.5$ \msun.  For a more conservative upper limit,
+we assume the entire surface area (a circle, rather than a shell) has the same
+emission measure, resulting in $M_{outflow}=12$ \msun.  The shell has a velocity
+difference from the peak of the \hii region emission $\Delta v=25$ \kms, which
+at its current radius translates to a time $t = r / \Delta v = 7.5$ kyr.
+The implied \emph{upper limit} mass loss rate is $\dot{M} = 1.6\ee{3}$ \msun
+Myr$^{-1}$, which gives an evaporation timescale for this $M>10^4$ \msun
+clump $t>6$ Myr.  The free-fall time for the cluster is $t_{ff} < 0.5$ Myr,
+so the photoevaporation timescale is at least an order of magnitude longer.
+Given the conservative estimates adopted above, the photoevaporative mass
+loss is likely an order of magnitude lower, suggesting that this mass loss
+mechanism is negligible at present.
+
 
 \section{Discussion}
 \label{sec:discussion}
@@ -1133,16 +1167,13 @@ assuming that the image-based continuum subtraction is accurate.
 There are three distinct massive star populations identified in W51: W51 IRS2,
 W51 e1/e2, and the new W51 e20 group.  The W51 IRS2 cluster is closer to
 exhausting its available gas reservoir than the W51 e1/e2 cluster, since it is
-visible in the near-infrared and shows signs of bulk outflow from the cluster.
-Because it contains many stars that appear to have no ongoing accretion and it
-has expelled or consumed a large fraction of its gas, the IRS2 cluster is older than W51
-e1/e2.  Similarly, because they have no evident surrounding gas or suggestions
-of ongoing accretion, the W51 e20 stars are likely the oldest in the W51 Main
+visible in the near-infrared and shows signs of bulk outflow from the cluster
+(Section \ref{sec:irs2outflow}).  Because it contains many stars that appear to
+have no ongoing accretion and it has expelled or consumed a large fraction of
+its gas, the IRS2 cluster is older than W51 e1/e2.  Similarly, because they
+have no evident surrounding gas or suggestions of ongoing accretion, the W51
+e20 stars are likely the oldest in the W51 Main
 system.
-\todo{Clarify that W51 IRS2 is blowing out minimal leftovers; the outflowing
-material has low mass.  This can probably be justified by noting that it is 
-not molecular and only the edges of the HII region are visible, so the density
-of the outflow is very low.  However, that's.... not very quantitative...}
 
 However, W51 e20 and the related W51e candidate CWBs may constitute an
 unclustered population.  The Chandra MOXC catalog \citep{Townsley2014a} reveals
@@ -1175,7 +1206,7 @@ stars are measured.
 The W51 clusters are likely to reach a very high star formation efficiency,
 since the escape velocity from them is greater than the sound speed in ionized gas
 \citep{Matzner2002a,Ginsburg2012a,Bressert2012a,Dale2014a} and
-the \hii regions are evidently very leaky, reducing the effectiveness of
+the \hii regions evidently leak optical photons, reducing the effectiveness of
 radiative and wind feedback.  If they really are
 forming one or more
 young massive cluster, though, the gas within $\sim 1$ pc must be evacuated or
@@ -1186,12 +1217,14 @@ While the feedback from massive stars throughout W51 is intense, it is not
 halting star formation.  There is evidence for ongoing star formation in both
 W51 e1/e2 and IRS2 in the form of molecular cores (Section
 \ref{sec:h2coemission}), ongoing accretion onto massive young stellar objects
-(MYSOs) like IRS2E
-\citep{Figueredo2008a}, and the numerous \hchii regions that are likely to be
-accreting, despite the fact that most radiation is clearly escaping at least
-from IRS2.  This point supports the \citet{Matzner2015a} argument that the
-most massive clumps in the galaxy  end their formation by exhausting their
-parent reservoir rather than by disrupting their parent cloud via feedback.
+(MYSOs) like IRS2E \citep{Figueredo2008a}, and the numerous \hchii regions that
+are likely to be accreting, despite the fact that most radiation is clearly
+escaping at least from IRS2.  The timescale for gas evacuation in IRS2 at the
+presently observed mass-loss rate (averaged over $10^4$ years) is $>10\times$
+longer than the gas free-fall time (Section \ref{sec:irs2outflow}).  These
+points support the \citet{Matzner2015a} argument that the most massive clumps
+in the galaxy  end their formation by exhausting their parent reservoir rather
+than by disrupting their parent cloud via feedback.
 
 The coexistence of distributed and clustered populations over a fairly compact
 region affects how their feedback couples to the local cloud.  Because these
@@ -1204,10 +1237,6 @@ provide networks of low-density gaps through which radiation can escape,
 reducing the overall impact of radiative feedback on the cloud.  Radiative
 escape helps explain why feedback has been inefficient at halting further star
 formation.
-
-\todo{Examine timescale for IRS2 HII region creation.  HII region is larger
-than cluster.  Has had enough time  \& energy input for feedback to disrupt SF
-if it was going to.}
 
 \subsubsection{Merging \& age spread}
 \label{sec:merging}
