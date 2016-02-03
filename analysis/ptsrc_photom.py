@@ -37,7 +37,7 @@ beams = {}
 frequencies = {}
 reg_centers = {}
 
-for freq,fn in files.iteritems():
+for freq,fn in files.items():
     fluxes[freq] = {}
     peaks[freq] = {}
     valleys[freq] = {}
@@ -249,12 +249,18 @@ textbl = tbl.copy()[cols_order]
 textbl.sort(['SourceName', 'Frequency'])
 textbl[nondetections]['peak_flux'] = np.nan
 textbl[nondetections]['peak_m_background'] = np.nan
-textbl['peak_flux'] = ((map(lambda x,y: rounded(x,y)[0], textbl['peak_flux'].to(u.mJy/u.beam).value, textbl['local_rms_noise'].to(u.mJy/u.beam).value)))
-textbl['peak_m_background'] = ((map(lambda x,y: rounded(x,y)[0], textbl['peak_m_background'].to(u.mJy/u.beam).value, textbl['local_rms_noise'].to(u.mJy/u.beam).value)))
-textbl['local_rms_noise'] = ((map(lambda x,y: rounded(x,y)[0], textbl['local_rms_noise'].to(u.mJy/u.beam).value, textbl['local_rms_noise'].to(u.mJy/u.beam).value)))
+textbl['peak_flux'] = ((list(map(lambda x,y: rounded(x,y,extra=0)[0],
+                                 textbl['peak_flux'].to(u.mJy/u.beam).value,
+                                 textbl['local_rms_noise'].to(u.mJy/u.beam).value))))
+textbl['peak_m_background'] = ((list(map(lambda x,y: rounded(x,y,extra=0)[0],
+                                         textbl['peak_m_background'].to(u.mJy/u.beam).value,
+                                         textbl['local_rms_noise'].to(u.mJy/u.beam).value))))
+textbl['local_rms_noise'] = ((list(map(lambda x,y: rounded(x,y,extra=0)[0],
+                                       textbl['local_rms_noise'].to(u.mJy/u.beam).value,
+                                       textbl['local_rms_noise'].to(u.mJy/u.beam).value))))
 for name in ('peak_flux', 'peak_m_background', 'local_rms_noise'):
     textbl[name].unit = u.mJy/u.beam
-textbl['SourceName'] = map(lambda x: x.replace("_","-"), textbl['SourceName'])
+textbl['SourceName'] = list(map(lambda x: x.replace("_","-"), textbl['SourceName']))
 
 for old,new in cols.items():
     textbl.rename_column(old, new)
