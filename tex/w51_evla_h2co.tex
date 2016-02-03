@@ -2,7 +2,7 @@
 
 \begin{document}
 
-\title{The (proto) O-star population of W51}
+\title{Toward gas exhaustion in the W51 high-mass proto clusters}
 \titlerunning{W51 JVLA H2CO}
 \authorrunning{Ginsburg et al}
 \input{authors}
@@ -20,13 +20,15 @@ suggesting that this line can be used efficiently as a massive protostar tracer
 with future instruments.
 (2) There is a spatially distributed population of $\lesssim$mJy continuum sources,
 including hypercompact \hii regions and candidate colliding wind binaries,
-around the W51 proto-clusters.  
-(3) There are two clearly detected clusters, W51e and W51 IRS 2.  The
+in and around the W51 proto-clusters.  
+(3) There are two clearly detected proto clusters, W51e and W51 IRS 2.  The
 majority of the bolometric luminosity in W51 most likely comes from a third
 population of OB stars between these clusters.
 The presence of a substantial population of exposed O-stars coincident with
-a population of still-forming massive stars implies that feedback is ineffective
-at halting star formation in massive protoclusters.
+a population of still-forming massive stars along with a direct measurement
+of the low mass-loss rate via ionized gas outflow from W51 IRS 2 together imply
+that feedback is ineffective at halting star formation in massive
+protoclusters.
 }
 
 \maketitle
@@ -37,7 +39,6 @@ at halting star formation in massive protoclusters.
 This paper and all related analysis code are available on the web at
 https://github.com/adamginsburg/paper\_w51\_evla.
 }
-
 The highest-mass clusters forming in our Galaxy have masses $M\sim10^4$ \msun.
 These rare regions mark the high end of the protocluster mass function.
 Recent surveys have provided a complete census of all protoclusters in this
@@ -47,14 +48,14 @@ provide an important local analogue to the early universe, where stars more
 commonly formed in clusters and generally formed in denser gas
 \citep{Kruijssen2012a,Madau2014a}.
 
-In such environments, feedback from massive stars is a major factor.  Most star
+In such environments, feedback from massive stars is an important factor.  Most star
 formation within high-mass clusters is likely to occur after at least one
-high-mass star has turned on.  Many open questions remain about the effects of
+high-mass star has ignited.  Many open questions remain about the effects of
 this feedback, as the physical complexity of such regions renders them
 difficult to simulate.  A crucial question is whether the clusters complete the
 star formation process by consuming all of their gas (exhaustion) or
-by removing it via feedback (expulsion)
-\citep{Longmore2014a,Matzner2015a}.  This distinction governs whether the
+by removing it via feedback 
+\citep[expulsion;][]{Longmore2014a,Matzner2015a}.  This distinction governs whether the
 forming stars will be observable as a bound cluster or an expanding OB
 association.
 
@@ -77,7 +78,7 @@ W51 North, W51e8, W51e2w, W51e2e, W51e2nw, and W51d2
 Another handful have already reached the main sequence and are visible in the
 infrared \citep{Goldader1994a,Okumura2000a,Kumar2004a,Barbosa2008a,Figueredo2008a}.
 
-W51 contains many independent \hii regions.  These are classified as extended
+W51 contains many distinct \hii regions.  These are classified as extended
 \hii regions ($\sim10$ pc), ultracompact \hii regions
 (\uchii's; $r\sim0.1$ pc), or hypercompact \hii regions \citep[\hchii's;
 $r<0.05$ pc][]{Kurtz2002a}.  About ten \hchii regions, which are the
@@ -89,14 +90,14 @@ We present observations of the inner few parsecs of the W51 protocluster
 forming region.  We refer to the whole region, including W51 Main (which
 contains the W51e sources) and W51 IRS 2 as `W51A'.  Other names are explained
 when they are used.  An overview of the nomenclature used, including labels, is
-in the Appendix.
+in Figures \ref{fig:coverview_pointsrcs} and \ref{fig:coverview_diffuse}.
 
 In Section \ref{sec:observations}, we describe the observations and data
 reduction.  Section \ref{sec:results} presents the observational results,
 summarizing key features identified in the images and describing the
 point-source photometry (\S \ref{sec:pointsources}).  Section
 \ref{sec:analysis} provides analysis and interpretation of the observational
-results.  Section \ref{sec:discussion} discusses the importance of the
+results.  Section \ref{sec:discussion} discusses the implications of the
 observations.  Section \ref{sec:conclusion} states the conclusions.
 
 Finally, we include the following appendices: Appendix
@@ -139,11 +140,13 @@ used uniform weighting.  The reduction scripts are included in a repository
 
 We did not achieve a thermal-noise-limited image in any of the 13A-064 data.
 For example, in the C-band A-array data, the thermal noise is $\sim5$ \microjy,
-while the achieved RMS is $\sim30-60$ \microjy.  There is a large amount of
-resolved-out structure in the images that hinders cleaning.  The images are
-generally artifact-dominated at the low-signal end, where inadequately cleaned
-sidelobes of bright features provide significant non-gaussian noise.  Some of
-these artifacts can be seen in Figure \ref{fig:coverview}.
+while the achieved RMS is $\sim30-60$ \microjy depending on location in the
+image.  There is a large amount of resolved-out structure in the images that
+hinders cleaning.  The images are generally artifact-dominated at the
+low-signal end, where inadequately cleaned sidelobes of bright features provide
+significant non-gaussian noise.  Some of these artifacts can be seen in the C-band
+image, Figure \ref{fig:coverview_pointsources} (or Figure \ref{fig:coverview}
+without annotations).
 
 Despite the deficiency in the image quality, the new observations are
 $\sim5\times$ more sensitive than any previous observations.  The new
@@ -153,7 +156,8 @@ estimated noise in each image and an estimate of the dynamic range, which is
 the peak intensity in the image divided by the noise measured in a signal-free
 region of the image.  
 
-Figures \ref{fig:kuoverview} and \ref{fig:coverview} show the best-quality
+Figures \ref{fig:kuoverview} and \ref{fig:coverview_pointsources} show the
+best-quality
 images in the Ku-band and C-band combining the short and long array
 configurations.  These images were made from a combination of the full
 bandwidth in their respective bands. They were used in the figures in the main
@@ -209,7 +213,7 @@ We report seven distinct observational results:
         edges to the W51 Main \hii region, most likely tracing a
         photon-dominated region (PDR).
     \item Section \ref{sec:lacyjet}: Detection of a $\sim0.1$ pc ionized
-        outflow in H77$\alpha$ that had previously been observed in
+        outflow in H77$\alpha$ that had previously been identified in
         mid-infrared ionized line emission.
 \end{enumerate}
 
@@ -243,18 +247,17 @@ have found clear near-infrared associations (Section \ref{sec:associations})
 and have detected the sources in multiple bands, suggesting that these point
 sources are real.
 
-The point source data is listed in Table \ref{tab:contsrcs}.  The Epoch column
+The point source photometry data are in Table \ref{tab:contsrcs}.  The Epoch column
 describes the data source: Epoch 1 comes from \citet{Mehringer1994a}, Epoch 2
 comes from 12A-274, 12B-365, or 13A-064 (mid 2012-early
 2013), and Epoch 3 (C-band only) comes from
 13A-064 in 2014. For the multi-configuration combined images, we list the date
-of the highest-resolution observations.  Full details of the data origin
+of the highest-resolution observations.  Full details of the data provenance
 are given in Table \ref{tab:obs_meta}.
 
 There are two flux density columns in Table \ref{tab:contsrcs}.  The first
-shows the peak flux density within an aperture centered on the source with a
-radius equal to the beam major FWHM; the aperture is therefore about twice as
-large as the full extent of the source.  The second column, `Peak -
+shows the peak flux density within a circular aperture with a
+radius equal to the beam major FWHM.  The second column, `Peak -
 Background', shows the peak flux density minus the minimum flux density in a
 box $6\times6$ beam FWHMs.  This background-subtracted flux density is meant to
 account for negative bowling that affects parts of the images; there are cases
