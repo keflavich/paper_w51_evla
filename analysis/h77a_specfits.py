@@ -1,8 +1,7 @@
 """ was vdisp.py """
 import numpy as np
-import pyspeckit 
+import pyspeckit
 import glob
-from astropy.io import ascii
 from astropy import table
 from astropy import units as u
 from astropy import log
@@ -11,6 +10,7 @@ import paths
 from rounded import rounded
 from latex_info import latexdict
 import pylab as pl
+import natsort
 pl.matplotlib.rc_file('pubfiguresrc')
 
 h77a_freq = pyspeckit.spectrum.models.hydrogen.rrl(77)*u.GHz
@@ -27,7 +27,7 @@ sp = [pyspeckit.Spectrum(x) for x in
       ProgressBar(
           glob.glob(
               paths.dpath(
-                  "spectra_h77/H77a_BDarray_speccube_uniform_contsub_cvel_big*e[0-9]*.fits")))
+                  "spectra_h77/H77a_BDarray_speccube_uniform_contsub_cvel_big2*e[0-9]*.fits")))
       if 'mol' not in x and '?' not in x
      ]
 spectra = sp
@@ -72,7 +72,7 @@ for ii,ss in enumerate(sp+sp_other):
     ss.specfit(fittype='gaussian',
                guesses=[1,55,10],
                limited=[(True,False),(False,False),(True,False)])
-    log.info(s.specname+" fitting: {0}".format(ss.specfit.parinfo))
+    log.info(ss.specname+" fitting: {0}".format(ss.specfit.parinfo))
     ss.plotter.ymin -= 0.3
     ss.plotter.label(ylabel='$S_\\nu$ (mJy beam$^{-1}$)')
 
@@ -133,7 +133,6 @@ for ii,(parname,unit) in enumerate([('amplitude',u.mJy),
     tbl.add_column(column)
  
 # sort such that e10 comes after e9
-import natsort
 tbl = tbl[natsort.index_natsorted(tbl['ObjectName'])]
 
 detection_note = ['-' if name in detections else
