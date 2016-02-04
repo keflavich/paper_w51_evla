@@ -6,17 +6,15 @@ from astropy.io import fits
 import numpy as np
 from FITS_tools.strip_headers import flatten_header
 from astropy import units as u
-import string
 from astropy import coordinates
 from astropy import table
 import gaussfitter
 import paths
-from paths import datapath
 import radio_beam
 from astropy import time
 from astropy.utils.console import ProgressBar
 from rounded import rounded
-from latex_info import latexdict, exp_to_tex, format_float
+from latex_info import latexdict, format_float
 from photom_files import files
 
 reglist = pyregion.open(paths.rpath('pointsource_centroids.reg'))
@@ -270,7 +268,9 @@ for old,new in cols.items():
 
 latexdict['header_start'] = '\label{tab:contsrcs}'
 latexdict['caption'] = 'Continuum Point Sources (excerpt)'
-latexdict['tablefoot'] = '\par\nAn excerpt from the point source catalog.  For the full catalog, see Table \\ref{tbl:contsrcs_full}'
+latexdict['tablefoot'] = ('\par\nAn excerpt from the point source catalog.  '
+                          'For the full catalog, see Table \\ref{tbl:contsrcs_full}'
+                          ' \\todo{Note: this table is to be online-only}')
 textbl[::10].write(paths.tpath('pointsource_photometry.tex'), format='ascii.latex', latexdict=latexdict,
              formats={'RMS': format_float,
                       'Peak $S_{\\nu}$': format_float,
