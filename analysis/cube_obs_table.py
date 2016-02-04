@@ -61,7 +61,7 @@ latexdict['caption'] = 'Spectral Cubes'
 latexdict['tablefoot'] = ('\par\nJy-Kelvin gives the conversion factor from Jy '
                           'to Kelvin given the synthesized beam size and '
                           'observation frequency.')
-#latexdict['col_align'] = 'lllrr'
+latexdict['col_align'] = 'l'*len(tbl.columns)
 #latexdict['tabletype'] = 'longtable'
 #latexdict['tabulartype'] = 'longtable'
 def round_to_n(x, n):
