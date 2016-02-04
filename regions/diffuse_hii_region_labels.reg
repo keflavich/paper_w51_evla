@@ -17,8 +17,8 @@ circle(290.92595,14.511173,7.787772") # color=darkgreen
 circle(290.92729,14.511967,10.783404") # color=darkgreen
 circle(290.9228,14.51418,4.496112") # color=darkgreen text={Between}
 circle(290.92083,14.510363,6.008976") # color=darkgreen text={arc}
-# text(290.91792,14.50492) text={W51 Main 40kms RRL shell}
-# text(290.92908,14.523371) text={W51 Main 65kms RRL shell}
+# text(290.91792,14.50492) text={W51 Main 40 kms RRL shell}
+# text(290.92908,14.523371) text={W51 Main 65 kms RRL shell}
 # vector(290.92892,14.522064,25.699656",281.49144) vector=1
 # vector(290.91804,14.505574,26.28667",144.48674) vector=1
 # text(290.90812,14.516606) text={W51 IRS 2}
