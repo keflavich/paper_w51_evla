@@ -418,6 +418,7 @@ bow-shaped nebula.
 
 \Figure{figures/diffuse/e11_bow.png}
 {A bow-shaped feature toward the northeast of the source e11 in the Ku-band
+(14.5 GHz)
 continuum image.  The feature resembles the bow shocks of Herbig-Haro object,
 but is more likely to be an \hii region given its smooth structure.
 The synthesized beam size is
@@ -470,9 +471,10 @@ that are not deeply embedded.
 \FigureTwo
 {figures/diffuse/w51main_peak.png}
 {figures/diffuse/w51main_peak_diff.png}
-{({\it a}) A C-band (4.9 GHz) image of the W51 Main peak intensity region.  This region
-accounts for more than half of the radio luminosity of W51.  The colorbar has been selected
-to emphasize the pointlike sources in the image center.  The synthesized beam size
+{({\it a}) A C-band (4.9 GHz) image of the W51 Main peak intensity region.
+This region accounts for more than half of the radio luminosity of W51.  The
+colorbar has been selected to emphasize the pointlike sources even though it
+saturates some of the diffuse emission.  The synthesized beam size
 is $\theta_{FWHM}\approx0.3\arcsec$.
 ({\it b}) An unsharp-masked version of the image with a 0.3\arcsec smoothing
 kernel used for the large-angular-scale flux removal. 
@@ -515,8 +517,8 @@ bubble in the continuum (Figure \ref{fig:w51mainpeak} shows the
 apparently-connected region, Figure \ref{fig:w51irs2} shows the IRS 2 bubble),
 but the RRL emission peaks at around 75 \kms (Figure \ref{fig:rrl_chan_main}).
 Along this
-region, there are weak `striations' at PA 126 degrees (parallel to the cyan
-arrow in Figure \ref{fig:w51mainpeak}), orthogonal to the direction toward
+region, there are weak `striations' at PA 126 degrees, parallel to the cyan
+arrow in Figure \ref{fig:w51mainpeak} and orthogonal to the direction toward
 IRS 2.  These striations  may trace the outer edge of the expanding IRS 2
 region.  There is also an arc to the southwest of this region that appears to
 be a bow shock from gas outflowing along the same axis; the cyan arrow points
@@ -536,10 +538,9 @@ with red arrows are not (they are too faint).  The shell to the northwest peaks
 at $v_{lsr}=37.5$ \kms, and a gradient is observed from that shell to the peak
 velocity of IRS2 at $v_{lsr} = 62.6$ \kms.  The velocity structure is
 inconsistent with spherical outflow but is consistent with a conical flow
-structure like that expected from disk-driven outflows (though this flow is
-driven by a cluster of stars, not a disk).  This flow structure likely
-indicates that the cluster has evacuated a large cavity approximately along the
-line of sight, consistent with the low observed extinction toward
+structure.  This flow structure likely
+indicates that the cluster has evacuated a large cavity approximately toward
+the observer, consistent with the low observed extinction toward
 IRS2.  
 
 \FigureTwo
@@ -549,8 +550,7 @@ IRS2.
 masked with a 0.3\arcsec kernel.  Concentric ring features surround the IRS 2
 region.  A V-shaped feature to the north (cyan arrow) may highlight the edge of
 gas flows out of the cluster, extending to the long linear feature pointing
-northeast (blue arrow); the corresponding linear feature to the northeast is
-\emph{not} observed at Ku-band and is likely to be an imaging artifact.  An
+northeast (blue arrow).  An
 apparent shell is observed centered on the IRS2 cluster, with edge
 features to the south and east (red arrows).  The compact sources d6 and d7,
 which are candidate colliding-wind binaries (Section \ref{sec:contnature}),
@@ -560,7 +560,7 @@ are identified with green arrows.
 
 \Figure{figures/rrls/h77a_channelmaps_IRS2.png}
 {Channel maps of the H77$\alpha$ line integrated over 5 \kms windows
-for the IRS2 region.  Around 30-35\kms, the edges of the IRS2 region become
+for the IRS2 region.  Around 30-35 \kms, the edges of the IRS2 region become
 visible, illustrating the blueshifted cavity discussed in Section
 \ref{sec:diffuseemission}.
 The synthesized beam size is $\theta_{FWHM}\approx0.42\arcsec$.
@@ -630,7 +630,7 @@ component.  The infrared luminosity is about $L\sim2\ee{7}$ \lsun within a 2 pc
 radius\footnote{In many bands, W51 Main and W51 IRS2 are
 saturated, so we have interpolated from neighboring pixels to estimate the flux
 density.
-Our luminosity is therefore a lower limit.}, which includes
+Our luminosity estimate is therefore a lower limit.}, which includes
 both the W51 IRS2 and W51 Main protoclusters.  The luminosity estimate does not
 include the mid-infrared luminosity, which may provide an additional
 $\sim25-50\%$ based on
@@ -684,7 +684,7 @@ population of un-embedded O-stars spread between the W51 protoclusters.
 
 Out of the 27 compact continuum sources reported, the majority that we could
 identify are ultra- or hyper-compact \hii regions.  The ultracompact \hii
-regions are clearly identified as resolved sources, with $r>0.005$
+regions are identified as resolved sources, with $r>0.005$
 pc\footnote{The
 \citet{Kurtz2002a} definition of \hchii regions is $r_{\hii}<0.05$ pc.  We
 detect a few sources that are on the borderline between \hchii
@@ -693,11 +693,11 @@ unresolved sources at the highest resolution (0.005 pc) as \hchii regions, and
 all that are well-resolved are classified as \uchii regions.}.  The \hchii
 regions are more
 challenging to identify, as they are observed only as unresolved sources.
-Normally, these could be identified by their SEDs, which should follow an
+Normally, these could be identified from their SEDs, which should follow an
 $\alpha=2$ Rayleigh-Jeans law up to some turnover point, above which they 
 become optically thin and turn over to an $\alpha={-0.1}$ power law
 \citep{Wilson2009a}.  However, the SEDs we observed do not exhibit such unambiguous
-behavior for any cases except e2.  For the rest, we see $\alpha=1$ power laws
+behavior for any cases except e2.  For the rest, we see $\alpha\approx1$ power laws
 at low frequencies (e.g., e4), negative power-laws at low frequencies (e.g.,
 e9), or entirely flat SEDs (e.g., e10).  SED classifications for other sources
 are given in Table \ref{tab:positions}, and plots of the SEDs can be seen in
@@ -767,7 +767,7 @@ The sources e20, e21, and e22 are likely members of a distributed O-star
 population, rather than members of the clusters of compact \hii regions (Figure
 \ref{fig:w51e20cluster}).  They were detected by \citet{Goldader1994a} in the
 K-band at $m_K < 12$, making these the brightest NIR sources outside of W51
-IRS2 (table \ref{tab:associations} gives their associated NIR source names
+IRS2 (Table \ref{tab:associations} gives their associated NIR source names
 from large surveys).  Their luminosities suggest they are O-type stars.  Since
 they were also detected in X-rays \citep{Townsley2014a}, these are very strong
 candidate CWBs.  The high infrared K-band brightness and weak radio
@@ -782,11 +782,10 @@ ionizing and infrared luminosity observed from the W51 Main \hii region.
 {({\it a}) A C-band image of the W51 e20/e21/e22 cluster.
 ({\it b}) An unsharp-masked version of the image with a 0.3\arcsec smoothing
 kernel. 
-The three point sources toward the bottom of these images are e20, e21, and e22
-respectively.  They correspond to two detected infrared K-band sources from
-\citet{Goldader1994a} and have K-band luminosities consistent with spectral
-type O4 or earlier.  The other point sources seen in this field are not detected
-in the infrared.
+Sources e20, e21, and e22 correspond to two detected infrared K-band sources from
+\citet[][Table \ref{tab:associations}]{Goldader1994a} and have K-band
+luminosities consistent with spectral type O4V or earlier.  The other point
+sources seen in this field are not detected in the infrared.
 }
 {fig:w51e20cluster}{1}{3.5in}
 
@@ -822,7 +821,7 @@ continuum emission.
 
 Of the compact radio sources identified near W51 IRS2, all but d2 have infrared
 associations (Table \ref{tab:associations}).  Four of them also have X-ray
-associations.  Except for d3, which is clearly associated with a moderately
+associations.  Except for d3, which is associated with a moderately
 extended \hii region, these are candidate CWBs.
 
 An alternate explanation for the SED, location, and variability of d4 is
@@ -852,7 +851,7 @@ discussed in Section \ref{sec:d4}.
 
 \formaldehyde is generally a good tracer of molecular gas, showing up at typical
 abundances $\sim10^{-9}$ \hh wherever CO is detected \citep[e.g.,][]{Mangum1993a}.
-The centimeter lines of \ortho are often used as a measure of gas density when
+The centimeter lines of \ortho are often used to measure gas density when
 detected in absorption \citep[e.g.,][]{Ginsburg2011a,Zeiger2010a}.
 \ortho \oneone and \twotwo are commonly observed in absorption
 but rarely in emission \citep[e.g.,][]{Mangum1993a,Araya2007b}.  The \twotwo
@@ -897,12 +896,12 @@ velocity channels (Figures
 It is therefore not maser emission.
 
 %There is not a 1-1 detection.  But my judgement on this has varied.
-None of these regions have corresponding \oneone emission in our data.  These
+None of these regions are detected in \oneone emission in our data.  These
 nondetections are likely because our brightness sensitivity at C-band (4.9 GHz)
 is very poor.  The upper limit is $T_B<300$ K (Table \ref{tab:cubes}), ruling
 out the presence of strong masers.  Additionally, the foreground cloud is a
-much stronger absorber in the \oneone line, so any emission is likely to be
-obscured by foreground absorption.
+much stronger absorber in the \oneone than in the \twotwo line, so any emission
+is likely to be obscured by foreground absorption.
 
 
 \Figure
@@ -983,7 +982,7 @@ the cores W51e2e and W51e2nw, and it includes the bright \hchii region e2w
 We estimate the mass of the W51 North core in a few ways.  A reasonable lower limit
 on the mass is given by assuming it has a volume density $n\gtrsim10^6$ \percc,
 which is required to detect it in emission in \ortho \twotwo
-\citep{Mangum1993a}.  The core radius, as meaured by fitting a 2D gaussian to
+\citep{Mangum1993a}.  The core radius, as measured by fitting a 2D gaussian to
 its integrated intensity emission map, is
 $\sigma=0.9\arcsec$ or 0.025 pc (FWHM=2.1\arcsec, 0.056 pc).  If we assume the core
 is spherically symmetric, the resulting mass is $M\gtrsim14\msun$.
@@ -1019,7 +1018,8 @@ consider a few possibilities for the origin of this variable emission: a
 protostellar jet,  a stellar wind, ionized accretion onto a star, or a knot in
 a high-velocity outflow.  While we cannot definitively rule out any of these
 scenarios, we favor the outflow-ISM interaction because it explains the
-coincidence of d4e and d4w with extended \hh and [Fe II] emission.
+coincidence of d4e and d4w with extended NIR \hh and [Fe II] and X-ray
+continuum emission.
 
 Protostellar jets exhibit radio emission that can be variable.  Radio
 variability has been observed in nearby star forming regions
@@ -1038,7 +1038,8 @@ outflow structure.
 
 In keeping with the SED interpretation from Section \ref{sec:contnature}, it is
 possible that the d4 sources are massive stars with strong stellar winds.  In
-this interpretation, the overlap with the outflow emission may either be pure
+this interpretation, the overlap with the NIR \hh and [Fe II] outflow emission
+\citep[Figure \ref{fig:d4h2}][]{Hodapp2002a} may either be pure
 coincidence, or the winds of the massive stars may be interacting directly with
 the outflow from IRS 2.  While it is highly unlikely that an outflow would
 impact these rare windy stars, the interaction would provide a natural
