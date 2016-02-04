@@ -152,27 +152,30 @@ obsdates = {freq:
 
 colname_mappings = {'aperture_flux': fluxes, 'peak_flux': peaks,
                     'cutout_min_flux': valleys, 'local_rms_noise': errors, }
+
+names_sorted = sorted(fluxes[freq])
+freqs_sorted = sorted(fluxes.keys())
  
 tbl = table.Table()
-col = table.Column(data=[name for freq in fluxes for name in fluxes[freq]],
+col = table.Column(data=[name for freq in freqs_sorted for name in names_sorted],
                    name='SourceName')
 tbl.add_column(col)
-col = table.Column(data=[freq for freq in fluxes for name in fluxes[freq]],
+col = table.Column(data=[freq for freq in freqs_sorted for name in names_sorted],
                    name='FrequencyName')
 tbl.add_column(col)
-col = table.Column(data=[obsdates[freq][name] for freq in obsdates for name in obsdates[freq]],
+col = table.Column(data=[obsdates[freq][name] for freq in freqs_sorted for name in names_sorted],
                    name='ObservationDate')
 tbl.add_column(col)
-col = table.Column(data=[float(freq.split()[0]) for freq in fluxes for name in fluxes[freq]],
+col = table.Column(data=[float(freq.split()[0]) for freq in freqs_sorted for name in names_sorted],
                    name='Frequency', unit=u.GHz)
 tbl.add_column(col)
-col = table.Column(data=[freq.split()[-1] for freq in fluxes for name in fluxes[freq]],
+col = table.Column(data=[freq.split()[-1] for freq in freqs_sorted for name in names_sorted],
                    name='Epoch')
 tbl.add_column(col)
-col = table.Column(data=[beams[freq].major.to(u.arcsec).value for freq in beams for name in fluxes[freq]],
+col = table.Column(data=[beams[freq].major.to(u.arcsec).value for freq in freqs_sorted for name in names_sorted],
                    name='BMAJ', unit=u.arcsec)
 tbl.add_column(col)
-col = table.Column(data=[beams[freq].minor.to(u.arcsec).value for freq in beams for name in fluxes[freq]],
+col = table.Column(data=[beams[freq].minor.to(u.arcsec).value for freq in freqs_sorted for name in names_sorted],
                    name='BMIN', unit=u.arcsec)
 tbl.add_column(col)
 
