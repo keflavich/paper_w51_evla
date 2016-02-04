@@ -182,8 +182,8 @@ tbl.add_column(col)
 for column_name in colname_mappings:
     datadict = colname_mappings[column_name]
     data = [datadict[freq][name]
-            for freq in datadict
-            for name in datadict[freq]]
+            for freq in freqs_sorted
+            for name in names_sorted]
     col = table.Column(data=data, unit=u.Jy/u.beam,
                        name=column_name)
     tbl.add_column(col)
@@ -197,22 +197,22 @@ gpardict = [('background',u.Jy/u.beam),
             ('positionangle',u.deg)]
 for ii,(parname,unit) in enumerate(gpardict):
     data = [gpars[freq][name][ii]
-            for freq in gpars
-            for name in gpars[freq]]
+            for freq in freqs_sorted
+            for name in names_sorted]
     col = table.Column(name='g'+parname, data=data, unit=unit)
     tbl.add_column(col)
 
 data = [mpfits[freq][name].chi2 
         if hasattr(mpfits[freq][name],'chi2') else np.nan
-        for freq in mpfits
-        for name in mpfits[freq]]
+        for freq in freqs_sorted
+        for name in names_sorted]
 col = table.Column(name='gfit_chi2', data=data)
 tbl.add_column(col)
 
 data = [mpfits[freq][name].chi2n
         if hasattr(mpfits[freq][name],'chi2') else np.nan
-        for freq in mpfits
-        for name in mpfits[freq]]
+        for freq in freqs_sorted
+        for name in names_sorted]
 col = table.Column(name='gfit_chi2_reduced', data=data)
 tbl.add_column(col)
 
