@@ -61,8 +61,12 @@ latexdict['tablefoot'] = ('\par\nObjects with name e\#d are the diffuse '
                           '$\sim0.2\\arcsec$.  '
                           'Sources with no radius are unresolved, '
                           'with '
-                          'upper limits of 0.3\\arcsec (0.007 pc).\\\\\n' +
-                         footer)
+                          'upper limits of 0.3\\arcsec (0.007 pc).'
+                          'Source names correspond to the labels in Figures '
+                          '\\ref{fig:coverview_pointsrcs} and '
+                          '\\ref{fig:coverview_diffuse}.'
+                          '\\\\\n' +
+                          footer)
 latexdict['col_align'] = 'lllrrll'
 #latexdict['tabletype'] = 'longtable'
 #latexdict['tabulartype'] = 'longtable'
