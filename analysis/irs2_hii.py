@@ -12,13 +12,16 @@ h77ajytok = cube.beam.jtok(cube.wcs.wcs.restfrq*u.Hz)
 # approximately 10 mJy/beam
 # hmm... or 100 mJy/beam/(km/s)
 #peak_tb_irs2 = 3500*u.K/(u.km/u.s)
+# I don't really know where this came from..
 peak_tb_irs2 = 100*u.mJy/(u.km/u.s) * h77ajytok/u.Jy
+# if I drop an aperture on IRS2 and take the mean, it peaks at ~0.007 Jy
+mean_tb_irs2 = 7*u.mJy/(u.km/u.s) * h77ajytok/u.Jy
 Te = 1e4*u.K
 dnu = (10*u.km/u.s / constants.c * pyspeckit.spectrum.models.hydrogen.rrl(77)*u.GHz).to(u.kHz)
 r_irs2_hii = (1.5*u.arcsec*distance).to(u.pc, u.dimensionless_angles())
 
 # eqn 14.28 of Wilson 2009
-EM_IRS2 = ((peak_tb_irs2/(u.K/(u.km/u.s))) / 1.92e3 * ((Te/u.K)**1.5) * (dnu/u.kHz) * u.cm**-6 * u.pc).to(u.cm**-6*u.pc)
+EM_IRS2 = ((mean_tb_irs2/(u.K/(u.km/u.s))) / 1.92e3 * ((Te/u.K)**1.5) * (dnu/u.kHz) * u.cm**-6 * u.pc).to(u.cm**-6*u.pc)
 
 n_IRS2 = ((EM_IRS2 / (2*r_irs2_hii))**0.5).to(u.cm**-3)
 M_IRS2 = (4/3.*np.pi*r_irs2_hii**3 * n_IRS2 * 1.4 * constants.m_p).to(u.M_sun)
