@@ -75,7 +75,7 @@ for freq,fn in files.items():
         rd = [ra,dec] + [0]*(wcs.wcs.naxis-2)
         xc,yc = wcs.wcs_world2pix([rd],0)[0][:2]
         #pixscale = np.abs(wcs.wcs.get_cdelt()[0])
-        pixscale = (wcs.pixel_scale_matrix.diagonal()**2).sum()**0.5
+        pixscale = np.abs(wcs.pixel_scale_matrix.diagonal().prod())**0.5 * u.deg
         rp = rad / pixscale  # radius in pixels
         aperture = photutils.CircularAperture(positions=[xc, yc], r=rp)
         aperture_data = photutils.aperture_photometry(data=data, apertures=aperture)
