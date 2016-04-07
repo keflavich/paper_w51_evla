@@ -2,7 +2,7 @@
 
 \begin{document}
 
-\title{Toward gas exhaustion in the W51 high-mass proto clusters}
+\title{Toward gas exhaustion in the W51 high-mass protoclusters}
 \titlerunning{W51 JVLA H2CO}
 \authorrunning{Ginsburg et al}
 \input{authors}
@@ -15,20 +15,25 @@ We present new JVLA observations of the high-mass cluster-forming region W51 A
 from 2 to 16 GHz with resolution
 $\theta_{fwhm}\approx0.3-0.5\arcsec$.  The data reveal a wealth of
 observational results:
-(1) We detect \ortho \twotwo emission tracing forming very massive (proto-O) stars,
+(1) Currently-forming, very massive (proto-O) stars are traced by \ortho \twotwo emission, 
 suggesting that this line can be used efficiently as a massive protostar tracer
 with future instruments.
 (2) There is a spatially distributed population of $\lesssim$mJy continuum sources,
 including hypercompact \hii regions and candidate colliding wind binaries,
 in and around the W51 proto-clusters.  
-(3) There are two clearly detected proto clusters, W51e and W51 IRS 2.  The
+(3) There are two clearly detected protoclusters, W51e and W51 IRS 2.  The
 majority of the bolometric luminosity in W51 most likely comes from a third
 population of OB stars between these clusters.
 The presence of a substantial population of exposed O-stars coincident with
-a population of still-forming massive stars along with a direct measurement
-of the low mass-loss rate via ionized gas outflow from W51 IRS 2 together imply
+a population of still-forming massive stars, along with a direct measurement
+of the low mass-loss rate via ionized gas outflow from W51 IRS 2, together imply
 that feedback is ineffective at halting star formation in massive
-protoclusters.
+protoclusters.  Instead, feedback may shut off the large-scale accretion of
+diffuse gas onto the W51 protoclusters, implying that they are evolving towards
+a state of gas exhaustion rather than gas expulsion. Recent theoretical models
+predict gas exhaustion to be a necessary step in the formation of
+gravitationally bound stellar clusters, and our results provide an
+observational verification of this process.
 }
 
 \maketitle
@@ -39,7 +44,8 @@ protoclusters.
 This paper and all related analysis code are available on the web at
 https://github.com/adamginsburg/paper\_w51\_evla.
 }
-The highest-mass clusters forming in our Galaxy have masses $M\sim10^4$ \msun.
+The highest-mass clusters forming in our Galaxy have masses
+$M\gtrsim\textrm{few}\ee{4}$ \msun \citep{Portegies-Zwart2010a}.
 These rare regions mark the high end of the protocluster mass function.
 Recent surveys have provided a complete census of all protoclusters in this
 high mass range \citep{Ginsburg2012a,Urquhart2013b,Urquhart2014b}.  As the
@@ -53,11 +59,21 @@ formation within high-mass clusters is likely to occur after at least one
 high-mass star has ignited.  Many open questions remain about the effects of
 this feedback, as the physical complexity of such regions renders them
 difficult to simulate.  A crucial question is whether the clusters complete the
-star formation process by consuming all of their gas (exhaustion) or
+star formation process by consuming most of their gas (exhaustion) or
 by removing it via feedback 
-\citep[expulsion;][]{Longmore2014a,Matzner2015a}.  This distinction governs whether the
-forming stars will be observable as a bound cluster or an expanding OB
-association.
+\citep[expulsion;][]{Kruijssen2012b,Longmore2014a,Matzner2015a}.
+The balance between both processes is expected to depend on the gas volume
+density because higher-density gas clumps are capable of evolving through a
+larger number of free-fall times before the gas supply is shut off by feedback,
+and thus higher-density clumps attain larger star formation efficiencies
+\citep{Kruijssen2012b}.
+This distinction therefore governs whether the forming stars will be observable as a
+bound cluster or an expanding OB association.
+When integrated over the density probability distribution function of the
+interstellar medium in a galaxy, this argument predicts that the fraction of
+star formation occurring in bound clusters increases with the gas pressure and
+surface density, as is indeed observed \citep{Goddard2010a,Kruijssen2012a,Adamo2015a}.
+
 
 W51 contains two of the best candidates for protoclusters that will experience
 gas exhaustion.  This region is already extremely luminous both bolometrically
@@ -639,8 +655,10 @@ include the mid-infrared luminosity, which may provide an additional
 $\sim25-50\%$ based on
 the IRAS 12 and 25 \um measurements.  Our measured total luminosity is somewhat
 larger than the previous estimates based on IRAS and KAO measurements
-\citep{Harvey1986a,Sievers1991a}.  A luminosity $L=2\pm0.5\ee{7}$ \lsun implies
-a stellar mass $M_{cl} = 6700 \pm 2300$ \msun, with a corresponding number of
+\citep{Harvey1986a,Sievers1991a}.
+% These estimates then come from cluster_properties.py
+A luminosity $L=2\pm0.5\ee{7}$ \lsun implies
+a stellar mass $M_{cl} = 6.7\ee{3} \pm 2.3\ee{3}$ \msun, with a corresponding number of
 O-stars (greater than 20 \msun) $N_O = 19 \pm 6$, assuming a
 \citet{Kroupa2001a} IMF at the zero-age main sequence using \citet{Vacca1996a}
 stellar parameters.  This estimate provides a lower limit on the present day
@@ -1002,8 +1020,8 @@ implies an implausibly large mass ($M\sim5\ee{3}$ \msun) for typical assumed abu
 ($X_{\formaldehyde}\sim10^{-9}$), so we conclude that the \formaldehyde abundance
 must be 2-3 orders of magnitude greater than in the molecular cloud, with
 $X_{\formaldehyde}\sim3\ee{-7}$ providing a mass consistent with the density
-lower-limit based mass.  For a reasonable range of `core' masses, $10
-\msun<M<100 \msun$, the implied abundance is $3\ee{-7} > X_{\formaldehyde} >
+lower-limit based mass.  For a reasonable range of `core' masses, $20
+\msun<M<110 \msun$, the implied abundance is $3\ee{-7} > X_{\formaldehyde} >
 5\ee{-8}$.  The source e8 similarly requires high abundance to explain its
 emission.  While these inferred abundances are high, they are consistent with
 measurements of \formaldehyde abundance in the Orion Hot Core and Compact Ridge
@@ -1115,9 +1133,10 @@ the uncertain sources e9
 and e10; with e9 and e10 included the dispersion increases to 4.2 \kms, which
 suggests that their velocity
 measurements  are unreliable.  This velocity dispersion is confined to
-$r<5.4\arcsec$ or $r<0.13$ pc.  Assuming the stars are virialized (which is
-probably not a good assumption), the implied mass is 350-1600 \msun, or an \hh
-number density $6\ee{5} < n(\hh) < 2\ee{7}$ \percc.
+$r<5.4\arcsec$ or $r<0.13$ pc.  Assuming the stars are virialized \citep[which
+is a good assumption if the stellar mass is dominant;][]{Kruijssen2012b}, the
+implied mass is 350-1600 \msun, or an \hh number density $6\ee{5} < n(\hh) <
+2\ee{7}$ \percc.
 
 % cluster_properties
 The e1 subcluster (containing e1, e3, e4, e8, e9, and e10)  is more compact,
@@ -1128,12 +1147,15 @@ is $n(\hh)\sim2\ee7$ \percc ($M_{vir}=200$ \msun), but assuming all 7 \hchii
 regions represent OB stars ($M>8\msun$) and the IMF is populated by a standard
 \citet{Kroupa2001a} mass function, the cluster should be star-dominated with a
 mass $M_{cluster}=700\pm250$ \msun, which implies a stellar density $n_* \sim 4
-n_{gas}$.  Given that there are hypercompact \hii regions, implying gas
-densities near the stars $n>>10^6$ \percc, this is a region where stellar and
-gas dynamics are closely intertwined.
+n_{gas}$ \citep[similar to the mass ratio obtained in the simulations
+of][]{Kruijssen2012b}.  Since there are hypercompact \hii regions,
+implying gas densities near the stars $n>>10^6$ \percc, this is a region where
+stellar and gas dynamics are closely intertwined.
 
 Given the mass of W51 Main and its $\sim10$ \kms escape velocity, all of these
-(proto)stars are bound to the overall cluster gas. 
+(proto)stars are bound to the overall cluster gas.  In this innermost region,
+where the stellar mass is dominant, the stars are also likely to be bound to
+themselves.
 
 \FigureTwo
 {figures/spectra/h77/e1_h77a_fit.png}
@@ -1155,7 +1177,7 @@ The outflowing ionized gas we observe is unbound from the system, moving at
 $\sim25$ \kms relative to the cluster rest velocity, which is greater than the
 escape velocity $v_{esc}\approx8$ \kms assuming $M_{cluster}=10^4$ \msun and
 $r_{\mathrm{protocluster~gas}}=1.5$ pc.  The remaining ionized gas is bound to the system, with
-thermal line width $c_s\approx7.7$ \kms assuming $T_e=10^4$ K.
+thermal line width $c_s\approx6.7$ \kms assuming $T_e=7.5\ee{4}$ K \citep{Ginsburg2015a}.
 
 % irs2_hii
 We use Equation 14.28 of \citet{Wilson2009a} to determine the emission measure:
@@ -1178,8 +1200,11 @@ difference from the peak of the \hii region emission $\Delta v=25$ \kms, which
 at its current radius translates to a time $t = r / \Delta v = 7.5$ kyr.
 The implied \emph{upper limit} mass loss rate is $\dot{M} = 1.6\ee{3}$ \msun
 Myr$^{-1}$, which gives an evaporation timescale for this $M>10^4$ \msun
-clump $t>6$ Myr.  The free-fall time for the cluster is $t_{ff} < 0.5$ Myr,
-so the photoevaporation timescale is at least an order of magnitude longer.
+clump $t>6$ Myr.  The free-fall time for the protocluster gas is $t_{ff} < 0.5$ Myr
+assuming $R=1.5$ pc and $n=10^4$ \percc, so the photoevaporation timescale is
+at least an order of magnitude longer.  However, the molecular gas is centrally
+condensed and under pressure from an HII region, so the collapse timescale is
+likely to be shorter still.
 Given the conservative assumptions adopted above, the photoevaporative mass
 loss is likely an order of magnitude lower, suggesting that this mass loss
 mechanism is negligible at present.
@@ -1223,20 +1248,20 @@ distributed around W51 IRS 2 (Figures \ref{fig:w51irs2},
 the IRS 2 cluster.  Source d5 is the furthest of these in projection, so with a
 distance of 0.9 pc, its ejection time is $t = 0.08 \left(\frac{v_*}{10
 ~\kms}\right)^{-1}$ Myr.  The runaway scenario provides an alternate
-explanation for the observed SEDs: synchrotron emission from the wind-ISM
-bow shock might generate the detected emission.  This scenario can be readily
-verified if high ($>10~\kms$) line-of-sight velocities to the infrared-visible
-stars are measured.
+explanation for the observed SEDs (Section \ref{sec:SEDs}): synchrotron
+emission from the wind-ISM bow shock might generate the detected emission.
+This scenario can be readily verified if high ($>10~\kms$) line-of-sight
+velocities to the infrared-visible stars are measured.
 
 
 \subsection{The future evolution of the W51 clusters and molecular cloud}
-The W51 clusters are likely to reach a high star formation efficiency,
+The W51 clusters are capable of reaching a high star formation efficiency,
 since the escape velocity from them is greater than the sound speed in ionized gas
 \citep{Matzner2002a,Ginsburg2012a,Bressert2012a,Dale2014a} and
 the \hii regions evidently leak optical photons, reducing the effectiveness of
 radiative and wind feedback.  If they really are
 forming one or more
-young massive cluster, though, the gas within $\sim 1$ pc must be evacuated or
+young massive cluster, the gas within $\sim 1$ pc must be evacuated or
 exhausted to achieve a final appearance like that of NGC 3603 or Trumpler 14,
 our Galaxy's prototypical young massive clusters.
 
@@ -1250,16 +1275,20 @@ that are likely to be accreting.  In e1/e2, there is no sign that feedback
 has evacuated \emph{any} gas yet, and the \hii regions appear to be surrounded
 by molecular gas.
 
-In IRS 2, accretion is ongoing despite its volume being largely evacuated.
+In IRS 2, accretion is ongoing despite its volume being largely evacuated of
+molecular gas.
 Ionizing photons are escaping the inner cluster and ionized gas is being driven
 out of the inner cluster where the stars are forming.  However, the timescale
-for complete gas evacuation in IRS 2 at the presently observed mass-loss rate
+for complete gas evacuation in IRS 2 at the presently observed mass-loss timescale
 (averaged over $10^4$ years) is $>10\times$ longer than the gas free-fall time
-(Section \ref{sec:irs2outflow}).  Feedback is therefore progressing more slowly
-than star formation.  The inefficiency of feedback in removing the star-forming
-gas supports the \citet{Matzner2015a} argument that the most massive clumps in
+on the 1-2 parsec scale of the clump 
+(Section \ref{sec:irs2outflow}).
+Feedback is therefore progressing more slowly
+than star formation.
+The inefficiency of feedback in removing the star-forming
+gas supports the argument that the most massive clumps in
 the galaxy  end their formation by exhausting their parent reservoir rather
-than by disrupting their parent cloud.
+than by disrupting their parent cloud \citep{Kruijssen2012a,Matzner2015a}.
 
 The coexistence of distributed and clustered populations over a fairly compact
 region affects how their feedback couples to the local cloud.  Because these
@@ -1271,14 +1300,15 @@ implied by a smooth or even a very turbulent molecular cloud.  These holes
 provide networks of low-density gaps through which radiation can escape,
 reducing the overall impact of radiative feedback on the cloud.  Radiative
 escape helps explain why feedback has been inefficient at halting further star
-formation.
+formation.  We conclude that feedback only affects the low-density gas, while
+the high-density, star-forming gas is largely unaffected.
 
 \subsubsection{Merging \& age spread}
 \label{sec:merging}
 Given the high binding energy of the clusters and the proximity of many other
 stars, it is likely that some of the observed subclusters will merge.  Merger
 or collapse of clusters is a requirement for the formation of massive
-clusters in the Galactic center \citep{Walker2015a}, so it is reasonable to
+clusters in the Galactic center and disk \citep{Walker2016a}, so it is reasonable to
 expect similar dynamic evolution here as well.
 
 If any of the observed subclusters merge (e.g., e1/e2 with e20-e22 or with
@@ -1306,7 +1336,7 @@ feedback regulated rather than self-regulated.
 \subsubsection{Final mass}
 The present stellar mass as inferred from the infrared luminosity (Section
 \ref{sec:stellarmass}) is a lower limit on the final mass of the clusters.  The
-final mass of the clusters will be at least $\gtrsim7\ee{3} + 5\ee{4} \eta$ \msun,
+final mass of the combined clusters will be at least $\gtrsim7\ee{3} + 5\ee{4} \eta$ \msun,
 where $5\ee{4}$ \msun is the approximate dense gas mass within $\sim2$ pc and
 $\eta$ is a star formation efficiency, likely to be at least 10\% in the dense
 gas, so the stellar $M_{final} > 1.2\ee{4}$ \msun.  This is a conservative lower
@@ -1315,8 +1345,9 @@ reprocessed into the infrared and it uses conservatively low estimates for the
 gas mass and the star formation efficiency.
 
 \subsubsection{Cloud-scale feedback}
-Since the free-fall time is short within these clusters ($t_{ff} < 0.5$
-Myr out to 2.5 pc containing 5\ee{4} \msun of gas), supernovae are not likely
+Since the free-fall time is short within these clusters ($t_{ff} < 0.5$ Myr out
+to 2.5 pc containing 5\ee{4} \msun of gas, i.e. the region containing both
+clusters), supernovae are not likely
 to affect their formation.  However, once the clusters have exhausted gas
 locally, they
 will remain in the cloud long enough for the stars to evolve and die.
@@ -1324,9 +1355,13 @@ Exhaustion and porosity also provide a relatively free line-of-sight from the
 clusters to the rest
 of the cloud.  The binding energy of a $10^6$ \msun, $r=50$ pc 
 molecular cloud is only about $10^{51}$ ergs, so a single supernova perfectly
-coupled to the gas could unbind it all.  The $\sim20$ O-stars presently formed,
-plus at least that many expected to form, will provide more than enough energy
-to unbind the whole W51 GMC in a few Myr.
+coupled to the gas could unbind it all \citep[though typical energy delivered
+to molecular clouds is lower, $\sim0.01-0.25$; see references in][appendix
+B]{Kruijssen2012a}.  The $\sim20$ O-stars presently formed,
+plus at least that many expected to form, could provide more than enough energy
+to unbind the whole W51 GMC in a few Myr.  However, the location of the clusters
+on the outskirts of the GMC imply a substantially lower coupling factor,
+suggesting instead that supernovae will only partially disrupt the cloud.
 
 \subsubsection{Evidence against triggering}
 The star formation ongoing within this cloud shows no signs of having been
@@ -1353,6 +1388,9 @@ Very Large Array with angular resolution $0.3$\arcsec to $0.5$\arcsec.   These
 observations have revealed many intriguing features of the W51 protocluster
 that together suggest that thermal and radiative feedback from massive stars is
 ineffective at halting star formation in massive protoclusters.
+Recent theoretical models have predicted that ineffective feedback is a
+necessary step in the formation of gravitationally bound stellar clusters, and
+our results provide an observational verification of this process.
 
 \begin{itemize}
     \item Using the H$77\alpha$ emission and \formaldehyde emission and absorption
@@ -1404,14 +1442,24 @@ detect a significant additional population of proto-O-stars.
 \item The W51 e1/e2 and IRS 2 protoclusters appear to be high-mass clusters
     forming within a larger OB association.  The coexistence of the distributed
     and clustered OB-star populations suggests that \emph{external} feedback
-    may be responsible for halting protocluster feeding.
+    may be partly responsible for halting protocluster feeding.
 
 \item The weak outflow from IRS 2 and ongoing accretion in IRS 2 and e1/e2
     suggest that gas exhaustion is a more important mechanism than expulsion in
     halting cluster growth.
+    Recent theoretical models predict gas exhaustion to be a necessary step in
+    the formation of gravitationally bound stellar clusters
+    \citep[e.g.][]{Kruijssen2012b} and our results provide an observational
+    verification of this process.
 
 \end{itemize}
 
+These results show that even the low-pressure interstellar medium of the Milky
+Way can reach densities high enough for stellar feedback to be ineffective.
+Future observational studies aiming to understand the formation of massive
+stellar clusters should target regions with properties similar to W51, where
+gas exhaustion may be prevalent and the conditions therefore enable
+gravitationally bound clusters to form.
 
 
 

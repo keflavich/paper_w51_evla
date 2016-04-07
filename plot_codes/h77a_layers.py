@@ -114,3 +114,4 @@ for reg in regions:
     pl.subplots_adjust(hspace=0,
                        wspace=0)
     pl.savefig(paths.fpath('rrls/h77a_channelmaps_{0}.png'.format(name)), bbox_inches='tight')
+    pl.savefig(paths.fpath('rrls/h77a_channelmaps_{0}_hires.png'.format(name)), bbox_inches='tight', dpi=300)

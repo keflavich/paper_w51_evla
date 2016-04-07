@@ -12,8 +12,10 @@ h77ajytok = cube.beam.jtok(cube.wcs.wcs.restfrq*u.Hz)
 # approximately 10 mJy/beam
 # hmm... or 100 mJy/beam/(km/s)
 #peak_tb_irs2 = 3500*u.K/(u.km/u.s)
-# I don't really know where this came from..
-peak_tb_irs2 = 100*u.mJy/(u.km/u.s) * h77ajytok/u.Jy
+# I don't really know where this came from...
+#peak_tb_irs2 = 100*u.mJy/(u.km/u.s) * h77ajytok/u.Jy
+# slice 200 contains the overall peak value, and the peak is on IRS2
+peak_tb_irs2 = u.Quantity(cube[200,:,:].max())/(u.km/u.s) * h77ajytok/u.Jy
 # if I drop an aperture on IRS2 and take the mean, it peaks at ~0.007 Jy
 mean_tb_irs2 = 7*u.mJy/(u.km/u.s) * h77ajytok/u.Jy
 Te = 1e4*u.K
@@ -78,3 +80,10 @@ print("Free fall time for an M={mclump:0.2g} cluster with density n={clump_dens:
 print("evaporation / free fall = {nfreefalls:0.4g}".format(nfreefalls=(tevap/freefalltime).decompose()))
 
 print("escape speed: v={vesc:0.3g}".format(vesc=((2*constants.G*mclump/rclump)**0.5).to(u.km/u.s)))
+
+print("\nSome extra calculations that aren't really useful.")
+EM_irs2 = ((peak_tb_irs2/(u.K/(u.km/u.s))) / 1.92e3 * ((Te/u.K)**1.5) * (dnu/u.kHz) * u.cm**-6 * u.pc).to(u.cm**-6*u.pc)
+n_irs2 = ((EM_irs2 / (2*r_irs2_hii))**0.5).to(u.cm**-3)
+print("Density of the IRS2 HII region: {0}".format(n_irs2))
+freefalltime_irs2hii = ((n_irs2*1.37*constants.m_p*constants.G)**-0.5).to(u.Myr)
+print("Free-fall time of something at IRS2 HII's density: {0}".format(freefalltime_irs2hii))
