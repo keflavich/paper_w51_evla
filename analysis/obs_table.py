@@ -42,7 +42,7 @@ obstbl = Table([Column(data=[ep.split()[-1] for ep in beams], name='Epoch'),
                 Column(data=[bm.major.to(u.arcsec).value for bm in beams.values()]*u.arcsec, name='BMAJ'),
                 Column(data=[bm.minor.to(u.arcsec).value for bm in beams.values()]*u.arcsec, name='BMIN'),
                 Column(data=[bm.pa.to(u.deg).value for bm in beams.values()]*u.deg, name='BPA'),
-                Column(data=[noise_est[ep] for ep in beams]*u.mJy, name='Noise Estimate'),
+                Column(data=[noise_est[ep] for ep in beams]*u.mJy/u.beam, name='Noise Estimate'),
                 Column(data=[peak[ep]/noise_est[ep] for ep in beams], name='Dynamic Range'),
                ])
 obstbl.add_column(Column(data=[(1*u.Jy).to(u.K,
