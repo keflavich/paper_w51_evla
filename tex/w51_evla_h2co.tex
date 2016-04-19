@@ -203,7 +203,11 @@ itself) in the image domain for computational convenience.
 {The Ku-band (14.5 GHz, tracing ionized gas) image of the W51 region produced
 with a combination of JVLA B and D array data using uniform weighting.  The
 synthesized beam size is
-$\theta_{FWHM}\approx0.33\arcsec$.}
+$\theta_{FWHM}\approx0.33\arcsec$.
+The compact, circular region in the upper-right corner is IRS 2, while the more
+diffuse bright region in the center is IRS 1.  Compact sources are identified
+in Figure \ref{fig:coverview_pointsrcs}.
+}
 {fig:kuoverview}{0.9}{6.5in}
 
 \Figure{figures/diffuse/W51_C_overview_pointsourcelabels.pdf}
@@ -241,8 +245,7 @@ We report seven distinct observational results:
 
 \subsection{Continuum sources and photometry}
 \label{sec:pointsources}
-Our data are the most sensitive continuum observations yet performed on the W51
-region.  We report new detections of several sources and concrete
+We report new detections of several sources and concrete
 identifications of others that were detected in previous data sets but not
 reported.
 
@@ -669,7 +672,7 @@ We use the data to examine the following properties of W51:
         the mass and velocity of escaping material.
 \end{itemize}
 
-\subsection{The stellar mass}
+\subsection{The FIR-deduced stellar mass}
 \label{sec:stellarmass}
 
 % this work is done mostly in the w51_singledish_maps radial_profile code
@@ -697,9 +700,9 @@ a stellar mass $M_{cl} = 6.7\ee{3} \pm 2.3\ee{3}$ \msun, with a corresponding nu
 O-stars (greater than 20 \msun) $N_O = 19 \pm 6$, assuming a
 \citet{Kroupa2001a} IMF at the zero-age main sequence using \citet{Vacca1996a}
 stellar parameters.  This estimate provides a lower limit on the present day
-O-star population, since much of the short-wavelength radiation is able to
-escape rather than being reprocessed into the far infrared, which we have used
-to infer the luminosity.
+O-star population, since some of the short-wavelength radiation (i.e., the NIR
+radiation) is able to escape rather than being reprocessed into the far
+infrared, which we have used to infer the luminosity.
 
 Of these expected $\sim20$ O-stars, six have been detected in the near infrared
 and spectroscopically confirmed.  \citet{Figueredo2008a} found 4 exposed O-type
@@ -1062,7 +1065,9 @@ lower-limit based mass.  For a reasonable range of `core' masses, $20
 5\ee{-8}$.  The source e8 similarly requires high abundance to explain its
 emission.  While these inferred abundances are high, they are consistent with
 measurements of \formaldehyde abundance in the Orion Hot Core and Compact Ridge
-\citep{Mangum1993b}.
+\citep{Mangum1993b}.  The enhanced abundance is likely driven by radiation-driven
+desorption of \formaldehyde from dust grains.
+
 % For the source e8, 
 % using the same assumptions, the $n\gtrsim10^6$ \percc lower limit yields
 % $M_{e8}>4$ \msun.  Similarly, this core requires high abundance to explain its
@@ -1193,6 +1198,17 @@ Given the mass of W51 Main and its $\sim10$ \kms escape velocity, all of these
 (proto)stars are bound to the overall cluster gas.  In this innermost region,
 where the stellar mass is dominant, the stars are also likely to be bound to
 themselves.
+
+The 1-dimensional velocity dispersions we measure are comparable to those
+observed in the high-mass stars in Westerlund 1 \citep{Cottaar2012a}, but
+substantially smaller than the 4-6 \kms velocity dispersion found in NGC 3603
+and R136 \citep{Rochau2010a, Pang2013a, Henault-Brunet2012a}.  The discrepancy
+with NGC 3603 and R136 is likely because these latter clusters are more
+massive, having already reached stellar masses 10$\times$ greater than the
+present-day stellar masses of the W51 clusters.  In Westerlund 1, the lower
+velocity dispersion was interpreted as subvirial motion, possibly due to mass
+segregation and their selection of the highest-mass stars, which may also
+affect our measurements.
 
 \FigureTwo
 {figures/spectra/h77/e1_h77a_fit.png}
