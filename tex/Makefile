@@ -7,7 +7,7 @@ BIBTEX=bibtex
 DVIPS=dvips
 PS2PDF=ps2pdf
 
-all: w51_evla_h2co referee
+all: referee w51_evla_h2co
 
 w51_evla_h2co: 
 	#@rm -f w51_evla_h2co*.aux w51_evla_h2co*.bbl w51_evla_h2co*.blg w51_evla_h2co*.dvi w51_evla_h2co*.log w51_evla_h2co*.lot w51_evla_h2co*.lof
