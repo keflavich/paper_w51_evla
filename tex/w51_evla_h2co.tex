@@ -61,7 +61,7 @@ this feedback, as the physical complexity of such regions renders them
 difficult to simulate.  A crucial question is whether the clusters complete the
 star formation process by consuming most of their gas (exhaustion) or
 by removing it via feedback 
-\citep[expulsion;][]{Kruijssen2012b,Longmore2014a,Matzner2015a}.
+\citep[expulsion;][]{Kruijssen2012b,Longmore2014b,Matzner2015a}.
 The balance between the two processes is expected to depend on the gas volume
 density because higher-density gas clumps are capable of evolving through a
 larger number of free-fall times before the gas supply is shut off by feedback,
@@ -1253,13 +1253,14 @@ difference from the peak of the \hii region emission $\Delta v=25$ \kms, which
 at its current radius translates to a time $t = r / \Delta v = 7.5$ kyr.
 The implied \emph{upper limit} mass loss rate is $\dot{M} = 1.6\ee{3}$ \msun
 Myr$^{-1}$, which gives an evaporation timescale for this $M>10^4$ \msun
-clump $t>6$ Myr.  The free-fall time for the protocluster gas is $t_{ff} < 0.5$ Myr
+clump $t>6$ Myr.  The free-fall time averaged over the full volume of the protocluster gas is $t_{ff} < 0.5$ Myr
 assuming $R=1.5$ pc and $n=10^4$ \percc, so the photoevaporation timescale is
 at least an order of magnitude longer.  However, the molecular gas is centrally
-condensed and under pressure from an HII region, so the collapse timescale is
-likely to be shorter still.
-Given the conservative assumptions adopted above, the photoevaporative mass
-loss is likely an order of magnitude lower, suggesting that this mass loss
+condensed (most of the volume has no molecular gas) and under pressure from an
+HII region, so the local gas density is likely to be much higher and the
+collapse timescale therefore shorter.
+Given the conservative assumptions adopted above, the true photoevaporative
+mass loss is likely an order of magnitude lower, suggesting that this mass loss
 mechanism is negligible at present.
 
 
@@ -1271,14 +1272,13 @@ mechanism is negligible at present.
 There are three distinct massive star populations identified in W51: W51 IRS 2,
 W51 e1/e2, and the new W51 e20 group.  The W51 IRS 2 cluster is closer to
 exhausting its available gas reservoir than the W51 e1/e2 cluster, since it is
-visible in the near-infrared and shows signs of bulk outflow from the cluster
-(Section \ref{sec:irs2outflow}).  The presence of many stars with no ongoing
-accretion, along with the evidence for the first stages of gas evacuation,
-suggest the IRS 2 cluster is older than W51 e1/e2, which shows no signs
-of gas ejection and contains no demonstrably non-accreting stars.  Similarly,
-because they have no evident surrounding gas or suggestions of ongoing
-accretion, the W51 e20 stars are likely the oldest in the W51 A
-system.
+visible in the near-infrared.  The presence of many stars with no ongoing
+accretion, along with the large volumes that are not occupied by dense gas,
+suggest the IRS 2 cluster is older than W51 e1/e2. The e1/e2 protocluster shows
+no signs of gas ejection, has no holes through which short-wavelength radiation
+is escaping, and contains no demonstrably non-accreting stars.  
+Because they have no evident surrounding dense gas or suggestions of ongoing
+accretion, the W51 e20 stars are likely the oldest in the W51 A system.
 
 However, W51 e20 and the related W51e candidate CWBs may constitute an
 unclustered population.  The Chandra MOXC catalog \citep{Townsley2014a} reveals
@@ -1299,9 +1299,9 @@ The W51d CWB candidates, by contrast, are each isolated, and they are
 distributed around W51 IRS 2 (Figures \ref{fig:w51irs2},
 \ref{fig:coverview_pointsrcs}).  These stars could therefore be runaways from
 the IRS 2 cluster.  Source d5 is the furthest of these in projection, so with a
-distance of 0.9 pc, its ejection time is $t = 0.08 \left(\frac{v_*}{10
+distance of 0.9 pc, its ejection time is $t = 0.08 \left({v_*}/{10
 ~\kms}\right)^{-1}$ Myr.  The runaway scenario provides an alternate
-explanation for the observed SEDs (Section \ref{sec:SEDs}): synchrotron
+explanation for the observed SEDs (Appendix \ref{sec:SEDs}): synchrotron
 emission from the wind-ISM bow shock might generate the detected emission.
 This scenario can be readily verified if high ($>10~\kms$) line-of-sight
 velocities to the infrared-visible stars are measured.
@@ -1328,12 +1328,12 @@ that are likely to be accreting.  In e1/e2, there is no sign that feedback
 has evacuated \emph{any} gas yet, and the \hii regions appear to be surrounded
 by molecular gas.
 
-In IRS 2, accretion is ongoing despite its volume being largely evacuated of
+In IRS 2, accretion is ongoing despite much of its volume being evacuated of
 molecular gas.
 Ionizing photons are escaping the inner cluster and ionized gas is being driven
 out of the inner cluster where the stars are forming.  However, the timescale
-for complete gas evacuation in IRS 2 at the presently observed mass-loss timescale
-(averaged over $10^4$ years) is $>10\times$ longer than the gas free-fall time
+for complete gas evacuation in IRS 2 at the presently observed mass-loss rate
+(averaged over $10^4$ years) is ${>}10\times$ longer than the gas free-fall time
 on the 1-2 parsec scale of the clump 
 (Section \ref{sec:irs2outflow}).
 Feedback is therefore progressing more slowly
@@ -1381,8 +1381,9 @@ OB association will dissolve over a few Myr while the clusters will survive.
 However, before this happens, the OB association is likely to shut off
 accretion onto the protoclusters.  The radiative feedback from the OB
 association can readily ionize the lower-density molecular gas in the outskirts
-of the clusters.  In this way, the cluster's formation would be externally
-feedback regulated rather than self-regulated.
+of the clusters.  In this way, the cluster's final mass would be externally
+feedback regulated rather than, or perhaps in addition to, being
+self-regulated.
 
 
 
@@ -1390,7 +1391,7 @@ feedback regulated rather than self-regulated.
 The present stellar mass as inferred from the infrared luminosity (Section
 \ref{sec:stellarmass}) is a lower limit on the final mass of the clusters.  The
 final mass of the combined clusters will be at least $\gtrsim7\ee{3} + 5\ee{4} \eta$ \msun,
-where $5\ee{4}$ \msun is the approximate dense gas mass within $\sim2$ pc and
+where $5\ee{4}$ \msun is the approximate dense gas mass within $\sim2.5$ pc and
 $\eta$ is a star formation efficiency, likely to be at least 10\% in the dense
 gas, so the stellar $M_{final} > 1.2\ee{4}$ \msun.  This is a conservative lower
 limit, as it may miss a substantial population of stars whose luminosity is not
