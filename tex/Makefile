@@ -20,9 +20,10 @@ w51_evla_h2co:
 	gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=w51_evla_h2co_compressed.pdf w51_evla_h2co.pdf
 
 diff:
-	python parse_macros.py w51_evla_h2co.tex w51_evla_h2co_fordiff.tex
-	python parse_macros.py w51_evla_h2co_aug13.tex w51_evla_h2co_aug13_fordiff.tex
-	latexdiff w51_evla_h2co_aug13_fordiff.tex w51_evla_h2co_fordiff.tex > diff.tex
+	#python parse_macros.py w51_evla_h2co.tex w51_evla_h2co_fordiff.tex
+	#python parse_macros.py w51_evla_h2co_aug13.tex w51_evla_h2co_aug13_fordiff.tex
+	python2 parse_macros.py w51_evla_h2co_feb16_2016_submitted.tex w51_evla_h2co_feb16_2016_submitted_fordiff.tex
+	latexdiff w51_evla_h2co_feb16_2016_submitted_fordiff.tex w51_evla_h2co_fordiff.tex > diff.tex
 	${SKIPERR} diff.tex
 	${BIBTEX} diff
 	${SKIPERR} diff.tex
