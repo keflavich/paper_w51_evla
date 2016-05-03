@@ -18,8 +18,8 @@ figure.clf()
 def set_tight_ticks(F):
     F.tick_labels.set_yformat('dd:mm:ss.ss')
     F.tick_labels.set_xformat('hh:mm:ss.ss')
-    F.ticks.set_xspacing(0.001)
-    F.ticks.set_yspacing(0.001)
+    F.ticks.set_xspacing(0.0015)
+    F.ticks.set_yspacing(0.0015)
     F.tick_labels.set_x_full_label_side('left')
 
 hdu = fits.open(paths.dpath('naco_Kband_W51.fits'))
@@ -124,7 +124,7 @@ F.show_contour(h77a_outflow.hdu, levels=h77alevels,colors=h77acolors,
                filled=True, layer='h77a')
 F.save(fpath('irs2outflow/IRS2_core_and_siv_and_neii_and_h77a_on_NACO_K.png'), dpi=150)
 
-for layer in F._layers.keys():
+for layer in list(F._layers.keys()):
     F.remove_layer(layer)
 
 vr = [56,60]
@@ -139,7 +139,7 @@ for velo in np.arange(vr[0],vr[1]+0.5,0.5):
 
 F.save(fpath('irs2outflow/IRS2_core_on_NACO_K.png'), dpi=150)
 
-for layer in F._layers.keys():
+for layer in list(F._layers.keys()):
     F.remove_layer(layer)
 
 briggs_h2co22cube = SpectralCube.read(dpath('W51Ku_BD_h2co_v30to90_briggs0_contsub.image.fits')).with_spectral_unit(u.km/u.s, velocity_convention='radio').subcube(**cutout_coords)

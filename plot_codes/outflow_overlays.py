@@ -14,7 +14,7 @@ from astropy import wcs
 from astropy import log
 log.setLevel(10)
 
-e1e2 = coordinates.ICRS(290.93268,14.508363,unit=('deg','deg'))
+e1e2 = coordinates.ICRS(290.93268*u.deg,14.508363*u.deg)
 
 #aplpy.make_rgb_cube( ('W51-CBAND-feathered.fits','W51-X-ABCD-S1.VTESS.VTC.DAVID-MEH.fits','W51Ku_BDarray_continuum_2048_both_uniform.hires.clean.image.fits'), 'W51_CXU_rgb' )
 
@@ -25,8 +25,8 @@ figure.clf()
 def set_tight_ticks(F):
     F.tick_labels.set_yformat('dd:mm:ss.ss')
     F.tick_labels.set_xformat('hh:mm:ss.ss')
-    F.ticks.set_xspacing(0.0015)
-    F.ticks.set_yspacing(0.0015)
+    F.ticks.set_xspacing(0.002)
+    F.ticks.set_yspacing(0.002)
     F.tick_labels.set_x_full_label_side('left')
 
 # clean the header of junk axes
@@ -132,7 +132,7 @@ F.show_contour(h77a_outflow.hdu, levels=h77alevels,colors=h77acolors,
                filled=True, layer='h77a')
 F.save(fpath('irs2outflow/IRS2_core_and_siv_and_neii_and_h77a_on_cont22.png'), dpi=150)
 
-for layer in F._layers.keys():
+for layer in list(F._layers.keys()):
     F.remove_layer(layer)
 
 
@@ -148,7 +148,7 @@ for velo in np.arange(vr[0],vr[1]+0.5,0.5):
 
 F.save(fpath('irs2outflow/IRS2_core_on_cont22.png'), dpi=150)
 
-for layer in F._layers.keys():
+for layer in list(F._layers.keys()):
     F.remove_layer(layer)
 
 

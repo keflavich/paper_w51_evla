@@ -32,5 +32,6 @@ F.scalebar.set_label('0.5 pc')
 F.scalebar.set_color('black')
 F.scalebar.set_linewidth(3)
 F.scalebar.set_font_size(20)
+F.ticks.set_xspacing(0.02)
 
 F.save(fpath("diffuse/continuum_on_c18o.png"))
