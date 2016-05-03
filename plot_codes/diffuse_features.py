@@ -95,29 +95,28 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
     # radius = diamater / 2.
     coord_diffs = np.abs(np.array(coord_limits[0])-np.array(coord_limits[1]))
     radius = np.max(coord_diffs)/2.
-    log.info("circle({0}, {1}, {2})".format(cx, cy, radius))
+    log.info("{3}: circle({0}, {1}, {2})".format(cx, cy, radius, name))
     F.recenter(cx, cy, radius=radius)
 
     if radius > 0.006:
         F.tick_labels.set_yformat('dd:mm:ss.s')
         F.tick_labels.set_xformat('hh:mm:ss.s')
-        F.ticks.set_xspacing(0.005)
-        F.ticks.set_yspacing(0.005)
+        spacing = 0.005
     elif radius > 0.003:
         F.tick_labels.set_yformat('dd:mm:ss.ss')
         F.tick_labels.set_xformat('hh:mm:ss.ss')
-        F.ticks.set_xspacing(0.001)
-        F.ticks.set_yspacing(0.001)
+        spacing=0.0025
     elif radius < 0.001:
         F.tick_labels.set_yformat('dd:mm:ss.sss')
         F.tick_labels.set_xformat('hh:mm:ss.sss')
-        F.ticks.set_xspacing(0.0025)
-        F.ticks.set_yspacing(0.0025)
+        spacing=0.0025
     else:
         F.tick_labels.set_yformat('dd:mm:ss.ss')
         F.tick_labels.set_xformat('hh:mm:ss.ss')
-        F.ticks.set_xspacing(0.001)
-        F.ticks.set_yspacing(0.001)
+        spacing=0.001
+
+    F.ticks.set_xspacing(spacing)
+    F.ticks.set_yspacing(spacing)
 
     if radius > 0.003:
         sblength = 0.1*u.pc
@@ -151,6 +150,7 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
     ax.set_ylim(y1,y2)
     ra = ax.coords['ra']
     ra.set_major_formatter('hh:mm:ss.s')
+    ra.set_ticks(spacing=spacing*u.deg)
     dec = ax.coords['dec']
     ra.set_axislabel("RA (J2000)")
     dec.set_axislabel("Dec (J2000)")
