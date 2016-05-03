@@ -44,7 +44,7 @@ for reg in regions:
     F.save(paths.fpath('rrls/h77a_3layers_{0}.png'.format(name)))
 
     # Begin channel map code here
-    pl.figure(3, figsize=(16,16)).clf()
+    pl.figure(3, figsize=(12,12)).clf()
     Nrows=Ncols=4
     fig, ax = pl.subplots(Nrows, Ncols,
                           sharex=True,
