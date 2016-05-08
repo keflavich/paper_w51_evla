@@ -12,6 +12,9 @@ from astropy.table import Table, Column
 from rounded import rounded
 from latex_info import latexdict, format_float
 import pylab as pl
+import copy
+
+latexdict = copy.copy(latexdict)
 
 sp = [pyspeckit.Spectrum(x) for x in
       ProgressBar(

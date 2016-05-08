@@ -6,6 +6,7 @@ from astropy import coordinates
 from astropy.utils.console import ProgressBar
 from scipy.sparse.csgraph import minimum_spanning_tree
 import paths
+from common_constants import distance
 
 regions = pyregion.open(paths.rpath('pointsource_centroids.reg'))
 
@@ -52,11 +53,11 @@ def examinalyze(smat):
     connections = np.where(mst.toarray())
     lines = [(coords[ii], coords[jj]) for ii,jj in zip(*connections)]
     plotlines = [((a.ra.deg, b.ra.deg), (a.dec.deg, b.dec.deg)) for a,b in lines]
-    xx,yy = np.array(zip(*plotlines))
+    xx,yy = np.array(list(zip(*plotlines)))
 
     lines2 = [(coords[ll], coords[rr]) for ll,rr in edges]
     plotlines2 = [((a.ra.deg, b.ra.deg), (a.dec.deg, b.dec.deg)) for a,b in lines2]
-    xx2,yy2 = np.array(zip(*plotlines2))
+    xx2,yy2 = np.array(list(zip(*plotlines2)))
 
     import pylab as pl
     pl.clf()
@@ -67,8 +68,12 @@ def examinalyze(smat):
     inds = np.where(np.tril(smat, -1))
     mps = smat[inds].mean()
     mbl = mst[mst.nonzero()].mean()
-    print("Mean branch length: {0} arcsec".format(mbl*3600))
-    print("Mean point separation: {0} arcsec".format(mps*3600))
+    print("Mean branch length: {0} arcsec {1}".format(mbl*3600,
+                                                         (mbl*u.deg*distance).to(u.pc,
+                                                                                 u.dimensionless_angles())))
+    print("Mean point separation: {0} arcsec {1}".format(mps*3600,
+                                                            (mbl*u.deg*distance).to(u.pc,
+                                                                                    u.dimensionless_angles())))
     print("Q parameter: {0}".format(mbl/mps))
 
 examinalyze(separation_matrix)

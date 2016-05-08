@@ -23,6 +23,10 @@ from astropy import constants
 def mvir(radius, vdisp):
     """
     Compute the virial mass given the 1-D velocity dispersion and the half-mass radius
+
+    This is a simplified virial mass with
+    M = sigma_3d**2 * radius / G
+    and sigma_3d = sqrt(3) * sigma_1d
     """
     return ((3 * vdisp**2) * radius / constants.G).to(u.M_sun)
 
@@ -43,13 +47,15 @@ velocities_optimistic = ([row['$V_{LSR}$'] for row in tbl22 if row['Object Name'
                          [row['H77a_velocity'] for row in tbl77 if row['ObjectName'] in cluster_sources_optimistic])
 print("Mean velocity including weak detections: {0}".format(np.mean(velocities_optimistic)))
 print("Velocity dispersion including weak detections: {0}".format(np.std(velocities_optimistic)))
-print("Virial mass in e1e2 using R=0.16 pc from spanning_tree: {0}".format(mvir(0.16*u.pc, np.std(velocities_optimistic)*u.km/u.s)))
+# spanning tree gives 0.09 pc
+print("Virial mass in e1e2 using R=0.16 pc (eyeballed): {0}".format(mvir(0.16*u.pc, np.std(velocities_optimistic)*u.km/u.s)))
 print("Density from that mass: {0}".format((mvir(0.16*u.pc, np.std(velocities_optimistic)*u.km/u.s)/(2.8*u.Da)/(4/3.*np.pi*(0.16*u.pc)**3)).to(u.cm**-3)))
 velocities_optimistic = ([row['$V_{LSR}$'] for row in tbl22 if row['Object Name'] in e1cluster] +
                          [row['H77a_velocity'] for row in tbl77 if row['ObjectName'] in e1cluster])
 print("Mean velocity in e1: {0}".format(np.mean(velocities_optimistic)))
 print("Velocity dispersion in e1: {0}".format(np.std(velocities_optimistic)))
-print("Virial mass in e1 using R=0.07 pc from spanning_tree: {0}".format(mvir(0.07*u.pc, np.std(velocities_optimistic)*u.km/u.s)))
+# spanning tree gives 0.04 pc
+print("Virial mass in e1 using R=0.07 pc (eyeballed): {0}".format(mvir(0.07*u.pc, np.std(velocities_optimistic)*u.km/u.s)))
 print("Density from that mass: {0}".format((mvir(0.07*u.pc, np.std(velocities_optimistic)*u.km/u.s)/(2.8*u.Da)/(4/3.*np.pi*(0.07*u.pc)**3)).to(u.cm**-3)))
 
 # Are the clusters star or gas dominated?

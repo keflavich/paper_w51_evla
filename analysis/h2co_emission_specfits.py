@@ -17,6 +17,7 @@ import pylab as pl
 import copy
 
 latexdict = copy.copy(latexdict)
+assert '$r_{eff}$' in latexdict
 
 sp = [pyspeckit.Spectrum(x) for x in
       ProgressBar(
