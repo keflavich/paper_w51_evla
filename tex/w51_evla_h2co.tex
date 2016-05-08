@@ -3,7 +3,7 @@
 \begin{document}
 
 \title{Toward gas exhaustion in the W51 high-mass protoclusters}
-\titlerunning{W51 JVLA H2CO}
+\titlerunning{JVLA observations of W51}
 \authorrunning{Ginsburg et al}
 \input{authors}
 
@@ -205,7 +205,8 @@ with a combination of JVLA B and D array data using uniform weighting.  The
 synthesized beam size is
 $\theta_{FWHM}\approx0.33\arcsec$.
 The compact, circular region in the upper-right corner is IRS 2, while the more
-diffuse bright region in the center is IRS 1.  Compact sources are identified
+diffuse bright region in the center is IRS 1, marking the edge of the W51 Main
+shell.  Compact sources are identified
 in Figure \ref{fig:coverview_pointsrcs}.
 }
 {fig:kuoverview}{0.9}{6.5in}
@@ -255,7 +256,7 @@ W51e followed by a number.  We identify two new sources, e9  and e10, which
 were previously detected but never named.  We split source e8 into a north and
 south component, plus a more extended molecular component e8mol.  We also
 identify a molecular component between e1, e8, and e10: e10mol.  The source
-positions and approximate radii for resolved sources are shown in Figure
+positions and approximate radii for resolved continuum sources are shown in Figure
 \ref{fig:coverview_pointsrcs} and listed in Table \ref{tab:positions}.
 The positions and radii are estimated by eye; they are not fits to the data.
 
@@ -280,17 +281,16 @@ comes from 12A-274, 12B-365, or 13A-064 (mid 2012-early
 of the highest-resolution observations.  Full details of the data provenance
 are given in Table \ref{tab:obs_meta}.
 
-There are two flux density columns in Table \ref{tab:contsrcs}.  The first
-shows the peak flux density within a circular aperture with a
-radius equal to the beam major FWHM.  The second column, `Peak -
-Background', shows the peak flux density minus the minimum flux density in a
-box $6\times6$ beam FWHMs.  This background-subtracted flux density is meant to
-account for negative bowling that affects parts of the images; there are cases
-in which a bright point source is seen on a deeply negative background such
-that the measured peak flux density is near zero.  When these two values agree,
-they are reliable, but when they differ significantly, they are probably
-affected by image reconstruction artifacts and the background-subtracted
-version is preferred.
+There are two intensity columns in Table \ref{tab:contsrcs}.  The first shows
+the peak intensity within a circular aperture with a radius equal to the beam
+major FWHM.  The second column, `Peak - Background', shows the peak intensity
+minus the minimum intensity in a box $6\times6$ beam FWHMs.  This
+background-subtracted intensity is meant to account for negative bowling that
+affects parts of the images; there are cases in which a bright point source is
+seen on a deeply negative background such that the measured peak intensity is
+near zero.  When these two values agree, they are reliable, but when they
+differ significantly, they are probably affected by image reconstruction
+artifacts and the background-subtracted version is preferred.
 
 The RMS column gives the error measured in a signal-free region of the image.
 It is approximately the same as that shown in Table \ref{tab:observations},
@@ -341,6 +341,10 @@ We compare our extracted source catalog with the MOXC Chandra X-ray catalog
 wavelengths.  The associations are listed in Table
 \ref{tab:associations}.  We discuss some
 individual source associations in more detail in this section.
+The absolute astrometric offsets in the Chandra catalogs are $<0.1\arcsec$
+\citep{Townsley2014a}, and typical absolute astrometric errors in JVLA
+data\footnote{\url{https://science.nrao.edu/facilities/vla/docs/manuals/oss/performance/positional-accuracy}}
+are $\sim10\%$ of the beam, or in our case $\lesssim0.02-0.04\arcsec$.
 
 Both lobes of the variable source d4 are
 0.3\arcsec from MOXC 192339.62+143130.3 and d6 is 0.3\arcsec from MOXC
@@ -1188,8 +1192,8 @@ assumption may be more accurate here.  Its implied density if it is gas-dominate
 is $n(\hh)\sim2\ee7$ \percc ($M_{vir}=200$ \msun), but assuming all 7 \hchii
 regions represent OB stars ($M>8\msun$) and the IMF is populated by a standard
 \citet{Kroupa2001a} mass function, the cluster should be star-dominated with a
-mass $M_{cluster}=700\pm250$ \msun, which implies a stellar density $n_* \sim 4
-n_{gas}$ \citep[similar to the mass ratio obtained in the simulations
+mass $M_{cluster}=700\pm250$ \msun, which implies a stellar density $\rho_* \sim 4
+\rho_{gas}$ \citep[similar to the mass ratio obtained in the simulations
 of][]{Kruijssen2012b}.  Since there are hypercompact \hii regions,
 implying gas densities near the stars $n>>10^6$ \percc, this is a region where
 stellar and gas dynamics are closely intertwined.
@@ -1199,16 +1203,16 @@ Given the mass of W51 Main and its $\sim10$ \kms escape velocity, all of these
 where the stellar mass is dominant, the stars are also likely to be bound to
 themselves.
 
-The 1-dimensional velocity dispersions we measure are comparable to those
-observed in the high-mass stars in Westerlund 1 \citep{Cottaar2012a}, but
-substantially smaller than the 4-6 \kms velocity dispersion found in NGC 3603
-and R136 \citep{Rochau2010a, Pang2013a, Henault-Brunet2012a}.  The discrepancy
-with NGC 3603 and R136 is likely because these latter clusters are more
-massive, having already reached stellar masses 10$\times$ greater than the
-present-day stellar masses of the W51 clusters.  In Westerlund 1, the lower
-velocity dispersion was interpreted as subvirial motion, possibly due to mass
-segregation and their selection of the highest-mass stars, which may also
-affect our measurements.
+% The 1-dimensional velocity dispersions we measure are comparable to those
+% observed in the high-mass stars in Westerlund 1 \citep{Cottaar2012a}, but
+% substantially smaller than the 4-6 \kms velocity dispersion found in NGC 3603
+% and R136 \citep{Rochau2010a, Pang2013a, Henault-Brunet2012a}.  The discrepancy
+% with NGC 3603 and R136 is likely because these latter clusters are more
+% massive, having already reached stellar masses 10$\times$ greater than the
+% present-day stellar masses of the W51 clusters.  In Westerlund 1, the lower
+% velocity dispersion was interpreted as subvirial motion, possibly due to mass
+% segregation and their selection of the highest-mass stars, which may also
+% affect our measurements.
 
 \FigureTwo
 {figures/spectra/h77/e1_h77a_fit.png}
@@ -1254,7 +1258,7 @@ at its current radius translates to a time $t = r / \Delta v = 7.5$ kyr.
 The implied \emph{upper limit} mass loss rate is $\dot{M} = 1.6\ee{3}$ \msun
 Myr$^{-1}$, which gives an evaporation timescale for this $M>10^4$ \msun
 clump $t>6$ Myr.  The free-fall time averaged over the full volume of the protocluster gas is $t_{ff} < 0.5$ Myr
-assuming $R=1.5$ pc and $n=10^4$ \percc, so the photoevaporation timescale is
+assuming $n=10^4$ \percc within $R=1.5$ pc, so the photoevaporation timescale is
 at least an order of magnitude longer.  However, the molecular gas is centrally
 condensed (most of the volume has no molecular gas) and under pressure from an
 HII region, so the local gas density is likely to be much higher and the
@@ -1566,9 +1570,9 @@ distinguish them in RRL emission and because they are evidently part of (or
 interacting with) a large shell centered near W51 Main.}
 {fig:coverview_diffuse}{0.9}{6.5in}
 
-%\onecolumn
-%\input{tables/pointsource_photometry_full.tex}
-%\twocolumn
+\onecolumn
+\input{tables/pointsource_photometry_full.tex}
+\twocolumn
 
 \clearpage
 \section{Point Source Photometry Catalog}
@@ -1577,7 +1581,7 @@ The full version of the point source photometry catalog is available in digital
 form from
 \url{https://github.com/keflavich/paper_w51_evla/blob/master/tables/EVLA_VLA_PointSourcePhotometry.ipac}.
 A sample is shown in Table \ref{tab:contsrcs}.
-\todo{This will eventually be hosted by CDS.}
+\todo{To the journal: we would like this to be hosted by CDS.}
 
 %\input{ptsrcphotometryfigures.tex}
 

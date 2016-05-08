@@ -27,7 +27,9 @@ units = {'Amplitude':u.mJy.to_string(u.format.LatexInline),
          '$\sigma(V_{LSR})$':(u.km/u.s).to_string(u.format.LatexInline),
          '$dV$':(u.km/u.s).to_string(u.format.LatexInline),
          '$\sigma(dV)':(u.km/u.s).to_string(u.format.LatexInline),
-         '$\Omega_{ap}$':u.sr.to_string(u.format.LatexInline),}
+         '$\Omega_{ap}$':u.sr.to_string(u.format.LatexInline),
+         '$r_{eff}$':u.arcsec.to_string(u.format.LatexInline),
+        }
 latexdict = ascii.latex.latexdicts['AA']
 latexdict['tabletype'] = 'table*'
 latexdict['tablealign'] = 'htp'

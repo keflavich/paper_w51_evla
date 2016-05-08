@@ -25,14 +25,16 @@ spectra = sp
 
 tbl = Table(dtype=[(str, 20), float,   float,   float,   float,   float,
                    float,   float],
-                   names=['Object Name',
-                          'Amplitude',
-                          '$E$(Amplitude)',
-                          '$V_{LSR}$',
-                          '$E(V_{LSR})$',
-                          '$\sigma_V$',
-                          '$E(\sigma_V)$',
-                          '$\Omega_{ap}$',],
+            names=['Object Name',
+                   'Amplitude',
+                   '$E$(Amplitude)',
+                   '$V_{LSR}$',
+                   '$E(V_{LSR})$',
+                   '$\sigma_V$',
+                   '$E(\sigma_V)$',
+                   #'$\Omega_{ap}$',
+                   '$r_{eff}$',
+                  ],
            )
 
 # My manual inspection: which are detected?
@@ -47,7 +49,7 @@ ambiguousdetections = ['e1']#'e8mol_ext', 'e10mol_ext']
 for s in sp:
     assert s.specname
     log.info(s.specname+" stats")
-    noiseregion = (s.xarr < 40*u.km/u.s).value | (s.xarr > 80*u.km/u.s).value
+    noiseregion = (s.xarr < 40*u.km/u.s) | (s.xarr > 80*u.km/u.s)
     assert np.any(noiseregion)
     s.error[:] = s.data[noiseregion].std()
 
@@ -67,11 +69,15 @@ for thisspec in sp:
     thisspec.plotter.savefig(paths.fpath('spectra/hiiregionh2co/'+thisspec.specname+"_h2co22absorption_fit.png"),
                                   bbox_inches='tight')
 
+    omega_ap = thisspec.header['APAREA']*(np.pi/180.)**2 * u.sr
+    r_eff = ((omega_ap/np.pi)**0.5).to(u.arcsec).value
     tbl.add_row([thisspec.specname,]+
                  list((rounded(thisspec.specfit.parinfo.AMPLITUDE0.value, thisspec.specfit.parinfo.AMPLITUDE0.error)*u.Jy).to(u.mJy))+
                  list(rounded(thisspec.specfit.parinfo.SHIFT0.value, thisspec.specfit.parinfo.SHIFT0.error)*u.km/u.s)+
                  list(rounded(thisspec.specfit.parinfo.WIDTH0.value, thisspec.specfit.parinfo.WIDTH0.error)*u.km/u.s)+
-                 [np.round(thisspec.header['APAREA']*(np.pi/180.)**2, int(np.ceil(-np.log10(thisspec.header['APAREA']*(np.pi/180.)**2)))+1)*u.sr])
+                [np.round(r_eff, 1)*u.arcsec]
+                 #[np.round(thisspec.header['APAREA']*(np.pi/180.)**2, int(np.ceil(-np.log10(thisspec.header['APAREA']*(np.pi/180.)**2)))+1)*u.sr]
+               )
 
  
 # sort such that e10 comes after e9
@@ -95,6 +101,9 @@ for row in tbl:
 
 latexdict['header_start'] = '\label{tab:absorption22}'
 latexdict['caption'] = '\\formaldehyde \\twotwo absorption line parameters'
+latexdict['tablefoot'] = ('\par\nColumns with $E$ denote the errors on the measured parameters.'
+                          '  $\sigma_{V}$ is the 1-dimensional gaussian velocity dispersion.  '
+                          '$r_{eff}$ is the effective aperture radius.')
 tbl[ok].write(paths.tpath('H2CO22_hiiregion_spectral_fits.tex'), format='ascii.latex', latexdict=latexdict,
-              formats={'$\Omega_{ap}$': format_float}
+              #formats={'$\Omega_{ap}$': format_float}
              )

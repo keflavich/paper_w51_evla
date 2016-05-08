@@ -1,4 +1,5 @@
 from __future__ import print_function
+import os
 import pyregion
 import photutils
 import astropy.wcs
@@ -76,7 +77,7 @@ for freq,fn in files.items():
         xc,yc = wcs.wcs_world2pix([rd],0)[0][:2]
         #pixscale = np.abs(wcs.wcs.get_cdelt()[0])
         pixscale = np.abs(wcs.pixel_scale_matrix.diagonal().prod())**0.5 * u.deg
-        rp = rad / pixscale  # radius in pixels
+        rp = (rad / pixscale.to(u.deg).value)  # radius in pixels
         aperture = photutils.CircularAperture(positions=[xc, yc], r=rp)
         aperture_data = photutils.aperture_photometry(data=data, apertures=aperture)
         flux = aperture_data[0]['aperture_sum']
@@ -90,7 +91,7 @@ for freq,fn in files.items():
         # co: short for cutout
         co = data[int(yc-3*rp):int(yc+3*rp+1),
                   int(xc-3*rp):int(xc+3*rp+1)]
-        max_rp = max_rad/3600./pixscale
+        max_rp = max_rad/3600./pixscale.to(u.deg).value
         cotoplot = data[int(yc-max_rp):int(yc+max_rp+1),
                         int(xc-max_rp):int(xc+max_rp+1)]
         cutouts[freq][name] = (co, cotoplot, pixscale)
@@ -123,13 +124,13 @@ for freq,fn in files.items():
                                                 frame=wcs.wcs.radesys.lower())
             gpars[freq][name][2] = center_coord.transform_to('fk5').ra.deg
             gpars[freq][name][3] = center_coord.transform_to('fk5').dec.deg
-            gpars[freq][name][4] *= pixscale
-            gpars[freq][name][5] *= pixscale
+            gpars[freq][name][4] *= pixscale.to(u.deg).value
+            gpars[freq][name][5] *= pixscale.to(u.deg).value
 
-            gparerrs[freq][name][2] *= pixscale
-            gparerrs[freq][name][3] *= pixscale
-            gparerrs[freq][name][4] *= pixscale
-            gparerrs[freq][name][5] *= pixscale
+            gparerrs[freq][name][2] *= pixscale.to(u.deg).value
+            gparerrs[freq][name][3] *= pixscale.to(u.deg).value
+            gparerrs[freq][name][4] *= pixscale.to(u.deg).value
+            gparerrs[freq][name][5] *= pixscale.to(u.deg).value
 
         else:
             peaks[freq][name] = np.nan
@@ -229,63 +230,3 @@ for colname in ['gbackground', 'gamplitude', 'gracen', 'gdeccen', 'gxwidth',
 
 tbl.sort(['SourceName', 'Frequency'])
 tbl.write(paths.tpath('EVLA_VLA_PointSourcePhotometry.ipac'), format='ascii.ipac')
-
-## Create latex table
-
-tbl.add_column(table.Column(data=tbl['peak_flux']-tbl['cutout_min_flux'],
-                            name='peak_m_background',
-                            unit=tbl['peak_flux'].unit))
-nondetections = tbl['peak_m_background'] < tbl['local_rms_noise']*3
-
-cols_order = ['SourceName', 'Epoch', 'ObservationDate', 'peak_flux', 'peak_m_background', 'local_rms_noise', 'Frequency']
-cols = {'SourceName': 'Object',
-        #'FrequencyName': 'Band',
-        'ObservationDate': 'Obs. Date',
-        'peak_flux': 'Peak $S_{\\nu}$',
-        'peak_m_background': 'Peak - Background',
-        'local_rms_noise': 'RMS',
-       }
-
-textbl = tbl.copy()[cols_order]
-textbl.sort(['SourceName', 'Frequency'])
-textbl[nondetections]['peak_flux'] = np.nan
-textbl[nondetections]['peak_m_background'] = np.nan
-textbl['peak_flux'] = ((list(map(lambda x,y: rounded(x,y,extra=0)[0],
-                                 textbl['peak_flux'].to(u.mJy/u.beam).value,
-                                 textbl['local_rms_noise'].to(u.mJy/u.beam).value))))
-textbl['peak_m_background'] = ((list(map(lambda x,y: rounded(x,y,extra=0)[0],
-                                         textbl['peak_m_background'].to(u.mJy/u.beam).value,
-                                         textbl['local_rms_noise'].to(u.mJy/u.beam).value))))
-textbl['local_rms_noise'] = ((list(map(lambda x,y: rounded(x,y,extra=0)[0],
-                                       textbl['local_rms_noise'].to(u.mJy/u.beam).value,
-                                       textbl['local_rms_noise'].to(u.mJy/u.beam).value))))
-for name in ('peak_flux', 'peak_m_background', 'local_rms_noise'):
-    textbl[name].unit = u.mJy/u.beam
-textbl['SourceName'] = list(map(lambda x: x.replace("_","-"), textbl['SourceName']))
-
-for old,new in cols.items():
-    textbl.rename_column(old, new)
-
-latexdict['header_start'] = '\label{tab:contsrcs}'
-latexdict['caption'] = 'Continuum Point Sources (excerpt)'
-latexdict['tablefoot'] = ('\par\nAn excerpt from the point source catalog.  '
-                          'For the full catalog, see Table \\ref{tbl:contsrcs_full}'
-                          ' \\todo{Note: this table is to be online-only}')
-textbl[::10].write(paths.tpath('pointsource_photometry.tex'), format='ascii.latex', latexdict=latexdict,
-             formats={'RMS': format_float,
-                      'Peak $S_{\\nu}$': format_float,
-                      'Peak - Background': format_float,
-                      'Obs. Date': lambda x: time.Time(x).iso[:10],
-                     })
-
-latexdict['header_start'] = '\label{tab:contsrcs_full}'
-latexdict['caption'] = 'Continuum Point Sources'
-latexdict['tablefoot'] = ''
-#latexdict['tabletype'] = 'longtable'
-latexdict['tabulartype'] = 'longtable'
-textbl.write(paths.tpath('pointsource_photometry_full.tex'), format='ascii.latex', latexdict=latexdict,
-             formats={'RMS': format_float,
-                      'Peak $S_{\\nu}$': format_float,
-                      'Peak - Background': format_float,
-                      'Obs. Date': lambda x: time.Time(x).iso[:10],
-                     })
