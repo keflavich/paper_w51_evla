@@ -36,6 +36,8 @@ nostars_w51 = n_ostars[(cl_masses_flat > 4e3) & (cl_masses_flat < 9e3)]
 
 print("Implied stellar mass of e1 cluster, assuming 7 stars are OB stars: {0} +/- {1} M_sun".format(cl_masses_flat[n_obstars==7].mean(), cl_masses_flat[n_obstars==7].std()))
 print("Implied stellar mass of e1 cluster, assuming 7 stars are O stars: {0} +/- {1} M_sun".format(cl_masses_flat[n_ostars==7].mean(), cl_masses_flat[n_ostars==7].std()))
+print("Implied stellar mass of e1 cluster, assuming 6 stars are OB stars: {0} +/- {1} M_sun".format(cl_masses_flat[n_obstars==6].mean(), cl_masses_flat[n_obstars==6].std()))
+print("Implied stellar mass of e1 cluster, assuming 6 stars are O stars: {0} +/- {1} M_sun".format(cl_masses_flat[n_ostars==6].mean(), cl_masses_flat[n_ostars==6].std()))
 print("Implied stellar mass of e1e2 cluster, assuming 12 stars are O stars: {0} +/- {1} M_sun".format(cl_masses_flat[n_ostars==12].mean(), cl_masses_flat[n_ostars==12].std()))
 print("Implied stellar mass of e1e2IRS2 cluster, assuming 18 stars are O stars: {0} +/- {1} M_sun".format(cl_masses_flat[n_ostars==18].mean(), cl_masses_flat[n_ostars==18].std()))
 
