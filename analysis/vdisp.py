@@ -37,9 +37,9 @@ def mvir(radius, vdisp_1d, prefactor_eta=3.39):
 tbl22 = table.Table.read(paths.tpath('H2CO22_emission_spectral_fits.ecsv'), format='ascii.ecsv')
 tbl77 = table.Table.read(paths.tpath('H77a_spectral_fits.ipac'), format='ascii.ipac')
 
-cluster_sources = ['e8mol', 'e10mol', 'e1', 'e2', 'e3', 'e4', 'e8']
-cluster_sources_optimistic = ['e8mol', 'e10mol', 'e1', 'e2', 'e3', 'e4', 'e8', 'e9', 'e10']
-e1cluster = ['e8mol', 'e10mol', 'e1', 'e3', 'e4', 'e8',]
+cluster_sources = ['e8mol', 'e10mol', 'e1', 'e2', 'e3', 'e4']
+cluster_sources_optimistic = ['e8mol', 'e10mol', 'e1', 'e2', 'e3', 'e4', 'e9',]
+e1cluster = ['e8mol', 'e10mol', 'e1', 'e3', 'e4',] # e9 is 'optimistic'
 
 velocities = ([row['$V_{LSR}$'] for row in tbl22 if row['Object Name'] in cluster_sources] +
               [row['H77a_velocity'] for row in tbl77 if row['ObjectName'] in cluster_sources])
