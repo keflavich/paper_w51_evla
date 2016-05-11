@@ -31,5 +31,19 @@ diff:
 	${SKIPERR} diff.tex
 	gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=diff_compressed.pdf diff.pdf
 
+ptsrcphotometryfigures.pdf: supplement
+
+ptsrcphotometryfigures_compressed.pdf: supplement
+
+supplement:
+	${SKIPERR} ptsrcphotometryfigures.tex
+	${SKIPERR} ptsrcphotometryfigures.tex
+	gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=ptsrcphotometryfigures_compressed.pdf ptsrcphotometryfigures.pdf
+
 referee:
 	python make.py --referee
+
+package:
+	-ln ptsrcphotometryfigures_compressed.pdf diff_and_supplement_package/
+	-ln diff_compressed.pdf diff_and_supplement_package/
+	tar -czvf diff_and_supplement_package.tar.gz diff_and_supplement_package/
