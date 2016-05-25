@@ -187,3 +187,4 @@ for fn,pfx,coord_limits, (vmin,vmax), name, stretch in (
             annotate(ax, xy, to_offset, from_offset, color, mywcs, **kwargs)
     pl.draw(); pl.show()
     pl.savefig(paths.fpath("diffuse/{0}.png".format(name)), bbox_inches='tight')
+    pl.savefig(paths.fpath("diffuse/{0}.pdf".format(name)), bbox_inches='tight')

@@ -48,4 +48,5 @@ for ii,(fn,stretch) in enumerate((('w51.neii.square.fits','arcsinh'),
     FF._ax1.set_xticklabels([str(float(L.get_text())*3600) for L in FF._ax1.get_xticklabels()])
     FF._ax1.set_xlabel("Offset (arcsec)")
     FF.save(paths.fpath('jetpv/{0}.png'.format(fn[:-5])))
+    FF.save(paths.fpath('jetpv/{0}.pdf'.format(fn[:-5])))
 

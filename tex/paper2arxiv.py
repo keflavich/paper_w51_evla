@@ -5,6 +5,8 @@ import shutil
 import ipdb
 from six import string_types as basestring
 from os.path import join
+from astropy import log
+log.setLevel('DEBUG')
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--reconvert",default=False,action='store_true')
@@ -135,7 +137,7 @@ fig_suffixes = "png|eps|pdf"
 lonelygraphics = re.compile('^\s*{{?(.*?(%s)?)}?}' % fig_suffixes)
 
 out_suffix = "pdf" if not isarxiv else "pdf"
-out_suffix = 'pdf'
+out_suffix = 'png'
 
 count = 1
 
@@ -239,39 +241,55 @@ for ii,line in enumerate(file.readlines()):
         outline = line
         for fign in figlist:
             fignroot = fign
+            log.debug("fign: {0}".format(fign))
             if fign[-4] != '.': # if no suffix, add one
+                log.debug("Adding default suffix {0} to file {1}".format(default_suffix, fign))
                 fign += default_suffix
-            if fign[-3:] == "png":
-                #if args.reconvert:
-                #    os.system("pngtoeps %s" % fign)
-                fn = join(ppath,fign.replace("png",out_suffix))
-            elif fign[-3:] == "svg":
-                #if args.reconvert:
-                #    os.system("svg2eps %s" % fign)
-                fn = join(ppath, fign.replace("svg",out_suffix))
-            elif fign[-3:] == "pdf":
-                #if args.reconvert:
-                #    os.system("pdf2ps %s %s" % (fign,fign.replace("pdf","ps")))
-                #    os.system("mv %s %s" % (fign.replace('pdf','ps'),fign.replace('pdf','eps')))
-                fn = join(ppath, fign.replace("pdf",out_suffix))
-            elif fign[-3:] != out_suffix:
-                nroot = os.path.splitext(fign)[0]
-                fn = os.path.join(ppath,nroot+"."+out_suffix)
-            elif fign[-3:] == "tex":
-                raise TypeError("Figure is a text file? %s" % fign)
+                insuffix = default_suffix.lstrip(".")
             else:
-                fn = join(ppath,fign)
-            if os.system('ls %s' % fn) != 0:
-                ipdb.set_trace()
+                insuffix = os.path.splitext(fign)[1].lstrip(".")
+
+            fn = join(ppath, fign)
+
+            #if fign[-3:] == "png":
+            #    #if args.reconvert:
+            #    #    os.system("pngtoeps %s" % fign)
+            #    log.debug("Changing png to new suffix {0}".format(out_suffix))
+            #    fn = join(ppath,fign.replace("png",out_suffix))
+            #elif fign[-3:] == "svg":
+            #    #if args.reconvert:
+            #    #    os.system("svg2eps %s" % fign)
+            #    log.debug("Changing svg to new suffix {0}".format(out_suffix))
+            #    fn = join(ppath, fign.replace("svg",out_suffix))
+            #elif fign[-3:] == "pdf":
+            #    #if args.reconvert:
+            #    #    os.system("pdf2ps %s %s" % (fign,fign.replace("pdf","ps")))
+            #    #    os.system("mv %s %s" % (fign.replace('pdf','ps'),fign.replace('pdf','eps')))
+            #    log.debug("Changing pdf to new suffix {0}".format(out_suffix))
+            #    fn = join(ppath, fign.replace("pdf",out_suffix))
+            #elif fign[-3:] != out_suffix:
+            #    nroot = os.path.splitext(fign)[0]
+            #    log.debug("Changing {1} to new suffix {0}".format(out_suffix, nroot))
+            #    fn = os.path.join(ppath,nroot+"."+out_suffix)
+            #elif fign[-3:] == "tex":
+            #    raise TypeError("Figure is a text file? %s" % fign)
+            #else:
+            #    fn = join(ppath,fign)
+            if not os.path.exists(fn):
+                raise IOError("File {0} does not exist; maybe you need to make a PDF first?  "
+                              "(gs apparently can't convert pngs to pdfs: http://stackoverflow.com/questions/20483600/convert-png-to-pdf-using-ghostscript"
+                              .format(fn))
             print("Converting figure " + fn + " to f%i.%s" % (count,out_suffix))
             outfig = 'f%i.%s' % (count,out_suffix)
             outpath = os.path.join(ppath, outdir, outfig)
-            if isarxiv:
+            if isarxiv and insuffix != out_suffix:
                 rslt = os.system('gs -dSAFER -dBATCH -dNOPAUSE -dAutoRotatePages=/None -dPDFSETTINGS=/screen -sDEVICE=pdfwrite -sOutputFile={1} {0}'.format(fn, outpath))
                 if rslt != 0:
                     ipdb.set_trace()
             else:
-                if os.system('cp %s %s' % (fn, outpath)) != 0:
+                try:
+                    shutil.copy(fn, outpath)
+                except Exception:
                     ipdb.set_trace()
             if isarxiv:
                 outline = outline.replace(fignroot,os.path.splitext(outfig)[0])
