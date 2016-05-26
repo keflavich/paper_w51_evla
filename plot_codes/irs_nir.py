@@ -18,8 +18,8 @@ figure.clf()
 def set_tight_ticks(F):
     F.tick_labels.set_yformat('dd:mm:ss.ss')
     F.tick_labels.set_xformat('hh:mm:ss.ss')
-    F.ticks.set_xspacing(0.0015)
-    F.ticks.set_yspacing(0.0015)
+    F.ticks.set_xspacing(0.002)
+    F.ticks.set_yspacing(0.002)
     F.tick_labels.set_x_full_label_side('left')
 
 hdu = fits.open(paths.dpath('naco_Kband_W51.fits'))
