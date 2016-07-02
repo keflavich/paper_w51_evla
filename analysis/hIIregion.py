@@ -1,7 +1,7 @@
 import numpy as np
 import pylab as pl
 from scipy import optimize
-from mpfit import mpfit
+from pyspeckit.mpfit import mpfit
 from astropy import constants
 from astropy import units as u
 
@@ -40,7 +40,7 @@ def tnu(Te,nu,EM):
     EM = val_with_unit(EM, emu)
 
     nu0 = Te**1.5 / 1000
-    answer_highnu = (nu > nu0) * 3.014e-2 * Te**-1.5 * nu**-2 * EM  
+    answer_highnu = (nu > nu0) * 3.014e-2 * Te**-1.5 * nu**-2 * EM
     gff_lownu = ( np.log(4.955e-2 * nu**-1) + 1.5 * np.log(Te) )  # <gff> Gaunt factor for free-free
     answer_lownu  = (nu < nu0) * 3.014e-2 * Te**-1.5 * nu**-2 * EM * gff_lownu
     tau = answer_lownu+answer_highnu
@@ -73,7 +73,7 @@ def Inu(nu,tau,Te,I0=0):
     #I0 = 2 * kb * Te * nutau1**2 / c**2 * taufactor
     #thin = (tau < 1) * (exp(1-tau)) * I0
 
-    I0 = 2 * kb * Te * nutau1**2 / c**2 
+    I0 = 2 * kb * Te * nutau1**2 / c**2
     thin = (tau < 5) * (1-np.exp(-taufactor)) * I0
     thick = 2 * kb * Te * (nu * (tau > 5))**2 / c**2
     return (thin+thick).to(u.Jy)
@@ -88,21 +88,31 @@ def inorm(em,nu,nu0,intens0,Te=8500*u.K):
     model_norm = intens0/model_intensity0 * model_intensity
     return model_norm
 
-def inufit(nu,em,normfac,Te=8500*u.K):
+#def inufit(nu,em,normfac,Te=8500*u.K):
+#    nu = with_unit(nu, u.GHz)
+#    em = with_unit(em, emu)
+#    Te = with_unit(Te, u.K)
+#    I0 = 2 * kb * Te * nu[0]**2 / c**2
+#    model_intensity = Inu(nu,tnu(Te,nu,em),Te,I0=I0)
+#    model_norm = normfac * model_intensity
+#    return model_norm
+
+def inufit(nu,logem,normfac,Te=8500*u.K):
     nu = with_unit(nu, u.GHz)
-    em = with_unit(em, emu)
+    em = with_unit(10**logem, emu)
     Te = with_unit(Te, u.K)
     I0 = 2 * kb * Te * nu[0]**2 / c**2
-    model_intensity = Inu(nu,tnu(Te,nu,em),Te,I0=I0) 
+    model_intensity = Inu(nu,tnu(Te,nu,em),Te,I0=I0)
     model_norm = normfac * model_intensity
     return model_norm
+
 
 def inufit_dust(nu,em,normfac,alpha,normfac2,Te=8500*u.K):
     nu = with_unit(nu, u.GHz)
     em = with_unit(em, emu)
     Te = with_unit(Te, u.K)
     I0 = 2 * kb * Te * nu[0]**2 / c**2
-    model_intensity = Inu(nu,tnu(Te,nu,em),Te,I0=I0) 
+    model_intensity = Inu(nu,tnu(Te,nu,em),Te,I0=I0)
     model_norm = normfac * model_intensity + normfac2*nu**alpha
     return model_norm
 
@@ -113,27 +123,34 @@ def inufit_dustT(nu,em,normfac,beta,normfac2,dustT,Te=8500*u.K):
     em = with_unit(em, emu)
 
     I0 = 2 * kb * Te * nu[0]**2 / c**2
-    model_intensity = Inu(nu,tnu(Te,nu,em),Te,I0=I0) 
+    model_intensity = Inu(nu,tnu(Te,nu,em),Te,I0=I0)
     dustem = 2*hplanck*(nu)**(3+beta) / c**2 * (np.exp(hplanck*nu/(kb*(dustT))) - 1)**-1
     model_norm = normfac * model_intensity + normfac2/(dustT)*dustem
     return model_norm
 
+# TODO: replace with lmfit.  mpfit just sucks sometimes.
 def mpfitfun(x,y,err=None,dust=False,dustT=False):
     if dust:
-        if err == None:
-            def f(p,fjac=None): return [0,(y-inufit_dust(x,*p))]
+        if err is None:
+            def f(p,fjac=None):
+                return [0,(y-inufit_dust(x,*p).value)]
         else:
-            def f(p,fjac=None): return [0,(y-inufit_dust(x,*p))/err]
+            def f(p,fjac=None):
+                return [0,(y-inufit_dust(x,*p).value)/err]
         return f
     elif dustT:
-        if err == None:
-            def f(p,fjac=None): return [0,(y-inufit_dustT(x,*p))]
+        if err is None:
+            def f(p,fjac=None):
+                return [0,(y-inufit_dustT(x,*p).value)]
         else:
-            def f(p,fjac=None): return [0,(y-inufit_dustT(x,*p))/err]
+            def f(p,fjac=None):
+                return [0,(y-inufit_dustT(x,*p).value)/err]
         return f
     else:
-        if err == None:
-            def f(p,fjac=None): return [0,(y-inufit(x,*p))]
+        if err is None:
+            def f(p,fjac=None):
+                return [0,(y-inufit(x,*p).value)]
         else:
-            def f(p,fjac=None): return [0,(y-inufit(x,*p))/err]
+            def f(p,fjac=None):
+                return [0,(y-inufit(x,*p).value)/err]
         return f
