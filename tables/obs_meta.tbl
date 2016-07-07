@@ -1,40 +1,40 @@
-|Band            | Program  | TOS       |  Config |  Reference             | BW    | Date      | Notes              |
-|char            | char     | int       |  char   |  char                  | int   | char      | char               |
-|                |          | s         |         |                        | MHz   |           |                    |
+|Band            | Program  | TOS       |  Config |  Reference             | BW    | Date        | Notes              |
+|char            | char     | int       |  char   |  char                  | int   | char        | char               |
+|                |          | s         |         |                        | MHz   |             |                    |
                                         
- 4.9 GHz Epoch 3   13A-064    15952        A         -                       1024   14-Apr-19   -                  
- 5.9 GHz Epoch 3   13A-064    15952        A         -                       1024   14-Apr-19   -                  
- 4.9 GHz Epoch 3   13A-064    4069         C         -                       1024   13-Jun-04   -                  
- 5.9 GHz Epoch 3   13A-064    4069         C         -                       1024   13-Jun-04   -                  
- 14.1 GHz Epoch 2  13A-064    14704        B         -                       1024   13-Oct-01   -                  
- 12.6 GHz Epoch 2  13A-064    14704        B         -                       1024   13-Oct-01   -                  
- 14.1 GHz Epoch 2  13A-064    4149         D         -                       1024   13-Mar-02   -                  
- 12.6 GHz Epoch 2  13A-064    4149         D         -                       1024   13-Mar-02   -                  
- 4.9 GHz Epoch 1   AM0367     10410        C         Mehringer1994a          100    92-Apr-23   -                  
- 4.9 GHz Epoch 1   AM0374     6860         A         Mehringer1994a          50     92-Oct-25   -                  
- 4.9 GHz Epoch 1   AM0374     3350         A         Mehringer1994a          50     92-Oct-26   -                  
- 4.9 GHz Epoch 1   AM0367     6240         D         Mehringer1994a          100    92-Aug-04   -                  
- 4.9 GHz Epoch 1   AM0367     4800         D         Mehringer1994a          100    92-Aug-04   -                  
- 4.9 GHz Epoch 1   AD0128     6830         B         Mehringer1994a          25     84-Feb-06   -                  
- 22.5 GHz Epoch 1  AM0374     6360         B         Gaume1993a              100    93-Mar-16   -                  
- 8.4 GHz Epoch 1   AP0242     2640         B         Gaume1993a              50     92-Oct-24   Uncertain provenance  
- 25.0 GHz Epoch 2  12A-274    3829         B         Goddi2015a,Goddi2016a   64     12-May-31   -                  
- 27.0 GHz Epoch 2  12A-274    3829         B         Goddi2015a,Goddi2016a   64     12-May-31   -                  
- 29.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2016a   64     12-Jun-21   -                  
- 33.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2016a   64     12-Jun-21   -                  
- 36.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2016a   64     12-Jun-21   -                  
- 29.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2016a   64     12-Aug-07   -                  
- 33.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2016a   64     12-Aug-07   -                  
- 36.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2016a   64     12-Aug-07   -                  
- 5.9 GHz Epoch 2   12B-365    2154         A         -                       1024   12-Oct-16   -                  
- 4.9 GHz Epoch 2   12B-365    2154         A         -                       1024   12-Oct-16   -                  
- 5.9 GHz Epoch 2   12B-365    777          A         -                       1024   12-Oct-29   -                  
- 4.9 GHz Epoch 2   12B-365    777          A         -                       1024   12-Oct-29   -                  
- 5.9 GHz Epoch 2   12B-365    777          A         -                       1024   12-Nov-17   -                  
- 4.9 GHz Epoch 2   12B-365    777          A         -                       1024   12-Nov-17   -                  
- 5.9 GHz Epoch 2   12B-365    658          A         -                       1024   12-Nov-24   -                  
- 4.9 GHz Epoch 2   12B-365    658          A         -                       1024   12-Nov-24   -                  
- 2.5 GHz Epoch 2   12B-365    778          A         -                       1024   12-Dec-09   -                  
- 3.5 GHz Epoch 2   12B-365    778          A         -                       1024   12-Dec-09   -                  
- 2.5 GHz Epoch 2   12B-365    658          A         -                       1024   12-Dec-24   -                  
- 3.5 GHz Epoch 2   12B-365    658          A         -                       1024   12-Dec-24   -                  
+ 4.9 GHz Epoch 3   13A-064    15952        A         -                       1024   2014-Apr-19   -                  
+ 5.9 GHz Epoch 3   13A-064    15952        A         -                       1024   2014-Apr-19   -                  
+ 4.9 GHz Epoch 3   13A-064    4069         C         -                       1024   2013-Jun-04   -                  
+ 5.9 GHz Epoch 3   13A-064    4069         C         -                       1024   2013-Jun-04   -                  
+ 14.1 GHz Epoch 2  13A-064    14704        B         -                       1024   2013-Oct-01   -                  
+ 12.6 GHz Epoch 2  13A-064    14704        B         -                       1024   2013-Oct-01   -                  
+ 14.1 GHz Epoch 2  13A-064    4149         D         -                       1024   2013-Mar-02   -                  
+ 12.6 GHz Epoch 2  13A-064    4149         D         -                       1024   2013-Mar-02   -                  
+ 4.9 GHz Epoch 1   AM0367     10410        C         Mehringer1994a          100    1992-Apr-23   -                  
+ 4.9 GHz Epoch 1   AM0374     6860         A         Mehringer1994a          50     1992-Oct-25   -                  
+ 4.9 GHz Epoch 1   AM0374     3350         A         Mehringer1994a          50     1992-Oct-26   -                  
+ 4.9 GHz Epoch 1   AM0367     6240         D         Mehringer1994a          100    1992-Aug-04   -                  
+ 4.9 GHz Epoch 1   AM0367     4800         D         Mehringer1994a          100    1992-Aug-04   -                  
+ 4.9 GHz Epoch 1   AD0128     6830         B         Mehringer1994a          25     1984-Feb-06   -                  
+ 22.5 GHz Epoch 1  AM0374     6360         B         Gaume1993a              100    1993-Mar-16   -                  
+ 8.4 GHz Epoch 1   AP0242     2640         B         Gaume1993a              50     1992-Oct-24   Uncertain provenance  
+ 25.0 GHz Epoch 2  12A-274    3829         B         Goddi2015a,Goddi2016a   64     2012-May-31   -                  
+ 27.0 GHz Epoch 2  12A-274    3829         B         Goddi2015a,Goddi2016a   64     2012-May-31   -                  
+ 29.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2016a   64     2012-Jun-21   -                  
+ 33.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2016a   64     2012-Jun-21   -                  
+ 36.0 GHz Epoch 2  12A-274    5585         B         Goddi2015a,Goddi2016a   64     2012-Jun-21   -                  
+ 29.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2016a   64     2012-Aug-07   -                  
+ 33.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2016a   64     2012-Aug-07   -                  
+ 36.0 GHz Epoch 2  12A-274    5481         B         Goddi2015a,Goddi2016a   64     2012-Aug-07   -                  
+ 5.9 GHz Epoch 2   12B-365    2154         A         -                       1024   2012-Oct-16   -                  
+ 4.9 GHz Epoch 2   12B-365    2154         A         -                       1024   2012-Oct-16   -                  
+ 5.9 GHz Epoch 2   12B-365    777          A         -                       1024   2012-Oct-29   -                  
+ 4.9 GHz Epoch 2   12B-365    777          A         -                       1024   2012-Oct-29   -                  
+ 5.9 GHz Epoch 2   12B-365    777          A         -                       1024   2012-Nov-17   -                  
+ 4.9 GHz Epoch 2   12B-365    777          A         -                       1024   2012-Nov-17   -                  
+ 5.9 GHz Epoch 2   12B-365    658          A         -                       1024   2012-Nov-24   -                  
+ 4.9 GHz Epoch 2   12B-365    658          A         -                       1024   2012-Nov-24   -                  
+ 2.5 GHz Epoch 2   12B-365    778          A         -                       1024   2012-Dec-09   -                  
+ 3.5 GHz Epoch 2   12B-365    778          A         -                       1024   2012-Dec-09   -                  
+ 2.5 GHz Epoch 2   12B-365    658          A         -                       1024   2012-Dec-24   -                  
+ 3.5 GHz Epoch 2   12B-365    658          A         -                       1024   2012-Dec-24   -                  

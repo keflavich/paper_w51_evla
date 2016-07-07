@@ -15,5 +15,4 @@ latexdict['col_align'] = 'l'*8
 #latexdict['tabletype'] = 'longtable'
 #latexdict['tabulartype'] = 'longtable'
 tbl.write(paths.tpath('obs_meta.tex'), format='ascii.latex',
-          latexdict=latexdict, formats={},)
-
+          latexdict=latexdict, formats={}, overwrite=True)
