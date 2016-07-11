@@ -1,0 +1,34 @@
+AA/2016/28318
+Toward gas exhaustion in the W51 high-mass protoclusters
+Adam Ginsburg, W. M. Goss, Ciriaco Goddi, Roberto Galván-Madrid, James E. Dale, John Bally, Cara D. Battersby, Allison Youngblood, Ravi Sankrit, Rowan Smith, Jeremy Darling, J. M. Diederik Kruijssen, Hauyu Baobab Liu
+(A&A, other details to be filled in)
+
+
+Files:
+CBand_ACarray_continuum.fits:  The C-band (5 GHz) jointly imaged C and A configuration VLA observations with uniform weighting
+KuBand_BDarray_continuum.fits: The Ku-band (14 GHz) jointly imaged D and B configuration VLA observations with uniform weighting
+H77a_BDarray_contsub.fits: A cube of H77alpha jointly imaged in D and B configurations with Briggs weighting, robust=0
+
+
+
+Table EVLA_VLA_PointSourcePhotometry.ipac:
+    SourceName                str        -            Object name
+    FrequencyName             str        -            Label for the frequency + epoch
+    ObservationDate           str        -            Date of the observation
+    Frequency                 float      GHz          Observed central frequencyh
+    Epoch                     str        -            Epoch ID of the observation (1, 2, or 3)
+    BMAJ                      float      arcsec       Beam major axis
+    BMIN                      float      arcsec       Beam minor axis
+    aperture_flux             float      Jy / beam    Average intensity over an aperture
+    peak_flux                 float      Jy / beam    Peak intensity of the source
+    local_rms_noise           float      Jy / beam    Noise estimated from a small area around the source
+    cutout_min_flux           float      Jy / beam    Lowest measured intensity in the source cutout
+    gbackground               float      Jy / beam    Fitted Gaussian background
+    gamplitude                float      Jy / beam    Fitted Gaussian amplitude
+    gracen                    float      deg          Fitted Gaussian RA centroid
+    gdeccen                   float      deg          Fitted Gaussian Dec centroid
+    gxwidth                   float      deg          Fitted Gaussian x width
+    gywidth                   float      deg          Fitted Gaussian y width
+    gpositionangle            float      deg          Fitted position angle
+    gfit_chi2                 float      -            Gaussian fit chi^2
+    gfit_chi2_reduced         float      -            Gaussian fit reduced chi^2
