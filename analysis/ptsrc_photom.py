@@ -22,30 +22,32 @@ reglist = pyregion.open(paths.rpath('pointsource_centroids.reg'))
 
 max_rad = 4 # arcsec
 
-fluxes = {}
-peaks = {}
-valleys = {}
-cutouts = {}
-error = {}
-mpfits = {}
-gpars = {}
-gparerrs = {}
-gfits = {}
-obsdate = {}
-beams = {}
-frequencies = {}
-reg_centers = {}
+if not 'fluxes' in locals() or not isinstance(fluxes,dict):
+    fluxes = {}
+    peaks = {}
+    valleys = {}
+    cutouts = {}
+    error = {}
+    mpfits = {}
+    gpars = {}
+    gparerrs = {}
+    gfits = {}
+    obsdate = {}
+    beams = {}
+    frequencies = {}
+    reg_centers = {}
 
 for freq,fn in files.items():
-    fluxes[freq] = {}
-    peaks[freq] = {}
-    valleys[freq] = {}
-    cutouts[freq] = {}
-    mpfits[freq] = {}
-    gpars[freq] = {}
-    gparerrs[freq] = {}
-    gfits[freq] = {}
-    reg_centers[freq] = {}
+    if freq not in fluxes:
+        fluxes[freq] = {}
+        peaks[freq] = {}
+        valleys[freq] = {}
+        cutouts[freq] = {}
+        mpfits[freq] = {}
+        gpars[freq] = {}
+        gparerrs[freq] = {}
+        gfits[freq] = {}
+        reg_centers[freq] = {}
     
     data = fits.getdata(fn).squeeze()
     header = flatten_header(fits.getheader(fn))
@@ -63,6 +65,11 @@ for freq,fn in files.items():
     print("file: {0}".format(fn))
 
     for reg in ProgressBar(reglist):
+
+        name = reg.attr[1]['text']
+        if name in peaks[freq]:
+            continue
+
         if reg.name == 'circle':
             ra,dec,rad = reg.coord_list
         elif reg.name == 'point':
@@ -86,7 +93,6 @@ for freq,fn in files.items():
         #                                              apertures=('circular',
         #                                                         rp))[0]['aperture_sum'])
 
-        name = reg.attr[1]['text']
         fluxes[freq][name] = flux / (np.pi * rp**2)
         # co: short for cutout
         co = data[int(yc-3*rp):int(yc+3*rp+1),
@@ -105,15 +111,26 @@ for freq,fn in files.items():
         rr = ((xx-rp*3)**2+(yy-rp*3)**2)**0.5
         # mask = pixels within 1 beam radius
         mask = rr<rp
-        if mask.sum():
+        if mask.sum() and np.isfinite(co[mask]).sum() > 12:
             peaks[freq][name] = co[mask].max()
             valleys[freq][name] = co.min()
             params = [co.min(), co[mask].max(), 3*rp, 3*rp, 2.0, 2.0, 45.0]
-            mp, fitimg = gaussfitter.gaussfit(co, params=params,
-                                              err=error[freq],
-                                              returnmp=True, rotate=True,
-                                              vheight=True, circle=False,
-                                              returnfitimage=True)
+
+            # fit NaN-containing images
+            co[~np.isfinite(co)] = 0.0
+
+            try:
+                mp, fitimg = gaussfitter.gaussfit(co, params=params,
+                                                  err=error[freq],
+                                                  returnmp=True, rotate=True,
+                                                  vheight=True, circle=False,
+                                                  returnfitimage=True)
+            except:
+                mpfits[freq][name] = ()
+                gpars[freq][name] = np.array([np.nan]*7)
+                gparerrs[freq][name] = np.array([np.nan]*7)
+                continue
+
             mpfits[freq][name] = mp
             gpars[freq][name] = mp.params
             gparerrs[freq][name] = mp.perror

@@ -22,4 +22,5 @@ files = {
         #'13.0 GHz':datapath1+"w51_ku/W51Ku_BDarray_continuum_2048_both_uniform_GBTmodel.hires.clean.image.fits",
         '12.6 GHz Epoch 2':datapath+"W51Ku_BDarray_continuum_2048_low_uniform.hires.clean.image.fits",
         '22.5 GHz Epoch 1':datapath+"W51-K-B.S1-ICLN.DAVID-MEH.fits",
+        '226 GHz Epoch 4':datapath+"W51_te_continuum_best.fits",
         }

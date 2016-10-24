@@ -22,8 +22,9 @@ errs = np.array([error[k] for k in sorted_keys])
 ep1 = np.array(['Epoch 1' in k for k in sorted_keys],dtype='bool')
 ep2 = np.array(['Epoch 2' in k for k in sorted_keys],dtype='bool')
 ep3 = np.array(['Epoch 3' in k for k in sorted_keys],dtype='bool')
+ep4 = np.array(['Epoch 4' in k for k in sorted_keys],dtype='bool')
 
-farr = np.linspace(1,40,100)
+farr = np.linspace(1,250,500)
 
 #for ii,sid in enumerate(string.ascii_uppercase[:7]):
 for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
@@ -46,6 +47,7 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
     ep1color = (0.2,1,0.2,0.5) # light green
     ep2color = (0,0.2,1,0.5) # blue
     ep3color = (0.8,0.2,0.2,0.5) # red
+    ep4color = (0.0,0.0,0.0,0.5) # black
 
     ax.errorbar(np.array(freqs)[ep2 & OK], np.array(fplot)[ep2 & OK]*1e3,
                 np.array(errs)[ep2 & OK]*1e3, linestyle='none', marker='s',
@@ -56,6 +58,9 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
     ax.errorbar(np.array(freqs)[ep3 & OK], np.array(fplot)[ep3 & OK]*1e3,
                 np.array(errs)[ep3 & OK]*1e3, linestyle='none', marker='s',
                 markeredgecolor='none', markerfacecolor=ep3color, color=ep3color)
+    ax.errorbar(np.array(freqs)[ep4 & OK], np.array(fplot)[ep4 & OK]*1e3,
+                np.array(errs)[ep4 & OK]*1e3, linestyle='none', marker='s',
+                markeredgecolor='none', markerfacecolor=ep4color, color=ep4color)
     ax.plot(np.array(freqs)[ep2 & OK], np.array(fplot-fmin)[ep2 & OK]*1e3,
             linestyle='none', marker='o', markeredgecolor='none',
             markerfacecolor=ep2color)
@@ -65,11 +70,15 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
     ax.plot(np.array(freqs)[ep3 & OK], np.array(fplot-fmin)[ep3 & OK]*1e3,
             linestyle='none', marker='o', markeredgecolor='none',
             markerfacecolor=ep3color)
+    ax.plot(np.array(freqs)[ep4 & OK], np.array(fplot-fmin)[ep4 & OK]*1e3,
+            linestyle='none', marker='o', markeredgecolor='none',
+            markerfacecolor=ep4color)
     xlims = ax.get_xlim()
     ylims = ax.get_ylim()
     ind = np.where(freqs == 12.6*u.GHz)[0][0]
     #ax.plot(farr,farr**2/(freqs[ind].value**2)*fplot[ind]*1e3, 'k--')
     #ax.plot(farr,farr**1/(freqs[ind].value**1)*fplot[ind]*1e3, 'k:')
+    ax.plot(farr,farr**2/(226**2)*fplot[-1]*1e3, 'b--')
 
 
     mp = hIIregion.mpfit(hIIregion.mpfitfun(np.array(freqs)[OK&(ep2|ep3)],
@@ -110,6 +119,9 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
     ax.errorbar(np.array(freqs)[ep3 & OK], np.array(fplot)[ep3 & OK]*1e3,
                 np.array(errs)[ep3 & OK]*1e3, linestyle='none', marker='s',
                 markeredgecolor='none', markerfacecolor=ep3color, color=ep3color)
+    ax.errorbar(np.array(freqs)[ep4 & OK], np.array(fplot)[ep4 & OK]*1e3,
+                np.array(errs)[ep4 & OK]*1e3, linestyle='none', marker='s',
+                markeredgecolor='none', markerfacecolor=ep4color, color=ep4color)
     ax.semilogy(np.array(freqs)[ep2 & OK], np.array(fplot-fmin)[ep2 & OK]*1e3,
                 linestyle='none', marker='o', markeredgecolor='none',
                 markerfacecolor=ep2color)
@@ -119,10 +131,14 @@ for ii,sid in enumerate(fluxes['2.5 GHz Epoch 2'].keys()):
     ax.semilogy(np.array(freqs)[ep3 & OK], np.array(fplot-fmin)[ep3 & OK]*1e3,
                 linestyle='none', marker='o', markeredgecolor='none',
                 markerfacecolor=ep3color)
+    ax.semilogy(np.array(freqs)[ep4 & OK], np.array(fplot-fmin)[ep4 & OK]*1e3,
+                linestyle='none', marker='o', markeredgecolor='none',
+                markerfacecolor=ep4color)
     ylims = ax.get_ylim()
     ind = np.where(freqs == 12.6*u.GHz)[0][0]
     ax.semilogy(farr,farr**2/(freqs[ind].value**2)*fplot[ind]*1e3, 'k--')
     ax.semilogy(farr,farr**1/(freqs[ind].value**1)*fplot[ind]*1e3, 'k:')
+    ax.semilogy(farr,farr**2/(226**2)*fplot[-1]*1e3, 'b--')
     ax.fill_between(freqs.value,1e-3,errs*1e3,color=(1,0.1,0.1,0.5))
     ax.fill_between(freqs.value,1e-3,errs*1e3*3,color=(1,0.1,0.1,0.2))
     ax.set_xlim(xlims)
