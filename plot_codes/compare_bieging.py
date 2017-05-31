@@ -17,6 +17,7 @@ lrad_bieging = (bieging['f6cm_hi']*u.mJy * (4*np.pi*(bieging['distance']*u.kpc)*
 
 
 pl.figure(1).clf()
+pl.title("Bieging mass vs. 6 cm flux * distance^2")
 pl.plot(bieging['mass'], np.transpose([bieging['f6cm_lo']*bieging['distance']**2,
                                        bieging['f6cm_hi']*bieging['distance']**2]),
         marker='o', linestyle='none')
@@ -24,6 +25,7 @@ pl.ylabel("$S_\\nu D^2$")
 pl.xlabel("$M_\odot$")
 
 pl.figure(2).clf()
+pl.title("Bieging stellar luminosity vs. 6 cm flux * distance^2")
 pl.semilogx(10**bieging['luminosity'],
             np.transpose([bieging['f6cm_lo']*bieging['distance']**2,
                           bieging['f6cm_hi']*bieging['distance']**2]),
@@ -32,20 +34,25 @@ pl.ylabel("$S_\\nu D^2$")
 pl.xlabel("$L_\odot$")
 
 pl.figure(3).clf()
+pl.title("Histograms of peak intensity times distance^2")
 bins = np.linspace(-1.0,3.0,25)
 fluxoverdist = np.log10(tbl['peak_flux'][tbl['Frequency']==4.9]*1000.*5.4**2)
 pl.hist(fluxoverdist[np.isfinite(fluxoverdist)],
-        bins=bins, histtype='stepfilled')
+        bins=bins, histtype='stepfilled', label='W51')
 pl.hist(np.log10(bieging['f6cm_hi']*bieging['distance']**2), bins=bins,
-        histtype='stepfilled', alpha=0.5)
+        histtype='stepfilled', alpha=0.5, label='Bieging')
 pl.xlabel("$S_\\nu D^2$")
+pl.legend(loc='best')
 
 pl.figure(4).clf()
+pl.title("Histograms of radio luminosity")
 bins = np.linspace(27, 32)
-pl.hist(np.log10(lrad.value), bins=bins, label='W51',
+log_l = np.log10(lrad.value)
+pl.hist(log_l[np.isfinite(log_l)], bins=bins, label='W51',
         histtype='step')
 axis = pl.axis()
-pl.hist(np.log10(beck['L_rad']), bins=bins,
+log_l = np.log10(beck['L_rad'])
+pl.hist(log_l[np.isfinite(log_l)], bins=bins,
         histtype='stepfilled',
         label='de Becker 2013', alpha=0.5)
 pl.hist(np.log10(lrad_bieging.value), bins=bins,
