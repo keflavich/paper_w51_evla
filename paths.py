@@ -16,6 +16,7 @@ plotcodepath = os.path.join(root, 'paper_w51_evla/plot_codes/')
 observingpath = os.path.join(root, 'paper_w51_evla/observing/')
 tablepath = os.path.join(root, 'paper_w51_evla/tables/')
 ptsrc_sed_figure_path = os.path.join(figurepath, 'pointsource_seds')
+almapath = os.path.join(root, 'alma')
 
 def gpath(x, gridpath=gridpath):
     return os.path.join(gridpath, x)
@@ -49,3 +50,6 @@ def ptsrc_sedpath(x, ptsrc_sed_figure_path=ptsrc_sed_figure_path):
 
 def texpath(x, texpath=texpath):
     return os.path.join(texpath, x)
+
+def almadpath(x, almapath=almapath):
+    return os.path.join(almapath, 'FITS', x)

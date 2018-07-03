@@ -45,13 +45,14 @@ print("Implied stellar mass of e1e2IRS2 cluster, assuming 18 stars are O stars: 
 
 pl.figure(6).clf()
 pl.semilogx(cl_masses_flat, luminosities, '.', alpha=0.5)
-pl.axhline(np.log10(8.3e6), linewidth=10, alpha=0.1, zorder=-5)
-pl.axhline(np.log10(2e7), linewidth=10, alpha=0.1, zorder=-5)
 pl.xlim(10**2.5, (maxmass))
 pl.ylim(5.5, 8.1)
 pl.xlabel("Cluster mass ($M_\odot$)")
 pl.ylabel("Cluster luminosity (log $L_\odot$)")
-pl.savefig(paths.fpath("clusters/cluster_mass_vs_luminosity.png"))
+pl.savefig(paths.fpath("clusters/cluster_mass_vs_luminosity.png"), bbox_inches='tight', dpi=300)
+pl.axhline(np.log10(8.3e6), linewidth=10, alpha=0.1, zorder=-5)
+pl.axhline(np.log10(2e7), linewidth=10, alpha=0.1, zorder=-5)
+pl.savefig(paths.fpath("clusters/cluster_mass_vs_luminosity_withW51.png"), bbox_inches='tight')
 
 pl.figure(9).clf()
 pl.loglog(cl_masses_flat, n_ostars, '.', alpha=0.5, label='O-stars $(M>{0} M_\odot)$'.format(mmin_ostar))
@@ -62,7 +63,7 @@ pl.ylim(0, n_obstars.max())
 pl.xlabel("Cluster mass ($M_\odot$)")
 pl.ylabel("Number of OB-stars")
 pl.legend(loc='best')
-pl.savefig(paths.fpath("clusters/cluster_mass_vs_n_ostars.png"))
+pl.savefig(paths.fpath("clusters/cluster_mass_vs_n_ostars.png"), bbox_inches='tight', dpi=300)
 
 
 def lnprob(mass, luminosity=2e7, luminosity_error=5e6):
